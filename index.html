@@ -286,229 +286,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/09/12/react-router/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xg4">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/09/12/react-router/" class="post-title-link" itemprop="url">React Router v4</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-09-12 20:00:37" itemprop="dateCreated datePublished" datetime="2019-09-12T20:00:37+00:00">2019-09-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-21 13:01:57" itemprop="dateModified" datetime="2019-05-21T13:01:57+00:00">2019-05-21</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#react-router">react-router</a></li>
-<li><a href="#react-router-dom">react-router-dom</a></li>
-<li><a href="#hashrouterbrowserrouter">HashRouter/BrowserRouter</a><ul>
-<li><a href="#hashrouter">HashRouter</a></li>
-<li><a href="#browserrouter">BrowserRouter</a></li>
-</ul>
-</li>
-<li><a href="#route">Route</a></li>
-<li><a href="#linknavlink">Link/NavLink</a><ul>
-<li><a href="#link">Link</a></li>
-<li><a href="#navlink">NavLink</a></li>
-</ul>
-</li>
-<li><a href="#switch">Switch</a></li>
-</ul>
-<h2 id="react-router"><a href="#react-router" class="headerlink" title="react-router"></a>react-router</h2><blockquote>
-<p>提供了一些 router 的核心 api，包括 Router, Route, Switch 等，但是它没有提供 dom 操作进行跳转的 api</p>
-</blockquote>
-<h2 id="react-router-dom"><a href="#react-router-dom" class="headerlink" title="react-router-dom"></a>react-router-dom</h2><blockquote>
-<p>提供了 BrowserRouter, Route, Link 等 api，可以通过 dom 的事件控制路由。例如点击一个按钮进行跳转，大多数情况下我们是这种情况，所以在开发过程中，我们更多是使用 react-router-dom</p>
-</blockquote>
-<h2 id="HashRouter-BrowserRouter"><a href="#HashRouter-BrowserRouter" class="headerlink" title="HashRouter/BrowserRouter"></a>HashRouter/BrowserRouter</h2><blockquote>
-<p>都提供路由的基本功能，可以随意选取其中一个</p>
-</blockquote>
-<h3 id="HashRouter"><a href="#HashRouter" class="headerlink" title="HashRouter"></a>HashRouter</h3><blockquote>
-<p>通过 hash 值来对路由进行控制。如果你使用 HashRouter，你的路由就会默认有#</p>
-</blockquote>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;HashRouter&gt;</span><br><span class="line">  &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/HashRouter&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="BrowserRouter"><a href="#BrowserRouter" class="headerlink" title="BrowserRouter"></a>BrowserRouter</h3><ul>
-<li><p>大部分情况下我们不需要这个#，因为它看起来很怪，这时我们就需要用到 BrowserRouter</p>
-</li>
-<li><p>它的原理是使用 HTML5 history API (pushState, replaceState, popState)来使你的内容随着 url 动态改变的</p>
-</li>
-</ul>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;BrowserRouter basename=<span class="string">"/app"</span>&gt;</span><br><span class="line">  &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/BrowserRouter&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="Route"><a href="#Route" class="headerlink" title="Route"></a>Route</h2><ul>
-<li><p>Route 是路由的一个原材料，它是控制路径对应显示的组件。我们经常用的是 exact、path 以及 component 属性</p>
-</li>
-<li><p>exact 控制匹配到/路径时不会再继续向下匹配，path 标识路由的路径，component 表示路径对应显示的组件。后面我们将结合 NavLink 完成一个很基本的路由使用。同时我们可以设置例如/user/:id 的方式来控制页面的显示，这需要配合 Link 或者 NavLink 配合使用。下面我们会提到</p>
-</li>
-</ul>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="Link-NavLink"><a href="#Link-NavLink" class="headerlink" title="Link/NavLink"></a>Link/NavLink</h2><blockquote>
-<p>两者都是可以控制路由跳转的，不同点是 NavLink 的 api 更多，更加满足你的需求</p>
-</blockquote>
-<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><ul>
-<li><p>主要 api 是 to，to 可以接受 string 或者一个 object，来控制 url</p>
-</li>
-<li><p>example</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=<span class="string">"/home"</span> /&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link</span><br><span class="line">  to=&#123;&#123;</span><br><span class="line">    pathname: <span class="string">'/home'</span>,</span><br><span class="line">    search: <span class="string">'?sort=name'</span>,</span><br><span class="line">    hash: <span class="string">'#the-hash'</span>,</span><br><span class="line">    state: &#123; <span class="attr">x</span>: <span class="literal">true</span> &#125;</span><br><span class="line">  &#125;&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="NavLink"><a href="#NavLink" class="headerlink" title="NavLink"></a>NavLink</h3><ul>
-<li><p>它可以为当前选中的路由设置类名、样式以及回调函数等</p>
-</li>
-<li><p>example</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;NavLink exact activeClassName=<span class="string">"active"</span> to=<span class="string">"/"</span>&gt;</span><br><span class="line">  home</span><br><span class="line">&lt;<span class="regexp">/NavLink&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>exact 用于严格匹配，匹配到/则不会继续向下匹配，to 则是控制跳转的路径，activeClassName 是选中状态的类名，我们可以为其添加样式。我们在/second 后面添加 1234 来想路由中传递信息，这结合了上面 Route 中的/second/:id</p>
-</li>
-<li><p>match 是在使用 router 之后被放入 props 中的一个属性，在 class 创建的组件中我们需要通过 this.props.match 来获取 match 之中的信息。match 中包含的信息如下</p>
-</li>
-</ul>
-<h2 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h2><blockquote>
-<p>常常会用来包裹 Route，它里面不能放其他元素，用来只显示一个路由</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/25/travis-deploy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -571,7 +348,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-21 13:01:57" itemprop="dateModified" datetime="2019-05-21T13:01:57+00:00">2019-05-21</time>
+                <time title="Modified: 2019-05-21 13:07:06" itemprop="dateModified" datetime="2019-05-21T13:07:06+00:00">2019-05-21</time>
               
             
           </span>
@@ -734,7 +511,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-21 13:01:57" itemprop="dateModified" datetime="2019-05-21T13:01:57+00:00">2019-05-21</time>
+                <time title="Modified: 2019-05-21 13:07:06" itemprop="dateModified" datetime="2019-05-21T13:07:06+00:00">2019-05-21</time>
               
             
           </span>
@@ -784,7 +561,7 @@
 </li>
 </ul>
 <h2 id="Referencing-Issues"><a href="#Referencing-Issues" class="headerlink" title="Referencing Issues"></a>Referencing Issues</h2><blockquote>
-<p>commit message 中包含下面的关键词 + issues id， 自动关闭 issue<br>关闭其他仓库 issus 可使用：username/repository#issue_number</p>
+<p>commit message 中包含下面的关键词 + issues id， 自动关闭 issues<br>关闭其他仓库 issues 可使用：username/repository#issue_number</p>
 </blockquote>
 <ul>
 <li><p>close</p>
@@ -812,7 +589,10 @@
 <p><a href="https://shields.io/" target="_blank" rel="noopener">shields.io</a></p>
 </blockquote>
 <p><img src="https://img.shields.io/badge/issues-0-brightgreen.svg?style=popout-square" alt="Bitbucket issues"><br><img src="https://img.shields.io/github/license/mashape/apistatus.svg?style=popout-square" alt="GitHub"><br><img src="https://img.shields.io/github/package-json/v/badges/shields.svg?style=popout-square" alt="GitHub package version"><br><img src="https://img.shields.io/badge/node-%3E%3D%208.0.0-brightgreen.svg?longCache=true&amp;style=popout-square" alt="NodeVersion"></p>
-<h2 id="Emojis"><a href="#Emojis" class="headerlink" title="Emojis"></a>Emojis</h2><h3 id="People"><a href="#People" class="headerlink" title="People"></a>People</h3><table>
+<h2 id="Emojis"><a href="#Emojis" class="headerlink" title="Emojis"></a>Emojis</h2><blockquote>
+<p><a href="https://github.com/xg4/blog/blob/master/source/_posts/github.md" target="_blank" rel="noopener">GitHub markdown 查看 emojis</a></p>
+</blockquote>
+<h3 id="People"><a href="#People" class="headerlink" title="People"></a>People</h3><table>
 <thead>
 <tr>
 <th>:bowtie: <code>:bowtie:</code></th>
@@ -2417,7 +2197,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-21 13:01:57" itemprop="dateModified" datetime="2019-05-21T13:01:57+00:00">2019-05-21</time>
+                <time title="Modified: 2019-05-21 13:07:06" itemprop="dateModified" datetime="2019-05-21T13:07:06+00:00">2019-05-21</time>
               
             
           </span>
@@ -2641,7 +2421,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-21 13:01:57" itemprop="dateModified" datetime="2019-05-21T13:01:57+00:00">2019-05-21</time>
+                <time title="Modified: 2019-05-21 13:07:06" itemprop="dateModified" datetime="2019-05-21T13:07:06+00:00">2019-05-21</time>
               
             
           </span>
@@ -2909,7 +2689,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-21 13:01:57" itemprop="dateModified" datetime="2019-05-21T13:01:57+00:00">2019-05-21</time>
+                <time title="Modified: 2019-05-21 13:07:06" itemprop="dateModified" datetime="2019-05-21T13:07:06+00:00">2019-05-21</time>
               
             
           </span>
@@ -3072,7 +2852,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-21 13:01:57" itemprop="dateModified" datetime="2019-05-21T13:01:57+00:00">2019-05-21</time>
+                <time title="Modified: 2019-05-21 13:07:06" itemprop="dateModified" datetime="2019-05-21T13:07:06+00:00">2019-05-21</time>
               
             
           </span>
@@ -3772,7 +3552,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-21 13:01:57" itemprop="dateModified" datetime="2019-05-21T13:01:57+00:00">2019-05-21</time>
+                <time title="Modified: 2019-05-21 13:07:06" itemprop="dateModified" datetime="2019-05-21T13:07:06+00:00">2019-05-21</time>
               
             
           </span>
@@ -3928,7 +3708,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-21 13:01:57" itemprop="dateModified" datetime="2019-05-21T13:01:57+00:00">2019-05-21</time>
+                <time title="Modified: 2019-05-21 13:07:06" itemprop="dateModified" datetime="2019-05-21T13:07:06+00:00">2019-05-21</time>
               
             
           </span>
@@ -4097,7 +3877,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/13/git/">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/13/css-bem/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xg4">
@@ -4117,7 +3897,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/09/13/git/" class="post-title-link" itemprop="url">Git</a>
+                <a href="/2018/09/13/css-bem/" class="post-title-link" itemprop="url">CSS - BEM</a>
               
             
           </h1>
@@ -4142,7 +3922,7 @@
                 
               
 
-              <time title="Created: 2018-09-13 22:42:20" itemprop="dateCreated datePublished" datetime="2018-09-13T22:42:20+00:00">2018-09-13</time>
+              <time title="Created: 2018-09-13 16:38:12" itemprop="dateCreated datePublished" datetime="2018-09-13T16:38:12+00:00">2018-09-13</time>
             
 
             
@@ -4159,7 +3939,193 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-21 13:01:57" itemprop="dateModified" datetime="2019-05-21T13:01:57+00:00">2019-05-21</time>
+                <time title="Modified: 2019-05-21 13:07:06" itemprop="dateModified" datetime="2019-05-21T13:07:06+00:00">2019-05-21</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><a href="#bem-%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F">BEM 命名模式</a></li>
+<li><a href="#less-scss">LESS SCSS</a></li>
+<li><a href="#tips">Tips</a></li>
+<li><a href="#example">Example</a></li>
+</ul>
+<blockquote>
+<p>BEM 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论</p>
+</blockquote>
+<h2 id="BEM-命名模式"><a href="#BEM-命名模式" class="headerlink" title="BEM 命名模式"></a>BEM 命名模式</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block__element</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block--modifier</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>每一个块(block)名应该有一个命名空间（前缀）</p>
+</li>
+<li><p>block 代表了更高级别的抽象或组件</p>
+</li>
+<li><p><code>block__element</code> 代表 <code>.block</code> 的后代，用于形成一个完整的 <code>.block</code> 的整体</p>
+</li>
+<li><p><code>block--modifier</code> 代表 <code>.block</code> 的不同状态或不同版本。<br>使用两个连字符和下划线而不是一个，是为了让你自己的块可以用单个连字符来界定。如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.sub-block__element</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sub-block--modifier</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="LESS-SCSS"><a href="#LESS-SCSS" class="headerlink" title="LESS SCSS"></a>LESS SCSS</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">1200px</span>;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-tag">__body</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-tag">__button</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">5px</span> <span class="number">8px</span>;</span><br><span class="line">    <span class="selector-tag">&amp;</span><span class="selector-tag">--primary</span> &#123;</span><br><span class="line">      <span class="attribute">background</span>: blue;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">&amp;</span><span class="selector-tag">--success</span> &#123;</span><br><span class="line">      <span class="attribute">background</span>: green;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ul>
+<li><p>避免 <code>.block__el1__el2</code> 的格式</p>
+</li>
+<li><p>在深层次嵌套的 DOM 结构下，应避免过长的样式名称定义</p>
+</li>
+<li><p>层级最后不要超过 4 级，不然增加阅读的理解难度</p>
+</li>
+</ul>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 常规写法： */</span></span><br><span class="line"><span class="selector-class">.xxx</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item_current</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 嵌套写法 */</span></span><br><span class="line"><span class="selector-class">.xxx__item_current</span> <span class="selector-class">.mod-xxx__link</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 推荐： */</span></span><br><span class="line"><span class="selector-class">.xxx</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item_hightlight</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__product-name</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__link</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__ming-zi-ke-yi-hen-chang</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 嵌套写法 */</span></span><br><span class="line"><span class="selector-class">.xxx__item_current</span> &#123;</span><br><span class="line">  <span class="selector-class">.xxx__link</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 对应的HTML结构如下： --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"xxx"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item"</span>&gt;</span></span><br><span class="line">    第一项</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"xxx__ming-zi-ke-yi-hen-chang"</span>&gt;</span></span><br><span class="line">      看类名</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item xxx__item_current"</span>&gt;</span></span><br><span class="line">    第二项 且 当前选择项</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__item-link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item xxx__item_hightlight"</span>&gt;</span></span><br><span class="line">    第三项 且 特殊高亮</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__item-link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/12/react-router/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/12/react-router/" class="post-title-link" itemprop="url">React Router v4</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-12 20:00:37" itemprop="dateCreated datePublished" datetime="2018-09-12T20:00:37+00:00">2018-09-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-21 13:07:06" itemprop="dateModified" datetime="2019-05-21T13:07:06+00:00">2019-05-21</time>
               
             
           </span>
@@ -4197,256 +4163,73 @@
           
             <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
 <li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#ssh">ssh</a></li>
-<li><a href="#config">config</a><ul>
-<li><a href="#alias">alias</a></li>
-<li><a href="#log">log</a></li>
+<li><a href="#react-router">react-router</a></li>
+<li><a href="#react-router-dom">react-router-dom</a></li>
+<li><a href="#hashrouterbrowserrouter">HashRouter/BrowserRouter</a><ul>
+<li><a href="#hashrouter">HashRouter</a></li>
+<li><a href="#browserrouter">BrowserRouter</a></li>
 </ul>
 </li>
-<li><a href="#initial">initial</a></li>
-<li><a href="#branch">branch</a></li>
-<li><a href="#tag">tag</a></li>
-<li><a href="#reset">reset</a><ul>
-<li><a href="#checkout">checkout</a></li>
+<li><a href="#route">Route</a></li>
+<li><a href="#linknavlink">Link/NavLink</a><ul>
+<li><a href="#link">Link</a></li>
+<li><a href="#navlink">NavLink</a></li>
 </ul>
 </li>
-<li><a href="#stash">stash</a></li>
-<li><a href="#clone">clone</a></li>
-<li><a href="#push">push</a></li>
-<li><a href="#remote">remote</a></li>
-<li><a href="#ignore">ignore</a></li>
-<li><a href="#remove">remove</a></li>
-<li><a href="#submodule">submodule</a><ul>
-<li><a href="#%E6%B7%BB%E5%8A%A0%E5%AD%90%E6%A8%A1%E5%9D%97">添加子模块</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%AD%90%E6%A8%A1%E5%9D%97">查看子模块</a></li>
-<li><a href="#%E6%9B%B4%E6%96%B0%E5%AD%90%E6%A8%A1%E5%9D%97">更新子模块</a></li>
-<li><a href="#%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%AD%90%E6%A8%A1%E5%9D%97">克隆项目及子模块</a></li>
-<li><a href="#%E4%BF%AE%E6%94%B9%E5%AD%90%E6%A8%A1%E5%9D%97">修改子模块</a></li>
-<li><a href="#%E5%88%A0%E9%99%A4%E5%AD%90%E6%A8%A1%E5%9D%97">删除子模块</a></li>
+<li><a href="#switch">Switch</a></li>
 </ul>
-</li>
-</ul>
-<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xingor4@gmail.com"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>用户主目录下找到 <code>.ssh</code> 目录 (<code>~/.ssh</code>)，id_rsa 和 id_rsa.pub 两个文件</p>
-</li>
-<li><p>id_rsa 是私钥，不能泄露出去，id_rsa.pub 是公钥，可以放心地告诉任何人</p>
-</li>
-<li><p>GitHub “Add SSH Key” 粘贴 id_rsa.pub 文件的内容</p>
-</li>
-<li><p><strong>检验是否连接上 GitHub <code>$ ssh git@github.com</code></strong></p>
-</li>
-</ul>
-<h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"xg4"</span></span><br><span class="line">$ git config --global user.email <span class="string">"xingor4@gmail.com"</span></span><br></pre></td></tr></table></figure>
-<h3 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global alias.st status</span><br><span class="line">$ git config --global alias.ck checkout</span><br><span class="line">$ git config --global alias.cm commit</span><br><span class="line">$ git config --global alias.br branch</span><br></pre></td></tr></table></figure>
-<h3 id="log"><a href="#log" class="headerlink" title="log"></a>log</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示最后一次提交信息</span></span><br><span class="line">$ git config --global alias.last <span class="string">'log -1'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># format log</span></span><br><span class="line">$ git config --global alias.lg <span class="string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span></span><br></pre></td></tr></table></figure>
-<h2 id="initial"><a href="#initial" class="headerlink" title="initial"></a>initial</h2><ul>
-<li><p><code>$ git init</code> : 初始化 git 仓库</p>
-</li>
-<li><p><code>$ git add &lt;filename&gt;</code> : 添加文件到暂存区</p>
-</li>
-<li><p><code>$ git add .</code> : 递归添加整个目录到暂存区</p>
-</li>
-<li><p><code>$ git commit -m &#39;msg&#39;</code> : 提交暂存区内容到仓库</p>
-</li>
-<li><p><code>$ git status</code> : 查看工作区的状态</p>
-</li>
-<li><p><code>$ git diff</code> : 查看修改内容，比较差异</p>
-</li>
-</ul>
-<h2 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h2><ul>
-<li><p><code>$ git branch</code> : 查看分支</p>
-</li>
-<li><p><code>$ git branch &lt;name&gt;</code> : 创建分支</p>
-</li>
-<li><p><code>$ git branch --orphan</code> : 创建空分支</p>
-</li>
-<li><p><code>$ git checkout &lt;name&gt;</code> : 切换分支</p>
-</li>
-<li><p>创建并切换分支</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b &lt;name&gt;</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line">$ git branch &lt;name&gt;</span><br><span class="line">$ git checkout &lt;name&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>$ git merge &lt;name&gt;</code> : 合并 <name> 分支到当前分支</name></p>
-</li>
-<li><p>删除分支：</p>
-<p><code>$ git branch -d &lt;name&gt;</code> : 被删除的分支没有合并时，需强制删除</p>
-<p><code>$ git branch -D &lt;name&gt;</code> : 强制删除</p>
-</li>
-<li><p><code>$ git log --graph</code> : 查看分支合并图</p>
-</li>
-</ul>
-<h2 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h2><blockquote>
-<p>Git 的标签就像是版本库的快照，实质上它就是指向某个 commit 的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。<br>作用在于将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。</p>
+<h2 id="react-router"><a href="#react-router" class="headerlink" title="react-router"></a>react-router</h2><blockquote>
+<p>提供了一些 router 的核心 api，包括 Router, Route, Switch 等，但是它没有提供 dom 操作进行跳转的 api</p>
 </blockquote>
-<ul>
-<li><p><code>$ git tag &lt;name&gt;</code> : 创建一个新标签</p>
-<ul>
-<li>标签默认为 HEAD，也可以指定一个 commit id</li>
-</ul>
-</li>
-<li><p><code>$ git tag</code> : 查看所有标签</p>
-<ul>
-<li>标签不是按时间顺序列出，而是按字母排序的，用 <code>$ git show &lt;name&gt;</code> 查看标签信息</li>
-</ul>
-</li>
-<li><p><code>$ git tag -a &lt;name&gt; -m &#39;msg&#39;</code> : 指定标签信息，<code>-a</code> 指定标签名， <code>-m</code> 指定说明文字</p>
-</li>
-<li><p><code>$ git tag -s &lt;name&gt; -m &#39;msg&#39;</code> : 用 PGP 签名标签，<code>-s</code> 用私钥签名一个标签</p>
-</li>
-<li><p><code>$ git push origin &lt;name&gt;</code> : 推送一个本地标签</p>
-</li>
-<li><p><code>$ git push origin --tags</code> : 推送全部未推送过的本地标签</p>
-</li>
-<li><p><code>$ git tag -d &lt;name&gt;</code> : 删除一个本地标签</p>
-</li>
-<li><p><code>$ git push origin :refs/tags/&lt;name&gt;</code> : 删除远程标签</p>
-</li>
-<li><p>推送分支和标签</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git push &amp;&amp; git push --tags</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line">$ git push --follow-tags</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h2><ul>
-<li><p><code>$ git log</code> : 显示从最近到最远的提交日志</p>
-<ul>
-<li><strong>按 Q, 退出 log</strong></li>
-</ul>
-</li>
-<li><p><code>$ git log --pretty=oneline</code> : 显示简要版的提交日志</p>
-</li>
-<li><p><code>$ git reset --hard HEAD^</code> : 返回上一个版本，<code>HEAD</code>表示当前版本，<code>HEAD^^</code> 表示上上个版本，也可以用类似于 <code>HEAD~3</code> 来表示要回退到哪一个版本</p>
-</li>
-<li><p><code>$ git reset --hard 3628164</code> : 后面的数字是版本号，此方法可以随意跳转</p>
-</li>
-<li><p><code>$ git push -f</code> : 强制推送到远程分支</p>
-<ul>
-<li>注意：本地分支回滚后，版本将落后远程分支，必须使用强制推送覆盖远程分支，否则无法推送到远程分支</li>
-</ul>
-</li>
-<li><p><code>$ git reflog</code> : 记录所有操作，可以通过此查询版本号</p>
-</li>
-</ul>
-<h3 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h3><blockquote>
-<p><code>$ git checkout -- .</code> : 将当前版本库中的内容替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”</p>
+<h2 id="react-router-dom"><a href="#react-router-dom" class="headerlink" title="react-router-dom"></a>react-router-dom</h2><blockquote>
+<p>提供了 BrowserRouter, Route, Link 等 api，可以通过 dom 的事件控制路由。例如点击一个按钮进行跳转，大多数情况下我们是这种情况，所以在开发过程中，我们更多是使用 react-router-dom</p>
 </blockquote>
-<ul>
-<li><p><code>$ git checkout -- file</code> : 丢弃工作区中的修改，恢复某个文件到当前版本库中的状态</p>
+<h2 id="HashRouter-BrowserRouter"><a href="#HashRouter-BrowserRouter" class="headerlink" title="HashRouter/BrowserRouter"></a>HashRouter/BrowserRouter</h2><blockquote>
+<p>都提供路由的基本功能，可以随意选取其中一个</p>
+</blockquote>
+<h3 id="HashRouter"><a href="#HashRouter" class="headerlink" title="HashRouter"></a>HashRouter</h3><blockquote>
+<p>通过 hash 值来对路由进行控制。如果你使用 HashRouter，你的路由就会默认有#</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;HashRouter&gt;</span><br><span class="line">  &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/HashRouter&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="BrowserRouter"><a href="#BrowserRouter" class="headerlink" title="BrowserRouter"></a>BrowserRouter</h3><ul>
+<li><p>大部分情况下我们不需要这个#，因为它看起来很怪，这时我们就需要用到 BrowserRouter</p>
 </li>
-<li><p><code>$ git reset HEAD file &amp;&amp; git checkout -- file</code> : 将已经添加到暂存区的文件撤销，并恢复到当前版本库中的状态</p>
-</li>
-</ul>
-<h2 id="stash"><a href="#stash" class="headerlink" title="stash"></a>stash</h2><ul>
-<li><p><code>$ git stash</code> : 将当前工作区修改文件“储藏”起来，然后创建新的分支，修复 bug 合并，等 BUG 修复之后恢复现场继续工作</p>
-</li>
-<li><p><code>$ git stash list</code> : 查看被储藏起来的项目</p>
-</li>
-<li><p>恢复被储藏项目的两种方法：</p>
-<ul>
-<li><p><code>$ git stash apply</code> : 恢复后，stash 内容并不删除，需要用 <code>$ git stash drop</code> 来删除</p>
-</li>
-<li><p><code>$ git stash pop</code> : 恢复的同时把 stash 内容也删除</p>
+<li><p>它的原理是使用 HTML5 history API (pushState, replaceState, popState)来使你的内容随着 url 动态改变的</p>
 </li>
 </ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;BrowserRouter basename=<span class="string">"/app"</span>&gt;</span><br><span class="line">  &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/BrowserRouter&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Route"><a href="#Route" class="headerlink" title="Route"></a>Route</h2><ul>
+<li><p>Route 是路由的一个原材料，它是控制路径对应显示的组件。我们经常用的是 exact、path 以及 component 属性</p>
 </li>
-<li><p>可以多次 stash，恢复的时候，先用 <code>git stash list</code> 查看，然后恢复指定的 stash，用命令：<code>$ git stash apply stash@{0}</code></p>
-</li>
-</ul>
-<h2 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h2><ul>
-<li><p><code>$ git clone &lt;url&gt;</code> : 拉取远程仓库</p>
-<ul>
-<li>支持 git:// (ssh), https:// 等协议</li>
-</ul>
-</li>
-<li><p><code>$ git clone &lt;url&gt; --depth=1</code> : 仓库太大，拉取最近的一个 revision</p>
-<ul>
-<li><code>$ git fetch --unshallow</code> : 继续拉取历史版本</li>
-</ul>
+<li><p>exact 控制匹配到/路径时不会再继续向下匹配，path 标识路由的路径，component 表示路径对应显示的组件。后面我们将结合 NavLink 完成一个很基本的路由使用。同时我们可以设置例如/user/:id 的方式来控制页面的显示，这需要配合 Link 或者 NavLink 配合使用。下面我们会提到</p>
 </li>
 </ul>
-<h2 id="push"><a href="#push" class="headerlink" title="push"></a>push</h2><ul>
-<li><p><code>$ git push</code> : 远程已有 remote_branch 分支，并且已经关联本地分支 local_branch</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Link-NavLink"><a href="#Link-NavLink" class="headerlink" title="Link/NavLink"></a>Link/NavLink</h2><blockquote>
+<p>两者都是可以控制路由跳转的，不同点是 NavLink 的 api 更多，更加满足你的需求</p>
+</blockquote>
+<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><ul>
+<li><p>主要 api 是 to，to 可以接受 string 或者一个 object，来控制 url</p>
 </li>
-<li><p><code>$ git push -u origin/remote_branch</code> : 远程已有 remote_branch 分支但未关联本地分支 local_branch</p>
-</li>
-<li><p><code>$ git push origin local_branch:remote_branch</code> : 远程没有 remote_branch 分支，并且没有关联本地分支 local_branch</p>
-</li>
-</ul>
-<h2 id="remote"><a href="#remote" class="headerlink" title="remote"></a>remote</h2><ul>
-<li><p><code>$ git remote add origin &lt;url&gt;</code> : 关联远程仓库（第一次推送 加参数 <code>-u</code>）</p>
-</li>
-<li><p><code>$ git remote -v</code> : 查看远程库信息</p>
-</li>
-<li><p><code>git checkout -b branch-name origin/branch-name</code> : 拉取远程仓库分支</p>
-</li>
-<li><p>推送到远程分支</p>
-<ol>
-<li><p><code>$ git push origin branch-name</code>，如果推送失败，先用 <code>$ git pull</code> 拉取并合并</p>
-</li>
-<li><p>如果合并有冲突，则解决冲突，并在本地提交</p>
-</li>
-<li><p>没有冲突或者解决掉冲突后，再用 <code>git push origin branch-name</code> 推送就能成功！</p>
-</li>
-</ol>
+<li><p>example</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=<span class="string">"/home"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link</span><br><span class="line">  to=&#123;&#123;</span><br><span class="line">    pathname: <span class="string">'/home'</span>,</span><br><span class="line">    search: <span class="string">'?sort=name'</span>,</span><br><span class="line">    hash: <span class="string">'#the-hash'</span>,</span><br><span class="line">    state: &#123; <span class="attr">x</span>: <span class="literal">true</span> &#125;</span><br><span class="line">  &#125;&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><strong>如果 <code>git pull</code> 提示 “no tracking information” , 则说明本地分支和远程分支的链接关系没有创建，用命令 <code>git branch --set-upstream branch-name origin/branch-name</code></strong></p>
-<h2 id="ignore"><a href="#ignore" class="headerlink" title="ignore"></a>ignore</h2><ul>
-<li><p><code>$ git add -f &lt;name&gt;</code> : <code>-f</code> 将 <code>.gitignore</code> 文件强制添加到仓库</p>
+<h3 id="NavLink"><a href="#NavLink" class="headerlink" title="NavLink"></a>NavLink</h3><ul>
+<li><p>它可以为当前选中的路由设置类名、样式以及回调函数等</p>
 </li>
-<li><p><code>$ git check-ignore</code> : 检查文件是否符合 <code>.gitignore</code> 规则</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git check-ignore -v node_modules</span><br><span class="line">.gitignore:40:node_modules/     node_modules</span><br></pre></td></tr></table></figure>
+<li><p>example</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;NavLink exact activeClassName=<span class="string">"active"</span> to=<span class="string">"/"</span>&gt;</span><br><span class="line">  home</span><br><span class="line">&lt;<span class="regexp">/NavLink&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<h2 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h2><ul>
-<li><p><code>$ rm file</code> : 删除文件</p>
+<li><p>exact 用于严格匹配，匹配到/则不会继续向下匹配，to 则是控制跳转的路径，activeClassName 是选中状态的类名，我们可以为其添加样式。我们在/second 后面添加 1234 来想路由中传递信息，这结合了上面 Route 中的/second/:id</p>
 </li>
-<li><p><code>$ git add file</code> : 将删除文件添加到暂存区</p>
-</li>
-<li><p><code>$ git rm file</code> : 删除文件，并添加到暂存区</p>
+<li><p>match 是在使用 router 之后被放入 props 中的一个属性，在 class 创建的组件中我们需要通过 this.props.match 来获取 match 之中的信息。match 中包含的信息如下</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ rm file</span><br><span class="line">$ git add file</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line">$ git rm file</span><br></pre></td></tr></table></figure>
-<h2 id="submodule"><a href="#submodule" class="headerlink" title="submodule"></a>submodule</h2><p><strong>子模块的操作默认都是 master 分支</strong></p>
-<ul>
-<li>更换子模块分支</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config -f .gitmodules submodule.&lt;submodule name&gt;.branch dev</span><br><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
-<p><code>.gitmodules</code> 加了 <code>-f</code> 参数，修改提交后对所有用户有效</p>
-<h3 id="添加子模块"><a href="#添加子模块" class="headerlink" title="添加子模块"></a>添加子模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule add &lt;git repo&gt; themes/next</span><br></pre></td></tr></table></figure>
-<p>添加子模块之后运行 <code>git status</code>， 可以看到目录有增加一个文件 <code>.gitmodules</code>，用来保存子模块的信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">"git rm --cached &lt;file&gt;..."</span> to unstage)</span><br><span class="line"></span><br><span class="line">    new file:   .gitmodules</span><br><span class="line">    new file:   theme/next</span><br></pre></td></tr></table></figure>
-<h3 id="查看子模块"><a href="#查看子模块" class="headerlink" title="查看子模块"></a>查看子模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule</span><br><span class="line">c2f33fc76b500770e266c1c16f028807967cd121 themes/next (v7.1.1-4-gc2f33fc)</span><br></pre></td></tr></table></figure>
-<h3 id="更新子模块"><a href="#更新子模块" class="headerlink" title="更新子模块"></a>更新子模块</h3><ul>
-<li><p>更新子模块到最新版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更新子模块为远程仓库的最新版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="克隆项目及子模块"><a href="#克隆项目及子模块" class="headerlink" title="克隆项目及子模块"></a>克隆项目及子模块</h3><ol>
-<li><p>先克隆仓库，再更新子模块</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 克隆项目</span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/xg4/blog</span><br><span class="line"><span class="comment"># 查看子模块</span></span><br><span class="line">$ git submodule</span><br><span class="line"><span class="comment"># 子模块前面 - ，说明子模块还未捡入</span></span><br><span class="line">-c2f33fc76b500770e266c1c16f028807967cd121</span><br><span class="line"><span class="comment"># 初始化子模块，初始化模块只需在克隆父项目后运行一次</span></span><br><span class="line">$ git submodule init</span><br><span class="line"><span class="comment"># 更新子模块</span></span><br><span class="line">$ git submodule update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>递归克隆整个项目</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/xg4/blog --recursive</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="修改子模块"><a href="#修改子模块" class="headerlink" title="修改子模块"></a>修改子模块</h3><p>在子模块中修改文件后，直接提交到远程仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">'update'</span></span><br><span class="line">$ git push origin HEAD:master</span><br></pre></td></tr></table></figure>
-<h3 id="删除子模块"><a href="#删除子模块" class="headerlink" title="删除子模块"></a>删除子模块</h3><ol>
-<li><p>删除子模块文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached theme/next</span><br><span class="line"><span class="comment"># 不带 --cached 参数直接删除文件</span></span><br><span class="line">$ rm -rf theme/next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除 <code>.gitmodules</code> 文件中相关子模块信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[submodule <span class="string">"themes/next"</span>]</span><br><span class="line">path = themes/next</span><br><span class="line">url = https://github.com/theme-next/hexo-theme-next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除 <code>.git/config</code> 中的相关子模块信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[submodule <span class="string">"themes/next"</span>]</span><br><span class="line"> active = <span class="literal">true</span></span><br><span class="line"> url = https://github.com/theme-next/hexo-theme-next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除 <code>.git</code> 文件夹中的相关子模块文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf .git/modules/theme/next</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h2 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h2><blockquote>
+<p>常常会用来包裹 Route，它里面不能放其他元素，用来只显示一个路由</p>
+</blockquote>
 
           
         
