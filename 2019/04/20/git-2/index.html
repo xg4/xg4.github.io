@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Table of Contents Table of Contents submodule 添加子模块 查看子模块 更新子模块 克隆项目及子模块 修改子模块 删除子模块   server hooks  submodule子模块的操作默认都是 master 分支  更换子模块分支  12$ git config -f .gitmodules submodule.&amp;lt;submodule name&amp;">
+  <meta name="description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional  feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 2">
 <meta property="og:url" content="https://xg4.github.io/2019/04/20/git-2/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Table of Contents Table of Contents submodule 添加子模块 查看子模块 更新子模块 克隆项目及子模块 修改子模块 删除子模块   server hooks  submodule子模块的操作默认都是 master 分支  更换子模块分支  12$ git config -f .gitmodules submodule.&amp;lt;submodule name&amp;">
+<meta property="og:description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional  feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-21T12:23:32.059Z">
+<meta property="og:updated_time" content="2019-05-21T12:44:44.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 2">
-<meta name="twitter:description" content="Table of Contents Table of Contents submodule 添加子模块 查看子模块 更新子模块 克隆项目及子模块 修改子模块 删除子模块   server hooks  submodule子模块的操作默认都是 master 分支  更换子模块分支  12$ git config -f .gitmodules submodule.&amp;lt;submodule name&amp;">
+<meta name="twitter:description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional  feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
 
 
 
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-21 12:23:32" itemprop="dateModified" datetime="2019-05-21T12:23:32+00:00">2019-05-21</time>
+                <time title="Modified: 2019-05-21 12:44:44" itemprop="dateModified" datetime="2019-05-21T12:44:44+00:00">2019-05-21</time>
               
             
           </span>
@@ -386,60 +386,35 @@
       
         <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
 <li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#submodule">submodule</a><ul>
-<li><a href="#%E6%B7%BB%E5%8A%A0%E5%AD%90%E6%A8%A1%E5%9D%97">添加子模块</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%AD%90%E6%A8%A1%E5%9D%97">查看子模块</a></li>
-<li><a href="#%E6%9B%B4%E6%96%B0%E5%AD%90%E6%A8%A1%E5%9D%97">更新子模块</a></li>
-<li><a href="#%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%AD%90%E6%A8%A1%E5%9D%97">克隆项目及子模块</a></li>
-<li><a href="#%E4%BF%AE%E6%94%B9%E5%AD%90%E6%A8%A1%E5%9D%97">修改子模块</a></li>
-<li><a href="#%E5%88%A0%E9%99%A4%E5%AD%90%E6%A8%A1%E5%9D%97">删除子模块</a></li>
-</ul>
-</li>
+<li><a href="#commit-message">commit message</a></li>
 <li><a href="#server">server</a></li>
 <li><a href="#hooks">hooks</a></li>
 </ul>
-<h2 id="submodule"><a href="#submodule" class="headerlink" title="submodule"></a>submodule</h2><p><strong>子模块的操作默认都是 master 分支</strong></p>
+<h2 id="commit-message"><a href="#commit-message" class="headerlink" title="commit message"></a>commit message</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(scope?): subject  <span class="comment">#scope is optional</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>更换子模块分支</li>
+<li><p>feat: 新功能</p>
+</li>
+<li><p>fix: bug 修复</p>
+</li>
+<li><p>docs: 文档修改</p>
+</li>
+<li><p>style: 不影响代码的更改（如空格，格式，缺少分号等）</p>
+</li>
+<li><p>refactor: 代码重构，既不修复错误也不添加功能</p>
+</li>
+<li><p>perf: 代码更改可以提高性能</p>
+</li>
+<li><p>test: 添加缺失或更正现有测试</p>
+</li>
+<li><p>build: build 相关，npm scripts</p>
+</li>
+<li><p>ci: CI 相关</p>
+</li>
+<li><p>chore: 对构建过程或辅助工具和库（如文档生成）的更改</p>
+</li>
+<li><p>revert: 版本回退</p>
+</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config -f .gitmodules submodule.&lt;submodule name&gt;.branch dev</span><br><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
-<p><code>.gitmodules</code> 加了 <code>-f</code> 参数，修改提交后对所有用户有效</p>
-<h3 id="添加子模块"><a href="#添加子模块" class="headerlink" title="添加子模块"></a>添加子模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule add &lt;git repo&gt; themes/next</span><br></pre></td></tr></table></figure>
-<p>添加子模块之后运行 <code>git status</code>， 可以看到目录有增加一个文件 <code>.gitmodules</code>，用来保存子模块的信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">"git rm --cached &lt;file&gt;..."</span> to unstage)</span><br><span class="line"></span><br><span class="line">    new file:   .gitmodules</span><br><span class="line">    new file:   theme/next</span><br></pre></td></tr></table></figure>
-<h3 id="查看子模块"><a href="#查看子模块" class="headerlink" title="查看子模块"></a>查看子模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule</span><br><span class="line">c2f33fc76b500770e266c1c16f028807967cd121 themes/next (v7.1.1-4-gc2f33fc)</span><br></pre></td></tr></table></figure>
-<h3 id="更新子模块"><a href="#更新子模块" class="headerlink" title="更新子模块"></a>更新子模块</h3><ul>
-<li><p>更新子模块到最新版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更新子模块为远程仓库的最新版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="克隆项目及子模块"><a href="#克隆项目及子模块" class="headerlink" title="克隆项目及子模块"></a>克隆项目及子模块</h3><ol>
-<li><p>先克隆仓库，再更新子模块</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 克隆项目</span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/xg4/blog</span><br><span class="line"><span class="comment"># 查看子模块</span></span><br><span class="line">$ git submodule</span><br><span class="line"><span class="comment"># 子模块前面 - ，说明子模块还未捡入</span></span><br><span class="line">-c2f33fc76b500770e266c1c16f028807967cd121</span><br><span class="line"><span class="comment"># 初始化子模块，初始化模块只需在克隆父项目后运行一次</span></span><br><span class="line">$ git submodule init</span><br><span class="line"><span class="comment"># 更新子模块</span></span><br><span class="line">$ git submodule update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>递归克隆整个项目</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/xg4/blog --recursive</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="修改子模块"><a href="#修改子模块" class="headerlink" title="修改子模块"></a>修改子模块</h3><p>在子模块中修改文件后，直接提交到远程仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">'update'</span></span><br><span class="line">$ git push origin HEAD:master</span><br></pre></td></tr></table></figure>
-<h3 id="删除子模块"><a href="#删除子模块" class="headerlink" title="删除子模块"></a>删除子模块</h3><ol>
-<li><p>删除子模块文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached theme/next</span><br><span class="line"><span class="comment"># 不带 --cached 参数直接删除文件</span></span><br><span class="line">$ rm -rf theme/next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除 <code>.gitmodules</code> 文件中相关子模块信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[submodule <span class="string">"themes/next"</span>]</span><br><span class="line">path = themes/next</span><br><span class="line">url = https://github.com/theme-next/hexo-theme-next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除 <code>.git/config</code> 中的相关子模块信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[submodule <span class="string">"themes/next"</span>]</span><br><span class="line"> active = <span class="literal">true</span></span><br><span class="line"> url = https://github.com/theme-next/hexo-theme-next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除 <code>.git</code> 文件夹中的相关子模块文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf .git/modules/theme/next</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
 <h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><ol>
 <li><p>创建 git 用户，运行 git 服务</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加git账户</span></span><br><span class="line">$ adduser git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改git的密码</span></span><br><span class="line">$ passwd git</span><br></pre></td></tr></table></figure>
@@ -717,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#submodule"><span class="nav-number">2.</span> <span class="nav-text">submodule</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加子模块"><span class="nav-number">2.1.</span> <span class="nav-text">添加子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看子模块"><span class="nav-number">2.2.</span> <span class="nav-text">查看子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新子模块"><span class="nav-number">2.3.</span> <span class="nav-text">更新子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#克隆项目及子模块"><span class="nav-number">2.4.</span> <span class="nav-text">克隆项目及子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改子模块"><span class="nav-number">2.5.</span> <span class="nav-text">修改子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除子模块"><span class="nav-number">2.6.</span> <span class="nav-text">删除子模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server"><span class="nav-number">3.</span> <span class="nav-text">server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hooks"><span class="nav-number">4.</span> <span class="nav-text">hooks</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commit-message"><span class="nav-number">2.</span> <span class="nav-text">commit message</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server"><span class="nav-number">3.</span> <span class="nav-text">server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hooks"><span class="nav-number">4.</span> <span class="nav-text">hooks</span></a></li></ol></div>
             
 
           </div>

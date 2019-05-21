@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Table of Contents Table of Contents ssh config alias log   initial branch tag reset checkout   stash clone push remote ignore remove  ssh1$ ssh-keygen -t rsa -C &quot;xingor4@gmail.com&quot;  用户主目录下找到 .ssh 目录 (">
+  <meta name="description" content="Table of Contents Table of Contents ssh config alias log   initial branch tag reset checkout   stash clone push remote ignore remove submodule 添加子模块 查看子模块 更新子模块 克隆项目及子模块 修改子模块 删除子模块    ssh1$ ssh-keyge">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git">
 <meta property="og:url" content="https://xg4.github.io/2018/09/13/git/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Table of Contents Table of Contents ssh config alias log   initial branch tag reset checkout   stash clone push remote ignore remove  ssh1$ ssh-keygen -t rsa -C &quot;xingor4@gmail.com&quot;  用户主目录下找到 .ssh 目录 (">
+<meta property="og:description" content="Table of Contents Table of Contents ssh config alias log   initial branch tag reset checkout   stash clone push remote ignore remove submodule 添加子模块 查看子模块 更新子模块 克隆项目及子模块 修改子模块 删除子模块    ssh1$ ssh-keyge">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-21T12:23:32.059Z">
+<meta property="og:updated_time" content="2019-05-21T12:44:44.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git">
-<meta name="twitter:description" content="Table of Contents Table of Contents ssh config alias log   initial branch tag reset checkout   stash clone push remote ignore remove  ssh1$ ssh-keygen -t rsa -C &quot;xingor4@gmail.com&quot;  用户主目录下找到 .ssh 目录 (">
+<meta name="twitter:description" content="Table of Contents Table of Contents ssh config alias log   initial branch tag reset checkout   stash clone push remote ignore remove submodule 添加子模块 查看子模块 更新子模块 克隆项目及子模块 修改子模块 删除子模块    ssh1$ ssh-keyge">
 
 
 
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-21 12:23:32" itemprop="dateModified" datetime="2019-05-21T12:23:32+00:00">2019-05-21</time>
+                <time title="Modified: 2019-05-21 12:44:44" itemprop="dateModified" datetime="2019-05-21T12:44:44+00:00">2019-05-21</time>
               
             
           </span>
@@ -405,6 +405,15 @@
 <li><a href="#remote">remote</a></li>
 <li><a href="#ignore">ignore</a></li>
 <li><a href="#remove">remove</a></li>
+<li><a href="#submodule">submodule</a><ul>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E5%AD%90%E6%A8%A1%E5%9D%97">添加子模块</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%AD%90%E6%A8%A1%E5%9D%97">查看子模块</a></li>
+<li><a href="#%E6%9B%B4%E6%96%B0%E5%AD%90%E6%A8%A1%E5%9D%97">更新子模块</a></li>
+<li><a href="#%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%AD%90%E6%A8%A1%E5%9D%97">克隆项目及子模块</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E5%AD%90%E6%A8%A1%E5%9D%97">修改子模块</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E5%AD%90%E6%A8%A1%E5%9D%97">删除子模块</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xingor4@gmail.com"</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -585,6 +594,48 @@
 </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ rm file</span><br><span class="line">$ git add file</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line">$ git rm file</span><br></pre></td></tr></table></figure>
+<h2 id="submodule"><a href="#submodule" class="headerlink" title="submodule"></a>submodule</h2><p><strong>子模块的操作默认都是 master 分支</strong></p>
+<ul>
+<li>更换子模块分支</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config -f .gitmodules submodule.&lt;submodule name&gt;.branch dev</span><br><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
+<p><code>.gitmodules</code> 加了 <code>-f</code> 参数，修改提交后对所有用户有效</p>
+<h3 id="添加子模块"><a href="#添加子模块" class="headerlink" title="添加子模块"></a>添加子模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule add &lt;git repo&gt; themes/next</span><br></pre></td></tr></table></figure>
+<p>添加子模块之后运行 <code>git status</code>， 可以看到目录有增加一个文件 <code>.gitmodules</code>，用来保存子模块的信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">"git rm --cached &lt;file&gt;..."</span> to unstage)</span><br><span class="line"></span><br><span class="line">    new file:   .gitmodules</span><br><span class="line">    new file:   theme/next</span><br></pre></td></tr></table></figure>
+<h3 id="查看子模块"><a href="#查看子模块" class="headerlink" title="查看子模块"></a>查看子模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule</span><br><span class="line">c2f33fc76b500770e266c1c16f028807967cd121 themes/next (v7.1.1-4-gc2f33fc)</span><br></pre></td></tr></table></figure>
+<h3 id="更新子模块"><a href="#更新子模块" class="headerlink" title="更新子模块"></a>更新子模块</h3><ul>
+<li><p>更新子模块到最新版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新子模块为远程仓库的最新版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="克隆项目及子模块"><a href="#克隆项目及子模块" class="headerlink" title="克隆项目及子模块"></a>克隆项目及子模块</h3><ol>
+<li><p>先克隆仓库，再更新子模块</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 克隆项目</span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/xg4/blog</span><br><span class="line"><span class="comment"># 查看子模块</span></span><br><span class="line">$ git submodule</span><br><span class="line"><span class="comment"># 子模块前面 - ，说明子模块还未捡入</span></span><br><span class="line">-c2f33fc76b500770e266c1c16f028807967cd121</span><br><span class="line"><span class="comment"># 初始化子模块，初始化模块只需在克隆父项目后运行一次</span></span><br><span class="line">$ git submodule init</span><br><span class="line"><span class="comment"># 更新子模块</span></span><br><span class="line">$ git submodule update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>递归克隆整个项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/xg4/blog --recursive</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="修改子模块"><a href="#修改子模块" class="headerlink" title="修改子模块"></a>修改子模块</h3><p>在子模块中修改文件后，直接提交到远程仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">'update'</span></span><br><span class="line">$ git push origin HEAD:master</span><br></pre></td></tr></table></figure>
+<h3 id="删除子模块"><a href="#删除子模块" class="headerlink" title="删除子模块"></a>删除子模块</h3><ol>
+<li><p>删除子模块文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached theme/next</span><br><span class="line"><span class="comment"># 不带 --cached 参数直接删除文件</span></span><br><span class="line">$ rm -rf theme/next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除 <code>.gitmodules</code> 文件中相关子模块信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[submodule <span class="string">"themes/next"</span>]</span><br><span class="line">path = themes/next</span><br><span class="line">url = https://github.com/theme-next/hexo-theme-next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除 <code>.git/config</code> 中的相关子模块信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[submodule <span class="string">"themes/next"</span>]</span><br><span class="line"> active = <span class="literal">true</span></span><br><span class="line"> url = https://github.com/theme-next/hexo-theme-next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除 <code>.git</code> 文件夹中的相关子模块文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf .git/modules/theme/next</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
@@ -779,7 +830,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">2.</span> <span class="nav-text">ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config"><span class="nav-number">3.</span> <span class="nav-text">config</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#alias"><span class="nav-number">3.1.</span> <span class="nav-text">alias</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#log"><span class="nav-number">3.2.</span> <span class="nav-text">log</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#initial"><span class="nav-number">4.</span> <span class="nav-text">initial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#branch"><span class="nav-number">5.</span> <span class="nav-text">branch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tag"><span class="nav-number">6.</span> <span class="nav-text">tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reset"><span class="nav-number">7.</span> <span class="nav-text">reset</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#checkout"><span class="nav-number">7.1.</span> <span class="nav-text">checkout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stash"><span class="nav-number">8.</span> <span class="nav-text">stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone"><span class="nav-number">9.</span> <span class="nav-text">clone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#push"><span class="nav-number">10.</span> <span class="nav-text">push</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#remote"><span class="nav-number">11.</span> <span class="nav-text">remote</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ignore"><span class="nav-number">12.</span> <span class="nav-text">ignore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#remove"><span class="nav-number">13.</span> <span class="nav-text">remove</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">2.</span> <span class="nav-text">ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config"><span class="nav-number">3.</span> <span class="nav-text">config</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#alias"><span class="nav-number">3.1.</span> <span class="nav-text">alias</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#log"><span class="nav-number">3.2.</span> <span class="nav-text">log</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#initial"><span class="nav-number">4.</span> <span class="nav-text">initial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#branch"><span class="nav-number">5.</span> <span class="nav-text">branch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tag"><span class="nav-number">6.</span> <span class="nav-text">tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reset"><span class="nav-number">7.</span> <span class="nav-text">reset</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#checkout"><span class="nav-number">7.1.</span> <span class="nav-text">checkout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stash"><span class="nav-number">8.</span> <span class="nav-text">stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone"><span class="nav-number">9.</span> <span class="nav-text">clone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#push"><span class="nav-number">10.</span> <span class="nav-text">push</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#remote"><span class="nav-number">11.</span> <span class="nav-text">remote</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ignore"><span class="nav-number">12.</span> <span class="nav-text">ignore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#remove"><span class="nav-number">13.</span> <span class="nav-text">remove</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#submodule"><span class="nav-number">14.</span> <span class="nav-text">submodule</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加子模块"><span class="nav-number">14.1.</span> <span class="nav-text">添加子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看子模块"><span class="nav-number">14.2.</span> <span class="nav-text">查看子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新子模块"><span class="nav-number">14.3.</span> <span class="nav-text">更新子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#克隆项目及子模块"><span class="nav-number">14.4.</span> <span class="nav-text">克隆项目及子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改子模块"><span class="nav-number">14.5.</span> <span class="nav-text">修改子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除子模块"><span class="nav-number">14.6.</span> <span class="nav-text">删除子模块</span></a></li></ol></li></ol></div>
             
 
           </div>
