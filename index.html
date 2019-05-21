@@ -286,6 +286,229 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/09/12/react-router/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/12/react-router/" class="post-title-link" itemprop="url">React Router v4</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-09-12 20:00:37" itemprop="dateCreated datePublished" datetime="2019-09-12T20:00:37+00:00">2019-09-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-21 12:23:32" itemprop="dateModified" datetime="2019-05-21T12:23:32+00:00">2019-05-21</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#react-router">react-router</a></li>
+<li><a href="#react-router-dom">react-router-dom</a></li>
+<li><a href="#hashrouterbrowserrouter">HashRouter/BrowserRouter</a><ul>
+<li><a href="#hashrouter">HashRouter</a></li>
+<li><a href="#browserrouter">BrowserRouter</a></li>
+</ul>
+</li>
+<li><a href="#route">Route</a></li>
+<li><a href="#linknavlink">Link/NavLink</a><ul>
+<li><a href="#link">Link</a></li>
+<li><a href="#navlink">NavLink</a></li>
+</ul>
+</li>
+<li><a href="#switch">Switch</a></li>
+</ul>
+<h2 id="react-router"><a href="#react-router" class="headerlink" title="react-router"></a>react-router</h2><blockquote>
+<p>提供了一些 router 的核心 api，包括 Router, Route, Switch 等，但是它没有提供 dom 操作进行跳转的 api</p>
+</blockquote>
+<h2 id="react-router-dom"><a href="#react-router-dom" class="headerlink" title="react-router-dom"></a>react-router-dom</h2><blockquote>
+<p>提供了 BrowserRouter, Route, Link 等 api，可以通过 dom 的事件控制路由。例如点击一个按钮进行跳转，大多数情况下我们是这种情况，所以在开发过程中，我们更多是使用 react-router-dom</p>
+</blockquote>
+<h2 id="HashRouter-BrowserRouter"><a href="#HashRouter-BrowserRouter" class="headerlink" title="HashRouter/BrowserRouter"></a>HashRouter/BrowserRouter</h2><blockquote>
+<p>都提供路由的基本功能，可以随意选取其中一个</p>
+</blockquote>
+<h3 id="HashRouter"><a href="#HashRouter" class="headerlink" title="HashRouter"></a>HashRouter</h3><blockquote>
+<p>通过 hash 值来对路由进行控制。如果你使用 HashRouter，你的路由就会默认有#</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;HashRouter&gt;</span><br><span class="line">  &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/HashRouter&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="BrowserRouter"><a href="#BrowserRouter" class="headerlink" title="BrowserRouter"></a>BrowserRouter</h3><ul>
+<li><p>大部分情况下我们不需要这个#，因为它看起来很怪，这时我们就需要用到 BrowserRouter</p>
+</li>
+<li><p>它的原理是使用 HTML5 history API (pushState, replaceState, popState)来使你的内容随着 url 动态改变的</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;BrowserRouter basename=<span class="string">"/app"</span>&gt;</span><br><span class="line">  &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/BrowserRouter&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Route"><a href="#Route" class="headerlink" title="Route"></a>Route</h2><ul>
+<li><p>Route 是路由的一个原材料，它是控制路径对应显示的组件。我们经常用的是 exact、path 以及 component 属性</p>
+</li>
+<li><p>exact 控制匹配到/路径时不会再继续向下匹配，path 标识路由的路径，component 表示路径对应显示的组件。后面我们将结合 NavLink 完成一个很基本的路由使用。同时我们可以设置例如/user/:id 的方式来控制页面的显示，这需要配合 Link 或者 NavLink 配合使用。下面我们会提到</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Link-NavLink"><a href="#Link-NavLink" class="headerlink" title="Link/NavLink"></a>Link/NavLink</h2><blockquote>
+<p>两者都是可以控制路由跳转的，不同点是 NavLink 的 api 更多，更加满足你的需求</p>
+</blockquote>
+<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><ul>
+<li><p>主要 api 是 to，to 可以接受 string 或者一个 object，来控制 url</p>
+</li>
+<li><p>example</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=<span class="string">"/home"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link</span><br><span class="line">  to=&#123;&#123;</span><br><span class="line">    pathname: <span class="string">'/home'</span>,</span><br><span class="line">    search: <span class="string">'?sort=name'</span>,</span><br><span class="line">    hash: <span class="string">'#the-hash'</span>,</span><br><span class="line">    state: &#123; <span class="attr">x</span>: <span class="literal">true</span> &#125;</span><br><span class="line">  &#125;&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="NavLink"><a href="#NavLink" class="headerlink" title="NavLink"></a>NavLink</h3><ul>
+<li><p>它可以为当前选中的路由设置类名、样式以及回调函数等</p>
+</li>
+<li><p>example</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;NavLink exact activeClassName=<span class="string">"active"</span> to=<span class="string">"/"</span>&gt;</span><br><span class="line">  home</span><br><span class="line">&lt;<span class="regexp">/NavLink&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>exact 用于严格匹配，匹配到/则不会继续向下匹配，to 则是控制跳转的路径，activeClassName 是选中状态的类名，我们可以为其添加样式。我们在/second 后面添加 1234 来想路由中传递信息，这结合了上面 Route 中的/second/:id</p>
+</li>
+<li><p>match 是在使用 router 之后被放入 props 中的一个属性，在 class 创建的组件中我们需要通过 this.props.match 来获取 match 之中的信息。match 中包含的信息如下</p>
+</li>
+</ul>
+<h2 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h2><blockquote>
+<p>常常会用来包裹 Route，它里面不能放其他元素，用来只显示一个路由</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/25/travis-deploy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -348,7 +571,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-20 05:52:16" itemprop="dateModified" datetime="2019-05-20T05:52:16+00:00">2019-05-20</time>
+                <time title="Modified: 2019-05-21 12:23:32" itemprop="dateModified" datetime="2019-05-21T12:23:32+00:00">2019-05-21</time>
               
             
           </span>
@@ -511,7 +734,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-20 05:52:16" itemprop="dateModified" datetime="2019-05-20T05:52:16+00:00">2019-05-20</time>
+                <time title="Modified: 2019-05-21 12:23:32" itemprop="dateModified" datetime="2019-05-21T12:23:32+00:00">2019-05-21</time>
               
             
           </span>
@@ -735,7 +958,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-20 05:52:16" itemprop="dateModified" datetime="2019-05-20T05:52:16+00:00">2019-05-20</time>
+                <time title="Modified: 2019-05-21 12:23:32" itemprop="dateModified" datetime="2019-05-21T12:23:32+00:00">2019-05-21</time>
               
             
           </span>
@@ -1028,7 +1251,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-20 05:52:16" itemprop="dateModified" datetime="2019-05-20T05:52:16+00:00">2019-05-20</time>
+                <time title="Modified: 2019-05-21 12:23:32" itemprop="dateModified" datetime="2019-05-21T12:23:32+00:00">2019-05-21</time>
               
             
           </span>
@@ -1191,7 +1414,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-20 05:52:16" itemprop="dateModified" datetime="2019-05-20T05:52:16+00:00">2019-05-20</time>
+                <time title="Modified: 2019-05-21 12:23:32" itemprop="dateModified" datetime="2019-05-21T12:23:32+00:00">2019-05-21</time>
               
             
           </span>
@@ -1891,7 +2114,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-20 05:52:16" itemprop="dateModified" datetime="2019-05-20T05:52:16+00:00">2019-05-20</time>
+                <time title="Modified: 2019-05-21 12:23:32" itemprop="dateModified" datetime="2019-05-21T12:23:32+00:00">2019-05-21</time>
               
             
           </span>
@@ -2047,7 +2270,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-20 05:52:16" itemprop="dateModified" datetime="2019-05-20T05:52:16+00:00">2019-05-20</time>
+                <time title="Modified: 2019-05-21 12:23:32" itemprop="dateModified" datetime="2019-05-21T12:23:32+00:00">2019-05-21</time>
               
             
           </span>
@@ -2278,7 +2501,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-20 05:52:16" itemprop="dateModified" datetime="2019-05-20T05:52:16+00:00">2019-05-20</time>
+                <time title="Modified: 2019-05-21 12:23:32" itemprop="dateModified" datetime="2019-05-21T12:23:32+00:00">2019-05-21</time>
               
             
           </span>
@@ -2633,7 +2856,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-20 05:52:16" itemprop="dateModified" datetime="2019-05-20T05:52:16+00:00">2019-05-20</time>
+                <time title="Modified: 2019-05-21 12:23:32" itemprop="dateModified" datetime="2019-05-21T12:23:32+00:00">2019-05-21</time>
               
             
           </span>
@@ -2742,195 +2965,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/05/css/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xg4">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/05/css/" class="post-title-link" itemprop="url">CSS</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-05 23:21:33" itemprop="dateCreated datePublished" datetime="2018-09-05T23:21:33+00:00">2018-09-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-20 05:52:16" itemprop="dateModified" datetime="2019-05-20T05:52:16+00:00">2019-05-20</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#ellipsis">ellipsis</a></li>
-<li><a href="#clearfix">clearfix</a></li>
-<li><a href="#hairline">hairline</a></li>
-</ul>
-<h2 id="ellipsis"><a href="#ellipsis" class="headerlink" title="ellipsis"></a>ellipsis</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 单行溢出隐藏 */</span></span><br><span class="line"><span class="selector-class">.ellipsis</span>() &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多行溢出隐藏 */</span></span><br><span class="line"><span class="selector-class">.multi-ellipsis</span>(<span class="variable">@lines</span>) &#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">-webkit-line-clamp</span>: <span class="variable">@lines</span>;</span><br><span class="line">  <span class="comment">/*! autoprefixer: off */</span></span><br><span class="line">  <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">  <span class="comment">/* autoprefixer: on */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p><code>-webkit-box-orient</code> 是一个过时的属性，postcss 一类的工具会将它默认移除，所以需要取消处理，不然不能起作用</p>
-</li>
-<li><p><strong>多行适用范围</strong></p>
-<p>因使用了 WebKit 的 CSS 扩展属性，该方法适用于 WebKit 浏览器及移动端</p>
-</li>
-<li><p>注：</p>
-<ol>
-<li><p><code>-webkit-line-clamp</code> 用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的 WebKit 属性，常见结合属性：</p>
-</li>
-<li><p><code>display: -webkit-box;</code> 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示</p>
-</li>
-<li><p><code>-webkit-box-orient</code> 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式</p>
-</li>
-</ol>
-</li>
-</ul>
-<h2 id="clearfix"><a href="#clearfix" class="headerlink" title="clearfix"></a>clearfix</h2><blockquote>
-<p>清除浮动</p>
-</blockquote>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>() &#123;</span><br><span class="line">  <span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::before</span>,</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="hairline"><a href="#hairline" class="headerlink" title="hairline"></a>hairline</h2><blockquote>
-<p>移动端 1px border</p>
-</blockquote>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hairline-common</span>() &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">pointer-events</span>: none;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">' '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hairline</span>(<span class="variable">@border-color</span>: <span class="number">#ebedf0</span>) &#123;</span><br><span class="line">  <span class="selector-class">.hairline-common</span>();</span><br><span class="line"></span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">right</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">0</span> dashed <span class="variable">@border-color</span>;</span><br><span class="line">  <span class="attribute">transform</span>: scale(<span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hairline-bottom</span>(<span class="variable">@border-color</span>: <span class="number">#ebedf0</span>, <span class="variable">@left</span>: <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="selector-class">.hairline-common</span>();</span><br><span class="line"></span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="variable">@left</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="variable">@border-color</span>;</span><br><span class="line">  <span class="attribute">transform</span>: scaleY(<span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2970,7 +3011,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -3007,7 +3048,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

@@ -96,18 +96,13 @@
 
 
 
-  <meta name="description" content="理解 RESTful 架构 - 阮一峰RESTful API 设计指南 - 阮一峰RESTful API 最佳实践 - 阮一峰  Table of Contents Table of Contents HTTP Methods HTTP Status Codes example    HTTP Methods GET (SELECT) : 读取  POST (CREATE) : 新建  PUT">
-<meta name="keywords" content="RESTful API,HTTP">
-<meta property="og:type" content="article">
-<meta property="og:title" content="RESTful API">
-<meta property="og:url" content="https://xg4.github.io/2018/09/18/restful-api/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="blog">
+<meta property="og:url" content="https://xg4.github.io/page/2/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="理解 RESTful 架构 - 阮一峰RESTful API 设计指南 - 阮一峰RESTful API 最佳实践 - 阮一峰  Table of Contents Table of Contents HTTP Methods HTTP Status Codes example    HTTP Methods GET (SELECT) : 读取  POST (CREATE) : 新建  PUT">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-21T12:23:32.059Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RESTful API">
-<meta name="twitter:description" content="理解 RESTful 架构 - 阮一峰RESTful API 设计指南 - 阮一峰RESTful API 最佳实践 - 阮一峰  Table of Contents Table of Contents HTTP Methods HTTP Status Codes example    HTTP Methods GET (SELECT) : 读取  POST (CREATE) : 新建  PUT">
+<meta name="twitter:title" content="blog">
 
 
 
@@ -115,7 +110,7 @@
 
   
   
-  <link rel="canonical" href="https://xg4.github.io/2018/09/18/restful-api/">
+  <link rel="canonical" href="https://xg4.github.io/page/2/">
 
 
 
@@ -125,7 +120,7 @@
   };
 </script>
 
-  <title>RESTful API | blog</title>
+  <title>blog</title>
   
 
 
@@ -173,7 +168,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -273,9 +269,9 @@
           
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -290,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/18/restful-api/">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/05/css/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xg4">
@@ -307,8 +303,10 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">RESTful API
-
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/05/css/" class="post-title-link" itemprop="url">CSS</a>
               
             
           </h1>
@@ -333,7 +331,7 @@
                 
               
 
-              <time title="Created: 2018-09-18 14:36:06" itemprop="dateCreated datePublished" datetime="2018-09-18T14:36:06+00:00">2018-09-18</time>
+              <time title="Created: 2018-09-05 23:21:33" itemprop="dateCreated datePublished" datetime="2018-09-05T23:21:33+00:00">2018-09-05</time>
             
 
             
@@ -384,84 +382,43 @@
       
 
       
-        <blockquote>
-<p><a href="http://www.ruanyifeng.com/blog/2011/09/restful.html" target="_blank" rel="noopener">理解 RESTful 架构 - 阮一峰</a><br><a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="noopener">RESTful API 设计指南 - 阮一峰</a><br><a href="http://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html" target="_blank" rel="noopener">RESTful API 最佳实践 - 阮一峰</a></p>
-</blockquote>
-<h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+        
+          
+            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
 <li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#http-methods">HTTP Methods</a></li>
-<li><a href="#http-status-codes">HTTP Status Codes</a><ul>
-<li><a href="#example">example</a></li>
+<li><a href="#ellipsis">ellipsis</a></li>
+<li><a href="#clearfix">clearfix</a></li>
+<li><a href="#hairline">hairline</a></li>
 </ul>
-</li>
-</ul>
-<h2 id="HTTP-Methods"><a href="#HTTP-Methods" class="headerlink" title="HTTP Methods"></a>HTTP Methods</h2><ul>
-<li><p>GET (SELECT) : 读取</p>
-</li>
-<li><p>POST (CREATE) : 新建</p>
-</li>
-<li><p>PUT (UPDATE) : 更新</p>
-</li>
-<li><p>PATCH (UPDATE) : 部分更新</p>
-</li>
-<li><p>DELETE (DELETE) : 删除</p>
-</li>
-</ul>
-<p>不常用的 http methods</p>
+<h2 id="ellipsis"><a href="#ellipsis" class="headerlink" title="ellipsis"></a>ellipsis</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 单行溢出隐藏 */</span></span><br><span class="line"><span class="selector-class">.ellipsis</span>() &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多行溢出隐藏 */</span></span><br><span class="line"><span class="selector-class">.multi-ellipsis</span>(<span class="variable">@lines</span>) &#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">-webkit-line-clamp</span>: <span class="variable">@lines</span>;</span><br><span class="line">  <span class="comment">/*! autoprefixer: off */</span></span><br><span class="line">  <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">  <span class="comment">/* autoprefixer: on */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>HEAD : 获取资源的元数据</p>
+<li><p><code>-webkit-box-orient</code> 是一个过时的属性，postcss 一类的工具会将它默认移除，所以需要取消处理，不然不能起作用</p>
 </li>
-<li><p>OPTIONS : 获取信息，关于资源的哪些属性是客户端可以改变</p>
+<li><p><strong>多行适用范围</strong></p>
+<p>因使用了 WebKit 的 CSS 扩展属性，该方法适用于 WebKit 浏览器及移动端</p>
+</li>
+<li><p>注：</p>
+<ol>
+<li><p><code>-webkit-line-clamp</code> 用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的 WebKit 属性，常见结合属性：</p>
+</li>
+<li><p><code>display: -webkit-box;</code> 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示</p>
+</li>
+<li><p><code>-webkit-box-orient</code> 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式</p>
+</li>
+</ol>
 </li>
 </ul>
-<h2 id="HTTP-Status-Codes"><a href="#HTTP-Status-Codes" class="headerlink" title="HTTP Status Codes"></a>HTTP Status Codes</h2><blockquote>
-<p><a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank" rel="noopener">HTTP Status Codes - wikipedia</a></p>
+<h2 id="clearfix"><a href="#clearfix" class="headerlink" title="clearfix"></a>clearfix</h2><blockquote>
+<p>清除浮动</p>
 </blockquote>
-<ul>
-<li><p>1xx : 相关信息</p>
-</li>
-<li><p>2xx : 操作成功</p>
-</li>
-<li><p>3xx : 重定向</p>
-</li>
-<li><p>4xx : 客户端错误</p>
-</li>
-<li><p>5xx : 服务器错误</p>
-</li>
-</ul>
-<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><ul>
-<li><p><code>200 OK</code> - [GET/PUT/PATCH] : 获取或更新数据成功</p>
-</li>
-<li><p><code>201 Created</code> - [POST] : 新建数据成功</p>
-</li>
-<li><p><code>202 Accepted</code> - [*] : 表示服务器已经收到请求，但是还未处理，未来再进行处理（异步操作）</p>
-</li>
-<li><p><code>204 No Content</code> - [DELETE] : 删除数据成功</p>
-</li>
-<li><p><code>400 Bad Request</code> - [POST/PUT/PATCH] : 服务器不理解客户端的请求，未做任何处理</p>
-</li>
-<li><p><code>401 Unauthorized</code> : 用户未提供身份验证凭据，或者没有通过身份验证（没有权限）</p>
-</li>
-<li><p><code>403 Forbidden</code> : 用户通过了身份验证，但是不具有访问资源所需的权限（权限不足）</p>
-</li>
-<li><p><code>404 Not Found</code> : 所请求的资源不存在，或不可用</p>
-</li>
-<li><p><code>405 Method Not Allowed</code> : 用户已经通过身份验证，但是所用的 HTTP 方法不在他的权限之内</p>
-</li>
-<li><p><code>406 Not Acceptable</code> - [GET] : 服务器没有请求头（Accept headers）中指定的资源格式</p>
-</li>
-<li><p><code>410 Gone</code> - [GET] : 所请求的资源已从这个地址转移，不再可用</p>
-</li>
-<li><p><code>415 Unsupported Media Type</code> : 客户端发送的资源，不是服务器指定的资源格式（与 406 相反）</p>
-</li>
-<li><p><code>422 Unprocessable Entity</code> - [POST/PUT/PATCH] : 请求格式正确，但由于语义错误而无法遵循</p>
-</li>
-<li><p><code>500 Internal Server Error</code> : 服务器错误</p>
-</li>
-<li><p><code>503 Service Unavailable</code> : 服务器无法处理请求，一般用于网站维护状态</p>
-</li>
-</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>() &#123;</span><br><span class="line">  <span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::before</span>,</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="hairline"><a href="#hairline" class="headerlink" title="hairline"></a>hairline</h2><blockquote>
+<p>移动端 1px border</p>
+</blockquote>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hairline-common</span>() &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">pointer-events</span>: none;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">' '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hairline</span>(<span class="variable">@border-color</span>: <span class="number">#ebedf0</span>) &#123;</span><br><span class="line">  <span class="selector-class">.hairline-common</span>();</span><br><span class="line"></span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">right</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">0</span> dashed <span class="variable">@border-color</span>;</span><br><span class="line">  <span class="attribute">transform</span>: scale(<span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hairline-bottom</span>(<span class="variable">@border-color</span>: <span class="number">#ebedf0</span>, <span class="variable">@left</span>: <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="selector-class">.hairline-common</span>();</span><br><span class="line"></span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="variable">@left</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="variable">@border-color</span>;</span><br><span class="line">  <span class="attribute">transform</span>: scaleY(<span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+          
+        
       
     </div>
 
@@ -482,42 +439,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/RESTful-API/" rel="tag"># RESTful API</a>
-          
-            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/09/13/git/" rel="next" title="Git">
-                <i class="fa fa-chevron-left"></i> Git
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/11/html-head/" rel="prev" title="HTML - head">
-                HTML - head <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -527,15 +456,18 @@
   </article>
 
 
-  </div>
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
           
-
-  
-
-
 
         </div>
         
@@ -555,17 +487,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -646,23 +569,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-Methods"><span class="nav-number">2.</span> <span class="nav-text">HTTP Methods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-Status-Codes"><span class="nav-number">3.</span> <span class="nav-text">HTTP Status Codes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-number">3.1.</span> <span class="nav-text">example</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -791,10 +697,6 @@
 
 
   
-  <script src="/js/scrollspy.js?v=7.1.1"></script>
-<script src="/js/post-details.js?v=7.1.1"></script>
-
-
 
   
 
@@ -810,8 +712,6 @@
 
   
 
-
-  
 
 
   

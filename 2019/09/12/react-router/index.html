@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="travis demo  安装 travis1234567$ apt-get install ruby$ apt-get install ruby-dev$ apt-get install build-essential# gem update --system# 下载很慢的话，切换镜像源# gem sources --add https://gems.ruby-china.com/$ gem">
-<meta name="keywords" content="DevOps,CI">
+  <meta name="description" content="Table of Contents Table of Contents react-router react-router-dom HashRouter/BrowserRouter HashRouter BrowserRouter   Route Link/NavLink Link NavLink   Switch  react-router 提供了一些 router 的核心 api，包括 Rou">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Travis CI Deploy">
-<meta property="og:url" content="https://xg4.github.io/2019/04/25/travis-deploy/index.html">
+<meta property="og:title" content="React Router v4">
+<meta property="og:url" content="https://xg4.github.io/2019/09/12/react-router/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="travis demo  安装 travis1234567$ apt-get install ruby$ apt-get install ruby-dev$ apt-get install build-essential# gem update --system# 下载很慢的话，切换镜像源# gem sources --add https://gems.ruby-china.com/$ gem">
+<meta property="og:description" content="Table of Contents Table of Contents react-router react-router-dom HashRouter/BrowserRouter HashRouter BrowserRouter   Route Link/NavLink Link NavLink   Switch  react-router 提供了一些 router 的核心 api，包括 Rou">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-05-21T12:23:32.059Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Travis CI Deploy">
-<meta name="twitter:description" content="travis demo  安装 travis1234567$ apt-get install ruby$ apt-get install ruby-dev$ apt-get install build-essential# gem update --system# 下载很慢的话，切换镜像源# gem sources --add https://gems.ruby-china.com/$ gem">
+<meta name="twitter:title" content="React Router v4">
+<meta name="twitter:description" content="Table of Contents Table of Contents react-router react-router-dom HashRouter/BrowserRouter HashRouter BrowserRouter   Route Link/NavLink Link NavLink   Switch  react-router 提供了一些 router 的核心 api，包括 Rou">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://xg4.github.io/2019/04/25/travis-deploy/">
+  <link rel="canonical" href="https://xg4.github.io/2019/09/12/react-router/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>Travis CI Deploy | blog</title>
+  <title>React Router v4 | blog</title>
   
 
 
@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/25/travis-deploy/">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/09/12/react-router/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xg4">
@@ -307,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Travis CI Deploy
+          <h1 class="post-title" itemprop="name headline">React Router v4
 
               
             
@@ -333,7 +333,7 @@
                 
               
 
-              <time title="Created: 2019-04-25 18:05:42" itemprop="dateCreated datePublished" datetime="2019-04-25T18:05:42+00:00">2019-04-25</time>
+              <time title="Created: 2019-09-12 20:00:37" itemprop="dateCreated datePublished" datetime="2019-09-12T20:00:37+00:00">2019-09-12</time>
             
 
             
@@ -384,15 +384,75 @@
       
 
       
-        <blockquote>
-<p><a href="https://github.com/xg4/DevOps-demos" target="_blank" rel="noopener">travis demo</a></p>
+        <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#react-router">react-router</a></li>
+<li><a href="#react-router-dom">react-router-dom</a></li>
+<li><a href="#hashrouterbrowserrouter">HashRouter/BrowserRouter</a><ul>
+<li><a href="#hashrouter">HashRouter</a></li>
+<li><a href="#browserrouter">BrowserRouter</a></li>
+</ul>
+</li>
+<li><a href="#route">Route</a></li>
+<li><a href="#linknavlink">Link/NavLink</a><ul>
+<li><a href="#link">Link</a></li>
+<li><a href="#navlink">NavLink</a></li>
+</ul>
+</li>
+<li><a href="#switch">Switch</a></li>
+</ul>
+<h2 id="react-router"><a href="#react-router" class="headerlink" title="react-router"></a>react-router</h2><blockquote>
+<p>提供了一些 router 的核心 api，包括 Router, Route, Switch 等，但是它没有提供 dom 操作进行跳转的 api</p>
 </blockquote>
-<h2 id="安装-travis"><a href="#安装-travis" class="headerlink" title="安装 travis"></a>安装 travis</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install ruby</span><br><span class="line">$ apt-get install ruby-dev</span><br><span class="line">$ apt-get install build-essential</span><br><span class="line"><span class="comment"># gem update --system</span></span><br><span class="line"><span class="comment"># 下载很慢的话，切换镜像源</span></span><br><span class="line"><span class="comment"># gem sources --add https://gems.ruby-china.com/</span></span><br><span class="line">$ gem install travis</span><br></pre></td></tr></table></figure>
-<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ travis login</span><br><span class="line"></span><br><span class="line">We need your GitHub login to identify you.</span><br><span class="line">This information will not be sent to Travis CI, only to api.github.com.</span><br><span class="line">The password will not be displayed.</span><br><span class="line"></span><br><span class="line">Try running with --github-token or --auto <span class="keyword">if</span> you don<span class="string">'t want to enter your password anyway.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Username: xxx@xxx.xxx</span></span><br><span class="line"><span class="string">Password for xxx@xxx.xxx: ***</span></span><br><span class="line"><span class="string">Successfully logged in as xg4!</span></span><br></pre></td></tr></table></figure>
-<h2 id="SSH-私钥进行加密处理"><a href="#SSH-私钥进行加密处理" class="headerlink" title="SSH 私钥进行加密处理"></a>SSH 私钥进行加密处理</h2><p>切换到 <code>.travis.yml</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成密钥,如果已存在无需生成</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"xingor4@gmail.com"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用Travis加密 --add 会自动将信息生成到 .travis.yml</span></span><br><span class="line">$ travis encrypt-file ~/.ssh/id_rsa --add</span><br><span class="line"></span><br><span class="line">Detected repository as xxx/xxx, is this correct? |yes| yes</span><br><span class="line">encrypting ~/.ssh/id_rsa <span class="keyword">for</span> xxx/xxx</span><br><span class="line">storing result as id_rsa.enc</span><br><span class="line">storing secure env variables <span class="keyword">for</span> decryption</span><br><span class="line"></span><br><span class="line">Make sure to add id_rsa.enc to the git repository.</span><br><span class="line">Make sure not to add ~/.ssh/id_rsa to the git repository.</span><br><span class="line">Commit all changes to your .travis.yml.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加信任关系</span></span><br><span class="line">ssh-copy-id -i deploy_rsa.pub &lt;ssh-user&gt;@&lt;deploy-host&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将修改添加到git中</span></span><br><span class="line">git add id_rsa.enc .travis.yml</span><br></pre></td></tr></table></figure>
-<h2 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .travis.yml</span></span><br><span class="line">before_install:</span><br><span class="line">  <span class="comment"># 自动生成</span></span><br><span class="line">  - openssl aes-256-cbc -K <span class="variable">$encrypted_d89376f3278d_key</span> -iv <span class="variable">$encrypted_d89376f3278d_iv</span></span><br><span class="line">    -<span class="keyword">in</span> id_rsa.enc -out ~/.ssh/id_rsa -d</span><br><span class="line">  <span class="comment"># 设置权限</span></span><br><span class="line">  - chmod 600 ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-<h2 id="主机验证"><a href="#主机验证" class="headerlink" title="主机验证"></a>主机验证</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .travis.yml</span></span><br><span class="line">addons:</span><br><span class="line">  ssh_known_hosts: your-ip</span><br></pre></td></tr></table></figure>
+<h2 id="react-router-dom"><a href="#react-router-dom" class="headerlink" title="react-router-dom"></a>react-router-dom</h2><blockquote>
+<p>提供了 BrowserRouter, Route, Link 等 api，可以通过 dom 的事件控制路由。例如点击一个按钮进行跳转，大多数情况下我们是这种情况，所以在开发过程中，我们更多是使用 react-router-dom</p>
+</blockquote>
+<h2 id="HashRouter-BrowserRouter"><a href="#HashRouter-BrowserRouter" class="headerlink" title="HashRouter/BrowserRouter"></a>HashRouter/BrowserRouter</h2><blockquote>
+<p>都提供路由的基本功能，可以随意选取其中一个</p>
+</blockquote>
+<h3 id="HashRouter"><a href="#HashRouter" class="headerlink" title="HashRouter"></a>HashRouter</h3><blockquote>
+<p>通过 hash 值来对路由进行控制。如果你使用 HashRouter，你的路由就会默认有#</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;HashRouter&gt;</span><br><span class="line">  &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/HashRouter&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="BrowserRouter"><a href="#BrowserRouter" class="headerlink" title="BrowserRouter"></a>BrowserRouter</h3><ul>
+<li><p>大部分情况下我们不需要这个#，因为它看起来很怪，这时我们就需要用到 BrowserRouter</p>
+</li>
+<li><p>它的原理是使用 HTML5 history API (pushState, replaceState, popState)来使你的内容随着 url 动态改变的</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;BrowserRouter basename=<span class="string">"/app"</span>&gt;</span><br><span class="line">  &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/BrowserRouter&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Route"><a href="#Route" class="headerlink" title="Route"></a>Route</h2><ul>
+<li><p>Route 是路由的一个原材料，它是控制路径对应显示的组件。我们经常用的是 exact、path 以及 component 属性</p>
+</li>
+<li><p>exact 控制匹配到/路径时不会再继续向下匹配，path 标识路由的路径，component 表示路径对应显示的组件。后面我们将结合 NavLink 完成一个很基本的路由使用。同时我们可以设置例如/user/:id 的方式来控制页面的显示，这需要配合 Link 或者 NavLink 配合使用。下面我们会提到</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Link-NavLink"><a href="#Link-NavLink" class="headerlink" title="Link/NavLink"></a>Link/NavLink</h2><blockquote>
+<p>两者都是可以控制路由跳转的，不同点是 NavLink 的 api 更多，更加满足你的需求</p>
+</blockquote>
+<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><ul>
+<li><p>主要 api 是 to，to 可以接受 string 或者一个 object，来控制 url</p>
+</li>
+<li><p>example</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=<span class="string">"/home"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link</span><br><span class="line">  to=&#123;&#123;</span><br><span class="line">    pathname: <span class="string">'/home'</span>,</span><br><span class="line">    search: <span class="string">'?sort=name'</span>,</span><br><span class="line">    hash: <span class="string">'#the-hash'</span>,</span><br><span class="line">    state: &#123; <span class="attr">x</span>: <span class="literal">true</span> &#125;</span><br><span class="line">  &#125;&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="NavLink"><a href="#NavLink" class="headerlink" title="NavLink"></a>NavLink</h3><ul>
+<li><p>它可以为当前选中的路由设置类名、样式以及回调函数等</p>
+</li>
+<li><p>example</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;NavLink exact activeClassName=<span class="string">"active"</span> to=<span class="string">"/"</span>&gt;</span><br><span class="line">  home</span><br><span class="line">&lt;<span class="regexp">/NavLink&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>exact 用于严格匹配，匹配到/则不会继续向下匹配，to 则是控制跳转的路径，activeClassName 是选中状态的类名，我们可以为其添加样式。我们在/second 后面添加 1234 来想路由中传递信息，这结合了上面 Route 中的/second/:id</p>
+</li>
+<li><p>match 是在使用 router 之后被放入 props 中的一个属性，在 class 创建的组件中我们需要通过 this.props.match 来获取 match 之中的信息。match 中包含的信息如下</p>
+</li>
+</ul>
+<h2 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h2><blockquote>
+<p>常常会用来包裹 Route，它里面不能放其他元素，用来只显示一个路由</p>
+</blockquote>
 
       
     </div>
@@ -416,9 +476,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/DevOps/" rel="tag"># DevOps</a>
-          
-            <a href="/tags/CI/" rel="tag"># CI</a>
+            <a href="/tags/react/" rel="tag"># react</a>
           
         </div>
       
@@ -431,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/20/linux/" rel="next" title="Linux">
-                <i class="fa fa-chevron-left"></i> Linux
+              <a href="/2019/04/25/travis-deploy/" rel="next" title="Travis CI Deploy">
+                <i class="fa fa-chevron-left"></i> Travis CI Deploy
               </a>
             
           </div>
@@ -440,10 +498,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/12/react-router/" rel="prev" title="React Router v4">
-                React Router v4 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -589,7 +643,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-travis"><span class="nav-number">1.</span> <span class="nav-text">安装 travis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录"><span class="nav-number">2.</span> <span class="nav-text">登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-私钥进行加密处理"><span class="nav-number">3.</span> <span class="nav-text">SSH 私钥进行加密处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置权限"><span class="nav-number">4.</span> <span class="nav-text">设置权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主机验证"><span class="nav-number">5.</span> <span class="nav-text">主机验证</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-router"><span class="nav-number">2.</span> <span class="nav-text">react-router</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-router-dom"><span class="nav-number">3.</span> <span class="nav-text">react-router-dom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashRouter-BrowserRouter"><span class="nav-number">4.</span> <span class="nav-text">HashRouter/BrowserRouter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashRouter"><span class="nav-number">4.1.</span> <span class="nav-text">HashRouter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BrowserRouter"><span class="nav-number">4.2.</span> <span class="nav-text">BrowserRouter</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Route"><span class="nav-number">5.</span> <span class="nav-text">Route</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Link-NavLink"><span class="nav-number">6.</span> <span class="nav-text">Link/NavLink</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Link"><span class="nav-number">6.1.</span> <span class="nav-text">Link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NavLink"><span class="nav-number">6.2.</span> <span class="nav-text">NavLink</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Switch"><span class="nav-number">7.</span> <span class="nav-text">Switch</span></a></li></ol></div>
             
 
           </div>
