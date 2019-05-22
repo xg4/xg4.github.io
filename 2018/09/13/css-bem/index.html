@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="BEM 命名模式 LESS SCSS Tips Example   BEM 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论  BEM 命名模式12345678.block &amp;#123;&amp;#125;.block__element &amp;#123;&amp;#125;.block--modifier &amp;#123;&amp;#125;">
-<meta name="keywords" content="CSS">
+  <meta name="description" content="BEM 命名模式 LESS SCSS Tips Example 常用命名   BEM 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论  BEM 命名模式12345678.block &amp;#123;&amp;#125;.block__element &amp;#123;&amp;#125;.block--modifier &amp;#123;&amp;">
+<meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS - BEM">
 <meta property="og:url" content="https://xg4.github.io/2018/09/13/css-bem/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="BEM 命名模式 LESS SCSS Tips Example   BEM 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论  BEM 命名模式12345678.block &amp;#123;&amp;#125;.block__element &amp;#123;&amp;#125;.block--modifier &amp;#123;&amp;#125;">
+<meta property="og:description" content="BEM 命名模式 LESS SCSS Tips Example 常用命名   BEM 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论  BEM 命名模式12345678.block &amp;#123;&amp;#125;.block__element &amp;#123;&amp;#125;.block--modifier &amp;#123;&amp;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-21T13:19:24.413Z">
+<meta property="og:updated_time" content="2019-05-22T02:07:30.269Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS - BEM">
-<meta name="twitter:description" content="BEM 命名模式 LESS SCSS Tips Example   BEM 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论  BEM 命名模式12345678.block &amp;#123;&amp;#125;.block__element &amp;#123;&amp;#125;.block--modifier &amp;#123;&amp;#125;">
+<meta name="twitter:description" content="BEM 命名模式 LESS SCSS Tips Example 常用命名   BEM 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论  BEM 命名模式12345678.block &amp;#123;&amp;#125;.block__element &amp;#123;&amp;#125;.block--modifier &amp;#123;&amp;">
 
 
 
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-21 13:19:24" itemprop="dateModified" datetime="2019-05-21T13:19:24+00:00">2019-05-21</time>
+                <time title="Modified: 2019-05-22 02:07:30" itemprop="dateModified" datetime="2019-05-22T02:07:30+00:00">2019-05-22</time>
               
             
           </span>
@@ -389,6 +389,7 @@
 <li><a href="#less-scss">LESS SCSS</a></li>
 <li><a href="#tips">Tips</a></li>
 <li><a href="#example">Example</a></li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D">常用命名</a></li>
 </ul>
 <blockquote>
 <p>BEM 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论</p>
@@ -416,6 +417,148 @@
 </ul>
 <h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 常规写法： */</span></span><br><span class="line"><span class="selector-class">.xxx</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item_current</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 嵌套写法 */</span></span><br><span class="line"><span class="selector-class">.xxx__item_current</span> <span class="selector-class">.mod-xxx__link</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 推荐： */</span></span><br><span class="line"><span class="selector-class">.xxx</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item_hightlight</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__product-name</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__link</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__ming-zi-ke-yi-hen-chang</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 嵌套写法 */</span></span><br><span class="line"><span class="selector-class">.xxx__item_current</span> &#123;</span><br><span class="line">  <span class="selector-class">.xxx__link</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 对应的HTML结构如下： --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"xxx"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item"</span>&gt;</span></span><br><span class="line">    第一项</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"xxx__ming-zi-ke-yi-hen-chang"</span>&gt;</span></span><br><span class="line">      看类名</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item xxx__item_current"</span>&gt;</span></span><br><span class="line">    第二项 且 当前选择项</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__item-link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item xxx__item_hightlight"</span>&gt;</span></span><br><span class="line">    第三项 且 特殊高亮</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__item-link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="常用命名"><a href="#常用命名" class="headerlink" title="常用命名"></a>常用命名</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.wrap 或 .wrapper</td>
+<td>外侧包裹</td>
+</tr>
+<tr>
+<td>.container</td>
+<td>包裹容器</td>
+</tr>
+<tr>
+<td>.header</td>
+<td>用于头部</td>
+</tr>
+<tr>
+<td>.body</td>
+<td>页面 body</td>
+</tr>
+<tr>
+<td>.footer</td>
+<td>页面尾部</td>
+</tr>
+<tr>
+<td>.aside 或 .sidebar</td>
+<td>用于侧边栏</td>
+</tr>
+<tr>
+<td>.content</td>
+<td>和 header footer 对应，用于主要内容</td>
+</tr>
+<tr>
+<td>.navigation</td>
+<td>导航元素</td>
+</tr>
+<tr>
+<td>.pagination</td>
+<td>分页</td>
+</tr>
+<tr>
+<td>.tabs &gt; .tab</td>
+<td>tab 切换</td>
+</tr>
+<tr>
+<td>.breadcrumbs</td>
+<td>导航列表、面包屑</td>
+</tr>
+<tr>
+<td>.dropdown</td>
+<td>下拉菜单</td>
+</tr>
+<tr>
+<td>.article</td>
+<td>文章</td>
+</tr>
+<tr>
+<td>.main</td>
+<td>用于主体</td>
+</tr>
+<tr>
+<td>.media</td>
+<td>媒体资源</td>
+</tr>
+<tr>
+<td>.thumbnail 或 .avatar</td>
+<td>头像，小图像</td>
+</tr>
+<tr>
+<td>.panel</td>
+<td>面板</td>
+</tr>
+<tr>
+<td>.tooltip</td>
+<td>鼠标放置上去的提示</td>
+</tr>
+<tr>
+<td>.popup</td>
+<td>鼠标点击弹出的提示</td>
+</tr>
+<tr>
+<td>.button 或 .btn</td>
+<td>按钮</td>
+</tr>
+<tr>
+<td>.ad</td>
+<td>广告</td>
+</tr>
+<tr>
+<td>.subnav</td>
+<td>二级导航</td>
+</tr>
+<tr>
+<td>.menu</td>
+<td>菜单</td>
+</tr>
+<tr>
+<td>.tag</td>
+<td>标签</td>
+</tr>
+<tr>
+<td>.message 或 .notice</td>
+<td>提示消息</td>
+</tr>
+<tr>
+<td>.summary</td>
+<td>摘要</td>
+</tr>
+<tr>
+<td>.logo</td>
+<td>logo</td>
+</tr>
+<tr>
+<td>.search</td>
+<td>搜索框</td>
+</tr>
+<tr>
+<td>.login</td>
+<td>登录</td>
+</tr>
+<tr>
+<td>.register</td>
+<td>注册</td>
+</tr>
+<tr>
+<td>.banner</td>
+<td>广告条</td>
+</tr>
+<tr>
+<td>.copyright</td>
+<td>版权</td>
+</tr>
+<tr>
+<td>.modal 或 .dialog</td>
+<td>弹窗</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -439,7 +582,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/css/" rel="tag"># css</a>
           
         </div>
       
@@ -574,7 +717,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -612,7 +759,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BEM-命名模式"><span class="nav-number">1.</span> <span class="nav-text">BEM 命名模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LESS-SCSS"><span class="nav-number">2.</span> <span class="nav-text">LESS SCSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">3.</span> <span class="nav-text">Tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">4.</span> <span class="nav-text">Example</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BEM-命名模式"><span class="nav-number">1.</span> <span class="nav-text">BEM 命名模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LESS-SCSS"><span class="nav-number">2.</span> <span class="nav-text">LESS SCSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">3.</span> <span class="nav-text">Tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">4.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命名"><span class="nav-number">5.</span> <span class="nav-text">常用命名</span></a></li></ol></div>
             
 
           </div>
