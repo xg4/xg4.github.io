@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="travis demo  安装 travis1234567$ apt-get install ruby$ apt-get install ruby-dev$ apt-get install build-essential# gem update --system# 下载很慢的话，切换镜像源# gem sources --add https://gems.ruby-china.com/$ gem">
-<meta name="keywords" content="devops,ci,travis">
+  <meta name="description" content="Table of Contents Table of Contents Methods Status Codes Headers  Methods GET (SELECT) : 读取  POST (CREATE) : 新建  PUT (UPDATE) : 更新  PATCH (UPDATE) : 部分更新  DELETE (DELETE) : 删除   不常用的 http methods  HEA">
+<meta name="keywords" content="http">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Travis CI Deploy">
-<meta property="og:url" content="https://xg4.github.io/2019/04/25/travis-deploy/index.html">
+<meta property="og:title" content="HTTP">
+<meta property="og:url" content="https://xg4.github.io/2018/09/10/http/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="travis demo  安装 travis1234567$ apt-get install ruby$ apt-get install ruby-dev$ apt-get install build-essential# gem update --system# 下载很慢的话，切换镜像源# gem sources --add https://gems.ruby-china.com/$ gem">
+<meta property="og:description" content="Table of Contents Table of Contents Methods Status Codes Headers  Methods GET (SELECT) : 读取  POST (CREATE) : 新建  PUT (UPDATE) : 更新  PATCH (UPDATE) : 部分更新  DELETE (DELETE) : 删除   不常用的 http methods  HEA">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-05-23T09:35:53.653Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Travis CI Deploy">
-<meta name="twitter:description" content="travis demo  安装 travis1234567$ apt-get install ruby$ apt-get install ruby-dev$ apt-get install build-essential# gem update --system# 下载很慢的话，切换镜像源# gem sources --add https://gems.ruby-china.com/$ gem">
+<meta name="twitter:title" content="HTTP">
+<meta name="twitter:description" content="Table of Contents Table of Contents Methods Status Codes Headers  Methods GET (SELECT) : 读取  POST (CREATE) : 新建  PUT (UPDATE) : 更新  PATCH (UPDATE) : 部分更新  DELETE (DELETE) : 删除   不常用的 http methods  HEA">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://xg4.github.io/2019/04/25/travis-deploy/">
+  <link rel="canonical" href="https://xg4.github.io/2018/09/10/http/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>Travis CI Deploy | blog</title>
+  <title>HTTP | blog</title>
   
 
 
@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/25/travis-deploy/">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/10/http/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xg4">
@@ -307,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Travis CI Deploy
+          <h1 class="post-title" itemprop="name headline">HTTP
 
               
             
@@ -333,7 +333,7 @@
                 
               
 
-              <time title="Created: 2019-04-25 18:05:42" itemprop="dateCreated datePublished" datetime="2019-04-25T18:05:42+00:00">2019-04-25</time>
+              <time title="Created: 2018-09-10 14:36:06" itemprop="dateCreated datePublished" datetime="2018-09-10T14:36:06+00:00">2018-09-10</time>
             
 
             
@@ -384,15 +384,218 @@
       
 
       
-        <blockquote>
-<p><a href="https://github.com/xg4/DevOps-demos" target="_blank" rel="noopener">travis demo</a></p>
+        <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#methods">Methods</a></li>
+<li><a href="#status-codes">Status Codes</a></li>
+<li><a href="#headers">Headers</a></li>
+</ul>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><ul>
+<li><p>GET (SELECT) : 读取</p>
+</li>
+<li><p>POST (CREATE) : 新建</p>
+</li>
+<li><p>PUT (UPDATE) : 更新</p>
+</li>
+<li><p>PATCH (UPDATE) : 部分更新</p>
+</li>
+<li><p>DELETE (DELETE) : 删除</p>
+</li>
+</ul>
+<p>不常用的 http methods</p>
+<ul>
+<li><p>HEAD : 获取资源的元数据</p>
+</li>
+<li><p>OPTIONS : 询问请求 URI 资源支持的方法</p>
+</li>
+</ul>
+<h2 id="Status-Codes"><a href="#Status-Codes" class="headerlink" title="Status Codes"></a>Status Codes</h2><blockquote>
+<p><a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank" rel="noopener">HTTP Status Codes - wikipedia</a></p>
 </blockquote>
-<h2 id="安装-travis"><a href="#安装-travis" class="headerlink" title="安装 travis"></a>安装 travis</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install ruby</span><br><span class="line">$ apt-get install ruby-dev</span><br><span class="line">$ apt-get install build-essential</span><br><span class="line"><span class="comment"># gem update --system</span></span><br><span class="line"><span class="comment"># 下载很慢的话，切换镜像源</span></span><br><span class="line"><span class="comment"># gem sources --add https://gems.ruby-china.com/</span></span><br><span class="line">$ gem install travis</span><br></pre></td></tr></table></figure>
-<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ travis login</span><br><span class="line"></span><br><span class="line">We need your GitHub login to identify you.</span><br><span class="line">This information will not be sent to Travis CI, only to api.github.com.</span><br><span class="line">The password will not be displayed.</span><br><span class="line"></span><br><span class="line">Try running with --github-token or --auto <span class="keyword">if</span> you don<span class="string">'t want to enter your password anyway.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Username: xxx@xxx.xxx</span></span><br><span class="line"><span class="string">Password for xxx@xxx.xxx: ***</span></span><br><span class="line"><span class="string">Successfully logged in as xg4!</span></span><br></pre></td></tr></table></figure>
-<h2 id="SSH-私钥进行加密处理"><a href="#SSH-私钥进行加密处理" class="headerlink" title="SSH 私钥进行加密处理"></a>SSH 私钥进行加密处理</h2><p>切换到 <code>.travis.yml</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成密钥,如果已存在无需生成</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"xingor4@gmail.com"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用Travis加密 --add 会自动将信息生成到 .travis.yml</span></span><br><span class="line">$ travis encrypt-file ~/.ssh/id_rsa --add</span><br><span class="line"></span><br><span class="line">Detected repository as xxx/xxx, is this correct? |yes| yes</span><br><span class="line">encrypting ~/.ssh/id_rsa <span class="keyword">for</span> xxx/xxx</span><br><span class="line">storing result as id_rsa.enc</span><br><span class="line">storing secure env variables <span class="keyword">for</span> decryption</span><br><span class="line"></span><br><span class="line">Make sure to add id_rsa.enc to the git repository.</span><br><span class="line">Make sure not to add ~/.ssh/id_rsa to the git repository.</span><br><span class="line">Commit all changes to your .travis.yml.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加信任关系</span></span><br><span class="line">ssh-copy-id -i deploy_rsa.pub &lt;ssh-user&gt;@&lt;deploy-host&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将修改添加到git中</span></span><br><span class="line">git add id_rsa.enc .travis.yml</span><br></pre></td></tr></table></figure>
-<h2 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .travis.yml</span></span><br><span class="line">before_install:</span><br><span class="line">  <span class="comment"># 自动生成</span></span><br><span class="line">  - openssl aes-256-cbc -K <span class="variable">$encrypted_d89376f3278d_key</span> -iv <span class="variable">$encrypted_d89376f3278d_iv</span></span><br><span class="line">    -<span class="keyword">in</span> id_rsa.enc -out ~/.ssh/id_rsa -d</span><br><span class="line">  <span class="comment"># 设置权限</span></span><br><span class="line">  - chmod 600 ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-<h2 id="主机验证"><a href="#主机验证" class="headerlink" title="主机验证"></a>主机验证</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .travis.yml</span></span><br><span class="line">addons:</span><br><span class="line">  ssh_known_hosts: your-ip</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>1xx : 相关信息</p>
+</li>
+<li><p>2xx : 成功</p>
+</li>
+<li><p>3xx : 重定向</p>
+</li>
+<li><p>4xx : 客户端错误</p>
+</li>
+<li><p>5xx : 服务器错误</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><code>2xx</code></th>
+<th>操作成功</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>200 OK</code></td>
+<td>客户端发来的请求在服务器端被正确处理</td>
+</tr>
+<tr>
+<td><code>201 Created</code></td>
+<td>新建资源成功</td>
+</tr>
+<tr>
+<td><code>202 Accepted</code></td>
+<td>表示服务器已经收到请求，但是还未处理，未来再进行处理（异步操作）</td>
+</tr>
+<tr>
+<td><code>204 No Content</code></td>
+<td>删除资源成功 – 表示请求成功，但响应报文不含实体的主体部分</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><code>3xx</code></th>
+<th>重定向（表明浏览器要执行特殊处理）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>301 Moved Permanently</code></td>
+<td>永久性重定向，表示资源已被分配了新的 URL</td>
+</tr>
+<tr>
+<td><code>302 Found</code></td>
+<td>临时性重定向，表示资源临时被分配了新的 URL</td>
+</tr>
+<tr>
+<td><code>303 See Other</code></td>
+<td>表示资源存在着另一个 URL，应使用 GET 方法获取资源（对于 301/302/303 响应，几乎所有浏览器都会删除报文主体并自动用 GET 重新请求）</td>
+</tr>
+<tr>
+<td><code>304 Not Modified</code></td>
+<td>表示服务器允许访问资源，但请求未满足条件的情况（与重定向无关）</td>
+</tr>
+<tr>
+<td><code>307 Temporary Redirect</code></td>
+<td>临时重定向，和 302 含义类似，但是期望客户端保持请求方法不变向新的地址发出请求</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><code>4xx</code></th>
+<th>客户端错误</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>400 Bad Request</code></td>
+<td>服务器不理解客户端的请求，未做任何处理 – 请求报文存在语法错误</td>
+</tr>
+<tr>
+<td><code>401 Unauthorized</code></td>
+<td>表示发送的请求需要有通过 HTTP 认证的认证信息</td>
+</tr>
+<tr>
+<td><code>403 Forbidden</code></td>
+<td>用户通过了身份验证，但是不具有访问资源所需的权限（权限不足）</td>
+</tr>
+<tr>
+<td><code>404 Not Found</code></td>
+<td>请求资源不存在，或不可用</td>
+</tr>
+<tr>
+<td><code>405 Method Not Allowed</code></td>
+<td>用户已经通过身份验证，但是所用的 HTTP 方法不在他的权限之内</td>
+</tr>
+<tr>
+<td><code>406 Not Acceptable</code></td>
+<td>服务器没有请求头（Accept headers）中指定的资源格式</td>
+</tr>
+<tr>
+<td><code>410 Gone</code></td>
+<td>所请求的资源已从这个地址转移，不再可用</td>
+</tr>
+<tr>
+<td><code>415 Unsupported Media Type</code></td>
+<td>客户端发送的资源，不是服务器指定的资源格式（与 406 相反）</td>
+</tr>
+<tr>
+<td><code>422 Unprocessable Entity</code></td>
+<td>请求格式正确，但由于语义错误而无法遵循</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><code>5xx</code></th>
+<th>服务器错误</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>500 Internal Server Error</code></td>
+<td>服务器错误</td>
+</tr>
+<tr>
+<td><code>501 Not Implemented</code></td>
+<td>表示服务器不支持当前请求所需要的某个功能</td>
+</tr>
+<tr>
+<td><code>503 Service Unavailable</code></td>
+<td>服务器无法处理请求，一般用于网站维护状态</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Headers"><a href="#Headers" class="headerlink" title="Headers"></a>Headers</h2><table>
+<thead>
+<tr>
+<th>request headers</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Accept</code></td>
+<td>客户端能正确接收的媒体类型：<code>application/json</code> <code>text/plain</code></td>
+</tr>
+<tr>
+<td><code>Accept-Encoding</code></td>
+<td>能正确接收的编码格式列表：<code>gzip</code> <code>deflate</code></td>
+</tr>
+<tr>
+<td><code>Authorization</code></td>
+<td>客户端认证信息：<code>Bearer dSdSdFFlsfdjasd123</code>，一般存 token 用</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>response headers</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ETag</code></td>
+<td>资源标识，资源发生变化时标识也会发生改变</td>
+</tr>
+<tr>
+<td><code>Location</code></td>
+<td>客户端重定向到某个 URL</td>
+</tr>
+<tr>
+<td><code>Server</code></td>
+<td>服务器名字：<code>Apache</code> <code>Nginx</code></td>
+</tr>
+<tr>
+<td><code>Set-Cookie</code></td>
+<td>需要存在客户端的信息，一般用于识别用户身份</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -416,11 +619,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/devops/" rel="tag"># devops</a>
-          
-            <a href="/tags/ci/" rel="tag"># ci</a>
-          
-            <a href="/tags/travis/" rel="tag"># travis</a>
+            <a href="/tags/http/" rel="tag"># http</a>
           
         </div>
       
@@ -433,8 +632,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/21/github/" rel="next" title="GitHub">
-                <i class="fa fa-chevron-left"></i> GitHub
+              <a href="/2018/09/06/css-flex/" rel="next" title="CSS Flex">
+                <i class="fa fa-chevron-left"></i> CSS Flex
               </a>
             
           </div>
@@ -442,6 +641,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/12/react-router/" rel="prev" title="React Router v4">
+                React Router v4 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -593,7 +796,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-travis"><span class="nav-number">1.</span> <span class="nav-text">安装 travis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录"><span class="nav-number">2.</span> <span class="nav-text">登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-私钥进行加密处理"><span class="nav-number">3.</span> <span class="nav-text">SSH 私钥进行加密处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置权限"><span class="nav-number">4.</span> <span class="nav-text">设置权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主机验证"><span class="nav-number">5.</span> <span class="nav-text">主机验证</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">2.</span> <span class="nav-text">Methods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Status-Codes"><span class="nav-number">3.</span> <span class="nav-text">Status Codes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Headers"><span class="nav-number">4.</span> <span class="nav-text">Headers</span></a></li></ol></div>
             
 
           </div>
