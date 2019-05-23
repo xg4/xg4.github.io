@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Table of Contents Table of Contents ellipsis clearfix hairline  ellipsis1234567891011121314151617/* 单行溢出隐藏 */.ellipsis() &amp;#123;  overflow: hidden;  text-overflow: ellipsis;  white-space: nowrap;&amp;#125;">
+  <meta name="description" content="Table of Contents Table of Contents wrap ellipsis clearfix hairline  wrap 强制不换行 123.box &amp;#123;  white-space: nowrap;&amp;#125;  自动换行 1234.box &amp;#123;  word-wrap: break-word;  word-break: normal;&amp;#125;  强制英">
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS">
 <meta property="og:url" content="https://xg4.github.io/2018/09/05/css/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Table of Contents Table of Contents ellipsis clearfix hairline  ellipsis1234567891011121314151617/* 单行溢出隐藏 */.ellipsis() &amp;#123;  overflow: hidden;  text-overflow: ellipsis;  white-space: nowrap;&amp;#125;">
+<meta property="og:description" content="Table of Contents Table of Contents wrap ellipsis clearfix hairline  wrap 强制不换行 123.box &amp;#123;  white-space: nowrap;&amp;#125;  自动换行 1234.box &amp;#123;  word-wrap: break-word;  word-break: normal;&amp;#125;  强制英">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-22T02:07:30.269Z">
+<meta property="og:updated_time" content="2019-05-23T07:34:13.837Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS">
-<meta name="twitter:description" content="Table of Contents Table of Contents ellipsis clearfix hairline  ellipsis1234567891011121314151617/* 单行溢出隐藏 */.ellipsis() &amp;#123;  overflow: hidden;  text-overflow: ellipsis;  white-space: nowrap;&amp;#125;">
+<meta name="twitter:description" content="Table of Contents Table of Contents wrap ellipsis clearfix hairline  wrap 强制不换行 123.box &amp;#123;  white-space: nowrap;&amp;#125;  自动换行 1234.box &amp;#123;  word-wrap: break-word;  word-break: normal;&amp;#125;  强制英">
 
 
 
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-22 02:07:30" itemprop="dateModified" datetime="2019-05-22T02:07:30+00:00">2019-05-22</time>
+                <time title="Modified: 2019-05-23 07:34:13" itemprop="dateModified" datetime="2019-05-23T07:34:13+00:00">2019-05-23</time>
               
             
           </span>
@@ -386,9 +386,21 @@
       
         <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
 <li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#wrap">wrap</a></li>
 <li><a href="#ellipsis">ellipsis</a></li>
 <li><a href="#clearfix">clearfix</a></li>
 <li><a href="#hairline">hairline</a></li>
+</ul>
+<h2 id="wrap"><a href="#wrap" class="headerlink" title="wrap"></a>wrap</h2><ul>
+<li><p>强制不换行</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自动换行</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line">  <span class="attribute">word-break</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>强制英文单词断行</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  <span class="attribute">word-break</span>: break-all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <h2 id="ellipsis"><a href="#ellipsis" class="headerlink" title="ellipsis"></a>ellipsis</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 单行溢出隐藏 */</span></span><br><span class="line"><span class="selector-class">.ellipsis</span>() &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多行溢出隐藏 */</span></span><br><span class="line"><span class="selector-class">.multi-ellipsis</span>(<span class="variable">@lines</span>) &#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">-webkit-line-clamp</span>: <span class="variable">@lines</span>;</span><br><span class="line">  <span class="comment">/*! autoprefixer: off */</span></span><br><span class="line">  <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">  <span class="comment">/* autoprefixer: on */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -616,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ellipsis"><span class="nav-number">2.</span> <span class="nav-text">ellipsis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clearfix"><span class="nav-number">3.</span> <span class="nav-text">clearfix</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hairline"><span class="nav-number">4.</span> <span class="nav-text">hairline</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wrap"><span class="nav-number">2.</span> <span class="nav-text">wrap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ellipsis"><span class="nav-number">3.</span> <span class="nav-text">ellipsis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clearfix"><span class="nav-number">4.</span> <span class="nav-text">clearfix</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hairline"><span class="nav-number">5.</span> <span class="nav-text">hairline</span></a></li></ol></div>
             
 
           </div>
