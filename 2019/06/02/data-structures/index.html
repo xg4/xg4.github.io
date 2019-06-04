@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Table of Contents Table of Contents ssh-copy-id scp  ssh-copy-id 将本机主机的公钥复制到远程主机的 authorized_keys 文件上，ssh-copy-id 命令也会给远程主机的用户主目录（home）和 ~/.ssh 和 ~/.ssh/authorized_keys 设置合适的权限   语法 1$ ssh-copy-id [-i">
-<meta name="keywords" content="linux">
+  <meta name="description" content="Table of Contents Table of Contents Stack Queue  Stack 受限的线性结构，栈顶操作，LIFO (last in first out) 后进先出  可以基于 Array 和 List 实现 1234567891011121314151617181920212223242526272829303132// 基于 Array 的 Stackclass">
+<meta name="keywords" content="javascript,computer science">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux">
-<meta property="og:url" content="https://xg4.github.io/2019/04/20/linux/index.html">
+<meta property="og:title" content="Data Structures">
+<meta property="og:url" content="https://xg4.github.io/2019/06/02/data-structures/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Table of Contents Table of Contents ssh-copy-id scp  ssh-copy-id 将本机主机的公钥复制到远程主机的 authorized_keys 文件上，ssh-copy-id 命令也会给远程主机的用户主目录（home）和 ~/.ssh 和 ~/.ssh/authorized_keys 设置合适的权限   语法 1$ ssh-copy-id [-i">
+<meta property="og:description" content="Table of Contents Table of Contents Stack Queue  Stack 受限的线性结构，栈顶操作，LIFO (last in first out) 后进先出  可以基于 Array 和 List 实现 1234567891011121314151617181920212223242526272829303132// 基于 Array 的 Stackclass">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-06-04T06:57:19.488Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux">
-<meta name="twitter:description" content="Table of Contents Table of Contents ssh-copy-id scp  ssh-copy-id 将本机主机的公钥复制到远程主机的 authorized_keys 文件上，ssh-copy-id 命令也会给远程主机的用户主目录（home）和 ~/.ssh 和 ~/.ssh/authorized_keys 设置合适的权限   语法 1$ ssh-copy-id [-i">
+<meta name="twitter:title" content="Data Structures">
+<meta name="twitter:description" content="Table of Contents Table of Contents Stack Queue  Stack 受限的线性结构，栈顶操作，LIFO (last in first out) 后进先出  可以基于 Array 和 List 实现 1234567891011121314151617181920212223242526272829303132// 基于 Array 的 Stackclass">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://xg4.github.io/2019/04/20/linux/">
+  <link rel="canonical" href="https://xg4.github.io/2019/06/02/data-structures/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>Linux | blog</title>
+  <title>Data Structures | blog</title>
   
 
 
@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/20/linux/">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/06/02/data-structures/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xg4">
@@ -307,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux
+          <h1 class="post-title" itemprop="name headline">Data Structures
 
               
             
@@ -333,7 +333,7 @@
                 
               
 
-              <time title="Created: 2019-04-20 22:52:27" itemprop="dateCreated datePublished" datetime="2019-04-20T22:52:27+00:00">2019-04-20</time>
+              <time title="Created: 2019-06-02 09:41:48" itemprop="dateCreated datePublished" datetime="2019-06-02T09:41:48+00:00">2019-06-02</time>
             
 
             
@@ -386,74 +386,18 @@
       
         <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
 <li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#ssh-copy-id">ssh-copy-id</a></li>
-<li><a href="#scp">scp</a></li>
+<li><a href="#stack">Stack</a></li>
+<li><a href="#queue">Queue</a></li>
 </ul>
-<h2 id="ssh-copy-id"><a href="#ssh-copy-id" class="headerlink" title="ssh-copy-id"></a>ssh-copy-id</h2><blockquote>
-<p>将本机主机的公钥复制到远程主机的 <code>authorized_keys</code> 文件上，<code>ssh-copy-id</code> 命令也会给远程主机的用户主目录（home）和 <code>~/.ssh</code> 和 <code>~/.ssh/authorized_keys</code> 设置合适的权限</p>
+<h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><blockquote>
+<p>受限的线性结构，栈顶操作，LIFO (last in first out) 后进先出</p>
 </blockquote>
-<ul>
-<li><p>语法</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-copy-id [-i [identity_file]] [user@]machine</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>参数</p>
-<ul>
-<li><code>-i</code> : 指定公钥文件</li>
-</ul>
-</li>
-<li><p>example</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-copy-id user@server</span><br><span class="line">$ ssh-copy-id -i ~/.ssh/id_rsa.pub user@server</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2><ul>
-<li><p>语法</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp [-1246BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file]</span><br><span class="line">[-l <span class="built_in">limit</span>] [-o ssh_option] [-P port] [-S program]</span><br><span class="line">[[user@]host1:]file1 [...] [[user@]host2:]file2</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>简易写法</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scp [可选参数] file_source file_target</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>参数：</p>
-<ul>
-<li><p><code>-1</code> : 强制 scp 命令使用协议 ssh1</p>
-</li>
-<li><p><code>-2</code> : 强制 scp 命令使用协议 ssh2</p>
-</li>
-<li><p><code>-4</code> : 强制 scp 命令只使用 IPv4 寻址</p>
-</li>
-<li><p><code>-6</code> : 强制 scp 命令只使用 IPv6 寻址</p>
-</li>
-<li><p><code>-B</code> : 使用批处理模式（传输过程中不询问传输口令或短语）</p>
-</li>
-<li><p><code>-C</code> : 允许压缩。（将-C 标志传递给 ssh，从而打开压缩功能）</p>
-</li>
-<li><p><code>-p</code> : 保留原文件的修改时间，访问时间和访问权限</p>
-</li>
-<li><p><code>-q</code> : 不显示传输进度条</p>
-</li>
-<li><p><code>-r</code> : 递归复制整个目录</p>
-</li>
-<li><p><code>-v</code> : 详细方式显示输出。scp 和 ssh(1)会显示出整个过程的调试信息。这些信息用于调试连接，验证和配置问题</p>
-</li>
-<li><p><code>-c</code> cipher : 以 cipher 将数据传输进行加密，这个选项将直接传递给 ssh</p>
-</li>
-<li><p><code>-F</code> ssh_config : 指定一个替代的 ssh 配置文件，此参数直接传递给 ssh</p>
-</li>
-<li><p><code>-i</code> identity_file : 从指定文件中读取传输时使用的密钥文件，此参数直接传递给 ssh</p>
-</li>
-<li><p><code>-l</code> limit : 限定用户所能使用的带宽，以 Kbit/s 为单位</p>
-</li>
-<li><p><code>-o</code> ssh_option : 如果习惯于使用 ssh_config(5)中的参数传递方式</p>
-</li>
-<li><p><code>-P</code> port : 注意是大写的 P, port 是指定数据传输用到的端口号</p>
-</li>
-<li><p><code>-S</code> program : 指定加密传输时所使用的程序。此程序必须能够理解 ssh(1)的选项</p>
-</li>
-</ul>
-</li>
-<li><p>example</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ scp local_file remote_username@remote_ip:remote_folder</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ scp local_file remote_username@remote_ip:remote_file</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ scp local_file remote_ip:remote_folder</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ scp local_file remote_ip:remote_file</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<p>可以基于 Array 和 List 实现</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基于 Array 的 Stack</span></span><br><span class="line"><span class="keyword">class</span> Stack &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">get</span> length() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.stack.length</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> stack: <span class="built_in">any</span>[] = []</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> pop() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.stack.pop()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> push(data: <span class="built_in">any</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.stack.push(data)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> peek() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.stack[<span class="keyword">this</span>.length - <span class="number">1</span>]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> isEmpty() &#123;</span><br><span class="line">    <span class="keyword">return</span> !!<span class="keyword">this</span>.length</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> size() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.length</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> toString() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.stack.map(<span class="function"><span class="params">item</span> =&gt;</span> item.toString()).join(<span class="string">','</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><blockquote>
+<p>受限的线性结构，FIFO (first in first out) 先入先出</p>
+</blockquote>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基于 Array 的 Queue</span></span><br><span class="line"><span class="keyword">class</span> Queue &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">get</span> length() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.queue.length</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> queue: <span class="built_in">any</span>[] = []</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> out() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.queue.shift()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">in</span>(data: <span class="built_in">any</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.queue.push(data)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> front() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.queue[<span class="number">0</span>]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> isEmpty() &#123;</span><br><span class="line">    <span class="keyword">return</span> !!<span class="keyword">this</span>.length</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> size() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.length</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> toString() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.queue.map(<span class="function"><span class="params">item</span> =&gt;</span> item.toString()).join(<span class="string">','</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -477,7 +421,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/computer-science/" rel="tag"># computer science</a>
           
         </div>
       
@@ -490,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/20/git-2/" rel="next" title="Git 2">
-                <i class="fa fa-chevron-left"></i> Git 2
+              <a href="/2019/04/25/travis-deploy/" rel="next" title="Travis CI Deploy">
+                <i class="fa fa-chevron-left"></i> Travis CI Deploy
               </a>
             
           </div>
@@ -499,10 +445,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/21/github/" rel="prev" title="GitHub">
-                GitHub <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -658,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh-copy-id"><span class="nav-number">2.</span> <span class="nav-text">ssh-copy-id</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scp"><span class="nav-number">3.</span> <span class="nav-text">scp</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack"><span class="nav-number">2.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue"><span class="nav-number">3.</span> <span class="nav-text">Queue</span></a></li></ol></div>
             
 
           </div>
