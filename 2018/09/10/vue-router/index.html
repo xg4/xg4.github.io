@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Table of Contents Table of Contents Methods Status Codes Headers  Methods GET (SELECT) : 读取  POST (CREATE) : 新建  PUT (UPDATE) : 更新  PATCH (UPDATE) : 部分更新  DELETE (DELETE) : 删除   不常用的 http methods  HEA">
-<meta name="keywords" content="http">
+  <meta name="description" content="Table of Contents 官方文档   Table of Contents meta navigation guards navigation  meta 路由元信息   定义路由的时候可以配置 meta 字段： 12345678910111213141516const router = new VueRouter(&amp;#123;  routes: [    &amp;#123;      pat">
+<meta name="keywords" content="js,vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP">
-<meta property="og:url" content="https://xg4.github.io/2018/09/10/http/index.html">
+<meta property="og:title" content="Vue Router">
+<meta property="og:url" content="https://xg4.github.io/2018/09/10/vue-router/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Table of Contents Table of Contents Methods Status Codes Headers  Methods GET (SELECT) : 读取  POST (CREATE) : 新建  PUT (UPDATE) : 更新  PATCH (UPDATE) : 部分更新  DELETE (DELETE) : 删除   不常用的 http methods  HEA">
+<meta property="og:description" content="Table of Contents 官方文档   Table of Contents meta navigation guards navigation  meta 路由元信息   定义路由的时候可以配置 meta 字段： 12345678910111213141516const router = new VueRouter(&amp;#123;  routes: [    &amp;#123;      pat">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-06-10T04:29:02.412Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP">
-<meta name="twitter:description" content="Table of Contents Table of Contents Methods Status Codes Headers  Methods GET (SELECT) : 读取  POST (CREATE) : 新建  PUT (UPDATE) : 更新  PATCH (UPDATE) : 部分更新  DELETE (DELETE) : 删除   不常用的 http methods  HEA">
+<meta name="twitter:title" content="Vue Router">
+<meta name="twitter:description" content="Table of Contents 官方文档   Table of Contents meta navigation guards navigation  meta 路由元信息   定义路由的时候可以配置 meta 字段： 12345678910111213141516const router = new VueRouter(&amp;#123;  routes: [    &amp;#123;      pat">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://xg4.github.io/2018/09/10/http/">
+  <link rel="canonical" href="https://xg4.github.io/2018/09/10/vue-router/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>HTTP | blog</title>
+  <title>Vue Router | blog</title>
   
 
 
@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/10/http/">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/10/vue-router/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xg4">
@@ -307,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTTP
+          <h1 class="post-title" itemprop="name headline">Vue Router
 
               
             
@@ -333,7 +333,7 @@
                 
               
 
-              <time title="Created: 2018-09-10 14:36:06" itemprop="dateCreated datePublished" datetime="2018-09-10T14:36:06+00:00">2018-09-10</time>
+              <time title="Created: 2018-09-10 12:20:55" itemprop="dateCreated datePublished" datetime="2018-09-10T12:20:55+00:00">2018-09-10</time>
             
 
             
@@ -384,218 +384,56 @@
       
 
       
-        <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#methods">Methods</a></li>
-<li><a href="#status-codes">Status Codes</a></li>
-<li><a href="#headers">Headers</a></li>
-</ul>
-<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><ul>
-<li><p>GET (SELECT) : 读取</p>
-</li>
-<li><p>POST (CREATE) : 新建</p>
-</li>
-<li><p>PUT (UPDATE) : 更新</p>
-</li>
-<li><p>PATCH (UPDATE) : 部分更新</p>
-</li>
-<li><p>DELETE (DELETE) : 删除</p>
-</li>
-</ul>
-<p>不常用的 http methods</p>
-<ul>
-<li><p>HEAD : 获取资源的元数据</p>
-</li>
-<li><p>OPTIONS : 询问请求 URI 资源支持的方法</p>
-</li>
-</ul>
-<h2 id="Status-Codes"><a href="#Status-Codes" class="headerlink" title="Status Codes"></a>Status Codes</h2><blockquote>
-<p><a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank" rel="noopener">HTTP Status Codes - wikipedia</a></p>
+        <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><blockquote>
+<p><a href="https://router.vuejs.org/zh-cn/" target="_blank" rel="noopener">官方文档</a></p>
 </blockquote>
 <ul>
-<li><p>1xx : 相关信息</p>
-</li>
-<li><p>2xx : 成功</p>
-</li>
-<li><p>3xx : 重定向</p>
-</li>
-<li><p>4xx : 客户端错误</p>
-</li>
-<li><p>5xx : 服务器错误</p>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#meta">meta</a></li>
+<li><a href="#navigation-guards">navigation guards</a></li>
+<li><a href="#navigation">navigation</a></li>
+</ul>
+<h2 id="meta"><a href="#meta" class="headerlink" title="meta"></a>meta</h2><blockquote>
+<p><a href="https://router.vuejs.org/zh-cn/advanced/meta.html" target="_blank" rel="noopener">路由元信息</a></p>
+</blockquote>
+<ul>
+<li><p>定义路由的时候可以配置 meta 字段：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/foo'</span>,</span><br><span class="line">      component: Foo,</span><br><span class="line">      children: [</span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">'bar'</span>,</span><br><span class="line">          component: Bar,</span><br><span class="line">          <span class="comment">// a meta field</span></span><br><span class="line">          meta: &#123; <span class="attr">requiresAuth</span>: <span class="literal">true</span> &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<table>
-<thead>
-<tr>
-<th><code>2xx</code></th>
-<th>操作成功</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200 OK</code></td>
-<td>客户端发来的请求在服务器端被正确处理</td>
-</tr>
-<tr>
-<td><code>201 Created</code></td>
-<td>新建资源成功</td>
-</tr>
-<tr>
-<td><code>202 Accepted</code></td>
-<td>表示服务器已经收到请求，但是还未处理，未来再进行处理（异步操作）</td>
-</tr>
-<tr>
-<td><code>204 No Content</code></td>
-<td>删除资源成功 – 表示请求成功，但响应报文不含实体的主体部分</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th><code>3xx</code></th>
-<th>重定向（表明浏览器要执行特殊处理）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>301 Moved Permanently</code></td>
-<td>永久性重定向，表示资源已被分配了新的 URL</td>
-</tr>
-<tr>
-<td><code>302 Found</code></td>
-<td>临时性重定向，表示资源临时被分配了新的 URL</td>
-</tr>
-<tr>
-<td><code>303 See Other</code></td>
-<td>表示资源存在着另一个 URL，应使用 GET 方法获取资源（对于 301/302/303 响应，几乎所有浏览器都会删除报文主体并自动用 GET 重新请求）</td>
-</tr>
-<tr>
-<td><code>304 Not Modified</code></td>
-<td>表示服务器允许访问资源，但请求未满足条件的情况（与重定向无关）</td>
-</tr>
-<tr>
-<td><code>307 Temporary Redirect</code></td>
-<td>临时重定向，和 302 含义类似，但是期望客户端保持请求方法不变向新的地址发出请求</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th><code>4xx</code></th>
-<th>客户端错误</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>400 Bad Request</code></td>
-<td>服务器不理解客户端的请求，未做任何处理 – 请求报文存在语法错误</td>
-</tr>
-<tr>
-<td><code>401 Unauthorized</code></td>
-<td>表示发送的请求需要有通过 HTTP 认证的认证信息</td>
-</tr>
-<tr>
-<td><code>403 Forbidden</code></td>
-<td>用户通过了身份验证，但是不具有访问资源所需的权限（权限不足）</td>
-</tr>
-<tr>
-<td><code>404 Not Found</code></td>
-<td>请求资源不存在，或不可用</td>
-</tr>
-<tr>
-<td><code>405 Method Not Allowed</code></td>
-<td>用户已经通过身份验证，但是所用的 HTTP 方法不在他的权限之内</td>
-</tr>
-<tr>
-<td><code>406 Not Acceptable</code></td>
-<td>服务器没有请求头（Accept headers）中指定的资源格式</td>
-</tr>
-<tr>
-<td><code>410 Gone</code></td>
-<td>所请求的资源已从这个地址转移，不再可用</td>
-</tr>
-<tr>
-<td><code>415 Unsupported Media Type</code></td>
-<td>客户端发送的资源，不是服务器指定的资源格式（与 406 相反）</td>
-</tr>
-<tr>
-<td><code>422 Unprocessable Entity</code></td>
-<td>请求格式正确，但由于语义错误而无法遵循</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th><code>5xx</code></th>
-<th>服务器错误</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>500 Internal Server Error</code></td>
-<td>服务器错误</td>
-</tr>
-<tr>
-<td><code>501 Not Implemented</code></td>
-<td>表示服务器不支持当前请求所需要的某个功能</td>
-</tr>
-<tr>
-<td><code>503 Service Unavailable</code></td>
-<td>服务器无法处理请求，一般用于网站维护状态</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Headers"><a href="#Headers" class="headerlink" title="Headers"></a>Headers</h2><table>
-<thead>
-<tr>
-<th>request headers</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Accept</code></td>
-<td>客户端能正确接收的媒体类型：<code>application/json</code> <code>text/plain</code></td>
-</tr>
-<tr>
-<td><code>Accept-Encoding</code></td>
-<td>能正确接收的编码格式列表：<code>gzip</code> <code>deflate</code></td>
-</tr>
-<tr>
-<td><code>Authorization</code></td>
-<td>客户端认证信息：<code>Bearer dSdSdFFlsfdjasd123</code>，一般存 token 用</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>response headers</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ETag</code></td>
-<td>资源标识，资源发生变化时标识也会发生改变</td>
-</tr>
-<tr>
-<td><code>Location</code></td>
-<td>客户端重定向到某个 URL</td>
-</tr>
-<tr>
-<td><code>Server</code></td>
-<td>服务器名字：<code>Apache</code> <code>Nginx</code></td>
-</tr>
-<tr>
-<td><code>Set-Cookie</code></td>
-<td>需要存在客户端的信息，一般用于识别用户身份</td>
-</tr>
-</tbody>
-</table>
+<h2 id="navigation-guards"><a href="#navigation-guards" class="headerlink" title="navigation guards"></a>navigation guards</h2><blockquote>
+<p><a href="https://router.vuejs.org/zh-cn/advanced/navigation-guards.html" target="_blank" rel="noopener">导航守卫</a></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123; ... &#125;)</span><br><span class="line"></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>to: <code>Route</code> 即将要进入的目标 路由对象</p>
+</li>
+<li><p>from: <code>Route</code> 当前导航正要离开的路由</p>
+</li>
+<li><p>next: <code>Function</code> 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数</p>
+<ul>
+<li><p>next(): 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是 confirmed （确认的）</p>
+</li>
+<li><p>next(false): 中断当前的导航。如果浏览器的 URL 改变了（可能是用户手动或者浏览器后退按钮），那么 URL 地址会重置到 from 路由对应的地址</p>
+</li>
+<li><p>next(‘/‘) 或者 next({ path: ‘/‘ }): 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。你可以向 next 传递任意位置对象，且允许设置诸如 replace: true、name: ‘home’ 之类的选项以及任何用在 router-link 的 to prop 或 router.push 中的选项</p>
+</li>
+<li><p>next(error): (2.4.0+) 如果传入 next 的参数是一个 Error 实例，则导航会被终止且该错误会被传递给 router.onError() 注册过的回调</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="navigation"><a href="#navigation" class="headerlink" title="navigation"></a>navigation</h2><blockquote>
+<p><a href="https://router.vuejs.org/zh-cn/essentials/navigation.html" target="_blank" rel="noopener">编程式导航</a></p>
+</blockquote>
+<ul>
+<li><p>声明式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"..."</span>&gt;</span><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编程式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">router.push(location, onComplete?, onAbort?)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -619,7 +457,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/http/" rel="tag"># http</a>
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
           
         </div>
       
@@ -632,8 +472,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/10/vue-router/" rel="next" title="Vue Router">
-                <i class="fa fa-chevron-left"></i> Vue Router
+              <a href="/2018/09/06/css-flex/" rel="next" title="CSS Flex">
+                <i class="fa fa-chevron-left"></i> CSS Flex
               </a>
             
           </div>
@@ -642,8 +482,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/12/react-router/" rel="prev" title="React Router v4">
-                React Router v4 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/10/http/" rel="prev" title="HTTP">
+                HTTP <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -804,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">2.</span> <span class="nav-text">Methods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Status-Codes"><span class="nav-number">3.</span> <span class="nav-text">Status Codes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Headers"><span class="nav-number">4.</span> <span class="nav-text">Headers</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#meta"><span class="nav-number">2.</span> <span class="nav-text">meta</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#navigation-guards"><span class="nav-number">3.</span> <span class="nav-text">navigation guards</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#navigation"><span class="nav-number">4.</span> <span class="nav-text">navigation</span></a></li></ol></div>
             
 
           </div>

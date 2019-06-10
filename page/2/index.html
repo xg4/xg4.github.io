@@ -348,7 +348,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-08 10:27:48" itemprop="dateModified" datetime="2019-06-08T10:27:48+00:00">2019-06-08</time>
+                <time title="Modified: 2019-06-10 04:29:02" itemprop="dateModified" datetime="2019-06-10T04:29:02+00:00">2019-06-10</time>
               
             
           </span>
@@ -571,7 +571,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-08 10:27:48" itemprop="dateModified" datetime="2019-06-08T10:27:48+00:00">2019-06-08</time>
+                <time title="Modified: 2019-06-10 04:29:02" itemprop="dateModified" datetime="2019-06-10T04:29:02+00:00">2019-06-10</time>
               
             
           </span>
@@ -875,6 +875,210 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/10/vue-router/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/10/vue-router/" class="post-title-link" itemprop="url">Vue Router</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-10 12:20:55" itemprop="dateCreated datePublished" datetime="2018-09-10T12:20:55+00:00">2018-09-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-10 04:29:02" itemprop="dateModified" datetime="2019-06-10T04:29:02+00:00">2019-06-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><blockquote>
+<p><a href="https://router.vuejs.org/zh-cn/" target="_blank" rel="noopener">官方文档</a></p>
+</blockquote>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#meta">meta</a></li>
+<li><a href="#navigation-guards">navigation guards</a></li>
+<li><a href="#navigation">navigation</a></li>
+</ul>
+<h2 id="meta"><a href="#meta" class="headerlink" title="meta"></a>meta</h2><blockquote>
+<p><a href="https://router.vuejs.org/zh-cn/advanced/meta.html" target="_blank" rel="noopener">路由元信息</a></p>
+</blockquote>
+<ul>
+<li><p>定义路由的时候可以配置 meta 字段：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/foo'</span>,</span><br><span class="line">      component: Foo,</span><br><span class="line">      children: [</span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">'bar'</span>,</span><br><span class="line">          component: Bar,</span><br><span class="line">          <span class="comment">// a meta field</span></span><br><span class="line">          meta: &#123; <span class="attr">requiresAuth</span>: <span class="literal">true</span> &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="navigation-guards"><a href="#navigation-guards" class="headerlink" title="navigation guards"></a>navigation guards</h2><blockquote>
+<p><a href="https://router.vuejs.org/zh-cn/advanced/navigation-guards.html" target="_blank" rel="noopener">导航守卫</a></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123; ... &#125;)</span><br><span class="line"></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>to: <code>Route</code> 即将要进入的目标 路由对象</p>
+</li>
+<li><p>from: <code>Route</code> 当前导航正要离开的路由</p>
+</li>
+<li><p>next: <code>Function</code> 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数</p>
+<ul>
+<li><p>next(): 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是 confirmed （确认的）</p>
+</li>
+<li><p>next(false): 中断当前的导航。如果浏览器的 URL 改变了（可能是用户手动或者浏览器后退按钮），那么 URL 地址会重置到 from 路由对应的地址</p>
+</li>
+<li><p>next(‘/‘) 或者 next({ path: ‘/‘ }): 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。你可以向 next 传递任意位置对象，且允许设置诸如 replace: true、name: ‘home’ 之类的选项以及任何用在 router-link 的 to prop 或 router.push 中的选项</p>
+</li>
+<li><p>next(error): (2.4.0+) 如果传入 next 的参数是一个 Error 实例，则导航会被终止且该错误会被传递给 router.onError() 注册过的回调</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="navigation"><a href="#navigation" class="headerlink" title="navigation"></a>navigation</h2><blockquote>
+<p><a href="https://router.vuejs.org/zh-cn/essentials/navigation.html" target="_blank" rel="noopener">编程式导航</a></p>
+</blockquote>
+<ul>
+<li><p>声明式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"..."</span>&gt;</span><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编程式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">router.push(location, onComplete?, onAbort?)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/06/css-flex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -937,7 +1141,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-08 10:27:48" itemprop="dateModified" datetime="2019-06-08T10:27:48+00:00">2019-06-08</time>
+                <time title="Modified: 2019-06-10 04:29:02" itemprop="dateModified" datetime="2019-06-10T04:29:02+00:00">2019-06-10</time>
               
             
           </span>
@@ -1308,7 +1512,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-08 10:27:48" itemprop="dateModified" datetime="2019-06-08T10:27:48+00:00">2019-06-08</time>
+                <time title="Modified: 2019-06-10 04:29:02" itemprop="dateModified" datetime="2019-06-10T04:29:02+00:00">2019-06-10</time>
               
             
           </span>
@@ -1506,7 +1710,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-08 10:27:48" itemprop="dateModified" datetime="2019-06-08T10:27:48+00:00">2019-06-08</time>
+                <time title="Modified: 2019-06-10 04:29:02" itemprop="dateModified" datetime="2019-06-10T04:29:02+00:00">2019-06-10</time>
               
             
           </span>
@@ -1881,7 +2085,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1930,7 +2134,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
