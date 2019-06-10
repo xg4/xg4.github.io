@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Table of Contents 官方文档   Table of Contents meta navigation guards navigation  meta 路由元信息   定义路由的时候可以配置 meta 字段： 12345678910111213141516const router = new VueRouter(&amp;#123;  routes: [    &amp;#123;      pat">
+  <meta name="description" content="Table of Contents 官方文档   Table of Contents 路由懒加载 meta navigation guards navigation  路由懒加载 组件懒加载   使用 Babel，添加 syntax-dynamic-import 插件 1$ yarn add @babel/plugin-syntax-dynamic-import --dev .babelrc 12">
 <meta name="keywords" content="js,vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue Router">
 <meta property="og:url" content="https://xg4.github.io/2018/09/10/vue-router/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Table of Contents 官方文档   Table of Contents meta navigation guards navigation  meta 路由元信息   定义路由的时候可以配置 meta 字段： 12345678910111213141516const router = new VueRouter(&amp;#123;  routes: [    &amp;#123;      pat">
+<meta property="og:description" content="Table of Contents 官方文档   Table of Contents 路由懒加载 meta navigation guards navigation  路由懒加载 组件懒加载   使用 Babel，添加 syntax-dynamic-import 插件 1$ yarn add @babel/plugin-syntax-dynamic-import --dev .babelrc 12">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-10T04:29:02.412Z">
+<meta property="og:updated_time" content="2019-06-10T16:09:44.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue Router">
-<meta name="twitter:description" content="Table of Contents 官方文档   Table of Contents meta navigation guards navigation  meta 路由元信息   定义路由的时候可以配置 meta 字段： 12345678910111213141516const router = new VueRouter(&amp;#123;  routes: [    &amp;#123;      pat">
+<meta name="twitter:description" content="Table of Contents 官方文档   Table of Contents 路由懒加载 meta navigation guards navigation  路由懒加载 组件懒加载   使用 Babel，添加 syntax-dynamic-import 插件 1$ yarn add @babel/plugin-syntax-dynamic-import --dev .babelrc 12">
 
 
 
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-10 04:29:02" itemprop="dateModified" datetime="2019-06-10T04:29:02+00:00">2019-06-10</time>
+                <time title="Modified: 2019-06-10 16:09:44" itemprop="dateModified" datetime="2019-06-10T16:09:44+00:00">2019-06-10</time>
               
             
           </span>
@@ -389,9 +389,28 @@
 </blockquote>
 <ul>
 <li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD">路由懒加载</a></li>
 <li><a href="#meta">meta</a></li>
 <li><a href="#navigation-guards">navigation guards</a></li>
 <li><a href="#navigation">navigation</a></li>
+</ul>
+<h2 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a>路由懒加载</h2><blockquote>
+<p><a href="https://router.vuejs.org/zh/guide/advanced/lazy-loading.html" target="_blank" rel="noopener">组件懒加载</a></p>
+</blockquote>
+<ul>
+<li><p>使用 Babel，添加 <a href="https://babeljs.io/docs/plugins/syntax-dynamic-import/" target="_blank" rel="noopener">syntax-dynamic-import</a> 插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn add @babel/plugin-syntax-dynamic-import --dev</span><br></pre></td></tr></table></figure>
+<p><code>.babelrc</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"plugins"</span>: [<span class="string">"@babel/plugin-syntax-dynamic-import"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义一个被 Webpack 自动代码分割的异步组件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Foo = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./Foo.vue'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  routes: [&#123; <span class="attr">path</span>: <span class="string">'/foo'</span>, <span class="attr">component</span>: Foo &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把组件按组分块</p>
+<p>有时候我们想把某个路由下的所有组件都打包在同个异步块 (chunk) 中，只需要使用命名 chunk，一个特殊的注释语法来提供 chunk name (需要 webpack &gt; 2.4)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Foo = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Foo.vue'</span>)</span><br><span class="line"><span class="keyword">const</span> Bar = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Bar.vue'</span>)</span><br><span class="line"><span class="keyword">const</span> Baz = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Baz.vue'</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>webpack 会将任何一个异步模块与相同的块名称组合到相同的异步块中</strong></p>
+</li>
 </ul>
 <h2 id="meta"><a href="#meta" class="headerlink" title="meta"></a>meta</h2><blockquote>
 <p><a href="https://router.vuejs.org/zh-cn/advanced/meta.html" target="_blank" rel="noopener">路由元信息</a></p>
@@ -472,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/06/css-flex/" rel="next" title="CSS Flex">
-                <i class="fa fa-chevron-left"></i> CSS Flex
+              <a href="/2018/09/09/vue/" rel="next" title="Vue">
+                <i class="fa fa-chevron-left"></i> Vue
               </a>
             
           </div>
@@ -553,7 +572,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -644,7 +663,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#meta"><span class="nav-number">2.</span> <span class="nav-text">meta</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#navigation-guards"><span class="nav-number">3.</span> <span class="nav-text">navigation guards</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#navigation"><span class="nav-number">4.</span> <span class="nav-text">navigation</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由懒加载"><span class="nav-number">2.</span> <span class="nav-text">路由懒加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#meta"><span class="nav-number">3.</span> <span class="nav-text">meta</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#navigation-guards"><span class="nav-number">4.</span> <span class="nav-text">navigation guards</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#navigation"><span class="nav-number">5.</span> <span class="nav-text">navigation</span></a></li></ol></div>
             
 
           </div>
