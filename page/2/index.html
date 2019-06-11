@@ -286,6 +286,566 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/18/restful-api/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/18/restful-api/" class="post-title-link" itemprop="url">RESTful API</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-18 14:36:06" itemprop="dateCreated datePublished" datetime="2018-09-18T14:36:06+00:00">2018-09-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-11 11:04:52" itemprop="dateModified" datetime="2019-06-11T11:04:52+00:00">2019-06-11</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p><a href="http://www.ruanyifeng.com/blog/2011/09/restful.html" target="_blank" rel="noopener">理解 RESTful 架构 - 阮一峰</a><br><a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="noopener">RESTful API 设计指南 - 阮一峰</a><br><a href="http://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html" target="_blank" rel="noopener">RESTful API 最佳实践 - 阮一峰</a></p>
+</blockquote>
+<h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#http-methods">HTTP Methods</a></li>
+<li><a href="#http-status-codes">HTTP Status Codes</a><ul>
+<li><a href="#example">example</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="HTTP-Methods"><a href="#HTTP-Methods" class="headerlink" title="HTTP Methods"></a>HTTP Methods</h2><ul>
+<li><p>GET (SELECT) : 读取</p>
+</li>
+<li><p>POST (CREATE) : 新建</p>
+</li>
+<li><p>PUT (UPDATE) : 更新</p>
+</li>
+<li><p>PATCH (UPDATE) : 部分更新</p>
+</li>
+<li><p>DELETE (DELETE) : 删除</p>
+</li>
+</ul>
+<p>不常用的 http methods</p>
+<ul>
+<li><p>HEAD : 获取资源的元数据</p>
+</li>
+<li><p>OPTIONS : 获取信息，关于资源的哪些属性是客户端可以改变</p>
+</li>
+</ul>
+<h2 id="HTTP-Status-Codes"><a href="#HTTP-Status-Codes" class="headerlink" title="HTTP Status Codes"></a>HTTP Status Codes</h2><blockquote>
+<p><a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank" rel="noopener">HTTP Status Codes - wikipedia</a></p>
+</blockquote>
+<ul>
+<li><p>1xx : 相关信息</p>
+</li>
+<li><p>2xx : 操作成功</p>
+</li>
+<li><p>3xx : 重定向</p>
+</li>
+<li><p>4xx : 客户端错误</p>
+</li>
+<li><p>5xx : 服务器错误</p>
+</li>
+</ul>
+<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><ul>
+<li><p><code>200 OK</code> - [GET/PUT/PATCH] : 获取或更新数据成功</p>
+</li>
+<li><p><code>201 Created</code> - [POST] : 新建数据成功</p>
+</li>
+<li><p><code>202 Accepted</code> - [*] : 表示服务器已经收到请求，但是还未处理，未来再进行处理（异步操作）</p>
+</li>
+<li><p><code>204 No Content</code> - [DELETE] : 删除数据成功</p>
+</li>
+<li><p><code>400 Bad Request</code> - [POST/PUT/PATCH] : 服务器不理解客户端的请求，未做任何处理</p>
+</li>
+<li><p><code>401 Unauthorized</code> : 用户未提供身份验证凭据，或者没有通过身份验证（没有权限）</p>
+</li>
+<li><p><code>403 Forbidden</code> : 用户通过了身份验证，但是不具有访问资源所需的权限（权限不足）</p>
+</li>
+<li><p><code>404 Not Found</code> : 所请求的资源不存在，或不可用</p>
+</li>
+<li><p><code>405 Method Not Allowed</code> : 用户已经通过身份验证，但是所用的 HTTP 方法不在他的权限之内</p>
+</li>
+<li><p><code>406 Not Acceptable</code> - [GET] : 服务器没有请求头（Accept headers）中指定的资源格式</p>
+</li>
+<li><p><code>410 Gone</code> - [GET] : 所请求的资源已从这个地址转移，不再可用</p>
+</li>
+<li><p><code>415 Unsupported Media Type</code> : 客户端发送的资源，不是服务器指定的资源格式（与 406 相反）</p>
+</li>
+<li><p><code>422 Unprocessable Entity</code> - [POST/PUT/PATCH] : 请求格式正确，但由于语义错误而无法遵循</p>
+</li>
+<li><p><code>500 Internal Server Error</code> : 服务器错误</p>
+</li>
+<li><p><code>503 Service Unavailable</code> : 服务器无法处理请求，一般用于网站维护状态</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/13/css-name/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/13/css-name/" class="post-title-link" itemprop="url">CSS - Name</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-13 16:38:12" itemprop="dateCreated datePublished" datetime="2018-09-13T16:38:12+00:00">2018-09-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-11 11:04:52" itemprop="dateModified" datetime="2019-06-11T11:04:52+00:00">2019-06-11</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><a href="#bem-%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F">BEM 命名模式</a></li>
+<li><a href="#less-scss">LESS SCSS</a></li>
+<li><a href="#tips">Tips</a></li>
+<li><a href="#example">Example</a></li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D">常用命名</a></li>
+</ul>
+<blockquote>
+<p>BEM 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论</p>
+</blockquote>
+<h2 id="BEM-命名模式"><a href="#BEM-命名模式" class="headerlink" title="BEM 命名模式"></a>BEM 命名模式</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block__element</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block--modifier</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>每一个块(block)名应该有一个命名空间（前缀）</p>
+</li>
+<li><p>block 代表了更高级别的抽象或组件</p>
+</li>
+<li><p><code>block__element</code> 代表 <code>.block</code> 的后代，用于形成一个完整的 <code>.block</code> 的整体</p>
+</li>
+<li><p><code>block--modifier</code> 代表 <code>.block</code> 的不同状态或不同版本。<br>使用两个连字符和下划线而不是一个，是为了让你自己的块可以用单个连字符来界定。如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.sub-block__element</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sub-block--modifier</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="LESS-SCSS"><a href="#LESS-SCSS" class="headerlink" title="LESS SCSS"></a>LESS SCSS</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">1200px</span>;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-tag">__body</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-tag">__button</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">5px</span> <span class="number">8px</span>;</span><br><span class="line">    <span class="selector-tag">&amp;</span><span class="selector-tag">--primary</span> &#123;</span><br><span class="line">      <span class="attribute">background</span>: blue;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">&amp;</span><span class="selector-tag">--success</span> &#123;</span><br><span class="line">      <span class="attribute">background</span>: green;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ul>
+<li><p>避免 <code>.block__el1__el2</code> 的格式</p>
+</li>
+<li><p>在深层次嵌套的 DOM 结构下，应避免过长的样式名称定义</p>
+</li>
+<li><p>层级最后不要超过 4 级，不然增加阅读的理解难度</p>
+</li>
+</ul>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 常规写法： */</span></span><br><span class="line"><span class="selector-class">.xxx</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item_current</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 嵌套写法 */</span></span><br><span class="line"><span class="selector-class">.xxx__item_current</span> <span class="selector-class">.mod-xxx__link</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 推荐： */</span></span><br><span class="line"><span class="selector-class">.xxx</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item_hightlight</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__product-name</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__link</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__ming-zi-ke-yi-hen-chang</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 嵌套写法 */</span></span><br><span class="line"><span class="selector-class">.xxx__item_current</span> &#123;</span><br><span class="line">  <span class="selector-class">.xxx__link</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 对应的HTML结构如下： --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"xxx"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item"</span>&gt;</span></span><br><span class="line">    第一项</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"xxx__ming-zi-ke-yi-hen-chang"</span>&gt;</span></span><br><span class="line">      看类名</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item xxx__item_current"</span>&gt;</span></span><br><span class="line">    第二项 且 当前选择项</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__item-link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item xxx__item_hightlight"</span>&gt;</span></span><br><span class="line">    第三项 且 特殊高亮</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__item-link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="常用命名"><a href="#常用命名" class="headerlink" title="常用命名"></a>常用命名</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.wrap 或 .wrapper</td>
+<td>外侧包裹</td>
+</tr>
+<tr>
+<td>.container</td>
+<td>包裹容器</td>
+</tr>
+<tr>
+<td>.header</td>
+<td>用于头部</td>
+</tr>
+<tr>
+<td>.body</td>
+<td>页面 body</td>
+</tr>
+<tr>
+<td>.footer</td>
+<td>页面尾部</td>
+</tr>
+<tr>
+<td>.aside 或 .sidebar</td>
+<td>用于侧边栏</td>
+</tr>
+<tr>
+<td>.content</td>
+<td>和 header footer 对应，用于主要内容</td>
+</tr>
+<tr>
+<td>.navigation</td>
+<td>导航元素</td>
+</tr>
+<tr>
+<td>.pagination</td>
+<td>分页</td>
+</tr>
+<tr>
+<td>.tabs &gt; .tab</td>
+<td>tab 切换</td>
+</tr>
+<tr>
+<td>.breadcrumbs</td>
+<td>导航列表、面包屑</td>
+</tr>
+<tr>
+<td>.dropdown</td>
+<td>下拉菜单</td>
+</tr>
+<tr>
+<td>.article</td>
+<td>文章</td>
+</tr>
+<tr>
+<td>.main</td>
+<td>用于主体</td>
+</tr>
+<tr>
+<td>.media</td>
+<td>媒体资源</td>
+</tr>
+<tr>
+<td>.thumbnail 或 .avatar</td>
+<td>头像，小图像</td>
+</tr>
+<tr>
+<td>.panel</td>
+<td>面板</td>
+</tr>
+<tr>
+<td>.tooltip</td>
+<td>鼠标放置上去的提示</td>
+</tr>
+<tr>
+<td>.popup</td>
+<td>鼠标点击弹出的提示</td>
+</tr>
+<tr>
+<td>.button 或 .btn</td>
+<td>按钮</td>
+</tr>
+<tr>
+<td>.ad</td>
+<td>广告</td>
+</tr>
+<tr>
+<td>.subnav</td>
+<td>二级导航</td>
+</tr>
+<tr>
+<td>.menu</td>
+<td>菜单</td>
+</tr>
+<tr>
+<td>.tag</td>
+<td>标签</td>
+</tr>
+<tr>
+<td>.message 或 .notice</td>
+<td>提示消息</td>
+</tr>
+<tr>
+<td>.summary</td>
+<td>摘要</td>
+</tr>
+<tr>
+<td>.logo</td>
+<td>logo</td>
+</tr>
+<tr>
+<td>.search</td>
+<td>搜索框</td>
+</tr>
+<tr>
+<td>.login</td>
+<td>登录</td>
+</tr>
+<tr>
+<td>.register</td>
+<td>注册</td>
+</tr>
+<tr>
+<td>.banner</td>
+<td>广告条</td>
+</tr>
+<tr>
+<td>.copyright</td>
+<td>版权</td>
+</tr>
+<tr>
+<td>.modal 或 .dialog</td>
+<td>弹窗</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/12/react-router/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -348,7 +908,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-10 16:09:44" itemprop="dateModified" datetime="2019-06-10T16:09:44+00:00">2019-06-10</time>
+                <time title="Modified: 2019-06-11 11:04:52" itemprop="dateModified" datetime="2019-06-11T11:04:52+00:00">2019-06-11</time>
               
             
           </span>
@@ -571,7 +1131,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-10 16:09:44" itemprop="dateModified" datetime="2019-06-10T16:09:44+00:00">2019-06-10</time>
+                <time title="Modified: 2019-06-11 11:04:52" itemprop="dateModified" datetime="2019-06-11T11:04:52+00:00">2019-06-11</time>
               
             
           </span>
@@ -937,7 +1497,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-10 16:09:44" itemprop="dateModified" datetime="2019-06-10T16:09:44+00:00">2019-06-10</time>
+                <time title="Modified: 2019-06-11 11:04:52" itemprop="dateModified" datetime="2019-06-11T11:04:52+00:00">2019-06-11</time>
               
             
           </span>
@@ -1160,7 +1720,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-10 16:09:44" itemprop="dateModified" datetime="2019-06-10T16:09:44+00:00">2019-06-10</time>
+                <time title="Modified: 2019-06-11 11:04:52" itemprop="dateModified" datetime="2019-06-11T11:04:52+00:00">2019-06-11</time>
               
             
           </span>
@@ -1376,7 +1936,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-10 16:09:44" itemprop="dateModified" datetime="2019-06-10T16:09:44+00:00">2019-06-10</time>
+                <time title="Modified: 2019-06-11 11:04:52" itemprop="dateModified" datetime="2019-06-11T11:04:52+00:00">2019-06-11</time>
               
             
           </span>
@@ -1747,7 +2307,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-10 16:09:44" itemprop="dateModified" datetime="2019-06-10T16:09:44+00:00">2019-06-10</time>
+                <time title="Modified: 2019-06-11 11:04:52" itemprop="dateModified" datetime="2019-06-11T11:04:52+00:00">2019-06-11</time>
               
             
           </span>
@@ -1945,7 +2505,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-10 16:09:44" itemprop="dateModified" datetime="2019-06-10T16:09:44+00:00">2019-06-10</time>
+                <time title="Modified: 2019-06-11 11:04:52" itemprop="dateModified" datetime="2019-06-11T11:04:52+00:00">2019-06-11</time>
               
             
           </span>
@@ -2122,7 +2682,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-10 16:09:44" itemprop="dateModified" datetime="2019-06-10T16:09:44+00:00">2019-06-10</time>
+                <time title="Modified: 2019-06-11 11:04:52" itemprop="dateModified" datetime="2019-06-11T11:04:52+00:00">2019-06-11</time>
               
             
           </span>
@@ -2497,7 +3057,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
