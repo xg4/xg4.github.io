@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Initial123$ npm config set init.author.name xg4$ npm config set init.author.email xingor4@gmail.com$ npm config set init.license MIT Release 使用 npm version &amp;lt;newVersion&amp;gt; 命令变更版本信息，自动 git tag  1234">
+  <meta name="description" content="Table of Contents Table of Contents Initial Publish Release  Initial123$ npm config set init.author.name xg4$ npm config set init.author.email xingor4@gmail.com$ npm config set init.license MIT Publis">
 <meta name="keywords" content="npm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NPM">
 <meta property="og:url" content="https://xg4.github.io/2019/04/02/npm/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Initial123$ npm config set init.author.name xg4$ npm config set init.author.email xingor4@gmail.com$ npm config set init.license MIT Release 使用 npm version &amp;lt;newVersion&amp;gt; 命令变更版本信息，自动 git tag  1234">
+<meta property="og:description" content="Table of Contents Table of Contents Initial Publish Release  Initial123$ npm config set init.author.name xg4$ npm config set init.author.email xingor4@gmail.com$ npm config set init.license MIT Publis">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-11T11:04:52.752Z">
+<meta property="og:updated_time" content="2019-06-17T12:58:06.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NPM">
-<meta name="twitter:description" content="Initial123$ npm config set init.author.name xg4$ npm config set init.author.email xingor4@gmail.com$ npm config set init.license MIT Release 使用 npm version &amp;lt;newVersion&amp;gt; 命令变更版本信息，自动 git tag  1234">
+<meta name="twitter:description" content="Table of Contents Table of Contents Initial Publish Release  Initial123$ npm config set init.author.name xg4$ npm config set init.author.email xingor4@gmail.com$ npm config set init.license MIT Publis">
 
 
 
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-11 11:04:52" itemprop="dateModified" datetime="2019-06-11T11:04:52+00:00">2019-06-11</time>
+                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
               
             
           </span>
@@ -384,12 +384,36 @@
       
 
       
-        <h2 id="Initial"><a href="#Initial" class="headerlink" title="Initial"></a>Initial</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm config <span class="built_in">set</span> init.author.name xg4</span><br><span class="line">$ npm config <span class="built_in">set</span> init.author.email xingor4@gmail.com</span><br><span class="line">$ npm config <span class="built_in">set</span> init.license MIT</span><br></pre></td></tr></table></figure>
+        <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#Initial">Initial</a></li>
+<li><a href="#Publish">Publish</a></li>
+<li><a href="#Release">Release</a></li>
+</ul>
+<h2 id="Initial"><a href="#Initial" class="headerlink" title="Initial"></a>Initial</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm config <span class="built_in">set</span> init.author.name xg4</span><br><span class="line">$ npm config <span class="built_in">set</span> init.author.email xingor4@gmail.com</span><br><span class="line">$ npm config <span class="built_in">set</span> init.license MIT</span><br></pre></td></tr></table></figure>
+<h2 id="Publish"><a href="#Publish" class="headerlink" title="Publish"></a>Publish</h2><ul>
+<li><p>登录 npm 账号</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm login</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ npm adduser</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置淘宝镜像之后，无法进行 publish</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config <span class="built_in">set</span> registry https://registry.npmjs.org</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>private package 需要进行 scope 的设置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config <span class="built_in">set</span> scope &lt;your_scope&gt;</span><br></pre></td></tr></table></figure>
+<p>scope 的包就成了@scope/xxx</p>
+</li>
+<li><p>发布公有的 scope 包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm publish --access=public</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>撤销发布</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm unpublish --force</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <h2 id="Release"><a href="#Release" class="headerlink" title="Release"></a>Release</h2><blockquote>
 <p>使用 <code>npm version &lt;newVersion&gt;</code> 命令变更版本信息，自动 <code>git tag</code></p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm version &lt;newVersion&gt;</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line"><span class="comment"># bump package.json version</span></span><br><span class="line">$ git commit -am <span class="string">"msg"</span></span><br><span class="line">$ git tag <span class="string">"version"</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">npm version [&lt;newVersion&gt; | major | minor | patch | premajor | preminor | prepatch | prerelease [--preid=&lt;prerelease-id&gt;] | from-git]</span><br><span class="line"></span><br><span class="line">major：主版本号</span><br><span class="line"></span><br><span class="line">minor：次版本号</span><br><span class="line"></span><br><span class="line">patch：补丁号</span><br><span class="line"></span><br><span class="line">premajor：预备主版本</span><br><span class="line"></span><br><span class="line">prepatch：预备次版本</span><br><span class="line"></span><br><span class="line">prerelease：预发布版本</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">npm version [&lt;newVersion&gt; | major | minor | patch | premajor | preminor | prepatch | prerelease [--preid=&lt;prerelease-id&gt;] | from-git]</span><br><span class="line"></span><br><span class="line">major：主版本号</span><br><span class="line"></span><br><span class="line">minor：次版本号</span><br><span class="line"></span><br><span class="line">patch：补丁号</span><br><span class="line"></span><br><span class="line">premajor：预备主版本</span><br><span class="line"></span><br><span class="line">preminor</span><br><span class="line"></span><br><span class="line">prepatch：预备次版本</span><br><span class="line"></span><br><span class="line">prerelease：预发布版本</span><br></pre></td></tr></table></figure>
 <p>若需要指定 commit 的信息，可以使用 -m 命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm version patch -m <span class="string">"build: release v%s"</span>  <span class="comment"># %s 会自动替换成版本号</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># (tag: v0.0.1) build: release v0.0.1</span></span><br></pre></td></tr></table></figure>
 <p><strong>需要注意的是，使用 <code>npm version &lt;newVersion&gt;</code> 命令，需要当前工作区为 clean 状态，否则会执行失败</strong></p>
@@ -601,7 +625,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Initial"><span class="nav-number">1.</span> <span class="nav-text">Initial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Release"><span class="nav-number">2.</span> <span class="nav-text">Release</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initial"><span class="nav-number">2.</span> <span class="nav-text">Initial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Publish"><span class="nav-number">3.</span> <span class="nav-text">Publish</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Release"><span class="nav-number">4.</span> <span class="nav-text">Release</span></a></li></ol></div>
             
 
           </div>
