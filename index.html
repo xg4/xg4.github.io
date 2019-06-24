@@ -286,6 +286,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/06/24/window/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/24/window/" class="post-title-link" itemprop="url">Window</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-24 22:05:23 / Modified: 16:07:23" itemprop="dateCreated datePublished" datetime="2019-06-24T22:05:23+00:00">2019-06-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#getComputedStyle">getComputedStyle</a><ul>
+<li><a href="#example">example</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="getComputedStyle"><a href="#getComputedStyle" class="headerlink" title="getComputedStyle"></a>getComputedStyle</h2><blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle" target="_blank" rel="noopener">MDN - getComputedStyle</a></p>
+</blockquote>
+<ul>
+<li><p>返回的 CSSStyleDeclaration 对象将包含所有受支持的 CSS 属性长名称的活动值。示例名称是 border-bottom-width，border-width 和 border 是示例速记属性名称。仅使用像 font-size 这样的名字来查询值是最安全的。 查询诸如 font 等简写名称不适用于大多数浏览器</p>
+</li>
+<li><p>CSS 属性值可以使用 <code>getPropertyValue(propName)</code> API 或直接索引到对象，如 <code>cs[&#39;z-index&#39;]</code> 或 <code>cs.zIndex</code></p>
+</li>
+</ul>
+<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> elem1 = <span class="built_in">document</span>.getElementById(<span class="string">'elemId'</span>)</span><br><span class="line"><span class="keyword">const</span> style = <span class="built_in">window</span>.getComputedStyle(elem1, <span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 它等价于</span></span><br><span class="line"><span class="comment">// const style = document.defaultView.getComputedStyle(elem1, null);</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-id">#elem-container</span> &#123;</span></span><br><span class="line"><span class="undefined">    position: absolute;</span></span><br><span class="line"><span class="undefined">    left: 100px;</span></span><br><span class="line"><span class="undefined">    top: 200px;</span></span><br><span class="line"><span class="undefined">    height: 100px;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"elem-container"</span>&gt;</span>dummy<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"output"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="function"><span class="keyword">function</span> <span class="title">getTheStyle</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> elem = <span class="built_in">document</span>.getElementById(<span class="string">'elem-container'</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> theCSSprop = <span class="built_in">window</span></span></span><br><span class="line"><span class="javascript">      .getComputedStyle(elem, <span class="literal">null</span>)</span></span><br><span class="line"><span class="javascript">      .getPropertyValue(<span class="string">'height'</span>)</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'output'</span>).innerHTML = theCSSprop</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  getTheStyle()</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/06/02/data-structures/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -348,7 +508,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -597,7 +757,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -760,7 +920,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -2444,7 +2604,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -2668,7 +2828,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -2936,7 +3096,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -3095,7 +3255,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -3386,7 +3546,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -3573,7 +3733,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -4196,220 +4356,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/12/11/html/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xg4">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/11/html/" class="post-title-link" itemprop="url">HTML</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-12-11 18:24:24" itemprop="dateCreated datePublished" datetime="2018-12-11T18:24:24+00:00">2018-12-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#figure">figure</a></li>
-<li><a href="#html5-%E7%BB%93%E6%9E%84%E5%8C%96%E5%85%83%E7%B4%A0">HTML5 结构化元素</a></li>
-<li><a href="#meta">Meta</a></li>
-<li><a href="#link">Link</a></li>
-</ul>
-<h2 id="figure"><a href="#figure" class="headerlink" title="figure"></a>figure</h2><blockquote>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure" target="_blank" rel="noopener">MDN figure</a><br>代表一段独立的内容，在主文中引用的图片，插图，表格，代码段， 和 figcaption 一起使用，figcaption 表示说明文字或者标题，当这部分转移到附录中或者其他页面时不会影响到主体</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- only figure --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"source"</span> <span class="attr">alt</span>=<span class="string">"img"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- image --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"source"</span> <span class="attr">alt</span>=<span class="string">"img"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">figcaption</span>&gt;</span>An image<span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- code --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">figcaption</span>&gt;</span>Get browser details using <span class="tag">&lt;<span class="name">code</span>&gt;</span>navigator<span class="tag">&lt;/<span class="name">code</span>&gt;</span>.<span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">pre</span>&gt;</span></span><br><span class="line">function NavigatorExample() &#123;</span><br><span class="line">  var txt;</span><br><span class="line">  txt = "Browser CodeName: " + navigator.appCodeName + "; ";</span><br><span class="line">  txt+= "Browser Name: " + navigator.appName + "; ";</span><br><span class="line">  txt+= "Browser Version: " + navigator.appVersion  + "; ";</span><br><span class="line">  txt+= "Cookies Enabled: " + navigator.cookieEnabled  + "; ";</span><br><span class="line">  txt+= "Platform: " + navigator.platform  + "; ";</span><br><span class="line">  txt+= "User-agent header: " + navigator.userAgent  + "; ";</span><br><span class="line">  console.log("NavigatorExample", txt);</span><br><span class="line">&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- reference --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">figcaption</span>&gt;</span><span class="tag">&lt;<span class="name">cite</span>&gt;</span>Edsger Dijkstra:<span class="tag">&lt;/<span class="name">cite</span>&gt;</span><span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">blockquote</span>&gt;</span></span><br><span class="line">    If debugging is the process of removing software bugs, then programming must</span><br><span class="line">    be the process of putting them in.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- text --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"white-space:pre"</span>&gt;</span></span><br><span class="line">    Bid me discourse, I will enchant thine ear, Or like a fairy trip upon the</span><br><span class="line">    green, Or, like a nymph, with long dishevell'd hair, Dance on the sands, and</span><br><span class="line">    yet no footing seen: Love is a spirit all compact of fire, Not gross to</span><br><span class="line">    sink, but light, and will aspire.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">figcaption</span>&gt;</span><span class="tag">&lt;<span class="name">cite</span>&gt;</span>Venus and Adonis<span class="tag">&lt;/<span class="name">cite</span>&gt;</span>, by William Shakespeare<span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="HTML5-结构化元素"><a href="#HTML5-结构化元素" class="headerlink" title="HTML5 结构化元素"></a>HTML5 结构化元素</h2><table>
-<thead>
-<tr>
-<th>标签</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>header</td>
-<td>body、main 标签的直接子标签，位置在页面头部，内容可能为 logo、标语、搜索提示、导航栏</td>
-</tr>
-<tr>
-<td>nav</td>
-<td>导航栏包在 nav 标签内，可能出现在头部、侧边栏、底部等等，神奇的地方在于设置 nav 标签的 display:inline-block，是作用在 li 标签上的</td>
-</tr>
-<tr>
-<td>main</td>
-<td>body 标签的直接子标签，主内容区域</td>
-</tr>
-<tr>
-<td>aside</td>
-<td>侧边栏</td>
-</tr>
-<tr>
-<td>article</td>
-<td>一般出现在 main 标签内，article 标签内可以有 section、footer 等标签，是比较独立的内容，比如像博客网站主页的一个文章简介</td>
-</tr>
-<tr>
-<td>section</td>
-<td>section 和 div 很类似，如果使用 div 标签是为了对内容做样式控制，或者为了便于 javascript 获取做其他操作，那么使用 div 就是你的答案，其他情况就用 section</td>
-</tr>
-<tr>
-<td>address</td>
-<td>提供联系信息，放在 article 标签内提供文章作者信息，放在 main、body、footer 内提供网站信息</td>
-</tr>
-<tr>
-<td>footer</td>
-<td>一般在 HTML 结构底部，补充网站信息，如果放在 article 内补充文章信息</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Meta"><a href="#Meta" class="headerlink" title="Meta"></a>Meta</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- SEO --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">"keywords"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">"description"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"author"</span> <span class="attr">content</span>=<span class="string">"xg4, xingor4@gmail.com"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- mobile --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"theme-color"</span> <span class="attr">content</span>=<span class="string">"#000000"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- chromium --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge,chrome=1"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"renderer"</span> <span class="attr">content</span>=<span class="string">"webkit|ie-comp|ie-stand"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"force-rendering"</span> <span class="attr">content</span>=<span class="string">"webkit|ie-comp|ie-stand"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- full screen --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"full-screen"</span> <span class="attr">content</span>=<span class="string">"yes"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-fullscreen"</span> <span class="attr">content</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- robots --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"robots"</span> <span class="attr">content</span>=<span class="string">"index, about"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- orientation --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"screen-orientation"</span> <span class="attr">content</span>=<span class="string">"portrait"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-orientation"</span> <span class="attr">content</span>=<span class="string">"portrait"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 禁止识别电话号码和邮箱 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no, email=no"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- web app --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"browsermode"</span> <span class="attr">content</span>=<span class="string">"application"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-page-mode"</span> <span class="attr">content</span>=<span class="string">"app"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span> <span class="attr">content</span>=<span class="string">"yes"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- status bar style --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-status-bar-style"</span> <span class="attr">content</span>=<span class="string">"default"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- add to home screen of title --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-title"</span> <span class="attr">content</span>=<span class="string">"title"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- windows phone tap highlight --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"msapplication-tap-highlight"</span> <span class="attr">content</span>=<span class="string">"no"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- old device --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"MobileOptimized"</span> <span class="attr">content</span>=<span class="string">"320"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"HandheldFriendly"</span> <span class="attr">content</span>=<span class="string">"true"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- icon --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span></span></span><br><span class="line"><span class="tag">  <span class="attr">rel</span>=<span class="string">"apple-touch-icon-precomposed"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">sizes</span>=<span class="string">"57x57"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">"/icons/apple-touch-icon.png"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span></span></span><br><span class="line"><span class="tag">  <span class="attr">rel</span>=<span class="string">"apple-touch-icon-precomposed"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">sizes</span>=<span class="string">"72x72"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">"/icons/apple-touch-icon.png"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span></span></span><br><span class="line"><span class="tag">  <span class="attr">rel</span>=<span class="string">"apple-touch-icon-precomposed"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">sizes</span>=<span class="string">"114x114"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">"/icons/apple-touch-icon.png"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span></span></span><br><span class="line"><span class="tag">  <span class="attr">rel</span>=<span class="string">"apple-touch-icon-precomposed"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">sizes</span>=<span class="string">"144x144"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">"/icons/apple-touch-icon.png"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- PWA --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"/manifest.json"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- favicon --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"shortcut icon"</span> <span class="attr">href</span>=<span class="string">"/favicon.ico"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -4451,7 +4402,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -4504,7 +4455,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">17</span>
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

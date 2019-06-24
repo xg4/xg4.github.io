@@ -286,6 +286,215 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/12/11/html/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/12/11/html/" class="post-title-link" itemprop="url">HTML</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-12-11 18:24:24" itemprop="dateCreated datePublished" datetime="2018-12-11T18:24:24+00:00">2018-12-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#figure">figure</a></li>
+<li><a href="#html5-%E7%BB%93%E6%9E%84%E5%8C%96%E5%85%83%E7%B4%A0">HTML5 结构化元素</a></li>
+<li><a href="#meta">Meta</a></li>
+<li><a href="#link">Link</a></li>
+</ul>
+<h2 id="figure"><a href="#figure" class="headerlink" title="figure"></a>figure</h2><blockquote>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure" target="_blank" rel="noopener">MDN figure</a><br>代表一段独立的内容，在主文中引用的图片，插图，表格，代码段， 和 figcaption 一起使用，figcaption 表示说明文字或者标题，当这部分转移到附录中或者其他页面时不会影响到主体</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- only figure --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"source"</span> <span class="attr">alt</span>=<span class="string">"img"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- image --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"source"</span> <span class="attr">alt</span>=<span class="string">"img"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">figcaption</span>&gt;</span>An image<span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- code --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">figcaption</span>&gt;</span>Get browser details using <span class="tag">&lt;<span class="name">code</span>&gt;</span>navigator<span class="tag">&lt;/<span class="name">code</span>&gt;</span>.<span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">pre</span>&gt;</span></span><br><span class="line">function NavigatorExample() &#123;</span><br><span class="line">  var txt;</span><br><span class="line">  txt = "Browser CodeName: " + navigator.appCodeName + "; ";</span><br><span class="line">  txt+= "Browser Name: " + navigator.appName + "; ";</span><br><span class="line">  txt+= "Browser Version: " + navigator.appVersion  + "; ";</span><br><span class="line">  txt+= "Cookies Enabled: " + navigator.cookieEnabled  + "; ";</span><br><span class="line">  txt+= "Platform: " + navigator.platform  + "; ";</span><br><span class="line">  txt+= "User-agent header: " + navigator.userAgent  + "; ";</span><br><span class="line">  console.log("NavigatorExample", txt);</span><br><span class="line">&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- reference --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">figcaption</span>&gt;</span><span class="tag">&lt;<span class="name">cite</span>&gt;</span>Edsger Dijkstra:<span class="tag">&lt;/<span class="name">cite</span>&gt;</span><span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">blockquote</span>&gt;</span></span><br><span class="line">    If debugging is the process of removing software bugs, then programming must</span><br><span class="line">    be the process of putting them in.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- text --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"white-space:pre"</span>&gt;</span></span><br><span class="line">    Bid me discourse, I will enchant thine ear, Or like a fairy trip upon the</span><br><span class="line">    green, Or, like a nymph, with long dishevell'd hair, Dance on the sands, and</span><br><span class="line">    yet no footing seen: Love is a spirit all compact of fire, Not gross to</span><br><span class="line">    sink, but light, and will aspire.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">figcaption</span>&gt;</span><span class="tag">&lt;<span class="name">cite</span>&gt;</span>Venus and Adonis<span class="tag">&lt;/<span class="name">cite</span>&gt;</span>, by William Shakespeare<span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="HTML5-结构化元素"><a href="#HTML5-结构化元素" class="headerlink" title="HTML5 结构化元素"></a>HTML5 结构化元素</h2><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>header</td>
+<td>body、main 标签的直接子标签，位置在页面头部，内容可能为 logo、标语、搜索提示、导航栏</td>
+</tr>
+<tr>
+<td>nav</td>
+<td>导航栏包在 nav 标签内，可能出现在头部、侧边栏、底部等等，神奇的地方在于设置 nav 标签的 display:inline-block，是作用在 li 标签上的</td>
+</tr>
+<tr>
+<td>main</td>
+<td>body 标签的直接子标签，主内容区域</td>
+</tr>
+<tr>
+<td>aside</td>
+<td>侧边栏</td>
+</tr>
+<tr>
+<td>article</td>
+<td>一般出现在 main 标签内，article 标签内可以有 section、footer 等标签，是比较独立的内容，比如像博客网站主页的一个文章简介</td>
+</tr>
+<tr>
+<td>section</td>
+<td>section 和 div 很类似，如果使用 div 标签是为了对内容做样式控制，或者为了便于 javascript 获取做其他操作，那么使用 div 就是你的答案，其他情况就用 section</td>
+</tr>
+<tr>
+<td>address</td>
+<td>提供联系信息，放在 article 标签内提供文章作者信息，放在 main、body、footer 内提供网站信息</td>
+</tr>
+<tr>
+<td>footer</td>
+<td>一般在 HTML 结构底部，补充网站信息，如果放在 article 内补充文章信息</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Meta"><a href="#Meta" class="headerlink" title="Meta"></a>Meta</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- SEO --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">"keywords"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">"description"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"author"</span> <span class="attr">content</span>=<span class="string">"xg4, xingor4@gmail.com"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- mobile --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"theme-color"</span> <span class="attr">content</span>=<span class="string">"#000000"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- chromium --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge,chrome=1"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"renderer"</span> <span class="attr">content</span>=<span class="string">"webkit|ie-comp|ie-stand"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"force-rendering"</span> <span class="attr">content</span>=<span class="string">"webkit|ie-comp|ie-stand"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- full screen --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"full-screen"</span> <span class="attr">content</span>=<span class="string">"yes"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-fullscreen"</span> <span class="attr">content</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- robots --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"robots"</span> <span class="attr">content</span>=<span class="string">"index, about"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- orientation --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"screen-orientation"</span> <span class="attr">content</span>=<span class="string">"portrait"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-orientation"</span> <span class="attr">content</span>=<span class="string">"portrait"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 禁止识别电话号码和邮箱 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no, email=no"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- web app --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"browsermode"</span> <span class="attr">content</span>=<span class="string">"application"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-page-mode"</span> <span class="attr">content</span>=<span class="string">"app"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span> <span class="attr">content</span>=<span class="string">"yes"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- status bar style --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-status-bar-style"</span> <span class="attr">content</span>=<span class="string">"default"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- add to home screen of title --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-title"</span> <span class="attr">content</span>=<span class="string">"title"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- windows phone tap highlight --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"msapplication-tap-highlight"</span> <span class="attr">content</span>=<span class="string">"no"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- old device --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"MobileOptimized"</span> <span class="attr">content</span>=<span class="string">"320"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"HandheldFriendly"</span> <span class="attr">content</span>=<span class="string">"true"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- icon --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span></span></span><br><span class="line"><span class="tag">  <span class="attr">rel</span>=<span class="string">"apple-touch-icon-precomposed"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">sizes</span>=<span class="string">"57x57"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">"/icons/apple-touch-icon.png"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span></span></span><br><span class="line"><span class="tag">  <span class="attr">rel</span>=<span class="string">"apple-touch-icon-precomposed"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">sizes</span>=<span class="string">"72x72"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">"/icons/apple-touch-icon.png"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span></span></span><br><span class="line"><span class="tag">  <span class="attr">rel</span>=<span class="string">"apple-touch-icon-precomposed"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">sizes</span>=<span class="string">"114x114"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">"/icons/apple-touch-icon.png"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span></span></span><br><span class="line"><span class="tag">  <span class="attr">rel</span>=<span class="string">"apple-touch-icon-precomposed"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">sizes</span>=<span class="string">"144x144"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">"/icons/apple-touch-icon.png"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- PWA --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"/manifest.json"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- favicon --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"shortcut icon"</span> <span class="attr">href</span>=<span class="string">"/favicon.ico"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/18/restful-api/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -348,7 +557,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -579,7 +788,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -908,7 +1117,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -1131,7 +1340,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -1497,7 +1706,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -1720,7 +1929,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -1936,7 +2145,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -2307,7 +2516,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -2505,7 +2714,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
+                <time title="Modified: 2019-06-24 16:07:23" itemprop="dateModified" datetime="2019-06-24T16:07:23+00:00">2019-06-24</time>
               
             
           </span>
@@ -2605,417 +2814,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/08/13/git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xg4">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/13/git/" class="post-title-link" itemprop="url">Git</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-08-13 22:42:20" itemprop="dateCreated datePublished" datetime="2018-08-13T22:42:20+00:00">2018-08-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-17 12:58:06" itemprop="dateModified" datetime="2019-06-17T12:58:06+00:00">2019-06-17</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#ssh">ssh</a></li>
-<li><a href="#config">config</a><ul>
-<li><a href="#alias">alias</a></li>
-<li><a href="#log">log</a></li>
-</ul>
-</li>
-<li><a href="#initial">initial</a></li>
-<li><a href="#branch">branch</a></li>
-<li><a href="#tag">tag</a></li>
-<li><a href="#reset">reset</a><ul>
-<li><a href="#checkout">checkout</a></li>
-</ul>
-</li>
-<li><a href="#stash">stash</a></li>
-<li><a href="#clone">clone</a></li>
-<li><a href="#push">push</a></li>
-<li><a href="#remote">remote</a></li>
-<li><a href="#ignore">ignore</a></li>
-<li><a href="#remove">remove</a></li>
-<li><a href="#submodule">submodule</a><ul>
-<li><a href="#%E6%B7%BB%E5%8A%A0%E5%AD%90%E6%A8%A1%E5%9D%97">添加子模块</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%AD%90%E6%A8%A1%E5%9D%97">查看子模块</a></li>
-<li><a href="#%E6%9B%B4%E6%96%B0%E5%AD%90%E6%A8%A1%E5%9D%97">更新子模块</a></li>
-<li><a href="#%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%AD%90%E6%A8%A1%E5%9D%97">克隆项目及子模块</a></li>
-<li><a href="#%E4%BF%AE%E6%94%B9%E5%AD%90%E6%A8%A1%E5%9D%97">修改子模块</a></li>
-<li><a href="#%E5%88%A0%E9%99%A4%E5%AD%90%E6%A8%A1%E5%9D%97">删除子模块</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xingor4@gmail.com"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>用户主目录下找到 <code>.ssh</code> 目录 (<code>~/.ssh</code>)，id_rsa 和 id_rsa.pub 两个文件</p>
-</li>
-<li><p>id_rsa 是私钥，不能泄露出去，id_rsa.pub 是公钥，可以放心地告诉任何人</p>
-</li>
-<li><p>GitHub “Add SSH Key” 粘贴 id_rsa.pub 文件的内容</p>
-</li>
-<li><p><strong>检验是否连接上 GitHub <code>$ ssh git@github.com</code></strong></p>
-</li>
-</ul>
-<h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"xg4"</span></span><br><span class="line">$ git config --global user.email <span class="string">"xingor4@gmail.com"</span></span><br></pre></td></tr></table></figure>
-<h3 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global alias.st status</span><br><span class="line">$ git config --global alias.ck checkout</span><br><span class="line">$ git config --global alias.cm commit</span><br><span class="line">$ git config --global alias.br branch</span><br></pre></td></tr></table></figure>
-<h3 id="log"><a href="#log" class="headerlink" title="log"></a>log</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示最后一次提交信息</span></span><br><span class="line">$ git config --global alias.last <span class="string">'log -1'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># format log</span></span><br><span class="line">$ git config --global alias.lg <span class="string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span></span><br></pre></td></tr></table></figure>
-<h2 id="initial"><a href="#initial" class="headerlink" title="initial"></a>initial</h2><ul>
-<li><p><code>$ git init</code> : 初始化 git 仓库</p>
-</li>
-<li><p><code>$ git add &lt;filename&gt;</code> : 添加文件到暂存区</p>
-</li>
-<li><p><code>$ git add .</code> : 递归添加整个目录到暂存区</p>
-</li>
-<li><p><code>$ git commit -m &#39;msg&#39;</code> : 提交暂存区内容到仓库</p>
-</li>
-<li><p><code>$ git status</code> : 查看工作区的状态</p>
-</li>
-<li><p><code>$ git diff</code> : 查看修改内容，比较差异</p>
-</li>
-</ul>
-<h2 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h2><ul>
-<li><p><code>$ git branch</code> : 查看分支</p>
-</li>
-<li><p><code>$ git branch &lt;name&gt;</code> : 创建分支</p>
-</li>
-<li><p><code>$ git branch --orphan</code> : 创建空分支</p>
-</li>
-<li><p><code>$ git checkout &lt;name&gt;</code> : 切换分支</p>
-</li>
-<li><p>创建并切换分支</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b &lt;name&gt;</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line">$ git branch &lt;name&gt;</span><br><span class="line">$ git checkout &lt;name&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>$ git merge &lt;name&gt;</code> : 合并 <name> 分支到当前分支</name></p>
-</li>
-<li><p>删除分支：</p>
-<p><code>$ git branch -d &lt;name&gt;</code> : 被删除的分支没有合并时，需强制删除</p>
-<p><code>$ git branch -D &lt;name&gt;</code> : 强制删除</p>
-</li>
-<li><p><code>$ git log --graph</code> : 查看分支合并图</p>
-</li>
-</ul>
-<h2 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h2><blockquote>
-<p>Git 的标签就像是版本库的快照，实质上它就是指向某个 commit 的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。<br>作用在于将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。</p>
-</blockquote>
-<ul>
-<li><p><code>$ git tag &lt;name&gt;</code> : 创建一个新标签</p>
-<ul>
-<li>标签默认为 HEAD，也可以指定一个 commit id</li>
-</ul>
-</li>
-<li><p><code>$ git tag</code> : 查看所有标签</p>
-<ul>
-<li>标签不是按时间顺序列出，而是按字母排序的，用 <code>$ git show &lt;name&gt;</code> 查看标签信息</li>
-</ul>
-</li>
-<li><p><code>$ git tag -a &lt;name&gt; -m &#39;msg&#39;</code> : 指定标签信息，<code>-a</code> 指定标签名， <code>-m</code> 指定说明文字</p>
-</li>
-<li><p><code>$ git tag -s &lt;name&gt; -m &#39;msg&#39;</code> : 用 PGP 签名标签，<code>-s</code> 用私钥签名一个标签</p>
-</li>
-<li><p><code>$ git push origin &lt;name&gt;</code> : 推送一个本地标签</p>
-</li>
-<li><p><code>$ git push origin --tags</code> : 推送全部未推送过的本地标签</p>
-</li>
-<li><p><code>$ git tag -d &lt;name&gt;</code> : 删除一个本地标签</p>
-</li>
-<li><p><code>$ git push origin :refs/tags/&lt;name&gt;</code> : 删除远程标签</p>
-</li>
-<li><p>推送分支和标签</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git push &amp;&amp; git push --tags</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line">$ git push --follow-tags</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h2><ul>
-<li><p><code>$ git log</code> : 显示从最近到最远的提交日志</p>
-<ul>
-<li><strong>按 Q, 退出 log</strong></li>
-</ul>
-</li>
-<li><p><code>$ git log --pretty=oneline</code> : 显示简要版的提交日志</p>
-</li>
-<li><p><code>$ git reset --hard HEAD^</code> : 返回上一个版本，<code>HEAD</code>表示当前版本，<code>HEAD^^</code> 表示上上个版本，也可以用类似于 <code>HEAD~3</code> 来表示要回退到哪一个版本</p>
-</li>
-<li><p><code>$ git reset --hard 3628164</code> : 后面的数字是版本号，此方法可以随意跳转</p>
-</li>
-<li><p><code>$ git push -f</code> : 强制推送到远程分支</p>
-<ul>
-<li>注意：本地分支回滚后，版本将落后远程分支，必须使用强制推送覆盖远程分支，否则无法推送到远程分支</li>
-</ul>
-</li>
-<li><p><code>$ git reflog</code> : 记录所有操作，可以通过此查询版本号</p>
-</li>
-</ul>
-<h3 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h3><blockquote>
-<p><code>$ git checkout -- .</code> : 将当前版本库中的内容替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”</p>
-</blockquote>
-<ul>
-<li><p><code>$ git checkout -- file</code> : 丢弃工作区中的修改，恢复某个文件到当前版本库中的状态</p>
-</li>
-<li><p><code>$ git reset HEAD file &amp;&amp; git checkout -- file</code> : 将已经添加到暂存区的文件撤销，并恢复到当前版本库中的状态</p>
-</li>
-</ul>
-<h2 id="stash"><a href="#stash" class="headerlink" title="stash"></a>stash</h2><ul>
-<li><p><code>$ git stash</code> : 将当前工作区修改文件“储藏”起来，然后创建新的分支，修复 bug 合并，等 BUG 修复之后恢复现场继续工作</p>
-</li>
-<li><p><code>$ git stash list</code> : 查看被储藏起来的项目</p>
-</li>
-<li><p>恢复被储藏项目的两种方法：</p>
-<ul>
-<li><p><code>$ git stash apply</code> : 恢复后，stash 内容并不删除，需要用 <code>$ git stash drop</code> 来删除</p>
-</li>
-<li><p><code>$ git stash pop</code> : 恢复的同时把 stash 内容也删除</p>
-</li>
-</ul>
-</li>
-<li><p>可以多次 stash，恢复的时候，先用 <code>git stash list</code> 查看，然后恢复指定的 stash，用命令：<code>$ git stash apply stash@{0}</code></p>
-</li>
-</ul>
-<h2 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h2><ul>
-<li><p><code>$ git clone &lt;url&gt;</code> : 拉取远程仓库</p>
-<ul>
-<li>支持 git:// (ssh), https:// 等协议</li>
-</ul>
-</li>
-<li><p><code>$ git clone &lt;url&gt; --depth=1</code> : 仓库太大，拉取最近的一个 revision</p>
-<ul>
-<li><code>$ git fetch --unshallow</code> : 继续拉取历史版本</li>
-</ul>
-</li>
-</ul>
-<h2 id="push"><a href="#push" class="headerlink" title="push"></a>push</h2><ul>
-<li><p><code>$ git push</code> : 远程已有 remote_branch 分支，并且已经关联本地分支 local_branch</p>
-</li>
-<li><p><code>$ git push -u origin/remote_branch</code> : 远程已有 remote_branch 分支但未关联本地分支 local_branch</p>
-</li>
-<li><p><code>$ git push origin local_branch:remote_branch</code> : 远程没有 remote_branch 分支，并且没有关联本地分支 local_branch</p>
-</li>
-</ul>
-<h2 id="remote"><a href="#remote" class="headerlink" title="remote"></a>remote</h2><ul>
-<li><p><code>$ git remote add origin &lt;url&gt;</code> : 关联远程仓库（第一次推送 加参数 <code>-u</code>）</p>
-</li>
-<li><p><code>$ git remote -v</code> : 查看远程库信息</p>
-</li>
-<li><p><code>git checkout -b branch-name origin/branch-name</code> : 拉取远程仓库分支</p>
-</li>
-<li><p>推送到远程分支</p>
-<ol>
-<li><p><code>$ git push origin branch-name</code>，如果推送失败，先用 <code>$ git pull</code> 拉取并合并</p>
-</li>
-<li><p>如果合并有冲突，则解决冲突，并在本地提交</p>
-</li>
-<li><p>没有冲突或者解决掉冲突后，再用 <code>git push origin branch-name</code> 推送就能成功！</p>
-</li>
-</ol>
-</li>
-</ul>
-<p><strong>如果 <code>git pull</code> 提示 “no tracking information” , 则说明本地分支和远程分支的链接关系没有创建，用命令 <code>git branch --set-upstream branch-name origin/branch-name</code></strong></p>
-<h2 id="ignore"><a href="#ignore" class="headerlink" title="ignore"></a>ignore</h2><ul>
-<li><p><code>$ git add -f &lt;name&gt;</code> : <code>-f</code> 将 <code>.gitignore</code> 文件强制添加到仓库</p>
-</li>
-<li><p><code>$ git check-ignore</code> : 检查文件是否符合 <code>.gitignore</code> 规则</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git check-ignore -v node_modules</span><br><span class="line">.gitignore:40:node_modules/     node_modules</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h2><ul>
-<li><p><code>$ rm file</code> : 删除文件</p>
-</li>
-<li><p><code>$ git add file</code> : 将删除文件添加到暂存区</p>
-</li>
-<li><p><code>$ git rm file</code> : 删除文件，并添加到暂存区</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ rm file</span><br><span class="line">$ git add file</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line">$ git rm file</span><br></pre></td></tr></table></figure>
-<h2 id="submodule"><a href="#submodule" class="headerlink" title="submodule"></a>submodule</h2><p><strong>子模块的操作默认都是 master 分支</strong></p>
-<ul>
-<li>更换子模块分支</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config -f .gitmodules submodule.&lt;submodule name&gt;.branch dev</span><br><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
-<p><code>.gitmodules</code> 加了 <code>-f</code> 参数，修改提交后对所有用户有效</p>
-<h3 id="添加子模块"><a href="#添加子模块" class="headerlink" title="添加子模块"></a>添加子模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule add &lt;git repo&gt; themes/next</span><br></pre></td></tr></table></figure>
-<p>添加子模块之后运行 <code>git status</code>， 可以看到目录有增加一个文件 <code>.gitmodules</code>，用来保存子模块的信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">"git rm --cached &lt;file&gt;..."</span> to unstage)</span><br><span class="line"></span><br><span class="line">    new file:   .gitmodules</span><br><span class="line">    new file:   theme/next</span><br></pre></td></tr></table></figure>
-<h3 id="查看子模块"><a href="#查看子模块" class="headerlink" title="查看子模块"></a>查看子模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule</span><br><span class="line">c2f33fc76b500770e266c1c16f028807967cd121 themes/next (v7.1.1-4-gc2f33fc)</span><br></pre></td></tr></table></figure>
-<h3 id="更新子模块"><a href="#更新子模块" class="headerlink" title="更新子模块"></a>更新子模块</h3><ul>
-<li><p>更新子模块到最新版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更新子模块为远程仓库的最新版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="克隆项目及子模块"><a href="#克隆项目及子模块" class="headerlink" title="克隆项目及子模块"></a>克隆项目及子模块</h3><ol>
-<li><p>先克隆仓库，再更新子模块</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 克隆项目</span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/xg4/blog</span><br><span class="line"><span class="comment"># 查看子模块</span></span><br><span class="line">$ git submodule</span><br><span class="line"><span class="comment"># 子模块前面 - ，说明子模块还未捡入</span></span><br><span class="line">-c2f33fc76b500770e266c1c16f028807967cd121</span><br><span class="line"><span class="comment"># 初始化子模块，初始化模块只需在克隆父项目后运行一次</span></span><br><span class="line">$ git submodule init</span><br><span class="line"><span class="comment"># 更新子模块</span></span><br><span class="line">$ git submodule update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>递归克隆整个项目</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/xg4/blog --recursive</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="修改子模块"><a href="#修改子模块" class="headerlink" title="修改子模块"></a>修改子模块</h3><p>在子模块中修改文件后，直接提交到远程仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">'update'</span></span><br><span class="line">$ git push origin HEAD:master</span><br></pre></td></tr></table></figure>
-<h3 id="删除子模块"><a href="#删除子模块" class="headerlink" title="删除子模块"></a>删除子模块</h3><ol>
-<li><p>删除子模块文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached theme/next</span><br><span class="line"><span class="comment"># 不带 --cached 参数直接删除文件</span></span><br><span class="line">$ rm -rf theme/next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除 <code>.gitmodules</code> 文件中相关子模块信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[submodule <span class="string">"themes/next"</span>]</span><br><span class="line">path = themes/next</span><br><span class="line">url = https://github.com/theme-next/hexo-theme-next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除 <code>.git/config</code> 中的相关子模块信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[submodule <span class="string">"themes/next"</span>]</span><br><span class="line"> active = <span class="literal">true</span></span><br><span class="line"> url = https://github.com/theme-next/hexo-theme-next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除 <code>.git</code> 文件夹中的相关子模块文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf .git/modules/theme/next</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -3057,7 +2860,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -3110,7 +2913,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">17</span>
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
