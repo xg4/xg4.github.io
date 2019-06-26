@@ -286,6 +286,381 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/05/css/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/05/css/" class="post-title-link" itemprop="url">CSS</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-05 23:21:33" itemprop="dateCreated datePublished" datetime="2018-09-05T23:21:33+00:00">2018-09-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-26 07:02:53" itemprop="dateModified" datetime="2019-06-26T07:02:53+00:00">2019-06-26</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#wrap">wrap</a></li>
+<li><a href="#ellipsis">ellipsis</a></li>
+<li><a href="#clearfix">clearfix</a></li>
+<li><a href="#hairline">hairline</a></li>
+</ul>
+<h2 id="wrap"><a href="#wrap" class="headerlink" title="wrap"></a>wrap</h2><ul>
+<li><p>强制不换行</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自动换行</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line">  <span class="attribute">word-break</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>强制英文单词断行</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  <span class="attribute">word-break</span>: break-all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="ellipsis"><a href="#ellipsis" class="headerlink" title="ellipsis"></a>ellipsis</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 单行溢出隐藏 */</span></span><br><span class="line"><span class="selector-class">.ellipsis</span>() &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多行溢出隐藏 */</span></span><br><span class="line"><span class="selector-class">.multi-ellipsis</span>(<span class="variable">@lines</span>) &#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">-webkit-line-clamp</span>: <span class="variable">@lines</span>;</span><br><span class="line">  <span class="comment">/*! autoprefixer: off */</span></span><br><span class="line">  <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">  <span class="comment">/* autoprefixer: on */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>-webkit-box-orient</code> 是一个过时的属性，postcss 一类的工具会将它默认移除，所以需要取消处理，不然不能起作用</p>
+</li>
+<li><p><strong>多行适用范围</strong></p>
+<p>因使用了 WebKit 的 CSS 扩展属性，该方法适用于 WebKit 浏览器及移动端</p>
+</li>
+<li><p>注：</p>
+<ol>
+<li><p><code>-webkit-line-clamp</code> 用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的 WebKit 属性，常见结合属性：</p>
+</li>
+<li><p><code>display: -webkit-box;</code> 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示</p>
+</li>
+<li><p><code>-webkit-box-orient</code> 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="clearfix"><a href="#clearfix" class="headerlink" title="clearfix"></a>clearfix</h2><blockquote>
+<p>清除浮动</p>
+</blockquote>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>() &#123;</span><br><span class="line">  <span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::before</span>,</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="hairline"><a href="#hairline" class="headerlink" title="hairline"></a>hairline</h2><blockquote>
+<p>移动端 1px border</p>
+</blockquote>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hairline-common</span>() &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">pointer-events</span>: none;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">' '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hairline</span>(<span class="variable">@border-color</span>: <span class="number">#ebedf0</span>) &#123;</span><br><span class="line">  <span class="selector-class">.hairline-common</span>();</span><br><span class="line"></span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">right</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">0</span> dashed <span class="variable">@border-color</span>;</span><br><span class="line">  <span class="attribute">transform</span>: scale(<span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hairline-bottom</span>(<span class="variable">@border-color</span>: <span class="number">#ebedf0</span>, <span class="variable">@left</span>: <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="selector-class">.hairline-common</span>();</span><br><span class="line"></span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="variable">@left</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="variable">@border-color</span>;</span><br><span class="line">  <span class="attribute">transform</span>: scaleY(<span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/05/heroku/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/05/heroku/" class="post-title-link" itemprop="url">Heroku</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-05 13:42:11" itemprop="dateCreated datePublished" datetime="2018-09-05T13:42:11+00:00">2018-09-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-26 07:02:53" itemprop="dateModified" datetime="2019-06-26T07:02:53+00:00">2019-06-26</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction" target="_blank" rel="noopener">Getting Started on Heroku with Node.js</a></p>
+</blockquote>
+<ul>
+<li><p>在 Heroku 上创建一个应用程序，准备 Heroku 来接收你的源代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ heroku create</span><br><span class="line">Creating sharp-rain-871... <span class="keyword">done</span>, stack is cedar-14</span><br><span class="line">http://sharp-rain-871.herokuapp.com/ | https://git.heroku.com/sharp-rain-871.git</span><br><span class="line">Git remote heroku added</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ heroku git:remote -a &lt;name&gt;</span><br><span class="line"></span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">'cm msg'</span></span><br><span class="line">$ git push heroku master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当您创建应用程序时，heroku 还会创建一个 <code>git remote</code>（调用）并将其与本地 git 存储库关联</p>
+<p>Heroku 会 sharp-rain-871 为您的应用程序生成一个随机名称（在这种情况下），或者您可以传递一个参数来指定您自己的应用程序名称。</p>
+<p>现在部署你的代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push heroku master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>该应用程序现在已部署。确保至少有一个应用程序实例正在运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">$ heroku ps:scale web=1</span><br><span class="line">Counting objects: 343, <span class="keyword">done</span>.</span><br><span class="line">Delta compression using up to 4 threads.</span><br><span class="line">Compressing objects: 100% (224/224), <span class="keyword">done</span>.</span><br><span class="line">Writing objects: 100% (250/250), 238.01 KiB, <span class="keyword">done</span>.</span><br><span class="line">Total 250 (delta 63), reused 0 (delta 0)</span><br><span class="line">remote: Compressing <span class="built_in">source</span> files... <span class="keyword">done</span>.</span><br><span class="line">remote: Building <span class="built_in">source</span>:</span><br><span class="line">remote:</span><br><span class="line">remote: -----&gt; Node.js app detected</span><br><span class="line">remote:</span><br><span class="line">remote: -----&gt; Creating runtime environment</span><br><span class="line">remote:</span><br><span class="line">remote:        NPM_CONFIG_LOGLEVEL=error</span><br><span class="line">remote:        NPM_CONFIG_PRODUCTION=<span class="literal">true</span></span><br><span class="line">remote:        NODE_MODULES_CACHE=<span class="literal">true</span></span><br><span class="line">remote:</span><br><span class="line">remote: -----&gt; Installing binaries</span><br><span class="line">remote:        engines.node (package.json):  5.9.1</span><br><span class="line">remote:        engines.npm (package.json):   unspecified (use default)</span><br><span class="line">remote:</span><br><span class="line">remote:        Downloading and installing node 5.9.1...</span><br><span class="line">remote:        Using default npm version: 2.7.4</span><br><span class="line">    ....</span><br><span class="line">remote: -----&gt; Build succeeded!</span><br><span class="line">remote:        ├── ejs@2.4.1</span><br><span class="line">remote:        └── express@4.13.3</span><br><span class="line">remote:</span><br><span class="line">remote: -----&gt; Discovering process types</span><br><span class="line">remote:        Procfile declares types -&gt; web</span><br><span class="line">remote:</span><br><span class="line">remote: -----&gt; Compressing... <span class="keyword">done</span>, 9.4MB</span><br><span class="line">remote: -----&gt; Launching... <span class="keyword">done</span>, v8</span><br><span class="line">remote:        http://sharp-rain-871.herokuapp.com deployed to Heroku</span><br><span class="line">To https://git.heroku.com/nameless-savannah-4829.git</span><br><span class="line">* [new branch]      master -&gt; master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>现在通过其应用程序名称生成的 URL 访问该应用程序。作为一个方便的捷径，你可以打开网站如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku open</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>您可以使用以下 ps 命令来检查多少个 dynos 正在运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ heroku ps</span><br><span class="line">=== web (Free): `node index.js`</span><br><span class="line">web.1: up 2014/04/25 16:26:38 (~ 1s ago)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/08/13/git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -348,7 +723,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-26 06:15:15" itemprop="dateModified" datetime="2019-06-26T06:15:15+00:00">2019-06-26</time>
+                <time title="Modified: 2019-06-26 07:02:53" itemprop="dateModified" datetime="2019-06-26T07:02:53+00:00">2019-06-26</time>
               
             
           </span>
@@ -723,7 +1098,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
