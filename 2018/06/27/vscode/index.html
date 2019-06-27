@@ -96,18 +96,17 @@
 
 
 
-  <meta name="description" content="travis demo  安装 travis1234567$ apt-get install ruby$ apt-get install ruby-dev$ apt-get install build-essential# gem update --system# 下载很慢的话，切换镜像源# gem sources --add https://gems.ruby-china.com/$ gem">
-<meta name="keywords" content="devops,ci,travis">
+  <meta name="description" content="Table of Contents Table of Contents 设置 快捷键 插件 透明背景  设置 F1 输入： screencast，切换截屏模式，方便录屏  快捷键   快捷键 说明     ctrl + c 复制光标当前行   ctrl + v 粘贴到光标当前行   ctrl + d 选中字符   ctrl + shift + alt + ↑/↓ 多行选中   ctrl + k,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Travis CI Deploy">
-<meta property="og:url" content="https://xg4.github.io/2019/04/25/travis-deploy/index.html">
+<meta property="og:title" content="Visual Studio Code">
+<meta property="og:url" content="https://xg4.github.io/2018/06/27/vscode/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="travis demo  安装 travis1234567$ apt-get install ruby$ apt-get install ruby-dev$ apt-get install build-essential# gem update --system# 下载很慢的话，切换镜像源# gem sources --add https://gems.ruby-china.com/$ gem">
+<meta property="og:description" content="Table of Contents Table of Contents 设置 快捷键 插件 透明背景  设置 F1 输入： screencast，切换截屏模式，方便录屏  快捷键   快捷键 说明     ctrl + c 复制光标当前行   ctrl + v 粘贴到光标当前行   ctrl + d 选中字符   ctrl + shift + alt + ↑/↓ 多行选中   ctrl + k,">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-06-27T04:47:36.352Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Travis CI Deploy">
-<meta name="twitter:description" content="travis demo  安装 travis1234567$ apt-get install ruby$ apt-get install ruby-dev$ apt-get install build-essential# gem update --system# 下载很慢的话，切换镜像源# gem sources --add https://gems.ruby-china.com/$ gem">
+<meta name="twitter:title" content="Visual Studio Code">
+<meta name="twitter:description" content="Table of Contents Table of Contents 设置 快捷键 插件 透明背景  设置 F1 输入： screencast，切换截屏模式，方便录屏  快捷键   快捷键 说明     ctrl + c 复制光标当前行   ctrl + v 粘贴到光标当前行   ctrl + d 选中字符   ctrl + shift + alt + ↑/↓ 多行选中   ctrl + k,">
 
 
 
@@ -115,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="https://xg4.github.io/2019/04/25/travis-deploy/">
+  <link rel="canonical" href="https://xg4.github.io/2018/06/27/vscode/">
 
 
 
@@ -125,7 +124,7 @@
   };
 </script>
 
-  <title>Travis CI Deploy | blog</title>
+  <title>Visual Studio Code | blog</title>
   
 
 
@@ -290,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/25/travis-deploy/">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/06/27/vscode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xg4">
@@ -307,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Travis CI Deploy
+          <h1 class="post-title" itemprop="name headline">Visual Studio Code
 
               
             
@@ -333,7 +332,7 @@
                 
               
 
-              <time title="Created: 2019-04-25 18:05:42" itemprop="dateCreated datePublished" datetime="2019-04-25T18:05:42+00:00">2019-04-25</time>
+              <time title="Created: 2018-06-27 11:32:40" itemprop="dateCreated datePublished" datetime="2018-06-27T11:32:40+00:00">2018-06-27</time>
             
 
             
@@ -384,15 +383,74 @@
       
 
       
-        <blockquote>
-<p><a href="https://github.com/xg4/DevOps-demos" target="_blank" rel="noopener">travis demo</a></p>
-</blockquote>
-<h2 id="安装-travis"><a href="#安装-travis" class="headerlink" title="安装 travis"></a>安装 travis</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install ruby</span><br><span class="line">$ apt-get install ruby-dev</span><br><span class="line">$ apt-get install build-essential</span><br><span class="line"><span class="comment"># gem update --system</span></span><br><span class="line"><span class="comment"># 下载很慢的话，切换镜像源</span></span><br><span class="line"><span class="comment"># gem sources --add https://gems.ruby-china.com/</span></span><br><span class="line">$ gem install travis</span><br></pre></td></tr></table></figure>
-<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ travis login</span><br><span class="line"></span><br><span class="line">We need your GitHub login to identify you.</span><br><span class="line">This information will not be sent to Travis CI, only to api.github.com.</span><br><span class="line">The password will not be displayed.</span><br><span class="line"></span><br><span class="line">Try running with --github-token or --auto <span class="keyword">if</span> you don<span class="string">'t want to enter your password anyway.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Username: xxx@xxx.xxx</span></span><br><span class="line"><span class="string">Password for xxx@xxx.xxx: ***</span></span><br><span class="line"><span class="string">Successfully logged in as xg4!</span></span><br></pre></td></tr></table></figure>
-<h2 id="SSH-私钥进行加密处理"><a href="#SSH-私钥进行加密处理" class="headerlink" title="SSH 私钥进行加密处理"></a>SSH 私钥进行加密处理</h2><p>切换到 <code>.travis.yml</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成密钥,如果已存在无需生成</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"xingor4@gmail.com"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用Travis加密 --add 会自动将信息生成到 .travis.yml</span></span><br><span class="line">$ travis encrypt-file ~/.ssh/id_rsa --add</span><br><span class="line"></span><br><span class="line">Detected repository as xxx/xxx, is this correct? |yes| yes</span><br><span class="line">encrypting ~/.ssh/id_rsa <span class="keyword">for</span> xxx/xxx</span><br><span class="line">storing result as id_rsa.enc</span><br><span class="line">storing secure env variables <span class="keyword">for</span> decryption</span><br><span class="line"></span><br><span class="line">Make sure to add id_rsa.enc to the git repository.</span><br><span class="line">Make sure not to add ~/.ssh/id_rsa to the git repository.</span><br><span class="line">Commit all changes to your .travis.yml.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加信任关系</span></span><br><span class="line">ssh-copy-id -i deploy_rsa.pub &lt;ssh-user&gt;@&lt;deploy-host&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将修改添加到git中</span></span><br><span class="line">git add id_rsa.enc .travis.yml</span><br></pre></td></tr></table></figure>
-<h2 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .travis.yml</span></span><br><span class="line">before_install:</span><br><span class="line">  <span class="comment"># 自动生成</span></span><br><span class="line">  - openssl aes-256-cbc -K <span class="variable">$encrypted_d89376f3278d_key</span> -iv <span class="variable">$encrypted_d89376f3278d_iv</span></span><br><span class="line">    -<span class="keyword">in</span> id_rsa.enc -out ~/.ssh/id_rsa -d</span><br><span class="line">  <span class="comment"># 设置权限</span></span><br><span class="line">  - chmod 600 ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-<h2 id="主机验证"><a href="#主机验证" class="headerlink" title="主机验证"></a>主机验证</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .travis.yml</span></span><br><span class="line">addons:</span><br><span class="line">  ssh_known_hosts: your-ip</span><br></pre></td></tr></table></figure>
+        <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE">设置</a></li>
+<li><a href="#%E5%BF%AB%E6%8D%B7%E9%94%AE">快捷键</a></li>
+<li><a href="#%E6%8F%92%E4%BB%B6">插件</a></li>
+<li><a href="#%E9%80%8F%E6%98%8E%E8%83%8C%E6%99%AF">透明背景</a></li>
+</ul>
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><ul>
+<li><code>F1</code> 输入： <code>screencast</code>，切换截屏模式，方便录屏</li>
+</ul>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ctrl</code> + <code>c</code></td>
+<td>复制光标当前行</td>
+</tr>
+<tr>
+<td><code>ctrl</code> + <code>v</code></td>
+<td>粘贴到光标当前行</td>
+</tr>
+<tr>
+<td><code>ctrl</code> + <code>d</code></td>
+<td>选中字符</td>
+</tr>
+<tr>
+<td><code>ctrl</code> + <code>shift</code> + <code>alt</code> + <code>↑/↓</code></td>
+<td>多行选中</td>
+</tr>
+<tr>
+<td><code>ctrl</code> + <code>k</code>, <code>ctrl</code> + <code>0</code></td>
+<td>折叠所有</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/66826924" target="_blank" rel="noopener">知乎 - 文章</a></li>
+</ul>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul>
+<li><p><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint&amp;ssr=false#overview" target="_blank" rel="noopener">ESlint</a></p>
+</li>
+<li><p>知乎</p>
+<ul>
+<li><p><a href="https://zhuanlan.zhihu.com/p/54067071" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/54067071</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/52559059" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/52559059</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/36020180" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/36020180</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/46751930" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/46751930</a></p>
+</li>
+</ul>
+</li>
+<li><p>掘金</p>
+<ul>
+<li><p><a href="https://juejin.im/post/5bea48c4e51d454e5b5f19e8" target="_blank" rel="noopener">https://juejin.im/post/5bea48c4e51d454e5b5f19e8</a></p>
+</li>
+<li><p><a href="https://juejin.im/post/5cdb7608e51d456e6154b530" target="_blank" rel="noopener">https://juejin.im/post/5cdb7608e51d456e6154b530</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="透明背景"><a href="#透明背景" class="headerlink" title="透明背景"></a>透明背景</h2><p><a href="https://juejin.im/post/5cdbe78cf265da034d2a3910" target="_blank" rel="noopener">掘金 - 文章</a></p>
 
       
     </div>
@@ -414,16 +472,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/devops/" rel="tag"># devops</a>
-          
-            <a href="/tags/ci/" rel="tag"># ci</a>
-          
-            <a href="/tags/travis/" rel="tag"># travis</a>
-          
-        </div>
-      
 
       
       
@@ -433,18 +481,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/21/github/" rel="next" title="GitHub">
-                <i class="fa fa-chevron-left"></i> GitHub
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/02/data-structures/" rel="prev" title="Data Structures">
-                Data Structures <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/13/git/" rel="prev" title="Git">
+                Git <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -607,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-travis"><span class="nav-number">1.</span> <span class="nav-text">安装 travis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录"><span class="nav-number">2.</span> <span class="nav-text">登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-私钥进行加密处理"><span class="nav-number">3.</span> <span class="nav-text">SSH 私钥进行加密处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置权限"><span class="nav-number">4.</span> <span class="nav-text">设置权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主机验证"><span class="nav-number">5.</span> <span class="nav-text">主机验证</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置"><span class="nav-number">2.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷键"><span class="nav-number">3.</span> <span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件"><span class="nav-number">4.</span> <span class="nav-text">插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#透明背景"><span class="nav-number">5.</span> <span class="nav-text">透明背景</span></a></li></ol></div>
             
 
           </div>
