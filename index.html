@@ -348,7 +348,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 10:43:22" itemprop="dateModified" datetime="2019-06-29T10:43:22+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 10:52:24" itemprop="dateModified" datetime="2019-06-29T10:52:24+00:00">2019-06-29</time>
               
             
           </span>
@@ -516,7 +516,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 10:43:22" itemprop="dateModified" datetime="2019-06-29T10:43:22+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 10:52:24" itemprop="dateModified" datetime="2019-06-29T10:52:24+00:00">2019-06-29</time>
               
             
           </span>
@@ -624,7 +624,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/06/24/js-window/">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/06/26/webpack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xg4">
@@ -644,7 +644,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/06/24/js-window/" class="post-title-link" itemprop="url">Window</a>
+                <a href="/2019/06/26/webpack/" class="post-title-link" itemprop="url">webpack</a>
               
             
           </h1>
@@ -669,7 +669,7 @@
                 
               
 
-              <time title="Created: 2019-06-24 22:05:23" itemprop="dateCreated datePublished" datetime="2019-06-24T22:05:23+00:00">2019-06-24</time>
+              <time title="Created: 2019-06-26 12:04:45" itemprop="dateCreated datePublished" datetime="2019-06-26T12:04:45+00:00">2019-06-26</time>
             
 
             
@@ -686,7 +686,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 10:43:22" itemprop="dateModified" datetime="2019-06-29T10:43:22+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 10:52:24" itemprop="dateModified" datetime="2019-06-29T10:52:24+00:00">2019-06-29</time>
               
             
           </span>
@@ -722,25 +722,7 @@
       
         
           
-            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
-<li><a href="#Table-of-Contents">Table of Contents</a></li>
-<li><a href="#getComputedStyle">getComputedStyle</a><ul>
-<li><a href="#example">example</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="getComputedStyle"><a href="#getComputedStyle" class="headerlink" title="getComputedStyle"></a>getComputedStyle</h2><blockquote>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle" target="_blank" rel="noopener">MDN - getComputedStyle</a></p>
-</blockquote>
-<ul>
-<li><p>返回的 CSSStyleDeclaration 对象将包含所有受支持的 CSS 属性长名称的活动值。示例名称是 border-bottom-width，border-width 和 border 是示例速记属性名称。仅使用像 font-size 这样的名字来查询值是最安全的。 查询诸如 font 等简写名称不适用于大多数浏览器</p>
-</li>
-<li><p>CSS 属性值可以使用 <code>getPropertyValue(propName)</code> API 或直接索引到对象，如 <code>cs[&#39;z-index&#39;]</code> 或 <code>cs.zIndex</code></p>
-</li>
-</ul>
-<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> elem1 = <span class="built_in">document</span>.getElementById(<span class="string">'elemId'</span>)</span><br><span class="line"><span class="keyword">const</span> style = <span class="built_in">window</span>.getComputedStyle(elem1, <span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 它等价于</span></span><br><span class="line"><span class="comment">// const style = document.defaultView.getComputedStyle(elem1, null);</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-id">#elem-container</span> &#123;</span></span><br><span class="line"><span class="undefined">    position: absolute;</span></span><br><span class="line"><span class="undefined">    left: 100px;</span></span><br><span class="line"><span class="undefined">    top: 200px;</span></span><br><span class="line"><span class="undefined">    height: 100px;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"elem-container"</span>&gt;</span>dummy<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"output"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="function"><span class="keyword">function</span> <span class="title">getTheStyle</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> elem = <span class="built_in">document</span>.getElementById(<span class="string">'elem-container'</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> theCSSprop = <span class="built_in">window</span></span></span><br><span class="line"><span class="javascript">      .getComputedStyle(elem, <span class="literal">null</span>)</span></span><br><span class="line"><span class="javascript">      .getPropertyValue(<span class="string">'height'</span>)</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'output'</span>).innerHTML = theCSSprop</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  getTheStyle()</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+            
           
         
       
@@ -858,7 +840,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 10:43:22" itemprop="dateModified" datetime="2019-06-29T10:43:22+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 10:52:24" itemprop="dateModified" datetime="2019-06-29T10:52:24+00:00">2019-06-29</time>
               
             
           </span>
@@ -1107,7 +1089,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 10:43:22" itemprop="dateModified" datetime="2019-06-29T10:43:22+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 10:52:24" itemprop="dateModified" datetime="2019-06-29T10:52:24+00:00">2019-06-29</time>
               
             
           </span>
@@ -1270,7 +1252,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 10:43:22" itemprop="dateModified" datetime="2019-06-29T10:43:22+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 10:52:24" itemprop="dateModified" datetime="2019-06-29T10:52:24+00:00">2019-06-29</time>
               
             
           </span>
@@ -2954,7 +2936,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 10:43:22" itemprop="dateModified" datetime="2019-06-29T10:43:22+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 10:52:24" itemprop="dateModified" datetime="2019-06-29T10:52:24+00:00">2019-06-29</time>
               
             
           </span>
@@ -3178,7 +3160,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 10:43:22" itemprop="dateModified" datetime="2019-06-29T10:43:22+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 10:52:24" itemprop="dateModified" datetime="2019-06-29T10:52:24+00:00">2019-06-29</time>
               
             
           </span>
@@ -3384,7 +3366,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/10/js-document/">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/10/js-browser/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xg4">
@@ -3404,7 +3386,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/10/js-document/" class="post-title-link" itemprop="url">Document</a>
+                <a href="/2019/04/10/js-browser/" class="post-title-link" itemprop="url">Javascript - Browser</a>
               
             
           </h1>
@@ -3446,7 +3428,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 10:43:22" itemprop="dateModified" datetime="2019-06-29T10:43:22+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 10:52:24" itemprop="dateModified" datetime="2019-06-29T10:52:24+00:00">2019-06-29</time>
               
             
           </span>
@@ -3484,6 +3466,11 @@
           
             <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
 <li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#Window">Window</a><ul>
+<li><a href="#getComputedStyle">getComputedStyle</a></li>
+</ul>
+</li>
+<li><a href="#Document">Document</a><ul>
 <li><a href="#Web-Animations">Web Animations</a></li>
 <li><a href="#Event">Event</a></li>
 <li><a href="#IntersectionObserver">IntersectionObserver</a></li>
@@ -3491,24 +3478,39 @@
 <li><a href="#ParentNodeappend">ParentNode.append()</a></li>
 <li><a href="#onWheel">onWheel</a></li>
 </ul>
-<h2 id="Web-Animations"><a href="#Web-Animations" class="headerlink" title="Web Animations"></a>Web Animations</h2><blockquote>
+</li>
+</ul>
+<h2 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h2><h3 id="getComputedStyle"><a href="#getComputedStyle" class="headerlink" title="getComputedStyle"></a>getComputedStyle</h3><blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle" target="_blank" rel="noopener">MDN - getComputedStyle</a></p>
+</blockquote>
+<ul>
+<li><p>返回的 CSSStyleDeclaration 对象将包含所有受支持的 CSS 属性长名称的活动值。示例名称是 border-bottom-width，border-width 和 border 是示例速记属性名称。仅使用像 font-size 这样的名字来查询值是最安全的。 查询诸如 font 等简写名称不适用于大多数浏览器</p>
+</li>
+<li><p>CSS 属性值可以使用 <code>getPropertyValue(propName)</code> API 或直接索引到对象，如 <code>cs[&#39;z-index&#39;]</code> 或 <code>cs.zIndex</code></p>
+</li>
+<li><p>example</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> elem1 = <span class="built_in">document</span>.getElementById(<span class="string">'elemId'</span>)</span><br><span class="line"><span class="keyword">const</span> style = <span class="built_in">window</span>.getComputedStyle(elem1, <span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 它等价于</span></span><br><span class="line"><span class="comment">// const style = document.defaultView.getComputedStyle(elem1, null);</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-id">#elem-container</span> &#123;</span></span><br><span class="line"><span class="undefined">    position: absolute;</span></span><br><span class="line"><span class="undefined">    left: 100px;</span></span><br><span class="line"><span class="undefined">    top: 200px;</span></span><br><span class="line"><span class="undefined">    height: 100px;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"elem-container"</span>&gt;</span>dummy<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"output"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="function"><span class="keyword">function</span> <span class="title">getTheStyle</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> elem = <span class="built_in">document</span>.getElementById(<span class="string">'elem-container'</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> theCSSprop = <span class="built_in">window</span></span></span><br><span class="line"><span class="javascript">      .getComputedStyle(elem, <span class="literal">null</span>)</span></span><br><span class="line"><span class="javascript">      .getPropertyValue(<span class="string">'height'</span>)</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'output'</span>).innerHTML = theCSSprop</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  getTheStyle()</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h2><h3 id="Web-Animations"><a href="#Web-Animations" class="headerlink" title="Web Animations"></a>Web Animations</h3><blockquote>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API" target="_blank" rel="noopener">MDN</a></p>
 </blockquote>
 <p><a href="https://github.com/web-animations/web-animations-js" target="_blank" rel="noopener">GitHub polyfill</a></p>
-<h2 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h2><ul>
+<h3 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h3><ul>
 <li><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/transitionend_event" target="_blank" rel="noopener">transitionend</a></p>
 </li>
 <li><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationend_event" target="_blank" rel="noopener">animationend</a></p>
 </li>
 </ul>
-<h2 id="IntersectionObserver"><a href="#IntersectionObserver" class="headerlink" title="IntersectionObserver"></a>IntersectionObserver</h2><blockquote>
+<h3 id="IntersectionObserver"><a href="#IntersectionObserver" class="headerlink" title="IntersectionObserver"></a>IntersectionObserver</h3><blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver" target="_blank" rel="noopener">MDN</a><br><a href="http://www.ruanyifeng.com/blog/2016/11/intersectionobserver_api.html" target="_blank" rel="noopener">阮一峰</a></p>
 </blockquote>
 <p><a href="https://github.com/w3c/IntersectionObserver" target="_blank" rel="noopener">Github polyfill</a></p>
-<h2 id="Element-scrollIntoView"><a href="#Element-scrollIntoView" class="headerlink" title="Element.scrollIntoView()"></a>Element.scrollIntoView()</h2><blockquote>
+<h3 id="Element-scrollIntoView"><a href="#Element-scrollIntoView" class="headerlink" title="Element.scrollIntoView()"></a>Element.scrollIntoView()</h3><blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView" target="_blank" rel="noopener">MDN - Element.scrollIntoView()</a></p>
 </blockquote>
-<h2 id="ParentNode-append"><a href="#ParentNode-append" class="headerlink" title="ParentNode.append()"></a>ParentNode.append()</h2><blockquote>
+<h3 id="ParentNode-append"><a href="#ParentNode-append" class="headerlink" title="ParentNode.append()"></a>ParentNode.append()</h3><blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/ParentNode/append" target="_blank" rel="noopener">MDN - ParentNode.append()</a></p>
 </blockquote>
 <ul>
@@ -3518,7 +3520,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (item.hasOwnProperty(<span class="string">'append'</span>)) &#123;</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(item, <span class="string">'append'</span>, &#123;</span><br><span class="line">      configurable: <span class="literal">true</span>,</span><br><span class="line">      enumerable: <span class="literal">true</span>,</span><br><span class="line">      writable: <span class="literal">true</span>,</span><br><span class="line">      value: <span class="function"><span class="keyword">function</span> <span class="title">append</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> argArr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>),</span><br><span class="line">          docFrag = <span class="built_in">document</span>.createDocumentFragment()</span><br><span class="line"></span><br><span class="line">        argArr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">argItem</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> isNode = argItem <span class="keyword">instanceof</span> Node</span><br><span class="line">          docFrag.appendChild(</span><br><span class="line">            isNode ? argItem : <span class="built_in">document</span>.createTextNode(<span class="built_in">String</span>(argItem))</span><br><span class="line">          )</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.appendChild(docFrag)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)([Element.prototype, Document.prototype, DocumentFragment.prototype])</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="onWheel"><a href="#onWheel" class="headerlink" title="onWheel"></a>onWheel</h2><blockquote>
+<h3 id="onWheel"><a href="#onWheel" class="headerlink" title="onWheel"></a>onWheel</h3><blockquote>
 <p>兼容浏览器 wheel 事件</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> onWheel = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> wheelEvt =</span><br><span class="line">    <span class="string">'onwheel'</span> <span class="keyword">in</span> <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">      ? <span class="string">'wheel'</span></span><br><span class="line">      : <span class="built_in">document</span>.onmousewheel !== <span class="literal">undefined</span></span><br><span class="line">      ? <span class="string">'mousewheel'</span></span><br><span class="line">      : <span class="string">'DOMMouseScroll'</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">el, func</span>) </span>&#123;</span><br><span class="line">    el.addEventListener(wheelEvt, func)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
@@ -3640,7 +3642,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 10:43:22" itemprop="dateModified" datetime="2019-06-29T10:43:22+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 10:52:24" itemprop="dateModified" datetime="2019-06-29T10:52:24+00:00">2019-06-29</time>
               
             
           </span>
@@ -3957,7 +3959,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                      
+                    
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
