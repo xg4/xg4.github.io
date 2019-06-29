@@ -286,6 +286,203 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/06/29/css-center/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/29/css-center/" class="post-title-link" itemprop="url">CSS Center</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-29 23:05:06 / Modified: 16:41:57" itemprop="dateCreated datePublished" datetime="2019-06-29T23:05:06+00:00">2019-06-29</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#%E7%AB%96%E7%9B%B4%E5%B1%85%E4%B8%AD">竖直居中</a><ul>
+<li><a href="#flex">flex</a></li>
+<li><a href="#line-height">line-height</a></li>
+<li><a href="#before-after">::before ::after</a></li>
+<li><a href="#calc">calc</a></li>
+<li><a href="#transform">transform</a></li>
+<li><a href="#absolute">absolute</a></li>
+<li><a href="#table">table</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B0%B4%E5%B9%B3%E9%9B%86%E4%B8%AD">水平集中</a><ul>
+<li><a href="#%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0">块级元素</a></li>
+<li><a href="#%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0">行内元素</a></li>
+<li><a href="#flex-1">flex</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="竖直居中"><a href="#竖直居中" class="headerlink" title="竖直居中"></a>竖直居中</h2><h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><p>标准的竖直居中方式，适用于 IE10+ 和 现代浏览器</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="line-height"><a href="#line-height" class="headerlink" title="line-height"></a>line-height</h3><ul>
+<li><p>必须是单行</p>
+</li>
+<li><p>子元素必须是行内元素(inline, inline-block)</p>
+</li>
+<li><p>父元素已知高度</p>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* or */</span></span><br><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="before-after"><a href="#before-after" class="headerlink" title="::before ::after"></a>::before ::after</h3><ul>
+<li>子元素必须是行内元素</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="calc"><a href="#calc" class="headerlink" title="calc"></a>calc</h3><ul>
+<li><p>已知子元素的高度</p>
+</li>
+<li><p>竖直居中的 top 值为 50% - (height / 2)</p>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">top</span>: <span class="built_in">calc</span>(50% - 15px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="transform"><a href="#transform" class="headerlink" title="transform"></a>transform</h3><p>通用的竖直居中，适用于 IE9+ 和 现代浏览器</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="absolute"><a href="#absolute" class="headerlink" title="absolute"></a>absolute</h3><ul>
+<li><p>因为绝对定位的元素是会互相覆盖的，所以只适用于单个子元素</p>
+</li>
+<li><p>必须指定子元素的高度，子元素没有高度就是 100%</p>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="table"><a href="#table" class="headerlink" title="table"></a>table</h3><p>模拟 table 的竖直居中</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: table-cell;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="水平集中"><a href="#水平集中" class="headerlink" title="水平集中"></a>水平集中</h2><h3 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="flex-1"><a href="#flex-1" class="headerlink" title="flex"></a>flex</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/06/26/js-api/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -348,7 +545,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 12:02:03" itemprop="dateModified" datetime="2019-06-29T12:02:03+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 16:41:57" itemprop="dateModified" datetime="2019-06-29T16:41:57+00:00">2019-06-29</time>
               
             
           </span>
@@ -521,7 +718,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 12:02:03" itemprop="dateModified" datetime="2019-06-29T12:02:03+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 16:41:57" itemprop="dateModified" datetime="2019-06-29T16:41:57+00:00">2019-06-29</time>
               
             
           </span>
@@ -693,7 +890,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 12:02:03" itemprop="dateModified" datetime="2019-06-29T12:02:03+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 16:41:57" itemprop="dateModified" datetime="2019-06-29T16:41:57+00:00">2019-06-29</time>
               
             
           </span>
@@ -942,7 +1139,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 12:02:03" itemprop="dateModified" datetime="2019-06-29T12:02:03+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 16:41:57" itemprop="dateModified" datetime="2019-06-29T16:41:57+00:00">2019-06-29</time>
               
             
           </span>
@@ -1105,7 +1302,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 12:02:03" itemprop="dateModified" datetime="2019-06-29T12:02:03+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 16:41:57" itemprop="dateModified" datetime="2019-06-29T16:41:57+00:00">2019-06-29</time>
               
             
           </span>
@@ -2789,7 +2986,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 12:02:03" itemprop="dateModified" datetime="2019-06-29T12:02:03+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 16:41:57" itemprop="dateModified" datetime="2019-06-29T16:41:57+00:00">2019-06-29</time>
               
             
           </span>
@@ -3013,7 +3210,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 12:02:03" itemprop="dateModified" datetime="2019-06-29T12:02:03+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 16:41:57" itemprop="dateModified" datetime="2019-06-29T16:41:57+00:00">2019-06-29</time>
               
             
           </span>
@@ -3281,7 +3478,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 12:02:03" itemprop="dateModified" datetime="2019-06-29T12:02:03+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 16:41:57" itemprop="dateModified" datetime="2019-06-29T16:41:57+00:00">2019-06-29</time>
               
             
           </span>
@@ -3495,7 +3692,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 12:02:03" itemprop="dateModified" datetime="2019-06-29T12:02:03+00:00">2019-06-29</time>
+                <time title="Modified: 2019-06-29 16:41:57" itemprop="dateModified" datetime="2019-06-29T16:41:57+00:00">2019-06-29</time>
               
             
           </span>
@@ -3709,193 +3906,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/02/npm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xg4">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/02/npm/" class="post-title-link" itemprop="url">NPM</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-04-02 20:18:04" itemprop="dateCreated datePublished" datetime="2019-04-02T20:18:04+00:00">2019-04-02</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-29 12:02:03" itemprop="dateModified" datetime="2019-06-29T12:02:03+00:00">2019-06-29</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
-<li><a href="#Table-of-Contents">Table of Contents</a></li>
-<li><a href="#Initial">Initial</a></li>
-<li><a href="#Publish">Publish</a></li>
-<li><a href="#Release">Release</a></li>
-</ul>
-<h2 id="Initial"><a href="#Initial" class="headerlink" title="Initial"></a>Initial</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm config <span class="built_in">set</span> init.author.name xg4</span><br><span class="line">$ npm config <span class="built_in">set</span> init.author.email xingor4@gmail.com</span><br><span class="line">$ npm config <span class="built_in">set</span> init.license MIT</span><br></pre></td></tr></table></figure>
-<h2 id="Publish"><a href="#Publish" class="headerlink" title="Publish"></a>Publish</h2><ul>
-<li><p>登录 npm 账号</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm login</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ npm adduser</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置淘宝镜像之后，无法进行 publish</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config <span class="built_in">set</span> registry https://registry.npmjs.org</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>private package 需要进行 scope 的设置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config <span class="built_in">set</span> scope &lt;your_scope&gt;</span><br></pre></td></tr></table></figure>
-<p>scope 的包就成了@scope/xxx</p>
-</li>
-<li><p>发布公有的 scope 包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm publish --access=public</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>撤销发布</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm unpublish --force</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="Release"><a href="#Release" class="headerlink" title="Release"></a>Release</h2><blockquote>
-<p>使用 <code>npm version &lt;newVersion&gt;</code> 命令变更版本信息，自动 <code>git tag</code></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm version &lt;newVersion&gt;</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line"><span class="comment"># bump package.json version</span></span><br><span class="line">$ git commit -am <span class="string">"msg"</span></span><br><span class="line">$ git tag <span class="string">"version"</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">npm version [&lt;newVersion&gt; | major | minor | patch | premajor | preminor | prepatch | prerelease [--preid=&lt;prerelease-id&gt;] | from-git]</span><br><span class="line"></span><br><span class="line">major：主版本号</span><br><span class="line"></span><br><span class="line">minor：次版本号</span><br><span class="line"></span><br><span class="line">patch：补丁号</span><br><span class="line"></span><br><span class="line">premajor：预备主版本</span><br><span class="line"></span><br><span class="line">preminor</span><br><span class="line"></span><br><span class="line">prepatch：预备次版本</span><br><span class="line"></span><br><span class="line">prerelease：预发布版本</span><br></pre></td></tr></table></figure>
-<p>若需要指定 commit 的信息，可以使用 -m 命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm version patch -m <span class="string">"build: release v%s"</span>  <span class="comment"># %s 会自动替换成版本号</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># (tag: v0.0.1) build: release v0.0.1</span></span><br></pre></td></tr></table></figure>
-<p><strong>需要注意的是，使用 <code>npm version &lt;newVersion&gt;</code> 命令，需要当前工作区为 clean 状态，否则会执行失败</strong></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3942,7 +3952,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
