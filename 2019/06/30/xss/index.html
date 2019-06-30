@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional  feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
-<meta name="keywords" content="git">
+  <meta name="description" content="目录 目录 分类 反射型 存储型   防御   XSS 攻击全称跨站脚本攻击，为了不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为 XSS, XSS 是一种在 web 应用中的计算机安全漏洞，它允许恶意 web 用户将代码植入到提供给其它用户使用的页面中。（任何用户输入都是不可信的）  分类反射型 只是简单地把用户输入的数据 “反射” 给浏">
+<meta name="keywords" content="js,bug">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git 2">
-<meta property="og:url" content="https://xg4.github.io/2019/04/20/git-2/index.html">
+<meta property="og:title" content="XSS - 跨站脚本攻击">
+<meta property="og:url" content="https://xg4.github.io/2019/06/30/xss/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional  feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
+<meta property="og:description" content="目录 目录 分类 反射型 存储型   防御   XSS 攻击全称跨站脚本攻击，为了不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为 XSS, XSS 是一种在 web 应用中的计算机安全漏洞，它允许恶意 web 用户将代码植入到提供给其它用户使用的页面中。（任何用户输入都是不可信的）  分类反射型 只是简单地把用户输入的数据 “反射” 给浏">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-06-30T12:14:27.255Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git 2">
-<meta name="twitter:description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional  feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
+<meta name="twitter:title" content="XSS - 跨站脚本攻击">
+<meta name="twitter:description" content="目录 目录 分类 反射型 存储型   防御   XSS 攻击全称跨站脚本攻击，为了不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为 XSS, XSS 是一种在 web 应用中的计算机安全漏洞，它允许恶意 web 用户将代码植入到提供给其它用户使用的页面中。（任何用户输入都是不可信的）  分类反射型 只是简单地把用户输入的数据 “反射” 给浏">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://xg4.github.io/2019/04/20/git-2/">
+  <link rel="canonical" href="https://xg4.github.io/2019/06/30/xss/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>Git 2 | blog</title>
+  <title>XSS - 跨站脚本攻击 | blog</title>
   
 
 
@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/20/git-2/">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/06/30/xss/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xg4">
@@ -307,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git 2
+          <h1 class="post-title" itemprop="name headline">XSS - 跨站脚本攻击
 
               
             
@@ -333,24 +333,12 @@
                 
               
 
-              <time title="Created: 2019-04-20 09:54:09" itemprop="dateCreated datePublished" datetime="2019-04-20T09:54:09+00:00">2019-04-20</time>
+              <time title="Created: 2019-06-30 11:50:09 / Modified: 12:14:27" itemprop="dateCreated datePublished" datetime="2019-06-30T11:50:09+00:00">2019-06-30</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-30 12:14:27" itemprop="dateModified" datetime="2019-06-30T12:14:27+00:00">2019-06-30</time>
               
             
           </span>
@@ -384,120 +372,52 @@
       
 
       
-        <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#commit-message">commit message</a></li>
-<li><a href="#server">server</a></li>
-<li><a href="#hooks">hooks</a></li>
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E5%88%86%E7%B1%BB">分类</a><ul>
+<li><a href="#%E5%8F%8D%E5%B0%84%E5%9E%8B">反射型</a></li>
+<li><a href="#%E5%AD%98%E5%82%A8%E5%9E%8B">存储型</a></li>
 </ul>
-<h2 id="commit-message"><a href="#commit-message" class="headerlink" title="commit message"></a>commit message</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(scope?): subject  <span class="comment">#scope is optional</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>feat: 新功能</p>
 </li>
-<li><p>fix: bug 修复</p>
-</li>
-<li><p>docs: 文档修改</p>
-</li>
-<li><p>style: 不影响代码的更改（如空格，格式，缺少分号等）</p>
-</li>
-<li><p>refactor: 代码重构，既不修复错误也不添加功能</p>
-</li>
-<li><p>perf: 代码更改可以提高性能</p>
-</li>
-<li><p>test: 添加缺失或更正现有测试</p>
-</li>
-<li><p>build: build 相关，npm scripts</p>
-</li>
-<li><p>ci: CI 相关</p>
-</li>
-<li><p>chore: 对构建过程或辅助工具和库（如文档生成）的更改</p>
-</li>
-<li><p>revert: 版本回退</p>
-</li>
+<li><a href="#%E9%98%B2%E5%BE%A1">防御</a></li>
 </ul>
-<h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><ol>
-<li><p>创建 git 用户，运行 git 服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加git账户</span></span><br><span class="line">$ adduser git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改git的密码</span></span><br><span class="line">$ passwd git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>禁止 git 用户的 shell 登录</p>
 <blockquote>
-<p>出于安全考虑，创建的 git 用户不允许登录 shell，找到 <code>/etc/passwd</code></p>
+<p>XSS 攻击全称跨站脚本攻击，为了不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为 XSS, XSS 是一种在 web 应用中的计算机安全漏洞，它允许恶意 web 用户将代码植入到提供给其它用户使用的页面中。（任何用户输入都是不可信的）</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git:x:1000:1000::/home/git:/bin/bash</span><br><span class="line"><span class="comment"># 改为</span></span><br><span class="line">$ git:x:1000:1000::/home/git:/usr/bin/git-shell</span><br></pre></td></tr></table></figure>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="反射型"><a href="#反射型" class="headerlink" title="反射型"></a>反射型</h3><ul>
+<li><p>只是简单地把用户输入的数据 “反射” 给浏览器， 反射型 XSS 也叫“非持久型 XSS”（Non-persistent XSS)。</p>
 </li>
-<li><p>免密登录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir /home/git/.ssh</span><br><span class="line">$ chmod 700 /home/git/.ssh</span><br><span class="line">$ touch /home/git/.ssh/authorized_keys</span><br><span class="line">$ chmod 600 /home/git/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果使用 sudo 创建，需要将 owner 改为 git</span></span><br><span class="line">$ chown -R git:git /home/git/</span><br></pre></td></tr></table></figure>
-<p>编辑 <code>/home/git/.ssh/authorized_keys</code> 将客户端公钥放入</p>
+<li><p>比如：直接将用户输入用于网站页面，URL 中的 Query， Params 或者 用户输入的信息直接拼接 DOM 节点等</p>
 </li>
-<li><p>初始化 git 仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir /xg4</span><br><span class="line">$ chown git:git /xg4/</span><br><span class="line">$ <span class="built_in">cd</span> /xg4</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建空的git仓库</span></span><br><span class="line">$ git init --bare test.git</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> /xg4/test.git/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将仓库所属用户改为git</span></span><br><span class="line">$ chown -R git:git test.git</span><br></pre></td></tr></table></figure>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://localhost:3000/?name=&lt;script&gt;alert('hello')&lt;/script&gt;"</span></span></span><br><span class="line"><span class="tag">  &gt;</span>点击进入网站并进行XSS攻击<span class="tag">&lt;/<span class="name">a</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果目标网站直接将 url 中的 query.name 渲染到页面上，就会被攻击</p>
 </li>
-</ol>
-<h2 id="hooks"><a href="#hooks" class="headerlink" title="hooks"></a>hooks</h2><ul>
-<li><p>client hooks: (commit hooks, email hooks, other hooks)</p>
+</ul>
+<h3 id="存储型"><a href="#存储型" class="headerlink" title="存储型"></a>存储型</h3><ul>
+<li><p>存储型 XSS 会把用户输入的数据“存储”在服务器端（数据库）。存储型 XSS 通常也叫做“持久型 XSS”（Persistent XSS）</p>
+</li>
+<li><p>比如：用户发表的文章或评论中，可以输入恶意代码，发表成功存入数据库之后每个用户访问该文章或评论时，都会调用恶意代码，被劫持。</p>
+</li>
+</ul>
+<h2 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h2><p>常见的 Web 漏洞如 XSS，SQL 注入等，都要求攻击者输入一些特殊字符，所以可以通过输入检查，过滤掉这些字符。</p>
 <ul>
-<li><p>commit hooks</p>
+<li><p>React、Vue 等都有对 XSS 进行处理</p>
 <ul>
-<li><p>pre-commit</p>
+<li><p>React <code>dangerouslySetInnerHTML</code> 会有风险</p>
 </li>
-<li><p>prepare-commit-msg</p>
-</li>
-<li><p>commit-msg</p>
-</li>
-<li><p>post-commit</p>
+<li><p>Vue <code>v-html</code> 会有风险</p>
 </li>
 </ul>
 </li>
-<li><p>email hooks</p>
-<ul>
-<li><p>applypatch-msg</p>
+<li><p>GitHub 上有比较成熟的 XSS 库，可参考 <a href="https://github.com/leizongmin/js-xss" target="_blank" rel="noopener">GitHub - XSS</a></p>
 </li>
-<li><p>pre-applypatch</p>
+<li><p>防止 Cookie 被劫持</p>
+<p>Cookie 中设置 HttpOnly 之后，JS 将无法读取 Cookie 信息</p>
 </li>
-<li><p>post-applypaych</p>
-</li>
-</ul>
-</li>
-<li><p>other hooks:</p>
-<ul>
-<li><p>pre-rebase</p>
-</li>
-<li><p>post-checkout</p>
-</li>
-<li><p>post-merge</p>
+<li><p>对下列特殊字符进行过滤或者编码，可以简单的防范</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&amp;  &amp;amp;</span><br><span class="line">&lt;  &amp;lt;</span><br><span class="line">&gt;  &amp;gt;</span><br><span class="line">&quot;  &amp;quot;</span><br><span class="line">&apos;  &amp;#39</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p>server hooks:</p>
-<ul>
-<li><p>pre-receive</p>
-</li>
-<li><p>post-receive</p>
-</li>
-<li><p>update</p>
-</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li><p>创建 git server 仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /xg4</span><br><span class="line">$ git init --bare test.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建工作目录 git 仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /var/www</span><br><span class="line">$ git <span class="built_in">clone</span> /xg4/test.git</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ git init</span><br><span class="line">$ git remote add origin /xg4/test.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>改变所属用户和用户组，获得权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chown -R git:git /xg4/test.git</span><br><span class="line">$ chown -R git:git /var/www/<span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置 git hooks</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /xg4/test.git/hooks/</span><br><span class="line">vim post-receive</span><br></pre></td></tr></table></figure>
-<p>post-receive 文件内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">unset</span> GIT_DIR</span><br><span class="line"><span class="built_in">cd</span> /var/www/<span class="built_in">test</span></span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 赋予 post-receive 文件可执行权限</span></span><br><span class="line">$ chmod +x .git/hooks/post-receive</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
 
       
     </div>
@@ -521,7 +441,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/bug/" rel="tag"># bug</a>
           
         </div>
       
@@ -534,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/10/js-browser/" rel="next" title="Javascript - Browser">
-                <i class="fa fa-chevron-left"></i> Javascript - Browser
+              <a href="/2019/06/29/css-center/" rel="next" title="CSS Center">
+                <i class="fa fa-chevron-left"></i> CSS Center
               </a>
             
           </div>
@@ -543,10 +465,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/20/linux/" rel="prev" title="Linux">
-                Linux <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -720,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commit-message"><span class="nav-number">2.</span> <span class="nav-text">commit message</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server"><span class="nav-number">3.</span> <span class="nav-text">server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hooks"><span class="nav-number">4.</span> <span class="nav-text">hooks</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">2.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#反射型"><span class="nav-number">2.1.</span> <span class="nav-text">反射型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储型"><span class="nav-number">2.2.</span> <span class="nav-text">存储型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防御"><span class="nav-number">3.</span> <span class="nav-text">防御</span></a></li></ol></div>
             
 
           </div>
