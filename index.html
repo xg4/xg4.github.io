@@ -348,7 +348,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-03 03:44:30" itemprop="dateModified" datetime="2019-07-03T03:44:30+00:00">2019-07-03</time>
+                <time title="Modified: 2019-07-03 10:28:50" itemprop="dateModified" datetime="2019-07-03T10:28:50+00:00">2019-07-03</time>
               
             
           </span>
@@ -548,7 +548,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-03 03:44:30" itemprop="dateModified" datetime="2019-07-03T03:44:30+00:00">2019-07-03</time>
+                <time title="Modified: 2019-07-03 10:28:50" itemprop="dateModified" datetime="2019-07-03T10:28:50+00:00">2019-07-03</time>
               
             
           </span>
@@ -757,7 +757,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-03 03:44:30" itemprop="dateModified" datetime="2019-07-03T03:44:30+00:00">2019-07-03</time>
+                <time title="Modified: 2019-07-03 10:28:50" itemprop="dateModified" datetime="2019-07-03T10:28:50+00:00">2019-07-03</time>
               
             
           </span>
@@ -930,7 +930,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-03 03:44:30" itemprop="dateModified" datetime="2019-07-03T03:44:30+00:00">2019-07-03</time>
+                <time title="Modified: 2019-07-03 10:28:50" itemprop="dateModified" datetime="2019-07-03T10:28:50+00:00">2019-07-03</time>
               
             
           </span>
@@ -973,7 +973,11 @@
 <li><a href="#Table-of-Contents">Table of Contents</a></li>
 <li><a href="#main">main</a></li>
 <li><a href="#loader">loader</a><ul>
-<li><a href="#enforce">enforce</a></li>
+<li><a href="#%E8%B7%AF%E5%BE%84">路径</a></li>
+<li><a href="#%E9%A1%BA%E5%BA%8F">顺序</a></li>
+<li><a href="#Pitch-loader">Pitch loader</a></li>
+<li><a href="#raw-loader">raw loader</a></li>
+<li><a href="#loader-context">loader context</a></li>
 <li><a href="#awesome">awesome</a></li>
 </ul>
 </li>
@@ -1015,19 +1019,57 @@
 </li>
 </ul>
 <h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><blockquote>
-<p>loader 应具有单一性，只处理一件事情一个模块</p>
+<p><a href="https://webpack.js.org/api/loaders/" target="_blank" rel="noopener">Webpack loaders API</a></p>
 </blockquote>
-<h3 id="enforce"><a href="#enforce" class="headerlink" title="enforce"></a>enforce</h3><p>执行顺序默认为从后向前，从右向左执行</p>
 <ul>
-<li><p>前置(pre)</p>
+<li><p>从右到左，链式执行</p>
 </li>
-<li><p>普通(normal)</p>
+<li><p>上一个 Loader 的处理结果给下一个接着处理</p>
 </li>
-<li><p>行内(inline)</p>
+<li><p>node module 写法</p>
 </li>
-<li><p>后置(post)</p>
+<li><p>module 依赖</p>
+</li>
+<li><p>return &amp;&amp; this.callback()</p>
 </li>
 </ul>
+<h3 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h3><p>webpack 中查找 loader 的路径</p>
+<ul>
+<li><p>loader 的绝对路径</p>
+</li>
+<li><p>设置 loader 的别名</p>
+</li>
+<li><p>设置 loader 的查找模块</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> resolve = <span class="function">(<span class="params">...dir</span>) =&gt;</span> path.resolve(__dirname, ...dir)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'development'</span>,</span><br><span class="line">  entry: resolve(<span class="string">'src/index.js'</span>),</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'build.js'</span>,</span><br><span class="line">    path: resolve(<span class="string">'dist'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  resolveLoader: &#123;</span><br><span class="line">    <span class="comment">// loader 查找模块</span></span><br><span class="line">    modules: [<span class="string">'node_modules'</span>, resolve(<span class="string">'loaders'</span>)],</span><br><span class="line">    <span class="comment">// loader 别名</span></span><br><span class="line">    alias: &#123;</span><br><span class="line">      <span class="string">'x-loader'</span>: resolve(<span class="string">'loaders/x-loader.js'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        <span class="comment">// loader 绝对路径</span></span><br><span class="line">        use: resolve(<span class="string">'loaders/x-loader.js'</span>)</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        use: [<span class="string">'1-loader'</span>, <span class="string">'2-loader'</span>, <span class="string">'3-loader'</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="顺序"><a href="#顺序" class="headerlink" title="顺序"></a>顺序</h3><blockquote>
+<p>webpack 中 loader 的默认执行顺序是从下到上，从右向左执行<br><code>enforce</code> 调用的优先级（权重），调整调用顺序</p>
+</blockquote>
+<p>顺序：前置(pre) &gt; 普通(normal) &gt; 行内(inline) &gt; 后置(post)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// -! 不会执行之前的 pre 和 normal loader 的处理</span></span><br><span class="line"><span class="comment">// ! 不会执行之前的 normal loader 的处理</span></span><br><span class="line"><span class="comment">// !! 什么都不执行，只执行自己</span></span><br><span class="line"><span class="comment">// import '-!inline-loader!./a.js'</span></span><br><span class="line"><span class="comment">// import '!inline-loader!./a.js'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'!!inline-loader!./a.js'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        <span class="comment">// loader 绝对路径</span></span><br><span class="line">        use: resolve(<span class="string">'loaders/x-loader.js'</span>)</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        use: [<span class="string">'1-loader'</span>],</span><br><span class="line">        enforce: <span class="string">'pre'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        use: [<span class="string">'2-loader'</span>]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        use: [<span class="string">'3-loader'</span>],</span><br><span class="line">        enforce: <span class="string">'post'</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Pitch-loader"><a href="#Pitch-loader" class="headerlink" title="Pitch loader"></a>Pitch loader</h3><blockquote>
+<p>pitch 方法在 Loader 中便是从左到右执行的，并且可以通过 data 这个变量来进行 pitch 和 normal 之间传递。熔断功能</p>
+</blockquote>
+<p>正常顺序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">|- a-loader `pitch`</span><br><span class="line">  |- b-loader `pitch`</span><br><span class="line">    |- c-loader `pitch`</span><br><span class="line">      |- requested module is picked up as a dependency</span><br><span class="line">    |- c-loader normal execution</span><br><span class="line">  |- b-loader normal execution</span><br><span class="line">|- a-loader normal execution</span><br></pre></td></tr></table></figure>
+<p>设置 <code>b-loader</code> 的 pitch 函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// b-loader.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> source</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports.pitch = <span class="function"><span class="keyword">function</span>(<span class="params">remainingRequest, precedingRequest, data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (someCondition()) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="string">'module.exports = require('</span> +</span><br><span class="line">      <span class="built_in">JSON</span>.stringify(<span class="string">'-!'</span> + remainingRequest) +</span><br><span class="line">      <span class="string">');'</span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>设置之后的顺序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|- a-loader `pitch`</span><br><span class="line">  |- b-loader `pitch` returns a module</span><br><span class="line">|- a-loader normal execution</span><br></pre></td></tr></table></figure>
+<h3 id="raw-loader"><a href="#raw-loader" class="headerlink" title="raw loader"></a>raw loader</h3><p>默认的情况，原文件是以 UTF-8 String 的形式传入给 Loader，而在上面有提到的，module 可使用 buffer 的形式进行处理，针对这种情况，只需要设置 module.exports.raw = true; 这样内容将会以 raw Buffer 的形式传入到 loader 中了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> source</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports.raw = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h3 id="loader-context"><a href="#loader-context" class="headerlink" title="loader context"></a>loader context</h3><p>loader 中的上下文 <code>this</code></p>
+<ul>
+<li><p>data: pitch loader 中可以通过 data 让 pitch 和 normal module 进行数据共享。</p>
+</li>
+<li><p>query: 则能获取到 Loader 上附有的参数。 如 require(“./somg-loader?ls”); 通过 query 就可以得到 “ls” 了。</p>
+</li>
+<li><p>emitFile: emitFile 能够让开发者更方便的输出一个 file 文件，这是 webpack 特有的方法，使用的方法也很直接</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">  <span class="keyword">return</span> source</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="awesome"><a href="#awesome" class="headerlink" title="awesome"></a>awesome</h3><table>
 <thead>
 <tr>
@@ -1247,7 +1289,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-03 03:44:30" itemprop="dateModified" datetime="2019-07-03T03:44:30+00:00">2019-07-03</time>
+                <time title="Modified: 2019-07-03 10:28:50" itemprop="dateModified" datetime="2019-07-03T10:28:50+00:00">2019-07-03</time>
               
             
           </span>
@@ -1496,7 +1538,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-03 03:44:30" itemprop="dateModified" datetime="2019-07-03T03:44:30+00:00">2019-07-03</time>
+                <time title="Modified: 2019-07-03 10:28:50" itemprop="dateModified" datetime="2019-07-03T10:28:50+00:00">2019-07-03</time>
               
             
           </span>
@@ -1659,7 +1701,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-03 03:44:30" itemprop="dateModified" datetime="2019-07-03T03:44:30+00:00">2019-07-03</time>
+                <time title="Modified: 2019-07-03 10:28:50" itemprop="dateModified" datetime="2019-07-03T10:28:50+00:00">2019-07-03</time>
               
             
           </span>
@@ -3343,7 +3385,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-03 03:44:30" itemprop="dateModified" datetime="2019-07-03T03:44:30+00:00">2019-07-03</time>
+                <time title="Modified: 2019-07-03 10:28:50" itemprop="dateModified" datetime="2019-07-03T10:28:50+00:00">2019-07-03</time>
               
             
           </span>
@@ -3567,7 +3609,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-03 03:44:30" itemprop="dateModified" datetime="2019-07-03T03:44:30+00:00">2019-07-03</time>
+                <time title="Modified: 2019-07-03 10:28:50" itemprop="dateModified" datetime="2019-07-03T10:28:50+00:00">2019-07-03</time>
               
             
           </span>
@@ -3835,7 +3877,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-03 03:44:30" itemprop="dateModified" datetime="2019-07-03T03:44:30+00:00">2019-07-03</time>
+                <time title="Modified: 2019-07-03 10:28:50" itemprop="dateModified" datetime="2019-07-03T10:28:50+00:00">2019-07-03</time>
               
             
           </span>
