@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="webpack demos  Table of Contents Table of Contents main loader enforce awesome   server proxy hook webpack-dev-middleware   全局变量 expose-loader Webpack.ProvidePlugin externals   优化 module.noParse Webp">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-02T03:54:41.095Z">
+<meta property="og:updated_time" content="2019-07-03T03:44:30.927Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Webpack 4">
 <meta name="twitter:description" content="webpack demos  Table of Contents Table of Contents main loader enforce awesome   server proxy hook webpack-dev-middleware   全局变量 expose-loader Webpack.ProvidePlugin externals   优化 module.noParse Webp">
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-02 03:54:41" itemprop="dateModified" datetime="2019-07-02T03:54:41+00:00">2019-07-02</time>
+                <time title="Modified: 2019-07-03 03:44:30" itemprop="dateModified" datetime="2019-07-03T03:44:30+00:00">2019-07-03</time>
               
             
           </span>
@@ -433,7 +433,7 @@
 </li>
 </ul>
 <h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><blockquote>
-<p>loader 因具有单一性，只处理一件事情</p>
+<p>loader 应具有单一性，只处理一件事情一个模块</p>
 </blockquote>
 <h3 id="enforce"><a href="#enforce" class="headerlink" title="enforce"></a>enforce</h3><p>执行顺序默认为从后向前，从右向左执行</p>
 <ul>
@@ -450,7 +450,6 @@
 <thead>
 <tr>
 <th>name</th>
-<th>test</th>
 <th>description</th>
 <th>link</th>
 </tr>
@@ -458,30 +457,21 @@
 <tbody>
 <tr>
 <td>html-loader</td>
-<td><code>/\.html\$/</code></td>
 <td>处理 html 中的资源引用</td>
 <td><a href="https://github.com/webpack-contrib/html-loader" target="_blank" rel="noopener">GitHub</a></td>
 </tr>
 <tr>
 <td>url-loader</td>
-<td>`/.(png</td>
-<td>jpe?g</td>
-<td>gif)$/`</td>
 <td>处理资源文件，image、video 等</td>
 <td><a href="https://github.com/webpack-contrib/url-loader" target="_blank" rel="noopener">GitHub</a></td>
 </tr>
 <tr>
 <td>file-loader</td>
-<td>`/.(png</td>
-<td>jpe?g</td>
-<td>gif)$/`</td>
 <td>处理资源文件，image、video 等</td>
 <td><a href="https://github.com/webpack-contrib/file-loader" target="_blank" rel="noopener">GitHub</a></td>
 </tr>
 <tr>
 <td>babel-loader</td>
-<td>`/.(ts</td>
-<td>js)x?$/`</td>
 <td>es+ 转 es5</td>
 <td><a href="https://github.com/babel/babel-loader" target="_blank" rel="noopener">GitHub</a></td>
 </tr>
