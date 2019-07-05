@@ -348,7 +348,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-04 06:38:29" itemprop="dateModified" datetime="2019-07-04T06:38:29+00:00">2019-07-04</time>
+                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
               
             
           </span>
@@ -548,7 +548,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-04 06:38:29" itemprop="dateModified" datetime="2019-07-04T06:38:29+00:00">2019-07-04</time>
+                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
               
             
           </span>
@@ -757,7 +757,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-04 06:38:29" itemprop="dateModified" datetime="2019-07-04T06:38:29+00:00">2019-07-04</time>
+                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
               
             
           </span>
@@ -933,7 +933,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-04 06:38:29" itemprop="dateModified" datetime="2019-07-04T06:38:29+00:00">2019-07-04</time>
+                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
               
             
           </span>
@@ -974,7 +974,6 @@
 </blockquote>
 <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
 <li><a href="#Table-of-Contents">Table of Contents</a></li>
-<li><a href="#main">main</a></li>
 <li><a href="#loader">loader</a><ul>
 <li><a href="#%E8%B7%AF%E5%BE%84">路径</a></li>
 <li><a href="#%E9%A1%BA%E5%BA%8F">顺序</a></li>
@@ -984,6 +983,7 @@
 <li><a href="#awesome">awesome</a></li>
 </ul>
 </li>
+<li><a href="#plugin">plugin</a></li>
 <li><a href="#server">server</a><ul>
 <li><a href="#proxy">proxy</a></li>
 <li><a href="#hook">hook</a></li>
@@ -1008,7 +1008,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="main"><a href="#main" class="headerlink" title="main"></a>main</h2><p>核心概念</p>
+<p>核心概念</p>
 <ul>
 <li><p>Entry: 入口</p>
 </li>
@@ -1104,6 +1104,17 @@
 </tr>
 </tbody>
 </table>
+<h2 id="plugin"><a href="#plugin" class="headerlink" title="plugin"></a>plugin</h2><blockquote>
+<p><a href="https://webpack.js.org/concepts/plugins/" target="_blank" rel="noopener">plugin API</a><br><a href="https://webpack.js.org/plugins/" target="_blank" rel="noopener">webpack plugins</a></p>
+</blockquote>
+<ul>
+<li><p>webpack 中的 plugin 必须是一个 <code>class</code>，且拥有 <code>apply</code> 方法</p>
+</li>
+<li><p>webpack 打包时会自动调用 <code>plugin</code> 实例的 <code>apply</code> 方法，并传递 <code>compiler</code> 参数</p>
+</li>
+<li><p><code>compiler</code> 上有个 <code>hooks</code> 属性（钩子函数），plugin 就是基于钩子函数来做处理</p>
+</li>
+</ul>
 <h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><h3 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h3><p>简单的代理请求到目标域</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    proxy: &#123;</span><br><span class="line">      <span class="string">'/api'</span>: &#123;</span><br><span class="line">        target: <span class="string">'https://localhost'</span>,</span><br><span class="line">        pathRewrite: &#123; <span class="string">'/api'</span>: <span class="string">''</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="hook"><a href="#hook" class="headerlink" title="hook"></a>hook</h3><p>webpack 中使用 express server</p>
@@ -1292,7 +1303,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-04 06:38:29" itemprop="dateModified" datetime="2019-07-04T06:38:29+00:00">2019-07-04</time>
+                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
               
             
           </span>
@@ -1541,7 +1552,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-04 06:38:29" itemprop="dateModified" datetime="2019-07-04T06:38:29+00:00">2019-07-04</time>
+                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
               
             
           </span>
@@ -1704,7 +1715,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-04 06:38:29" itemprop="dateModified" datetime="2019-07-04T06:38:29+00:00">2019-07-04</time>
+                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
               
             
           </span>
@@ -3388,7 +3399,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-04 06:38:29" itemprop="dateModified" datetime="2019-07-04T06:38:29+00:00">2019-07-04</time>
+                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
               
             
           </span>
@@ -3612,7 +3623,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-04 06:38:29" itemprop="dateModified" datetime="2019-07-04T06:38:29+00:00">2019-07-04</time>
+                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
               
             
           </span>
@@ -3880,7 +3891,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-04 06:38:29" itemprop="dateModified" datetime="2019-07-04T06:38:29+00:00">2019-07-04</time>
+                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
               
             
           </span>
