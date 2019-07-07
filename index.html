@@ -286,6 +286,226 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/07/07/js-utils/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/07/js-utils/" class="post-title-link" itemprop="url">Javascript Utils</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-07 22:35:38 / Modified: 15:08:45" itemprop="dateCreated datePublished" datetime="2019-07-07T22:35:38+00:00">2019-07-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#isStatic">isStatic</a></li>
+<li><a href="#isPrimitive">isPrimitive</a></li>
+<li><a href="#isObject">isObject</a></li>
+<li><a href="#isObjectLike">isObjectLike</a></li>
+<li><a href="#getRawType">getRawType</a></li>
+<li><a href="#isPlainObject">isPlainObject</a></li>
+<li><a href="#isArray">isArray</a></li>
+<li><a href="#isRegExp">isRegExp</a></li>
+<li><a href="#isDate">isDate</a></li>
+<li><a href="#isNative">isNative</a></li>
+<li><a href="#isFunction">isFunction</a></li>
+<li><a href="#isLength">isLength</a></li>
+<li><a href="#isArrayLike">isArrayLike</a></li>
+<li><a href="#isEmpty">isEmpty</a></li>
+</ul>
+<h2 id="isStatic"><a href="#isStatic" class="headerlink" title="isStatic"></a>isStatic</h2><blockquote>
+<p>检测数据是不是除了 symbol 外的原始数据</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isStatic</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> type = <span class="keyword">typeof</span> value</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    type === <span class="string">'string'</span> ||</span><br><span class="line">    type === <span class="string">'number'</span> ||</span><br><span class="line">    type === <span class="string">'boolean'</span> ||</span><br><span class="line">    types === <span class="string">'undefined'</span> ||</span><br><span class="line">    value === <span class="literal">null</span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isPrimitive"><a href="#isPrimitive" class="headerlink" title="isPrimitive"></a>isPrimitive</h2><blockquote>
+<p>检测数据是不是原始数据</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPrimitive</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> isStatic(value) || <span class="keyword">typeof</span> value === <span class="string">'symbol'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isObject"><a href="#isObject" class="headerlink" title="isObject"></a>isObject</h2><blockquote>
+<p>判断数据是不是引用类型的数据 (例如： Array, Function, Object, Regexp, new Number(0),以及 new String(‘’))</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObject</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> type = <span class="keyword">typeof</span> value</span><br><span class="line">  <span class="keyword">return</span> value !== <span class="literal">null</span> &amp;&amp; (type === <span class="string">'object'</span> || type === <span class="string">'function'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isObjectLike"><a href="#isObjectLike" class="headerlink" title="isObjectLike"></a>isObjectLike</h2><blockquote>
+<p>检查 value 是否是 类对象。 如果一个值是类对象，那么它不应该是 null，而且 typeof 后的结果是 “object”</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObjectLike</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value !== <span class="literal">null</span> &amp;&amp; <span class="keyword">typeof</span> value === <span class="string">'object'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="getRawType"><a href="#getRawType" class="headerlink" title="getRawType"></a>getRawType</h2><blockquote>
+<p>获取数据类型，返回结果为 Number、String、Object、Array 等</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRawType</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value).slice(<span class="number">8</span>, <span class="number">-1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//getoRawType([]) ==&gt; Array</span></span><br></pre></td></tr></table></figure>
+<h2 id="isPlainObject"><a href="#isPlainObject" class="headerlink" title="isPlainObject"></a>isPlainObject</h2><blockquote>
+<p>判断数据是不是 Object 类型的数据</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPlainObject</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj) === <span class="string">'[object Object]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isArray"><a href="#isArray" class="headerlink" title="isArray"></a>isArray</h2><blockquote>
+<p>判断数据是不是数组类型的数据</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">'[object Array]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ES6</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.isArray</span><br></pre></td></tr></table></figure>
+<h2 id="isRegExp"><a href="#isRegExp" class="headerlink" title="isRegExp"></a>isRegExp</h2><blockquote>
+<p>判断数据是不是正则对象</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isRegExp</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">'[object RegExp]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isDate"><a href="#isDate" class="headerlink" title="isDate"></a>isDate</h2><blockquote>
+<p>判断数据是不是时间对象</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isDate</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">'[object Date]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isNative"><a href="#isNative" class="headerlink" title="isNative"></a>isNative</h2><blockquote>
+<p>判断 value 是不是浏览器内置函数<br>内置函数 toString 后的主体代码块为 [native code] ，而非内置函数则为相关代码，所以非内置函数可以进行拷贝(toString 后掐头去尾再由 Function 转)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNative</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> value === <span class="string">'function'</span> &amp;&amp; <span class="regexp">/native code/</span>.test(value.toString())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isFunction"><a href="#isFunction" class="headerlink" title="isFunction"></a>isFunction</h2><blockquote>
+<p>检查 value 是不是函数</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isFunction</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">'[object Function]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isLength"><a href="#isLength" class="headerlink" title="isLength"></a>isLength</h2><blockquote>
+<p>检查 value 是否为有效的类数组长度</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isLength</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="keyword">typeof</span> value === <span class="string">'number'</span> &amp;&amp;</span><br><span class="line">    value &gt; <span class="number">-1</span> &amp;&amp;</span><br><span class="line">    value % <span class="number">1</span> === <span class="number">0</span> &amp;&amp;</span><br><span class="line">    value &lt;== <span class="built_in">Number</span>.MAX_SAFE_INTEGER</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isArrayLike"><a href="#isArrayLike" class="headerlink" title="isArrayLike"></a>isArrayLike</h2><blockquote>
+<p>检查 value 是否是类数组<br>如果一个值被认为是类数组，那么它不是一个函数，并且 value.length 是个整数，大于等于 0，小于或等于 Number.MAX_SAFE_INTEGER。这里字符串也将被当作类数组。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArrayLike</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value !== <span class="literal">null</span> &amp;&amp; isLength(value.length) &amp;&amp; !isFunction(value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty"></a>hasOwnProperty</h2><blockquote>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasOwnProperty</span>(<span class="params">value, key</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.hasOwnProperty.call(value, key)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isEmpty"><a href="#isEmpty" class="headerlink" title="isEmpty"></a>isEmpty</h2><blockquote>
+<p>检查 value 是否为空<br>如果是 null，直接返回 true；如果是类数组，判断数据长度；如果是 Object 对象，判断是否具有属性；如果是其他数据，直接返回 false(也可改为返回 true)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEmpty</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (value === <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (isArrayLike(value)) &#123;</span><br><span class="line">    <span class="keyword">return</span> !value.length</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isPlainObject(value)) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> value) &#123;</span><br><span class="line">      <span class="keyword">if</span> (hasOwnProperty(value, key)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/06/30/xss/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -348,7 +568,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -548,7 +768,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -757,7 +977,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -933,7 +1153,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -1303,7 +1523,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -1552,7 +1772,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -1715,7 +1935,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -3399,7 +3619,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -3623,7 +3843,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -3814,220 +4034,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/10/js-browser/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xg4">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/10/js-browser/" class="post-title-link" itemprop="url">Javascript - Browser</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-04-10 14:53:49" itemprop="dateCreated datePublished" datetime="2019-04-10T14:53:49+00:00">2019-04-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
-<li><a href="#Table-of-Contents">Table of Contents</a></li>
-<li><a href="#Window">Window</a><ul>
-<li><a href="#getComputedStyle">getComputedStyle</a></li>
-</ul>
-</li>
-<li><a href="#Document">Document</a><ul>
-<li><a href="#Web-Animations">Web Animations</a></li>
-<li><a href="#Event">Event</a></li>
-<li><a href="#IntersectionObserver">IntersectionObserver</a></li>
-<li><a href="#ElementscrollIntoView">Element.scrollIntoView()</a></li>
-<li><a href="#ParentNodeappend">ParentNode.append()</a></li>
-<li><a href="#onWheel">onWheel</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h2><h3 id="getComputedStyle"><a href="#getComputedStyle" class="headerlink" title="getComputedStyle"></a>getComputedStyle</h3><blockquote>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle" target="_blank" rel="noopener">MDN - getComputedStyle</a></p>
-</blockquote>
-<ul>
-<li><p>返回的 CSSStyleDeclaration 对象将包含所有受支持的 CSS 属性长名称的活动值。示例名称是 border-bottom-width，border-width 和 border 是示例速记属性名称。仅使用像 font-size 这样的名字来查询值是最安全的。 查询诸如 font 等简写名称不适用于大多数浏览器</p>
-</li>
-<li><p>CSS 属性值可以使用 <code>getPropertyValue(propName)</code> API 或直接索引到对象，如 <code>cs[&#39;z-index&#39;]</code> 或 <code>cs.zIndex</code></p>
-</li>
-<li><p>example</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> elem1 = <span class="built_in">document</span>.getElementById(<span class="string">'elemId'</span>)</span><br><span class="line"><span class="keyword">const</span> style = <span class="built_in">window</span>.getComputedStyle(elem1, <span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 它等价于</span></span><br><span class="line"><span class="comment">// const style = document.defaultView.getComputedStyle(elem1, null);</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-id">#elem-container</span> &#123;</span></span><br><span class="line"><span class="undefined">    position: absolute;</span></span><br><span class="line"><span class="undefined">    left: 100px;</span></span><br><span class="line"><span class="undefined">    top: 200px;</span></span><br><span class="line"><span class="undefined">    height: 100px;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"elem-container"</span>&gt;</span>dummy<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"output"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="function"><span class="keyword">function</span> <span class="title">getTheStyle</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> elem = <span class="built_in">document</span>.getElementById(<span class="string">'elem-container'</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> theCSSprop = <span class="built_in">window</span></span></span><br><span class="line"><span class="javascript">      .getComputedStyle(elem, <span class="literal">null</span>)</span></span><br><span class="line"><span class="javascript">      .getPropertyValue(<span class="string">'height'</span>)</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'output'</span>).innerHTML = theCSSprop</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  getTheStyle()</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h2><h3 id="Web-Animations"><a href="#Web-Animations" class="headerlink" title="Web Animations"></a>Web Animations</h3><blockquote>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API" target="_blank" rel="noopener">MDN</a></p>
-</blockquote>
-<p><a href="https://github.com/web-animations/web-animations-js" target="_blank" rel="noopener">GitHub polyfill</a></p>
-<h3 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h3><ul>
-<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/transitionend_event" target="_blank" rel="noopener">transitionend</a></p>
-</li>
-<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationend_event" target="_blank" rel="noopener">animationend</a></p>
-</li>
-</ul>
-<h3 id="IntersectionObserver"><a href="#IntersectionObserver" class="headerlink" title="IntersectionObserver"></a>IntersectionObserver</h3><blockquote>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver" target="_blank" rel="noopener">MDN</a><br><a href="http://www.ruanyifeng.com/blog/2016/11/intersectionobserver_api.html" target="_blank" rel="noopener">阮一峰</a></p>
-</blockquote>
-<p><a href="https://github.com/w3c/IntersectionObserver" target="_blank" rel="noopener">Github polyfill</a></p>
-<h3 id="Element-scrollIntoView"><a href="#Element-scrollIntoView" class="headerlink" title="Element.scrollIntoView()"></a>Element.scrollIntoView()</h3><blockquote>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView" target="_blank" rel="noopener">MDN - Element.scrollIntoView()</a></p>
-</blockquote>
-<h3 id="ParentNode-append"><a href="#ParentNode-append" class="headerlink" title="ParentNode.append()"></a>ParentNode.append()</h3><blockquote>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/ParentNode/append" target="_blank" rel="noopener">MDN - ParentNode.append()</a></p>
-</blockquote>
-<ul>
-<li><p>添加多个 node 节点或者 text 节点</p>
-</li>
-<li><p>Polyfill</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (item.hasOwnProperty(<span class="string">'append'</span>)) &#123;</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(item, <span class="string">'append'</span>, &#123;</span><br><span class="line">      configurable: <span class="literal">true</span>,</span><br><span class="line">      enumerable: <span class="literal">true</span>,</span><br><span class="line">      writable: <span class="literal">true</span>,</span><br><span class="line">      value: <span class="function"><span class="keyword">function</span> <span class="title">append</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> argArr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>),</span><br><span class="line">          docFrag = <span class="built_in">document</span>.createDocumentFragment()</span><br><span class="line"></span><br><span class="line">        argArr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">argItem</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> isNode = argItem <span class="keyword">instanceof</span> Node</span><br><span class="line">          docFrag.appendChild(</span><br><span class="line">            isNode ? argItem : <span class="built_in">document</span>.createTextNode(<span class="built_in">String</span>(argItem))</span><br><span class="line">          )</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.appendChild(docFrag)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)([Element.prototype, Document.prototype, DocumentFragment.prototype])</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="onWheel"><a href="#onWheel" class="headerlink" title="onWheel"></a>onWheel</h3><blockquote>
-<p>兼容浏览器 wheel 事件</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> onWheel = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> wheelEvt =</span><br><span class="line">    <span class="string">'onwheel'</span> <span class="keyword">in</span> <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">      ? <span class="string">'wheel'</span></span><br><span class="line">      : <span class="built_in">document</span>.onmousewheel !== <span class="literal">undefined</span></span><br><span class="line">      ? <span class="string">'mousewheel'</span></span><br><span class="line">      : <span class="string">'DOMMouseScroll'</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">el, func</span>) </span>&#123;</span><br><span class="line">    el.addEventListener(wheelEvt, func)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -4074,7 +4080,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -4141,7 +4147,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

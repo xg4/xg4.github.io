@@ -286,6 +286,220 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/10/js-browser/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/10/js-browser/" class="post-title-link" itemprop="url">Javascript - Browser</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-10 14:53:49" itemprop="dateCreated datePublished" datetime="2019-04-10T14:53:49+00:00">2019-04-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#Window">Window</a><ul>
+<li><a href="#getComputedStyle">getComputedStyle</a></li>
+</ul>
+</li>
+<li><a href="#Document">Document</a><ul>
+<li><a href="#Web-Animations">Web Animations</a></li>
+<li><a href="#Event">Event</a></li>
+<li><a href="#IntersectionObserver">IntersectionObserver</a></li>
+<li><a href="#ElementscrollIntoView">Element.scrollIntoView()</a></li>
+<li><a href="#ParentNodeappend">ParentNode.append()</a></li>
+<li><a href="#onWheel">onWheel</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h2><h3 id="getComputedStyle"><a href="#getComputedStyle" class="headerlink" title="getComputedStyle"></a>getComputedStyle</h3><blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle" target="_blank" rel="noopener">MDN - getComputedStyle</a></p>
+</blockquote>
+<ul>
+<li><p>返回的 CSSStyleDeclaration 对象将包含所有受支持的 CSS 属性长名称的活动值。示例名称是 border-bottom-width，border-width 和 border 是示例速记属性名称。仅使用像 font-size 这样的名字来查询值是最安全的。 查询诸如 font 等简写名称不适用于大多数浏览器</p>
+</li>
+<li><p>CSS 属性值可以使用 <code>getPropertyValue(propName)</code> API 或直接索引到对象，如 <code>cs[&#39;z-index&#39;]</code> 或 <code>cs.zIndex</code></p>
+</li>
+<li><p>example</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> elem1 = <span class="built_in">document</span>.getElementById(<span class="string">'elemId'</span>)</span><br><span class="line"><span class="keyword">const</span> style = <span class="built_in">window</span>.getComputedStyle(elem1, <span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 它等价于</span></span><br><span class="line"><span class="comment">// const style = document.defaultView.getComputedStyle(elem1, null);</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-id">#elem-container</span> &#123;</span></span><br><span class="line"><span class="undefined">    position: absolute;</span></span><br><span class="line"><span class="undefined">    left: 100px;</span></span><br><span class="line"><span class="undefined">    top: 200px;</span></span><br><span class="line"><span class="undefined">    height: 100px;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"elem-container"</span>&gt;</span>dummy<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"output"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="function"><span class="keyword">function</span> <span class="title">getTheStyle</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> elem = <span class="built_in">document</span>.getElementById(<span class="string">'elem-container'</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> theCSSprop = <span class="built_in">window</span></span></span><br><span class="line"><span class="javascript">      .getComputedStyle(elem, <span class="literal">null</span>)</span></span><br><span class="line"><span class="javascript">      .getPropertyValue(<span class="string">'height'</span>)</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'output'</span>).innerHTML = theCSSprop</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  getTheStyle()</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h2><h3 id="Web-Animations"><a href="#Web-Animations" class="headerlink" title="Web Animations"></a>Web Animations</h3><blockquote>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API" target="_blank" rel="noopener">MDN</a></p>
+</blockquote>
+<p><a href="https://github.com/web-animations/web-animations-js" target="_blank" rel="noopener">GitHub polyfill</a></p>
+<h3 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h3><ul>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/transitionend_event" target="_blank" rel="noopener">transitionend</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationend_event" target="_blank" rel="noopener">animationend</a></p>
+</li>
+</ul>
+<h3 id="IntersectionObserver"><a href="#IntersectionObserver" class="headerlink" title="IntersectionObserver"></a>IntersectionObserver</h3><blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver" target="_blank" rel="noopener">MDN</a><br><a href="http://www.ruanyifeng.com/blog/2016/11/intersectionobserver_api.html" target="_blank" rel="noopener">阮一峰</a></p>
+</blockquote>
+<p><a href="https://github.com/w3c/IntersectionObserver" target="_blank" rel="noopener">Github polyfill</a></p>
+<h3 id="Element-scrollIntoView"><a href="#Element-scrollIntoView" class="headerlink" title="Element.scrollIntoView()"></a>Element.scrollIntoView()</h3><blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView" target="_blank" rel="noopener">MDN - Element.scrollIntoView()</a></p>
+</blockquote>
+<h3 id="ParentNode-append"><a href="#ParentNode-append" class="headerlink" title="ParentNode.append()"></a>ParentNode.append()</h3><blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/ParentNode/append" target="_blank" rel="noopener">MDN - ParentNode.append()</a></p>
+</blockquote>
+<ul>
+<li><p>添加多个 node 节点或者 text 节点</p>
+</li>
+<li><p>Polyfill</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (item.hasOwnProperty(<span class="string">'append'</span>)) &#123;</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(item, <span class="string">'append'</span>, &#123;</span><br><span class="line">      configurable: <span class="literal">true</span>,</span><br><span class="line">      enumerable: <span class="literal">true</span>,</span><br><span class="line">      writable: <span class="literal">true</span>,</span><br><span class="line">      value: <span class="function"><span class="keyword">function</span> <span class="title">append</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> argArr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>),</span><br><span class="line">          docFrag = <span class="built_in">document</span>.createDocumentFragment()</span><br><span class="line"></span><br><span class="line">        argArr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">argItem</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> isNode = argItem <span class="keyword">instanceof</span> Node</span><br><span class="line">          docFrag.appendChild(</span><br><span class="line">            isNode ? argItem : <span class="built_in">document</span>.createTextNode(<span class="built_in">String</span>(argItem))</span><br><span class="line">          )</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.appendChild(docFrag)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)([Element.prototype, Document.prototype, DocumentFragment.prototype])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="onWheel"><a href="#onWheel" class="headerlink" title="onWheel"></a>onWheel</h3><blockquote>
+<p>兼容浏览器 wheel 事件</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> onWheel = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> wheelEvt =</span><br><span class="line">    <span class="string">'onwheel'</span> <span class="keyword">in</span> <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">      ? <span class="string">'wheel'</span></span><br><span class="line">      : <span class="built_in">document</span>.onmousewheel !== <span class="literal">undefined</span></span><br><span class="line">      ? <span class="string">'mousewheel'</span></span><br><span class="line">      : <span class="string">'DOMMouseScroll'</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">el, func</span>) </span>&#123;</span><br><span class="line">    el.addEventListener(wheelEvt, func)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/08/js-object/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -348,7 +562,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -639,7 +853,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -826,7 +1040,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -1526,7 +1740,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -1747,7 +1961,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -1934,7 +2148,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -2165,7 +2379,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -2494,7 +2708,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -2717,7 +2931,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
+                <time title="Modified: 2019-07-07 15:08:45" itemprop="dateModified" datetime="2019-07-07T15:08:45+00:00">2019-07-07</time>
               
             
           </span>
@@ -3006,229 +3220,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/10/vue-router/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xg4">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/10/vue-router/" class="post-title-link" itemprop="url">Vue Router</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-10 12:20:55" itemprop="dateCreated datePublished" datetime="2018-09-10T12:20:55+00:00">2018-09-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-05 15:56:16" itemprop="dateModified" datetime="2019-07-05T15:56:16+00:00">2019-07-05</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><blockquote>
-<p><a href="https://router.vuejs.org/zh-cn/" target="_blank" rel="noopener">官方文档</a></p>
-</blockquote>
-<ul>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD">路由懒加载</a></li>
-<li><a href="#meta">meta</a></li>
-<li><a href="#navigation-guards">navigation guards</a></li>
-<li><a href="#navigation">navigation</a></li>
-</ul>
-<h2 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a>路由懒加载</h2><blockquote>
-<p><a href="https://router.vuejs.org/zh/guide/advanced/lazy-loading.html" target="_blank" rel="noopener">组件懒加载</a></p>
-</blockquote>
-<ul>
-<li><p>使用 Babel，添加 <a href="https://babeljs.io/docs/plugins/syntax-dynamic-import/" target="_blank" rel="noopener">syntax-dynamic-import</a> 插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn add @babel/plugin-syntax-dynamic-import --dev</span><br></pre></td></tr></table></figure>
-<p><code>.babelrc</code></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"plugins"</span>: [<span class="string">"@babel/plugin-syntax-dynamic-import"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>定义一个被 Webpack 自动代码分割的异步组件。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Foo = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./Foo.vue'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  routes: [&#123; <span class="attr">path</span>: <span class="string">'/foo'</span>, <span class="attr">component</span>: Foo &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把组件按组分块</p>
-<p>有时候我们想把某个路由下的所有组件都打包在同个异步块 (chunk) 中，只需要使用命名 chunk，一个特殊的注释语法来提供 chunk name (需要 webpack &gt; 2.4)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Foo = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Foo.vue'</span>)</span><br><span class="line"><span class="keyword">const</span> Bar = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Bar.vue'</span>)</span><br><span class="line"><span class="keyword">const</span> Baz = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Baz.vue'</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>webpack 会将任何一个异步模块与相同的块名称组合到相同的异步块中</strong></p>
-</li>
-</ul>
-<h2 id="meta"><a href="#meta" class="headerlink" title="meta"></a>meta</h2><blockquote>
-<p><a href="https://router.vuejs.org/zh-cn/advanced/meta.html" target="_blank" rel="noopener">路由元信息</a></p>
-</blockquote>
-<ul>
-<li><p>定义路由的时候可以配置 meta 字段：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/foo'</span>,</span><br><span class="line">      component: Foo,</span><br><span class="line">      children: [</span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">'bar'</span>,</span><br><span class="line">          component: Bar,</span><br><span class="line">          <span class="comment">// a meta field</span></span><br><span class="line">          meta: &#123; <span class="attr">requiresAuth</span>: <span class="literal">true</span> &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="navigation-guards"><a href="#navigation-guards" class="headerlink" title="navigation guards"></a>navigation guards</h2><blockquote>
-<p><a href="https://router.vuejs.org/zh-cn/advanced/navigation-guards.html" target="_blank" rel="noopener">导航守卫</a></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123; ... &#125;)</span><br><span class="line"></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>to: <code>Route</code> 即将要进入的目标 路由对象</p>
-</li>
-<li><p>from: <code>Route</code> 当前导航正要离开的路由</p>
-</li>
-<li><p>next: <code>Function</code> 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数</p>
-<ul>
-<li><p>next(): 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是 confirmed （确认的）</p>
-</li>
-<li><p>next(false): 中断当前的导航。如果浏览器的 URL 改变了（可能是用户手动或者浏览器后退按钮），那么 URL 地址会重置到 from 路由对应的地址</p>
-</li>
-<li><p>next(‘/‘) 或者 next({ path: ‘/‘ }): 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。你可以向 next 传递任意位置对象，且允许设置诸如 replace: true、name: ‘home’ 之类的选项以及任何用在 router-link 的 to prop 或 router.push 中的选项</p>
-</li>
-<li><p>next(error): (2.4.0+) 如果传入 next 的参数是一个 Error 实例，则导航会被终止且该错误会被传递给 router.onError() 注册过的回调</p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="navigation"><a href="#navigation" class="headerlink" title="navigation"></a>navigation</h2><blockquote>
-<p><a href="https://router.vuejs.org/zh-cn/essentials/navigation.html" target="_blank" rel="noopener">编程式导航</a></p>
-</blockquote>
-<ul>
-<li><p>声明式</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"..."</span>&gt;</span><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编程式</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">router.push(location, onComplete?, onAbort?)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3275,7 +3266,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -3342,7 +3333,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

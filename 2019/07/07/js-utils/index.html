@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Table of Contents Table of Contents isStatic isPrimitive isObject isObjectLike getRawType isPlainObject isArray isRegExp isDate isNative isFunction isLength isArrayLike isEmpty  isStatic 检测数据是不是除了 sym">
+<meta name="keywords" content="js,util">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript Utils">
+<meta property="og:url" content="https://xg4.github.io/2019/07/07/js-utils/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="Table of Contents Table of Contents isStatic isPrimitive isObject isObjectLike getRawType isPlainObject isArray isRegExp isDate isNative isFunction isLength isArrayLike isEmpty  isStatic 检测数据是不是除了 sym">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-07T15:08:45.760Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript Utils">
+<meta name="twitter:description" content="Table of Contents Table of Contents isStatic isPrimitive isObject isObjectLike getRawType isPlainObject isArray isRegExp isDate isNative isFunction isLength isArrayLike isEmpty  isStatic 检测数据是不是除了 sym">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://xg4.github.io/2019/07/07/js-utils/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Javascript Utils | blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/07/07/js-utils/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Javascript Utils
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-07 22:35:38 / Modified: 15:08:45" itemprop="dateCreated datePublished" datetime="2019-07-07T22:35:38+00:00">2019-07-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#isStatic">isStatic</a></li>
+<li><a href="#isPrimitive">isPrimitive</a></li>
+<li><a href="#isObject">isObject</a></li>
+<li><a href="#isObjectLike">isObjectLike</a></li>
+<li><a href="#getRawType">getRawType</a></li>
+<li><a href="#isPlainObject">isPlainObject</a></li>
+<li><a href="#isArray">isArray</a></li>
+<li><a href="#isRegExp">isRegExp</a></li>
+<li><a href="#isDate">isDate</a></li>
+<li><a href="#isNative">isNative</a></li>
+<li><a href="#isFunction">isFunction</a></li>
+<li><a href="#isLength">isLength</a></li>
+<li><a href="#isArrayLike">isArrayLike</a></li>
+<li><a href="#isEmpty">isEmpty</a></li>
+</ul>
+<h2 id="isStatic"><a href="#isStatic" class="headerlink" title="isStatic"></a>isStatic</h2><blockquote>
+<p>检测数据是不是除了 symbol 外的原始数据</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isStatic</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> type = <span class="keyword">typeof</span> value</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    type === <span class="string">'string'</span> ||</span><br><span class="line">    type === <span class="string">'number'</span> ||</span><br><span class="line">    type === <span class="string">'boolean'</span> ||</span><br><span class="line">    types === <span class="string">'undefined'</span> ||</span><br><span class="line">    value === <span class="literal">null</span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isPrimitive"><a href="#isPrimitive" class="headerlink" title="isPrimitive"></a>isPrimitive</h2><blockquote>
+<p>检测数据是不是原始数据</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPrimitive</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> isStatic(value) || <span class="keyword">typeof</span> value === <span class="string">'symbol'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isObject"><a href="#isObject" class="headerlink" title="isObject"></a>isObject</h2><blockquote>
+<p>判断数据是不是引用类型的数据 (例如： Array, Function, Object, Regexp, new Number(0),以及 new String(‘’))</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObject</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> type = <span class="keyword">typeof</span> value</span><br><span class="line">  <span class="keyword">return</span> value !== <span class="literal">null</span> &amp;&amp; (type === <span class="string">'object'</span> || type === <span class="string">'function'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isObjectLike"><a href="#isObjectLike" class="headerlink" title="isObjectLike"></a>isObjectLike</h2><blockquote>
+<p>检查 value 是否是 类对象。 如果一个值是类对象，那么它不应该是 null，而且 typeof 后的结果是 “object”</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObjectLike</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value !== <span class="literal">null</span> &amp;&amp; <span class="keyword">typeof</span> value === <span class="string">'object'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="getRawType"><a href="#getRawType" class="headerlink" title="getRawType"></a>getRawType</h2><blockquote>
+<p>获取数据类型，返回结果为 Number、String、Object、Array 等</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRawType</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value).slice(<span class="number">8</span>, <span class="number">-1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//getoRawType([]) ==&gt; Array</span></span><br></pre></td></tr></table></figure>
+<h2 id="isPlainObject"><a href="#isPlainObject" class="headerlink" title="isPlainObject"></a>isPlainObject</h2><blockquote>
+<p>判断数据是不是 Object 类型的数据</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPlainObject</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj) === <span class="string">'[object Object]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isArray"><a href="#isArray" class="headerlink" title="isArray"></a>isArray</h2><blockquote>
+<p>判断数据是不是数组类型的数据</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">'[object Array]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ES6</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.isArray</span><br></pre></td></tr></table></figure>
+<h2 id="isRegExp"><a href="#isRegExp" class="headerlink" title="isRegExp"></a>isRegExp</h2><blockquote>
+<p>判断数据是不是正则对象</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isRegExp</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">'[object RegExp]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isDate"><a href="#isDate" class="headerlink" title="isDate"></a>isDate</h2><blockquote>
+<p>判断数据是不是时间对象</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isDate</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">'[object Date]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isNative"><a href="#isNative" class="headerlink" title="isNative"></a>isNative</h2><blockquote>
+<p>判断 value 是不是浏览器内置函数<br>内置函数 toString 后的主体代码块为 [native code] ，而非内置函数则为相关代码，所以非内置函数可以进行拷贝(toString 后掐头去尾再由 Function 转)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNative</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> value === <span class="string">'function'</span> &amp;&amp; <span class="regexp">/native code/</span>.test(value.toString())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isFunction"><a href="#isFunction" class="headerlink" title="isFunction"></a>isFunction</h2><blockquote>
+<p>检查 value 是不是函数</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isFunction</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">'[object Function]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isLength"><a href="#isLength" class="headerlink" title="isLength"></a>isLength</h2><blockquote>
+<p>检查 value 是否为有效的类数组长度</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isLength</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="keyword">typeof</span> value === <span class="string">'number'</span> &amp;&amp;</span><br><span class="line">    value &gt; <span class="number">-1</span> &amp;&amp;</span><br><span class="line">    value % <span class="number">1</span> === <span class="number">0</span> &amp;&amp;</span><br><span class="line">    value &lt;== <span class="built_in">Number</span>.MAX_SAFE_INTEGER</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isArrayLike"><a href="#isArrayLike" class="headerlink" title="isArrayLike"></a>isArrayLike</h2><blockquote>
+<p>检查 value 是否是类数组<br>如果一个值被认为是类数组，那么它不是一个函数，并且 value.length 是个整数，大于等于 0，小于或等于 Number.MAX_SAFE_INTEGER。这里字符串也将被当作类数组。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArrayLike</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value !== <span class="literal">null</span> &amp;&amp; isLength(value.length) &amp;&amp; !isFunction(value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty"></a>hasOwnProperty</h2><blockquote>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasOwnProperty</span>(<span class="params">value, key</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.hasOwnProperty.call(value, key)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isEmpty"><a href="#isEmpty" class="headerlink" title="isEmpty"></a>isEmpty</h2><blockquote>
+<p>检查 value 是否为空<br>如果是 null，直接返回 true；如果是类数组，判断数据长度；如果是 Object 对象，判断是否具有属性；如果是其他数据，直接返回 false(也可改为返回 true)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEmpty</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (value === <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (isArrayLike(value)) &#123;</span><br><span class="line">    <span class="keyword">return</span> !value.length</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isPlainObject(value)) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> value) &#123;</span><br><span class="line">      <span class="keyword">if</span> (hasOwnProperty(value, key)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/util/" rel="tag"># util</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/30/xss/" rel="next" title="XSS - 跨站脚本攻击">
+                <i class="fa fa-chevron-left"></i> XSS - 跨站脚本攻击
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">xg4</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isStatic"><span class="nav-number">2.</span> <span class="nav-text">isStatic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isPrimitive"><span class="nav-number">3.</span> <span class="nav-text">isPrimitive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isObject"><span class="nav-number">4.</span> <span class="nav-text">isObject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isObjectLike"><span class="nav-number">5.</span> <span class="nav-text">isObjectLike</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getRawType"><span class="nav-number">6.</span> <span class="nav-text">getRawType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isPlainObject"><span class="nav-number">7.</span> <span class="nav-text">isPlainObject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isArray"><span class="nav-number">8.</span> <span class="nav-text">isArray</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isRegExp"><span class="nav-number">9.</span> <span class="nav-text">isRegExp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isDate"><span class="nav-number">10.</span> <span class="nav-text">isDate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isNative"><span class="nav-number">11.</span> <span class="nav-text">isNative</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isFunction"><span class="nav-number">12.</span> <span class="nav-text">isFunction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isLength"><span class="nav-number">13.</span> <span class="nav-text">isLength</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isArrayLike"><span class="nav-number">14.</span> <span class="nav-text">isArrayLike</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hasOwnProperty-NaN"><span class="nav-number">15.</span> <span class="nav-text">hasOwnProperty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isEmpty"><span class="nav-number">16.</span> <span class="nav-text">isEmpty</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xg4</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
