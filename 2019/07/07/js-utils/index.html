@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Table of Contents Table of Contents isStatic isPrimitive isObject isObjectLike getRawType isPlainObject isArray isRegExp isDate isNative isFunction isLength isValidArrayIndex isArrayLike hasOwn isEmpt">
+  <meta name="description" content="Table of Contents Table of Contents sleep isStatic isPrimitive isObject isObjectLike getRawType isPlainObject isArray isRegExp isDate isNative isFunction isLength isValidArrayIndex isArrayLike hasOwn">
 <meta name="keywords" content="js,util">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript Utils">
 <meta property="og:url" content="https://xg4.github.io/2019/07/07/js-utils/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Table of Contents Table of Contents isStatic isPrimitive isObject isObjectLike getRawType isPlainObject isArray isRegExp isDate isNative isFunction isLength isValidArrayIndex isArrayLike hasOwn isEmpt">
+<meta property="og:description" content="Table of Contents Table of Contents sleep isStatic isPrimitive isObject isObjectLike getRawType isPlainObject isArray isRegExp isDate isNative isFunction isLength isValidArrayIndex isArrayLike hasOwn">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-07T16:49:19.643Z">
+<meta property="og:updated_time" content="2019-07-08T15:26:12.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript Utils">
-<meta name="twitter:description" content="Table of Contents Table of Contents isStatic isPrimitive isObject isObjectLike getRawType isPlainObject isArray isRegExp isDate isNative isFunction isLength isValidArrayIndex isArrayLike hasOwn isEmpt">
+<meta name="twitter:description" content="Table of Contents Table of Contents sleep isStatic isPrimitive isObject isObjectLike getRawType isPlainObject isArray isRegExp isDate isNative isFunction isLength isValidArrayIndex isArrayLike hasOwn">
 
 
 
@@ -333,12 +333,24 @@
                 
               
 
-              <time title="Created: 2019-07-07 19:35:38 / Modified: 16:49:19" itemprop="dateCreated datePublished" datetime="2019-07-07T19:35:38+00:00">2019-07-07</time>
+              <time title="Created: 2019-07-07 19:35:38" itemprop="dateCreated datePublished" datetime="2019-07-07T19:35:38+00:00">2019-07-07</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
               
             
           </span>
@@ -374,6 +386,7 @@
       
         <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
 <li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#sleep">sleep</a></li>
 <li><a href="#isStatic">isStatic</a></li>
 <li><a href="#isPrimitive">isPrimitive</a></li>
 <li><a href="#isObject">isObject</a></li>
@@ -402,7 +415,13 @@
 <li><a href="#hyphenate">hyphenate</a></li>
 <li><a href="#capitalize">capitalize</a></li>
 <li><a href="#extend">extend</a></li>
+<li><a href="#deepClone">deepClone</a></li>
+<li><a href="#Array---unique">Array - unique</a></li>
+<li><a href="#isNaN">isNaN</a></li>
+<li><a href="#Array---max">Array - max</a></li>
+<li><a href="#Array---min">Array - min</a></li>
 </ul>
+<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sleep = <span class="function"><span class="params">ms</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> setTimeout(resolve, ms))</span><br></pre></td></tr></table></figure>
 <h2 id="isStatic"><a href="#isStatic" class="headerlink" title="isStatic"></a>isStatic</h2><blockquote>
 <p>检测数据是不是除了 symbol 外的原始数据</p>
 </blockquote>
@@ -517,6 +536,33 @@
 <p>将属性混合到目标对象中</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">to, _from</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> _from) &#123;</span><br><span class="line">    to[key] = _from[key]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> to</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="deepClone"><a href="#deepClone" class="headerlink" title="deepClone"></a>deepClone</h2><ul>
+<li>简单的深克隆</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(target))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>完整的 deepClone 可参考 lodash</p>
+<ul>
+<li><a href="https://github.com/lodash/lodash/blob/master/cloneDeep.js" target="_blank" rel="noopener">lodash - cloneDeep</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Array-unique"><a href="#Array-unique" class="headerlink" title="Array - unique"></a>Array - unique</h2><ul>
+<li>基于 <code>Set</code> 简单实现</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [...new <span class="built_in">Set</span>(arr)]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN"></a>isNaN</h2><blockquote>
+<p>检查数据是否是非数字值<br>原生的 isNaN 会把参数转换成数字(valueof)，而 null、true、false 以及长度小于等于 1 的数组(元素为非 NaN 数据)会被转换成数字，这不是我想要的。Symbol 类型的数据不具有 valueof 接口，所以 isNaN 会抛出错误，这里放在后面，可避免错误</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_isNaN</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> type = <span class="keyword">typeof</span> value</span><br><span class="line">  <span class="keyword">return</span> !(type === <span class="string">'string'</span> || type === <span class="string">'number'</span>) || <span class="built_in">isNaN</span>(v)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Array-max"><a href="#Array-max" class="headerlink" title="Array - max"></a>Array - max</h2><blockquote>
+<p>求取数组中非 NaN 数据中的最大值</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  arr = arr.filter(<span class="function"><span class="params">item</span> =&gt;</span> !_isNaN(item))</span><br><span class="line">  <span class="keyword">return</span> arr.length ? <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, arr) : <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//max([1, 2, '11', null, 'fdf', []]) ==&gt; 11</span></span><br></pre></td></tr></table></figure>
+<h2 id="Array-min"><a href="#Array-min" class="headerlink" title="Array - min"></a>Array - min</h2><blockquote>
+<p>求取数组中非 NaN 数据中的最小值</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">min</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  arr = arr.filter(<span class="function"><span class="params">item</span> =&gt;</span> !_isNaN(item))</span><br><span class="line">  <span class="keyword">return</span> arr.length ? <span class="built_in">Math</span>.min.apply(<span class="literal">null</span>, arr) : <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//min([1, 2, '11', null, 'fdf', []]) ==&gt; 1</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -739,7 +785,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isStatic"><span class="nav-number">2.</span> <span class="nav-text">isStatic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isPrimitive"><span class="nav-number">3.</span> <span class="nav-text">isPrimitive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isObject"><span class="nav-number">4.</span> <span class="nav-text">isObject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isObjectLike"><span class="nav-number">5.</span> <span class="nav-text">isObjectLike</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getRawType"><span class="nav-number">6.</span> <span class="nav-text">getRawType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isPlainObject"><span class="nav-number">7.</span> <span class="nav-text">isPlainObject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isArray"><span class="nav-number">8.</span> <span class="nav-text">isArray</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isRegExp"><span class="nav-number">9.</span> <span class="nav-text">isRegExp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isDate"><span class="nav-number">10.</span> <span class="nav-text">isDate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isNative"><span class="nav-number">11.</span> <span class="nav-text">isNative</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isFunction"><span class="nav-number">12.</span> <span class="nav-text">isFunction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isLength"><span class="nav-number">13.</span> <span class="nav-text">isLength</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isValidArrayIndex"><span class="nav-number">14.</span> <span class="nav-text">isValidArrayIndex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isArrayLike"><span class="nav-number">15.</span> <span class="nav-text">isArrayLike</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hasOwn"><span class="nav-number">16.</span> <span class="nav-text">hasOwn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isEmpty"><span class="nav-number">17.</span> <span class="nav-text">isEmpty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inBrowser"><span class="nav-number">18.</span> <span class="nav-text">inBrowser</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hasProto"><span class="nav-number">19.</span> <span class="nav-text">hasProto</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#userAgent"><span class="nav-number">20.</span> <span class="nav-text">userAgent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#browserType"><span class="nav-number">21.</span> <span class="nav-text">browserType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toString-NaN"><span class="nav-number">22.</span> <span class="nav-text">toString</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cached"><span class="nav-number">23.</span> <span class="nav-text">cached</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isReserved"><span class="nav-number">24.</span> <span class="nav-text">isReserved</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#charCodeAt"><span class="nav-number">25.</span> <span class="nav-text">charCodeAt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#camelize"><span class="nav-number">26.</span> <span class="nav-text">camelize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hyphenate"><span class="nav-number">27.</span> <span class="nav-text">hyphenate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#capitalize"><span class="nav-number">28.</span> <span class="nav-text">capitalize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extend"><span class="nav-number">29.</span> <span class="nav-text">extend</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sleep"><span class="nav-number">2.</span> <span class="nav-text">sleep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isStatic"><span class="nav-number">3.</span> <span class="nav-text">isStatic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isPrimitive"><span class="nav-number">4.</span> <span class="nav-text">isPrimitive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isObject"><span class="nav-number">5.</span> <span class="nav-text">isObject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isObjectLike"><span class="nav-number">6.</span> <span class="nav-text">isObjectLike</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getRawType"><span class="nav-number">7.</span> <span class="nav-text">getRawType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isPlainObject"><span class="nav-number">8.</span> <span class="nav-text">isPlainObject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isArray"><span class="nav-number">9.</span> <span class="nav-text">isArray</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isRegExp"><span class="nav-number">10.</span> <span class="nav-text">isRegExp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isDate"><span class="nav-number">11.</span> <span class="nav-text">isDate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isNative"><span class="nav-number">12.</span> <span class="nav-text">isNative</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isFunction"><span class="nav-number">13.</span> <span class="nav-text">isFunction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isLength"><span class="nav-number">14.</span> <span class="nav-text">isLength</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isValidArrayIndex"><span class="nav-number">15.</span> <span class="nav-text">isValidArrayIndex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isArrayLike"><span class="nav-number">16.</span> <span class="nav-text">isArrayLike</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hasOwn"><span class="nav-number">17.</span> <span class="nav-text">hasOwn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isEmpty"><span class="nav-number">18.</span> <span class="nav-text">isEmpty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inBrowser"><span class="nav-number">19.</span> <span class="nav-text">inBrowser</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hasProto"><span class="nav-number">20.</span> <span class="nav-text">hasProto</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#userAgent"><span class="nav-number">21.</span> <span class="nav-text">userAgent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#browserType"><span class="nav-number">22.</span> <span class="nav-text">browserType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toString-NaN"><span class="nav-number">23.</span> <span class="nav-text">toString</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cached"><span class="nav-number">24.</span> <span class="nav-text">cached</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isReserved"><span class="nav-number">25.</span> <span class="nav-text">isReserved</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#charCodeAt"><span class="nav-number">26.</span> <span class="nav-text">charCodeAt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#camelize"><span class="nav-number">27.</span> <span class="nav-text">camelize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hyphenate"><span class="nav-number">28.</span> <span class="nav-text">hyphenate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#capitalize"><span class="nav-number">29.</span> <span class="nav-text">capitalize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extend"><span class="nav-number">30.</span> <span class="nav-text">extend</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deepClone"><span class="nav-number">31.</span> <span class="nav-text">deepClone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-unique"><span class="nav-number">32.</span> <span class="nav-text">Array - unique</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isNaN"><span class="nav-number">33.</span> <span class="nav-text">isNaN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-max"><span class="nav-number">34.</span> <span class="nav-text">Array - max</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-min"><span class="nav-number">35.</span> <span class="nav-text">Array - min</span></a></li></ol></div>
             
 
           </div>

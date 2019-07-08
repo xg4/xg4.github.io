@@ -331,12 +331,24 @@
                 
               
 
-              <time title="Created: 2019-07-07 19:35:38 / Modified: 16:49:19" itemprop="dateCreated datePublished" datetime="2019-07-07T19:35:38+00:00">2019-07-07</time>
+              <time title="Created: 2019-07-07 19:35:38" itemprop="dateCreated datePublished" datetime="2019-07-07T19:35:38+00:00">2019-07-07</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
               
             
           </span>
@@ -374,6 +386,7 @@
           
             <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
 <li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#sleep">sleep</a></li>
 <li><a href="#isStatic">isStatic</a></li>
 <li><a href="#isPrimitive">isPrimitive</a></li>
 <li><a href="#isObject">isObject</a></li>
@@ -402,7 +415,13 @@
 <li><a href="#hyphenate">hyphenate</a></li>
 <li><a href="#capitalize">capitalize</a></li>
 <li><a href="#extend">extend</a></li>
+<li><a href="#deepClone">deepClone</a></li>
+<li><a href="#Array---unique">Array - unique</a></li>
+<li><a href="#isNaN">isNaN</a></li>
+<li><a href="#Array---max">Array - max</a></li>
+<li><a href="#Array---min">Array - min</a></li>
 </ul>
+<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sleep = <span class="function"><span class="params">ms</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> setTimeout(resolve, ms))</span><br></pre></td></tr></table></figure>
 <h2 id="isStatic"><a href="#isStatic" class="headerlink" title="isStatic"></a>isStatic</h2><blockquote>
 <p>检测数据是不是除了 symbol 外的原始数据</p>
 </blockquote>
@@ -517,6 +536,33 @@
 <p>将属性混合到目标对象中</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">to, _from</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> _from) &#123;</span><br><span class="line">    to[key] = _from[key]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> to</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="deepClone"><a href="#deepClone" class="headerlink" title="deepClone"></a>deepClone</h2><ul>
+<li>简单的深克隆</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(target))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>完整的 deepClone 可参考 lodash</p>
+<ul>
+<li><a href="https://github.com/lodash/lodash/blob/master/cloneDeep.js" target="_blank" rel="noopener">lodash - cloneDeep</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Array-unique"><a href="#Array-unique" class="headerlink" title="Array - unique"></a>Array - unique</h2><ul>
+<li>基于 <code>Set</code> 简单实现</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [...new <span class="built_in">Set</span>(arr)]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN"></a>isNaN</h2><blockquote>
+<p>检查数据是否是非数字值<br>原生的 isNaN 会把参数转换成数字(valueof)，而 null、true、false 以及长度小于等于 1 的数组(元素为非 NaN 数据)会被转换成数字，这不是我想要的。Symbol 类型的数据不具有 valueof 接口，所以 isNaN 会抛出错误，这里放在后面，可避免错误</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_isNaN</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> type = <span class="keyword">typeof</span> value</span><br><span class="line">  <span class="keyword">return</span> !(type === <span class="string">'string'</span> || type === <span class="string">'number'</span>) || <span class="built_in">isNaN</span>(v)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Array-max"><a href="#Array-max" class="headerlink" title="Array - max"></a>Array - max</h2><blockquote>
+<p>求取数组中非 NaN 数据中的最大值</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  arr = arr.filter(<span class="function"><span class="params">item</span> =&gt;</span> !_isNaN(item))</span><br><span class="line">  <span class="keyword">return</span> arr.length ? <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, arr) : <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//max([1, 2, '11', null, 'fdf', []]) ==&gt; 11</span></span><br></pre></td></tr></table></figure>
+<h2 id="Array-min"><a href="#Array-min" class="headerlink" title="Array - min"></a>Array - min</h2><blockquote>
+<p>求取数组中非 NaN 数据中的最小值</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">min</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  arr = arr.filter(<span class="function"><span class="params">item</span> =&gt;</span> !_isNaN(item))</span><br><span class="line">  <span class="keyword">return</span> arr.length ? <span class="built_in">Math</span>.min.apply(<span class="literal">null</span>, arr) : <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//min([1, 2, '11', null, 'fdf', []]) ==&gt; 1</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -635,7 +681,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-07 16:49:19" itemprop="dateModified" datetime="2019-07-07T16:49:19+00:00">2019-07-07</time>
+                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
               
             
           </span>
@@ -835,7 +881,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-07 16:49:19" itemprop="dateModified" datetime="2019-07-07T16:49:19+00:00">2019-07-07</time>
+                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
               
             
           </span>
@@ -1044,7 +1090,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-07 16:49:19" itemprop="dateModified" datetime="2019-07-07T16:49:19+00:00">2019-07-07</time>
+                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
               
             
           </span>
@@ -1220,7 +1266,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-07 16:49:19" itemprop="dateModified" datetime="2019-07-07T16:49:19+00:00">2019-07-07</time>
+                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
               
             
           </span>
@@ -1590,7 +1636,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-07 16:49:19" itemprop="dateModified" datetime="2019-07-07T16:49:19+00:00">2019-07-07</time>
+                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
               
             
           </span>
@@ -1839,7 +1885,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-07 16:49:19" itemprop="dateModified" datetime="2019-07-07T16:49:19+00:00">2019-07-07</time>
+                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
               
             
           </span>
@@ -2002,7 +2048,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-07 16:49:19" itemprop="dateModified" datetime="2019-07-07T16:49:19+00:00">2019-07-07</time>
+                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
               
             
           </span>
@@ -3686,7 +3732,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-07 16:49:19" itemprop="dateModified" datetime="2019-07-07T16:49:19+00:00">2019-07-07</time>
+                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
               
             
           </span>
@@ -3910,7 +3956,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-07 16:49:19" itemprop="dateModified" datetime="2019-07-07T16:49:19+00:00">2019-07-07</time>
+                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
               
             
           </span>
