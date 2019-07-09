@@ -348,7 +348,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
+                <time title="Modified: 2019-07-09 06:39:34" itemprop="dateModified" datetime="2019-07-09T06:39:34+00:00">2019-07-09</time>
               
             
           </span>
@@ -384,33 +384,26 @@
       
         
           
-            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+            <blockquote>
+<p>浏览器环境下的 javascript API、Utils</p>
+</blockquote>
+<h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
 <li><a href="#Table-of-Contents">Table of Contents</a></li>
-<li><a href="#Utils">Utils</a><ul>
 <li><a href="#download">download</a></li>
 <li><a href="#fullScreen">fullScreen</a></li>
 <li><a href="#requestAnimationFrame">requestAnimationFrame</a></li>
 <li><a href="#performance">performance</a></li>
-<li><a href="#event">event</a></li>
-</ul>
-</li>
-<li><a href="#Window">Window</a><ul>
-<li><a href="#getComputedStyle">getComputedStyle</a></li>
-</ul>
-</li>
-<li><a href="#Document">Document</a><ul>
-<li><a href="#Web-Animations">Web Animations</a></li>
 <li><a href="#Event">Event</a></li>
+<li><a href="#getComputedStyle">getComputedStyle</a></li>
+<li><a href="#Animations">Animations</a></li>
 <li><a href="#IntersectionObserver">IntersectionObserver</a></li>
 <li><a href="#ElementscrollIntoView">Element.scrollIntoView()</a></li>
 <li><a href="#ParentNodeappend">ParentNode.append()</a></li>
 <li><a href="#onWheel">onWheel</a></li>
 </ul>
-</li>
-</ul>
-<h2 id="Utils"><a href="#Utils" class="headerlink" title="Utils"></a>Utils</h2><h3 id="download"><a href="#download" class="headerlink" title="download"></a>download</h3><p>利用 html5 a 标签的 download 属性进行下载</p>
+<h2 id="download"><a href="#download" class="headerlink" title="download"></a>download</h2><p>利用 html5 a 标签的 download 属性进行下载</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> download = <span class="function">(<span class="params">rawData, name = <span class="string">'file.json'</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> url = URL.createObjectURL(rawData)</span><br><span class="line">  <span class="keyword">const</span> a = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>)</span><br><span class="line">  a.download = name</span><br><span class="line">  a.href = url</span><br><span class="line">  a.style.display = <span class="string">'none'</span></span><br><span class="line">  <span class="comment">// 兼容 firefox ，必须添加到 DOM 中才能触发下载</span></span><br><span class="line">  <span class="built_in">document</span>.body.append(a) <span class="comment">// document.body.appendChild(a)</span></span><br><span class="line">  a.click()</span><br><span class="line">  a.remove() <span class="comment">// document.body.removeChild(a)</span></span><br><span class="line">  URL.revokeObjectURL(url)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="fullScreen"><a href="#fullScreen" class="headerlink" title="fullScreen"></a>fullScreen</h3><ul>
+<h2 id="fullScreen"><a href="#fullScreen" class="headerlink" title="fullScreen"></a>fullScreen</h2><ul>
 <li><p>toFullScreen</p>
 <p>全屏</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toFullScreen</span>(<span class="params">el = document.body</span>) </span>&#123;</span><br><span class="line">  el.webkitRequestFullScreen</span><br><span class="line">    ? el.webkitRequestFullScreen()</span><br><span class="line">    : el.mozRequestFullScreen</span><br><span class="line">    ? el.mozRequestFullScreen()</span><br><span class="line">    : el.msRequestFullscreen</span><br><span class="line">    ? el.msRequestFullscreen()</span><br><span class="line">    : el.requestFullScreen</span><br><span class="line">    ? el.requestFullScreen()</span><br><span class="line">    : alert(<span class="string">'浏览器不支持全屏'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -420,26 +413,30 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">exitFullscreen</span>(<span class="params">el = parent.document</span>) </span>&#123;</span><br><span class="line">  el.webkitCancelFullScreen</span><br><span class="line">    ? el.webkitCancelFullScreen()</span><br><span class="line">    : el.mozCancelFullScreen</span><br><span class="line">    ? el.mozCancelFullScreen()</span><br><span class="line">    : el.cancelFullScreen</span><br><span class="line">    ? el.cancelFullScreen()</span><br><span class="line">    : el.msExitFullscreen</span><br><span class="line">    ? el.msExitFullscreen()</span><br><span class="line">    : el.exitFullscreen</span><br><span class="line">    ? el.exitFullscreen()</span><br><span class="line">    : alert(<span class="string">'切换失败,可尝试Esc退出'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h3><p>新的动画 API，也可用于性能监控</p>
+<h2 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h2><p>新的动画 API，也可用于性能监控</p>
 <p><a href="https://github.com/chrisdickinson/raf" target="_blank" rel="noopener">GitHub - raf</a></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.requestAnimationFrame =</span><br><span class="line">  <span class="built_in">window</span>.requestAnimationFrame ||</span><br><span class="line">  <span class="built_in">window</span>.webkitRequestAnimationFrame ||</span><br><span class="line">  <span class="built_in">window</span>.mozRequestAnimationFrame ||</span><br><span class="line">  <span class="built_in">window</span>.msRequestAnimationFrame ||</span><br><span class="line">  <span class="built_in">window</span>.oRequestAnimationFrame ||</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.setTimeout(callback, <span class="number">1000</span> / <span class="number">60</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.cancelAnimationFrame =</span><br><span class="line">  <span class="built_in">window</span>.cancelAnimationFrame ||</span><br><span class="line">  Window.webkitCancelAnimationFrame ||</span><br><span class="line">  <span class="built_in">window</span>.mozCancelAnimationFrame ||</span><br><span class="line">  <span class="built_in">window</span>.msCancelAnimationFrame ||</span><br><span class="line">  <span class="built_in">window</span>.oCancelAnimationFrame ||</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.clearTimeout(id)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="performance"><a href="#performance" class="headerlink" title="performance"></a>performance</h3><blockquote>
+<h2 id="performance"><a href="#performance" class="headerlink" title="performance"></a>performance</h2><blockquote>
 <p>利用 performance.timing 进行性能分析</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> t = performance.timing</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">'DNS查询耗时 ：'</span> + (t.domainLookupEnd - t.domainLookupStart).toFixed(<span class="number">0</span>)</span><br><span class="line">    )</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'TCP链接耗时 ：'</span> + (t.connectEnd - t.connectStart).toFixed(<span class="number">0</span>))</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">'request请求耗时 ：'</span> + (t.responseEnd - t.responseStart).toFixed(<span class="number">0</span>)</span><br><span class="line">    )</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">'解析dom树耗时 ：'</span> + (t.domComplete - t.domInteractive).toFixed(<span class="number">0</span>)</span><br><span class="line">    )</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">'白屏时间 ：'</span> + (t.responseStart - t.navigationStart).toFixed(<span class="number">0</span>)</span><br><span class="line">    )</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">'domready时间 ：'</span> +</span><br><span class="line">        (t.domContentLoadedEventEnd - t.navigationStart).toFixed(<span class="number">0</span>)</span><br><span class="line">    )</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">'onload时间 ：'</span> + (t.loadEventEnd - t.navigationStart).toFixed(<span class="number">0</span>)</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((t = performance.memory)) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(</span><br><span class="line">        <span class="string">'js内存使用占比 ：'</span> +</span><br><span class="line">          ((t.usedJSHeapSize / t.totalJSHeapSize) * <span class="number">100</span>).toFixed(<span class="number">2</span>) +</span><br><span class="line">          <span class="string">'%'</span></span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="event"><a href="#event" class="headerlink" title="event"></a>event</h3><ul>
+<h2 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h2><ul>
 <li><p>禁止某些键盘事件</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'keydown'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    !(</span><br><span class="line">      <span class="number">112</span> == event.keyCode || <span class="comment">//F1</span></span><br><span class="line">      <span class="number">123</span> == event.keyCode || <span class="comment">//F12</span></span><br><span class="line">      (event.ctrlKey &amp;&amp; <span class="number">82</span> == event.keyCode) || <span class="comment">//ctrl + R</span></span><br><span class="line">      (event.ctrlKey &amp;&amp; <span class="number">78</span> == event.keyCode) || <span class="comment">//ctrl + N</span></span><br><span class="line">      (event.shiftKey &amp;&amp; <span class="number">121</span> == event.keyCode) || <span class="comment">//shift + F10</span></span><br><span class="line">      (event.altKey &amp;&amp; <span class="number">115</span> == event.keyCode) || <span class="comment">//alt + F4</span></span><br><span class="line">      (<span class="string">'A'</span> == event.srcElement.tagName &amp;&amp; event.shiftKey)</span><br><span class="line">    ) || (event.returnValue = <span class="literal">false</span>) <span class="comment">//shift + 点击a标签</span></span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>禁止右键、选择、复制</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">;[<span class="string">'contextmenu'</span>, <span class="string">'selectstart'</span>, <span class="string">'copy'</span>].forEach(<span class="function"><span class="keyword">function</span>(<span class="params">eventName</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">document</span>.addEventListener(eventName, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (event.returnValue = <span class="literal">false</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/transitionend_event" target="_blank" rel="noopener">transitionend</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationend_event" target="_blank" rel="noopener">animationend</a></p>
+</li>
 </ul>
-<h2 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h2><h3 id="getComputedStyle"><a href="#getComputedStyle" class="headerlink" title="getComputedStyle"></a>getComputedStyle</h3><blockquote>
+<h2 id="getComputedStyle"><a href="#getComputedStyle" class="headerlink" title="getComputedStyle"></a>getComputedStyle</h2><blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle" target="_blank" rel="noopener">MDN - getComputedStyle</a></p>
 </blockquote>
 <ul>
-<li><p>返回的 CSSStyleDeclaration 对象将包含所有受支持的 CSS 属性长名称的活动值。示例名称是 border-bottom-width，border-width 和 border 是示例速记属性名称。仅使用像 font-size 这样的名字来查询值是最安全的。 查询诸如 font 等简写名称不适用于大多数浏览器</p>
+<li><p>window.getComputedStyle 返回的 CSSStyleDeclaration 对象将包含所有受支持的 CSS 属性长名称的活动值。示例名称是 border-bottom-width，border-width 和 border 是示例速记属性名称。仅使用像 font-size 这样的名字来查询值是最安全的。 查询诸如 font 等简写名称不适用于大多数浏览器</p>
 </li>
 <li><p>CSS 属性值可以使用 <code>getPropertyValue(propName)</code> API 或直接索引到对象，如 <code>cs[&#39;z-index&#39;]</code> 或 <code>cs.zIndex</code></p>
 </li>
@@ -448,24 +445,18 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-id">#elem-container</span> &#123;</span></span><br><span class="line"><span class="undefined">    position: absolute;</span></span><br><span class="line"><span class="undefined">    left: 100px;</span></span><br><span class="line"><span class="undefined">    top: 200px;</span></span><br><span class="line"><span class="undefined">    height: 100px;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"elem-container"</span>&gt;</span>dummy<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"output"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="function"><span class="keyword">function</span> <span class="title">getTheStyle</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> elem = <span class="built_in">document</span>.getElementById(<span class="string">'elem-container'</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> theCSSprop = <span class="built_in">window</span></span></span><br><span class="line"><span class="javascript">      .getComputedStyle(elem, <span class="literal">null</span>)</span></span><br><span class="line"><span class="javascript">      .getPropertyValue(<span class="string">'height'</span>)</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'output'</span>).innerHTML = theCSSprop</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  getTheStyle()</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h2><h3 id="Web-Animations"><a href="#Web-Animations" class="headerlink" title="Web Animations"></a>Web Animations</h3><blockquote>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API" target="_blank" rel="noopener">MDN</a></p>
+<h2 id="Animations"><a href="#Animations" class="headerlink" title="Animations"></a>Animations</h2><blockquote>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API" target="_blank" rel="noopener">MDN - Web Animations API</a></p>
 </blockquote>
 <p><a href="https://github.com/web-animations/web-animations-js" target="_blank" rel="noopener">GitHub polyfill</a></p>
-<h3 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h3><ul>
-<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/transitionend_event" target="_blank" rel="noopener">transitionend</a></p>
-</li>
-<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationend_event" target="_blank" rel="noopener">animationend</a></p>
-</li>
-</ul>
-<h3 id="IntersectionObserver"><a href="#IntersectionObserver" class="headerlink" title="IntersectionObserver"></a>IntersectionObserver</h3><blockquote>
+<h2 id="IntersectionObserver"><a href="#IntersectionObserver" class="headerlink" title="IntersectionObserver"></a>IntersectionObserver</h2><blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver" target="_blank" rel="noopener">MDN</a><br><a href="http://www.ruanyifeng.com/blog/2016/11/intersectionobserver_api.html" target="_blank" rel="noopener">阮一峰</a></p>
 </blockquote>
 <p><a href="https://github.com/w3c/IntersectionObserver" target="_blank" rel="noopener">Github polyfill</a></p>
-<h3 id="Element-scrollIntoView"><a href="#Element-scrollIntoView" class="headerlink" title="Element.scrollIntoView()"></a>Element.scrollIntoView()</h3><blockquote>
+<h2 id="Element-scrollIntoView"><a href="#Element-scrollIntoView" class="headerlink" title="Element.scrollIntoView()"></a>Element.scrollIntoView()</h2><blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView" target="_blank" rel="noopener">MDN - Element.scrollIntoView()</a></p>
 </blockquote>
-<h3 id="ParentNode-append"><a href="#ParentNode-append" class="headerlink" title="ParentNode.append()"></a>ParentNode.append()</h3><blockquote>
+<h2 id="ParentNode-append"><a href="#ParentNode-append" class="headerlink" title="ParentNode.append()"></a>ParentNode.append()</h2><blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/ParentNode/append" target="_blank" rel="noopener">MDN - ParentNode.append()</a></p>
 </blockquote>
 <ul>
@@ -475,7 +466,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (item.hasOwnProperty(<span class="string">'append'</span>)) &#123;</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(item, <span class="string">'append'</span>, &#123;</span><br><span class="line">      configurable: <span class="literal">true</span>,</span><br><span class="line">      enumerable: <span class="literal">true</span>,</span><br><span class="line">      writable: <span class="literal">true</span>,</span><br><span class="line">      value: <span class="function"><span class="keyword">function</span> <span class="title">append</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> argArr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>),</span><br><span class="line">          docFrag = <span class="built_in">document</span>.createDocumentFragment()</span><br><span class="line"></span><br><span class="line">        argArr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">argItem</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> isNode = argItem <span class="keyword">instanceof</span> Node</span><br><span class="line">          docFrag.appendChild(</span><br><span class="line">            isNode ? argItem : <span class="built_in">document</span>.createTextNode(<span class="built_in">String</span>(argItem))</span><br><span class="line">          )</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.appendChild(docFrag)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)([Element.prototype, Document.prototype, DocumentFragment.prototype])</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="onWheel"><a href="#onWheel" class="headerlink" title="onWheel"></a>onWheel</h3><blockquote>
+<h2 id="onWheel"><a href="#onWheel" class="headerlink" title="onWheel"></a>onWheel</h2><blockquote>
 <p>兼容浏览器 wheel 事件</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> onWheel = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> wheelEvt =</span><br><span class="line">    <span class="string">'onwheel'</span> <span class="keyword">in</span> <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">      ? <span class="string">'wheel'</span></span><br><span class="line">      : <span class="built_in">document</span>.onmousewheel !== <span class="literal">undefined</span></span><br><span class="line">      ? <span class="string">'mousewheel'</span></span><br><span class="line">      : <span class="string">'DOMMouseScroll'</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">el, func</span>) </span>&#123;</span><br><span class="line">    el.addEventListener(wheelEvt, func)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
@@ -597,7 +588,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
+                <time title="Modified: 2019-07-09 06:39:34" itemprop="dateModified" datetime="2019-07-09T06:39:34+00:00">2019-07-09</time>
               
             
           </span>
@@ -888,7 +879,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
+                <time title="Modified: 2019-07-09 06:39:34" itemprop="dateModified" datetime="2019-07-09T06:39:34+00:00">2019-07-09</time>
               
             
           </span>
@@ -1075,7 +1066,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
+                <time title="Modified: 2019-07-09 06:39:34" itemprop="dateModified" datetime="2019-07-09T06:39:34+00:00">2019-07-09</time>
               
             
           </span>
@@ -1775,7 +1766,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
+                <time title="Modified: 2019-07-09 06:39:34" itemprop="dateModified" datetime="2019-07-09T06:39:34+00:00">2019-07-09</time>
               
             
           </span>
@@ -1996,7 +1987,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
+                <time title="Modified: 2019-07-09 06:39:34" itemprop="dateModified" datetime="2019-07-09T06:39:34+00:00">2019-07-09</time>
               
             
           </span>
@@ -2183,7 +2174,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
+                <time title="Modified: 2019-07-09 06:39:34" itemprop="dateModified" datetime="2019-07-09T06:39:34+00:00">2019-07-09</time>
               
             
           </span>
@@ -2414,7 +2405,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
+                <time title="Modified: 2019-07-09 06:39:34" itemprop="dateModified" datetime="2019-07-09T06:39:34+00:00">2019-07-09</time>
               
             
           </span>
@@ -2743,7 +2734,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
+                <time title="Modified: 2019-07-09 06:39:34" itemprop="dateModified" datetime="2019-07-09T06:39:34+00:00">2019-07-09</time>
               
             
           </span>
@@ -2966,7 +2957,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-08 15:26:12" itemprop="dateModified" datetime="2019-07-08T15:26:12+00:00">2019-07-08</time>
+                <time title="Modified: 2019-07-09 06:39:34" itemprop="dateModified" datetime="2019-07-09T06:39:34+00:00">2019-07-09</time>
               
             
           </span>
