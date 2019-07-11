@@ -286,6 +286,245 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/07/12/js-string/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/12/js-string/" class="post-title-link" itemprop="url">Javascript - String</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-12 00:00:03" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:03+00:00">2019-07-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-11 17:08:43" itemprop="dateModified" datetime="2019-07-11T17:08:43+00:00">2019-07-11</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#Unicode">Unicode</a></li>
+<li><a href="#StringprototypecharAt">String.prototype.charAt()</a></li>
+<li><a href="#StringprototypecharCodeAt">String.prototype.charCodeAt()</a></li>
+<li><a href="#StringfromCharCode">String.fromCharCode()</a></li>
+<li><a href="#StringprototypecodePointAt">String.prototype.codePointAt()</a></li>
+<li><a href="#StringfromCodePoint">String.fromCodePoint()</a></li>
+</ul>
+<h2 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h2><blockquote>
+<p>Unicode 编码单元（code points）的范围从 0 到 1,114,111（0x10FFFF）。开头的 128 个 Unicode 编码单元和 ASCII 字符编码一样</p>
+</blockquote>
+<h2 id="String-prototype-charAt"><a href="#String-prototype-charAt" class="headerlink" title="String.prototype.charAt()"></a>String.prototype.charAt()</h2><blockquote>
+<p>从字符串中返回指定的字符</p>
+</blockquote>
+<ul>
+<li><p><code>str.charAt(index)</code></p>
+</li>
+<li><p>index: 介于 0 和字符串长度减 1 之间的整数 (0 ~ length-1)</p>
+<ul>
+<li><p><strong>如果不是一个数值，则默认为 0</strong></p>
+</li>
+<li><p>索引超出范围（小于 0 或不小于字符串的长度），则返回 <code>&#39;&#39;</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="String-prototype-charCodeAt"><a href="#String-prototype-charCodeAt" class="headerlink" title="String.prototype.charCodeAt()"></a>String.prototype.charCodeAt()</h2><blockquote>
+<p>string 转 Unicode， 返回 0 到 65535 之间的整数，表示给定索引处的 UTF-16 代码单元，不能被一个 UTF-16 编码单元单独表示的情况下，需使用 codePointAt()</p>
+</blockquote>
+<ul>
+<li><p><code>str.charCodeAt(index)</code></p>
+</li>
+<li><p>index: 介于 0 和字符串长度减 1 之间的整数 (0 ~ length-1)</p>
+<ul>
+<li><p><strong>如果不是一个数值，则默认为 0</strong></p>
+</li>
+<li><p>索引超出范围（小于 0 或不小于字符串的长度），则返回 <code>NaN</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="String-fromCharCode"><a href="#String-fromCharCode" class="headerlink" title="String.fromCharCode()"></a>String.fromCharCode()</h2><blockquote>
+<p>String 的静态方法，返回由指定的 UTF-16 代码单元序列创建的字符串<br>由于高位编码（higher values）字符是用两个低位编码（lower value）表示形成的一个字符，需要使用 String.fromCodePoint()</p>
+</blockquote>
+<ul>
+<li><p><code>String.fromCharCode(num1[, ...[, numN]])</code></p>
+</li>
+<li><p><code>num1, ..., numN</code></p>
+<ul>
+<li>一系列 UTF-16 代码单元的数字。 范围介于 0 到 65535（0xFFFF）之间。 大于 0xFFFF 的数字将被截断。 不进行有效性检查</li>
+</ul>
+</li>
+<li><p>返回一个长度为 N 的字符串，由 N 个指定的 UTF-16 代码单元组成</p>
+</li>
+</ul>
+<h2 id="String-prototype-codePointAt"><a href="#String-prototype-codePointAt" class="headerlink" title="String.prototype.codePointAt()"></a>String.prototype.codePointAt()</h2><blockquote>
+<p>string 转 Unicode</p>
+</blockquote>
+<ul>
+<li><p><code>str.codePointAt(pos)</code></p>
+</li>
+<li><p>pos: 介于 0 和字符串长度减 1 之间的整数 (0 ~ length-1)</p>
+<ul>
+<li><p><strong>如果不是一个数值，则默认为 0</strong></p>
+</li>
+<li><p>索引超出范围（小于 0 或不小于字符串的长度），则返回 <code>undefined</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="String-fromCodePoint"><a href="#String-fromCodePoint" class="headerlink" title="String.fromCodePoint()"></a>String.fromCodePoint()</h2><blockquote>
+<p>String 的静态方法</p>
+</blockquote>
+<ul>
+<li><p><code>String.fromCodePoint(num1[, ...[, numN]])</code></p>
+</li>
+<li><p><code>num1, ..., numN</code></p>
+<ul>
+<li>一串 Unicode 编码位置，即“代码点”</li>
+</ul>
+</li>
+<li><p><strong>传入无效的 Unicode 编码，会抛出异常</strong></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/07/07/js-utils/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -348,7 +587,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-11 09:36:43" itemprop="dateModified" datetime="2019-07-11T09:36:43+00:00">2019-07-11</time>
+                <time title="Modified: 2019-07-11 17:08:43" itemprop="dateModified" datetime="2019-07-11T17:08:43+00:00">2019-07-11</time>
               
             
           </span>
@@ -687,7 +926,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-11 09:36:43" itemprop="dateModified" datetime="2019-07-11T09:36:43+00:00">2019-07-11</time>
+                <time title="Modified: 2019-07-11 17:08:43" itemprop="dateModified" datetime="2019-07-11T17:08:43+00:00">2019-07-11</time>
               
             
           </span>
@@ -887,7 +1126,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-11 09:36:43" itemprop="dateModified" datetime="2019-07-11T09:36:43+00:00">2019-07-11</time>
+                <time title="Modified: 2019-07-11 17:08:43" itemprop="dateModified" datetime="2019-07-11T17:08:43+00:00">2019-07-11</time>
               
             
           </span>
@@ -1096,7 +1335,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-11 09:36:43" itemprop="dateModified" datetime="2019-07-11T09:36:43+00:00">2019-07-11</time>
+                <time title="Modified: 2019-07-11 17:08:43" itemprop="dateModified" datetime="2019-07-11T17:08:43+00:00">2019-07-11</time>
               
             
           </span>
@@ -1272,7 +1511,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-11 09:36:43" itemprop="dateModified" datetime="2019-07-11T09:36:43+00:00">2019-07-11</time>
+                <time title="Modified: 2019-07-11 17:08:43" itemprop="dateModified" datetime="2019-07-11T17:08:43+00:00">2019-07-11</time>
               
             
           </span>
@@ -1642,7 +1881,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-11 09:36:43" itemprop="dateModified" datetime="2019-07-11T09:36:43+00:00">2019-07-11</time>
+                <time title="Modified: 2019-07-11 17:08:43" itemprop="dateModified" datetime="2019-07-11T17:08:43+00:00">2019-07-11</time>
               
             
           </span>
@@ -1891,7 +2130,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-11 09:36:43" itemprop="dateModified" datetime="2019-07-11T09:36:43+00:00">2019-07-11</time>
+                <time title="Modified: 2019-07-11 17:08:43" itemprop="dateModified" datetime="2019-07-11T17:08:43+00:00">2019-07-11</time>
               
             
           </span>
@@ -2054,7 +2293,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-11 09:36:43" itemprop="dateModified" datetime="2019-07-11T09:36:43+00:00">2019-07-11</time>
+                <time title="Modified: 2019-07-11 17:08:43" itemprop="dateModified" datetime="2019-07-11T17:08:43+00:00">2019-07-11</time>
               
             
           </span>
@@ -3738,7 +3977,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-11 09:36:43" itemprop="dateModified" datetime="2019-07-11T09:36:43+00:00">2019-07-11</time>
+                <time title="Modified: 2019-07-11 17:08:43" itemprop="dateModified" datetime="2019-07-11T17:08:43+00:00">2019-07-11</time>
               
             
           </span>
@@ -3885,274 +4124,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/20/git-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xg4">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/20/git-2/" class="post-title-link" itemprop="url">Git 2</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-04-20 09:54:09" itemprop="dateCreated datePublished" datetime="2019-04-20T09:54:09+00:00">2019-04-20</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-11 09:36:43" itemprop="dateModified" datetime="2019-07-11T09:36:43+00:00">2019-07-11</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#commit-message">commit message</a></li>
-<li><a href="#server">server</a></li>
-<li><a href="#hooks">hooks</a></li>
-</ul>
-<h2 id="commit-message"><a href="#commit-message" class="headerlink" title="commit message"></a>commit message</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(scope?): subject  <span class="comment">#scope is optional</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>feat: 新功能</p>
-</li>
-<li><p>fix: bug 修复</p>
-</li>
-<li><p>docs: 文档修改</p>
-</li>
-<li><p>style: 不影响代码的更改（如空格，格式，缺少分号等）</p>
-</li>
-<li><p>refactor: 代码重构，既不修复错误也不添加功能</p>
-</li>
-<li><p>perf: 代码更改可以提高性能</p>
-</li>
-<li><p>test: 添加缺失或更正现有测试</p>
-</li>
-<li><p>build: build 相关，npm scripts</p>
-</li>
-<li><p>ci: CI 相关</p>
-</li>
-<li><p>chore: 对构建过程或辅助工具和库（如文档生成）的更改</p>
-</li>
-<li><p>revert: 版本回退</p>
-</li>
-</ul>
-<h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><ol>
-<li><p>创建 git 用户，运行 git 服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加git账户</span></span><br><span class="line">$ adduser git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改git的密码</span></span><br><span class="line">$ passwd git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>禁止 git 用户的 shell 登录</p>
-<blockquote>
-<p>出于安全考虑，创建的 git 用户不允许登录 shell，找到 <code>/etc/passwd</code></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git:x:1000:1000::/home/git:/bin/bash</span><br><span class="line"><span class="comment"># 改为</span></span><br><span class="line">$ git:x:1000:1000::/home/git:/usr/bin/git-shell</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>免密登录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir /home/git/.ssh</span><br><span class="line">$ chmod 700 /home/git/.ssh</span><br><span class="line">$ touch /home/git/.ssh/authorized_keys</span><br><span class="line">$ chmod 600 /home/git/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果使用 sudo 创建，需要将 owner 改为 git</span></span><br><span class="line">$ chown -R git:git /home/git/</span><br></pre></td></tr></table></figure>
-<p>编辑 <code>/home/git/.ssh/authorized_keys</code> 将客户端公钥放入</p>
-</li>
-<li><p>初始化 git 仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir /xg4</span><br><span class="line">$ chown git:git /xg4/</span><br><span class="line">$ <span class="built_in">cd</span> /xg4</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建空的git仓库</span></span><br><span class="line">$ git init --bare test.git</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> /xg4/test.git/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将仓库所属用户改为git</span></span><br><span class="line">$ chown -R git:git test.git</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="hooks"><a href="#hooks" class="headerlink" title="hooks"></a>hooks</h2><ul>
-<li><p>client hooks: (commit hooks, email hooks, other hooks)</p>
-<ul>
-<li><p>commit hooks</p>
-<ul>
-<li><p>pre-commit</p>
-</li>
-<li><p>prepare-commit-msg</p>
-</li>
-<li><p>commit-msg</p>
-</li>
-<li><p>post-commit</p>
-</li>
-</ul>
-</li>
-<li><p>email hooks</p>
-<ul>
-<li><p>applypatch-msg</p>
-</li>
-<li><p>pre-applypatch</p>
-</li>
-<li><p>post-applypaych</p>
-</li>
-</ul>
-</li>
-<li><p>other hooks:</p>
-<ul>
-<li><p>pre-rebase</p>
-</li>
-<li><p>post-checkout</p>
-</li>
-<li><p>post-merge</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>server hooks:</p>
-<ul>
-<li><p>pre-receive</p>
-</li>
-<li><p>post-receive</p>
-</li>
-<li><p>update</p>
-</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li><p>创建 git server 仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /xg4</span><br><span class="line">$ git init --bare test.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建工作目录 git 仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /var/www</span><br><span class="line">$ git <span class="built_in">clone</span> /xg4/test.git</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ git init</span><br><span class="line">$ git remote add origin /xg4/test.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>改变所属用户和用户组，获得权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chown -R git:git /xg4/test.git</span><br><span class="line">$ chown -R git:git /var/www/<span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置 git hooks</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /xg4/test.git/hooks/</span><br><span class="line">vim post-receive</span><br></pre></td></tr></table></figure>
-<p>post-receive 文件内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">unset</span> GIT_DIR</span><br><span class="line"><span class="built_in">cd</span> /var/www/<span class="built_in">test</span></span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 赋予 post-receive 文件可执行权限</span></span><br><span class="line">$ chmod +x .git/hooks/post-receive</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -4199,7 +4170,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -4268,7 +4239,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">25</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

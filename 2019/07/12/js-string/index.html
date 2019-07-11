@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="目录 目录 分类 反射型 存储型   防御   XSS 攻击全称跨站脚本攻击，为了不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为 XSS, XSS 是一种在 web 应用中的计算机安全漏洞，它允许恶意 web 用户将代码植入到提供给其它用户使用的页面中。（任何用户输入都是不可信的）  分类反射型 只是简单地把用户输入的数据 “反射” 给浏">
-<meta name="keywords" content="js,bug">
+  <meta name="description" content="Table of Contents Table of Contents Unicode String.prototype.charAt() String.prototype.charCodeAt() String.fromCharCode() String.prototype.codePointAt() String.fromCodePoint()  Unicode Unicode 编码单元（co">
+<meta name="keywords" content="js,string">
 <meta property="og:type" content="article">
-<meta property="og:title" content="XSS - 跨站脚本攻击">
-<meta property="og:url" content="https://xg4.github.io/2019/06/30/xss/index.html">
+<meta property="og:title" content="Javascript - String">
+<meta property="og:url" content="https://xg4.github.io/2019/07/12/js-string/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="目录 目录 分类 反射型 存储型   防御   XSS 攻击全称跨站脚本攻击，为了不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为 XSS, XSS 是一种在 web 应用中的计算机安全漏洞，它允许恶意 web 用户将代码植入到提供给其它用户使用的页面中。（任何用户输入都是不可信的）  分类反射型 只是简单地把用户输入的数据 “反射” 给浏">
+<meta property="og:description" content="Table of Contents Table of Contents Unicode String.prototype.charAt() String.prototype.charCodeAt() String.fromCharCode() String.prototype.codePointAt() String.fromCodePoint()  Unicode Unicode 编码单元（co">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-07-11T17:08:43.445Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XSS - 跨站脚本攻击">
-<meta name="twitter:description" content="目录 目录 分类 反射型 存储型   防御   XSS 攻击全称跨站脚本攻击，为了不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为 XSS, XSS 是一种在 web 应用中的计算机安全漏洞，它允许恶意 web 用户将代码植入到提供给其它用户使用的页面中。（任何用户输入都是不可信的）  分类反射型 只是简单地把用户输入的数据 “反射” 给浏">
+<meta name="twitter:title" content="Javascript - String">
+<meta name="twitter:description" content="Table of Contents Table of Contents Unicode String.prototype.charAt() String.prototype.charCodeAt() String.fromCharCode() String.prototype.codePointAt() String.fromCodePoint()  Unicode Unicode 编码单元（co">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://xg4.github.io/2019/06/30/xss/">
+  <link rel="canonical" href="https://xg4.github.io/2019/07/12/js-string/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>XSS - 跨站脚本攻击 | blog</title>
+  <title>Javascript - String | blog</title>
   
 
 
@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/06/30/xss/">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/07/12/js-string/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xg4">
@@ -307,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">XSS - 跨站脚本攻击
+          <h1 class="post-title" itemprop="name headline">Javascript - String
 
               
             
@@ -333,7 +333,7 @@
                 
               
 
-              <time title="Created: 2019-06-30 11:50:09" itemprop="dateCreated datePublished" datetime="2019-06-30T11:50:09+00:00">2019-06-30</time>
+              <time title="Created: 2019-07-12 00:00:03" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:03+00:00">2019-07-12</time>
             
 
             
@@ -384,50 +384,89 @@
       
 
       
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#%E5%88%86%E7%B1%BB">分类</a><ul>
-<li><a href="#%E5%8F%8D%E5%B0%84%E5%9E%8B">反射型</a></li>
-<li><a href="#%E5%AD%98%E5%82%A8%E5%9E%8B">存储型</a></li>
+        <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#Unicode">Unicode</a></li>
+<li><a href="#StringprototypecharAt">String.prototype.charAt()</a></li>
+<li><a href="#StringprototypecharCodeAt">String.prototype.charCodeAt()</a></li>
+<li><a href="#StringfromCharCode">String.fromCharCode()</a></li>
+<li><a href="#StringprototypecodePointAt">String.prototype.codePointAt()</a></li>
+<li><a href="#StringfromCodePoint">String.fromCodePoint()</a></li>
 </ul>
-</li>
-<li><a href="#%E9%98%B2%E5%BE%A1">防御</a></li>
-</ul>
-<blockquote>
-<p>XSS 攻击全称跨站脚本攻击，为了不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为 XSS, XSS 是一种在 web 应用中的计算机安全漏洞，它允许恶意 web 用户将代码植入到提供给其它用户使用的页面中。（任何用户输入都是不可信的）</p>
+<h2 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h2><blockquote>
+<p>Unicode 编码单元（code points）的范围从 0 到 1,114,111（0x10FFFF）。开头的 128 个 Unicode 编码单元和 ASCII 字符编码一样</p>
 </blockquote>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="反射型"><a href="#反射型" class="headerlink" title="反射型"></a>反射型</h3><ul>
-<li><p>只是简单地把用户输入的数据 “反射” 给浏览器， 反射型 XSS 也叫“非持久型 XSS”（Non-persistent XSS)。</p>
-</li>
-<li><p>比如：直接将用户输入用于网站页面，URL 中的 Query， Params 或者 用户输入的信息直接拼接 DOM 节点等</p>
-</li>
-<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://localhost:3000/?name=&lt;script&gt;alert('hello')&lt;/script&gt;"</span></span></span><br><span class="line"><span class="tag">  &gt;</span>点击进入网站并进行XSS攻击<span class="tag">&lt;/<span class="name">a</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
-<p>如果目标网站直接将 url 中的 query.name 渲染到页面上，就会被攻击</p>
-</li>
-</ul>
-<h3 id="存储型"><a href="#存储型" class="headerlink" title="存储型"></a>存储型</h3><ul>
-<li><p>存储型 XSS 会把用户输入的数据“存储”在服务器端（数据库）。存储型 XSS 通常也叫做“持久型 XSS”（Persistent XSS）</p>
-</li>
-<li><p>比如：用户发表的文章或评论中，可以输入恶意代码，发表成功存入数据库之后每个用户访问该文章或评论时，都会调用恶意代码，被劫持。</p>
-</li>
-</ul>
-<h2 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h2><p>常见的 Web 漏洞如 XSS，SQL 注入等，都要求攻击者输入一些特殊字符，所以可以通过输入检查，过滤掉这些字符。</p>
+<h2 id="String-prototype-charAt"><a href="#String-prototype-charAt" class="headerlink" title="String.prototype.charAt()"></a>String.prototype.charAt()</h2><blockquote>
+<p>从字符串中返回指定的字符</p>
+</blockquote>
 <ul>
-<li><p>React、Vue 等都有对 XSS 进行处理</p>
-<ul>
-<li><p>React <code>dangerouslySetInnerHTML</code> 会有风险</p>
+<li><p><code>str.charAt(index)</code></p>
 </li>
-<li><p>Vue <code>v-html</code> 会有风险</p>
+<li><p>index: 介于 0 和字符串长度减 1 之间的整数 (0 ~ length-1)</p>
+<ul>
+<li><p><strong>如果不是一个数值，则默认为 0</strong></p>
+</li>
+<li><p>索引超出范围（小于 0 或不小于字符串的长度），则返回 <code>&#39;&#39;</code></p>
 </li>
 </ul>
 </li>
-<li><p>GitHub 上有比较成熟的 XSS 库，可参考 <a href="https://github.com/leizongmin/js-xss" target="_blank" rel="noopener">GitHub - XSS</a></p>
+</ul>
+<h2 id="String-prototype-charCodeAt"><a href="#String-prototype-charCodeAt" class="headerlink" title="String.prototype.charCodeAt()"></a>String.prototype.charCodeAt()</h2><blockquote>
+<p>string 转 Unicode， 返回 0 到 65535 之间的整数，表示给定索引处的 UTF-16 代码单元，不能被一个 UTF-16 编码单元单独表示的情况下，需使用 codePointAt()</p>
+</blockquote>
+<ul>
+<li><p><code>str.charCodeAt(index)</code></p>
 </li>
-<li><p>防止 Cookie 被劫持</p>
-<p>Cookie 中设置 HttpOnly 之后，JS 将无法读取 Cookie 信息</p>
+<li><p>index: 介于 0 和字符串长度减 1 之间的整数 (0 ~ length-1)</p>
+<ul>
+<li><p><strong>如果不是一个数值，则默认为 0</strong></p>
 </li>
-<li><p>对下列特殊字符进行过滤或者编码，可以简单的防范</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&amp;  &amp;amp;</span><br><span class="line">&lt;  &amp;lt;</span><br><span class="line">&gt;  &amp;gt;</span><br><span class="line">&quot;  &amp;quot;</span><br><span class="line">&apos;  &amp;#39</span><br></pre></td></tr></table></figure>
+<li><p>索引超出范围（小于 0 或不小于字符串的长度），则返回 <code>NaN</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="String-fromCharCode"><a href="#String-fromCharCode" class="headerlink" title="String.fromCharCode()"></a>String.fromCharCode()</h2><blockquote>
+<p>String 的静态方法，返回由指定的 UTF-16 代码单元序列创建的字符串<br>由于高位编码（higher values）字符是用两个低位编码（lower value）表示形成的一个字符，需要使用 String.fromCodePoint()</p>
+</blockquote>
+<ul>
+<li><p><code>String.fromCharCode(num1[, ...[, numN]])</code></p>
+</li>
+<li><p><code>num1, ..., numN</code></p>
+<ul>
+<li>一系列 UTF-16 代码单元的数字。 范围介于 0 到 65535（0xFFFF）之间。 大于 0xFFFF 的数字将被截断。 不进行有效性检查</li>
+</ul>
+</li>
+<li><p>返回一个长度为 N 的字符串，由 N 个指定的 UTF-16 代码单元组成</p>
+</li>
+</ul>
+<h2 id="String-prototype-codePointAt"><a href="#String-prototype-codePointAt" class="headerlink" title="String.prototype.codePointAt()"></a>String.prototype.codePointAt()</h2><blockquote>
+<p>string 转 Unicode</p>
+</blockquote>
+<ul>
+<li><p><code>str.codePointAt(pos)</code></p>
+</li>
+<li><p>pos: 介于 0 和字符串长度减 1 之间的整数 (0 ~ length-1)</p>
+<ul>
+<li><p><strong>如果不是一个数值，则默认为 0</strong></p>
+</li>
+<li><p>索引超出范围（小于 0 或不小于字符串的长度），则返回 <code>undefined</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="String-fromCodePoint"><a href="#String-fromCodePoint" class="headerlink" title="String.fromCodePoint()"></a>String.fromCodePoint()</h2><blockquote>
+<p>String 的静态方法</p>
+</blockquote>
+<ul>
+<li><p><code>String.fromCodePoint(num1[, ...[, numN]])</code></p>
+</li>
+<li><p><code>num1, ..., numN</code></p>
+<ul>
+<li>一串 Unicode 编码位置，即“代码点”</li>
+</ul>
+</li>
+<li><p><strong>传入无效的 Unicode 编码，会抛出异常</strong></p>
 </li>
 </ul>
 
@@ -455,7 +494,7 @@
           
             <a href="/tags/js/" rel="tag"># js</a>
           
-            <a href="/tags/bug/" rel="tag"># bug</a>
+            <a href="/tags/string/" rel="tag"># string</a>
           
         </div>
       
@@ -468,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/29/css-center/" rel="next" title="CSS Center">
-                <i class="fa fa-chevron-left"></i> CSS Center
+              <a href="/2019/07/07/js-utils/" rel="next" title="Javascript Utils">
+                <i class="fa fa-chevron-left"></i> Javascript Utils
               </a>
             
           </div>
@@ -477,10 +516,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/07/js-utils/" rel="prev" title="Javascript Utils">
-                Javascript Utils <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -660,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">2.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#反射型"><span class="nav-number">2.1.</span> <span class="nav-text">反射型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储型"><span class="nav-number">2.2.</span> <span class="nav-text">存储型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防御"><span class="nav-number">3.</span> <span class="nav-text">防御</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unicode"><span class="nav-number">2.</span> <span class="nav-text">Unicode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-prototype-charAt"><span class="nav-number">3.</span> <span class="nav-text">String.prototype.charAt()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-prototype-charCodeAt"><span class="nav-number">4.</span> <span class="nav-text">String.prototype.charCodeAt()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-fromCharCode"><span class="nav-number">5.</span> <span class="nav-text">String.fromCharCode()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-prototype-codePointAt"><span class="nav-number">6.</span> <span class="nav-text">String.prototype.codePointAt()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-fromCodePoint"><span class="nav-number">7.</span> <span class="nav-text">String.fromCodePoint()</span></a></li></ol></div>
             
 
           </div>
