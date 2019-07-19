@@ -286,6 +286,230 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/20/linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/20/linux/" class="post-title-link" itemprop="url">Linux</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-20 22:52:27" itemprop="dateCreated datePublished" datetime="2019-04-20T22:52:27+00:00">2019-04-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-19 06:56:08" itemprop="dateModified" datetime="2019-07-19T06:56:08+00:00">2019-07-19</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#ssh-copy-id">ssh-copy-id</a></li>
+<li><a href="#scp">scp</a></li>
+</ul>
+<h2 id="ssh-copy-id"><a href="#ssh-copy-id" class="headerlink" title="ssh-copy-id"></a>ssh-copy-id</h2><blockquote>
+<p>将本机主机的公钥复制到远程主机的 <code>authorized_keys</code> 文件上，<code>ssh-copy-id</code> 命令也会给远程主机的用户主目录（home）和 <code>~/.ssh</code> 和 <code>~/.ssh/authorized_keys</code> 设置合适的权限</p>
+</blockquote>
+<ul>
+<li><p>语法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-copy-id [-i [identity_file]] [user@]machine</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参数</p>
+<ul>
+<li><code>-i</code> : 指定公钥文件</li>
+</ul>
+</li>
+<li><p>example</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-copy-id user@server</span><br><span class="line">$ ssh-copy-id -i ~/.ssh/id_rsa.pub user@server</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2><ul>
+<li><p>语法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp [-1246BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file]</span><br><span class="line">[-l <span class="built_in">limit</span>] [-o ssh_option] [-P port] [-S program]</span><br><span class="line">[[user@]host1:]file1 [...] [[user@]host2:]file2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>简易写法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scp [可选参数] file_source file_target</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参数：</p>
+<ul>
+<li><p><code>-1</code> : 强制 scp 命令使用协议 ssh1</p>
+</li>
+<li><p><code>-2</code> : 强制 scp 命令使用协议 ssh2</p>
+</li>
+<li><p><code>-4</code> : 强制 scp 命令只使用 IPv4 寻址</p>
+</li>
+<li><p><code>-6</code> : 强制 scp 命令只使用 IPv6 寻址</p>
+</li>
+<li><p><code>-B</code> : 使用批处理模式（传输过程中不询问传输口令或短语）</p>
+</li>
+<li><p><code>-C</code> : 允许压缩。（将-C 标志传递给 ssh，从而打开压缩功能）</p>
+</li>
+<li><p><code>-p</code> : 保留原文件的修改时间，访问时间和访问权限</p>
+</li>
+<li><p><code>-q</code> : 不显示传输进度条</p>
+</li>
+<li><p><code>-r</code> : 递归复制整个目录</p>
+</li>
+<li><p><code>-v</code> : 详细方式显示输出。scp 和 ssh(1)会显示出整个过程的调试信息。这些信息用于调试连接，验证和配置问题</p>
+</li>
+<li><p><code>-c</code> cipher : 以 cipher 将数据传输进行加密，这个选项将直接传递给 ssh</p>
+</li>
+<li><p><code>-F</code> ssh_config : 指定一个替代的 ssh 配置文件，此参数直接传递给 ssh</p>
+</li>
+<li><p><code>-i</code> identity_file : 从指定文件中读取传输时使用的密钥文件，此参数直接传递给 ssh</p>
+</li>
+<li><p><code>-l</code> limit : 限定用户所能使用的带宽，以 Kbit/s 为单位</p>
+</li>
+<li><p><code>-o</code> ssh_option : 如果习惯于使用 ssh_config(5)中的参数传递方式</p>
+</li>
+<li><p><code>-P</code> port : 注意是大写的 P, port 是指定数据传输用到的端口号</p>
+</li>
+<li><p><code>-S</code> program : 指定加密传输时所使用的程序。此程序必须能够理解 ssh(1)的选项</p>
+</li>
+</ul>
+</li>
+<li><p>example</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ scp local_file remote_username@remote_ip:remote_folder</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ scp local_file remote_username@remote_ip:remote_file</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ scp local_file remote_ip:remote_folder</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ scp local_file remote_ip:remote_file</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/20/git-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -348,7 +572,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-18 03:25:51" itemprop="dateModified" datetime="2019-07-18T03:25:51+00:00">2019-07-18</time>
+                <time title="Modified: 2019-07-19 06:56:08" itemprop="dateModified" datetime="2019-07-19T06:56:08+00:00">2019-07-19</time>
               
             
           </span>
@@ -616,7 +840,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-18 03:25:51" itemprop="dateModified" datetime="2019-07-18T03:25:51+00:00">2019-07-18</time>
+                <time title="Modified: 2019-07-19 06:56:08" itemprop="dateModified" datetime="2019-07-19T06:56:08+00:00">2019-07-19</time>
               
             
           </span>
@@ -856,7 +1080,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-18 03:25:51" itemprop="dateModified" datetime="2019-07-18T03:25:51+00:00">2019-07-18</time>
+                <time title="Modified: 2019-07-19 06:56:08" itemprop="dateModified" datetime="2019-07-19T06:56:08+00:00">2019-07-19</time>
               
             
           </span>
@@ -1153,7 +1377,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-18 03:25:51" itemprop="dateModified" datetime="2019-07-18T03:25:51+00:00">2019-07-18</time>
+                <time title="Modified: 2019-07-19 06:56:08" itemprop="dateModified" datetime="2019-07-19T06:56:08+00:00">2019-07-19</time>
               
             
           </span>
@@ -1340,7 +1564,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-18 03:25:51" itemprop="dateModified" datetime="2019-07-18T03:25:51+00:00">2019-07-18</time>
+                <time title="Modified: 2019-07-19 06:56:08" itemprop="dateModified" datetime="2019-07-19T06:56:08+00:00">2019-07-19</time>
               
             
           </span>
@@ -2040,7 +2264,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-18 03:25:51" itemprop="dateModified" datetime="2019-07-18T03:25:51+00:00">2019-07-18</time>
+                <time title="Modified: 2019-07-19 06:56:08" itemprop="dateModified" datetime="2019-07-19T06:56:08+00:00">2019-07-19</time>
               
             
           </span>
@@ -2261,7 +2485,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-18 03:25:51" itemprop="dateModified" datetime="2019-07-18T03:25:51+00:00">2019-07-18</time>
+                <time title="Modified: 2019-07-19 06:56:08" itemprop="dateModified" datetime="2019-07-19T06:56:08+00:00">2019-07-19</time>
               
             
           </span>
@@ -2448,7 +2672,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-18 03:25:51" itemprop="dateModified" datetime="2019-07-18T03:25:51+00:00">2019-07-18</time>
+                <time title="Modified: 2019-07-19 06:56:08" itemprop="dateModified" datetime="2019-07-19T06:56:08+00:00">2019-07-19</time>
               
             
           </span>
@@ -2679,7 +2903,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-18 03:25:51" itemprop="dateModified" datetime="2019-07-18T03:25:51+00:00">2019-07-18</time>
+                <time title="Modified: 2019-07-19 06:56:08" itemprop="dateModified" datetime="2019-07-19T06:56:08+00:00">2019-07-19</time>
               
             
           </span>
@@ -2931,229 +3155,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/12/react-router/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xg4">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/12/react-router/" class="post-title-link" itemprop="url">React Router v4</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-12 20:00:37" itemprop="dateCreated datePublished" datetime="2018-09-12T20:00:37+00:00">2018-09-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-18 03:25:51" itemprop="dateModified" datetime="2019-07-18T03:25:51+00:00">2019-07-18</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#react-router">react-router</a></li>
-<li><a href="#react-router-dom">react-router-dom</a></li>
-<li><a href="#hashrouterbrowserrouter">HashRouter/BrowserRouter</a><ul>
-<li><a href="#hashrouter">HashRouter</a></li>
-<li><a href="#browserrouter">BrowserRouter</a></li>
-</ul>
-</li>
-<li><a href="#route">Route</a></li>
-<li><a href="#linknavlink">Link/NavLink</a><ul>
-<li><a href="#link">Link</a></li>
-<li><a href="#navlink">NavLink</a></li>
-</ul>
-</li>
-<li><a href="#switch">Switch</a></li>
-</ul>
-<h2 id="react-router"><a href="#react-router" class="headerlink" title="react-router"></a>react-router</h2><blockquote>
-<p>提供了一些 router 的核心 api，包括 Router, Route, Switch 等，但是它没有提供 dom 操作进行跳转的 api</p>
-</blockquote>
-<h2 id="react-router-dom"><a href="#react-router-dom" class="headerlink" title="react-router-dom"></a>react-router-dom</h2><blockquote>
-<p>提供了 BrowserRouter, Route, Link 等 api，可以通过 dom 的事件控制路由。例如点击一个按钮进行跳转，大多数情况下我们是这种情况，所以在开发过程中，我们更多是使用 react-router-dom</p>
-</blockquote>
-<h2 id="HashRouter-BrowserRouter"><a href="#HashRouter-BrowserRouter" class="headerlink" title="HashRouter/BrowserRouter"></a>HashRouter/BrowserRouter</h2><blockquote>
-<p>都提供路由的基本功能，可以随意选取其中一个</p>
-</blockquote>
-<h3 id="HashRouter"><a href="#HashRouter" class="headerlink" title="HashRouter"></a>HashRouter</h3><blockquote>
-<p>通过 hash 值来对路由进行控制。如果你使用 HashRouter，你的路由就会默认有#</p>
-</blockquote>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;HashRouter&gt;</span><br><span class="line">  &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/HashRouter&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="BrowserRouter"><a href="#BrowserRouter" class="headerlink" title="BrowserRouter"></a>BrowserRouter</h3><ul>
-<li><p>大部分情况下我们不需要这个#，因为它看起来很怪，这时我们就需要用到 BrowserRouter</p>
-</li>
-<li><p>它的原理是使用 HTML5 history API (pushState, replaceState, popState)来使你的内容随着 url 动态改变的</p>
-</li>
-</ul>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;BrowserRouter basename=<span class="string">"/app"</span>&gt;</span><br><span class="line">  &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/BrowserRouter&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="Route"><a href="#Route" class="headerlink" title="Route"></a>Route</h2><ul>
-<li><p>Route 是路由的一个原材料，它是控制路径对应显示的组件。我们经常用的是 exact、path 以及 component 属性</p>
-</li>
-<li><p>exact 控制匹配到/路径时不会再继续向下匹配，path 标识路由的路径，component 表示路径对应显示的组件。后面我们将结合 NavLink 完成一个很基本的路由使用。同时我们可以设置例如/user/:id 的方式来控制页面的显示，这需要配合 Link 或者 NavLink 配合使用。下面我们会提到</p>
-</li>
-</ul>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="Link-NavLink"><a href="#Link-NavLink" class="headerlink" title="Link/NavLink"></a>Link/NavLink</h2><blockquote>
-<p>两者都是可以控制路由跳转的，不同点是 NavLink 的 api 更多，更加满足你的需求</p>
-</blockquote>
-<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><ul>
-<li><p>主要 api 是 to，to 可以接受 string 或者一个 object，来控制 url</p>
-</li>
-<li><p>example</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=<span class="string">"/home"</span> /&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link</span><br><span class="line">  to=&#123;&#123;</span><br><span class="line">    pathname: <span class="string">'/home'</span>,</span><br><span class="line">    search: <span class="string">'?sort=name'</span>,</span><br><span class="line">    hash: <span class="string">'#the-hash'</span>,</span><br><span class="line">    state: &#123; <span class="attr">x</span>: <span class="literal">true</span> &#125;</span><br><span class="line">  &#125;&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="NavLink"><a href="#NavLink" class="headerlink" title="NavLink"></a>NavLink</h3><ul>
-<li><p>它可以为当前选中的路由设置类名、样式以及回调函数等</p>
-</li>
-<li><p>example</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;NavLink exact activeClassName=<span class="string">"active"</span> to=<span class="string">"/"</span>&gt;</span><br><span class="line">  home</span><br><span class="line">&lt;<span class="regexp">/NavLink&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>exact 用于严格匹配，匹配到/则不会继续向下匹配，to 则是控制跳转的路径，activeClassName 是选中状态的类名，我们可以为其添加样式。我们在/second 后面添加 1234 来想路由中传递信息，这结合了上面 Route 中的/second/:id</p>
-</li>
-<li><p>match 是在使用 router 之后被放入 props 中的一个属性，在 class 创建的组件中我们需要通过 this.props.match 来获取 match 之中的信息。match 中包含的信息如下</p>
-</li>
-</ul>
-<h2 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h2><blockquote>
-<p>常常会用来包裹 Route，它里面不能放其他元素，用来只显示一个路由</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3200,7 +3201,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -3273,7 +3274,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
