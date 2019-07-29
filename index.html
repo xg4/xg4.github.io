@@ -348,7 +348,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-29 08:56:10" itemprop="dateModified" datetime="2019-07-29T08:56:10+00:00">2019-07-29</time>
+                <time title="Modified: 2019-07-29 08:59:19" itemprop="dateModified" datetime="2019-07-29T08:59:19+00:00">2019-07-29</time>
               
             
           </span>
@@ -531,7 +531,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-29 08:56:10" itemprop="dateModified" datetime="2019-07-29T08:56:10+00:00">2019-07-29</time>
+                <time title="Modified: 2019-07-29 08:59:19" itemprop="dateModified" datetime="2019-07-29T08:59:19+00:00">2019-07-29</time>
               
             
           </span>
@@ -770,7 +770,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-29 08:56:10" itemprop="dateModified" datetime="2019-07-29T08:56:10+00:00">2019-07-29</time>
+                <time title="Modified: 2019-07-29 08:59:19" itemprop="dateModified" datetime="2019-07-29T08:59:19+00:00">2019-07-29</time>
               
             
           </span>
@@ -810,43 +810,45 @@
 <p>javascript 语法基础 ecmascript 的 Utils</p>
 </blockquote>
 <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
-<li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#randomint">randomInt</a></li>
 <li><a href="#asyncawait-trycatch">async/await-try/catch</a></li>
 <li><a href="#sleep">sleep</a></li>
-<li><a href="#isStatic">isStatic</a></li>
-<li><a href="#isPrimitive">isPrimitive</a></li>
-<li><a href="#isObject">isObject</a></li>
-<li><a href="#isObjectLike">isObjectLike</a></li>
-<li><a href="#toString">toString</a></li>
-<li><a href="#isPlainObject">isPlainObject</a></li>
-<li><a href="#isArray">isArray</a></li>
-<li><a href="#isRegExp">isRegExp</a></li>
-<li><a href="#isDate">isDate</a></li>
-<li><a href="#isNative">isNative</a></li>
-<li><a href="#isFunction">isFunction</a></li>
-<li><a href="#isLength">isLength</a></li>
-<li><a href="#isValidArrayIndex">isValidArrayIndex</a></li>
-<li><a href="#isArrayLike">isArrayLike</a></li>
-<li><a href="#hasOwn">hasOwn</a></li>
-<li><a href="#isEmpty">isEmpty</a></li>
-<li><a href="#inBrowser">inBrowser</a></li>
-<li><a href="#hasProto">hasProto</a></li>
-<li><a href="#userAgent">userAgent</a></li>
-<li><a href="#browserType">browserType</a></li>
-<li><a href="#toString-1">toString</a></li>
+<li><a href="#isstatic">isStatic</a></li>
+<li><a href="#isprimitive">isPrimitive</a></li>
+<li><a href="#isobject">isObject</a></li>
+<li><a href="#isobjectlike">isObjectLike</a></li>
+<li><a href="#tostring">toString</a></li>
+<li><a href="#isplainobject">isPlainObject</a></li>
+<li><a href="#isarray">isArray</a></li>
+<li><a href="#isregexp">isRegExp</a></li>
+<li><a href="#isdate">isDate</a></li>
+<li><a href="#isnative">isNative</a></li>
+<li><a href="#isfunction">isFunction</a></li>
+<li><a href="#islength">isLength</a></li>
+<li><a href="#isvalidarrayindex">isValidArrayIndex</a></li>
+<li><a href="#isarraylike">isArrayLike</a></li>
+<li><a href="#hasown">hasOwn</a></li>
+<li><a href="#isempty">isEmpty</a></li>
+<li><a href="#inbrowser">inBrowser</a></li>
+<li><a href="#hasproto">hasProto</a></li>
+<li><a href="#useragent">userAgent</a></li>
+<li><a href="#browsertype">browserType</a></li>
+<li><a href="#tostring-1">toString</a></li>
 <li><a href="#cached">cached</a></li>
-<li><a href="#isReserved">isReserved</a></li>
-<li><a href="#charCodeAt">charCodeAt</a></li>
+<li><a href="#isreserved">isReserved</a></li>
+<li><a href="#charcodeat">charCodeAt</a></li>
 <li><a href="#camelize">camelize</a></li>
 <li><a href="#hyphenate">hyphenate</a></li>
 <li><a href="#capitalize">capitalize</a></li>
 <li><a href="#extend">extend</a></li>
-<li><a href="#deepClone">deepClone</a></li>
-<li><a href="#Array---unique">Array - unique</a></li>
-<li><a href="#isNaN">isNaN</a></li>
-<li><a href="#Array---max">Array - max</a></li>
-<li><a href="#Array---min">Array - min</a></li>
+<li><a href="#deepclone">deepClone</a></li>
+<li><a href="#array---unique">Array - unique</a></li>
+<li><a href="#isnan">isNaN</a></li>
+<li><a href="#array---max">Array - max</a></li>
+<li><a href="#array---min">Array - min</a></li>
 </ul>
+<h2 id="randomInt"><a href="#randomInt" class="headerlink" title="randomInt"></a>randomInt</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">randomInt</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (min &gt; max) &#123;</span><br><span class="line">    ;[min, max] = [max, min]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(min + <span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="async-await-try-catch"><a href="#async-await-try-catch" class="headerlink" title="async/await-try/catch"></a>async/await-try/catch</h2><p>简化 promise 函数的异常捕获，类 node API</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">errorCaptured</span>(<span class="params">promiseFunc</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> promiseFunc.then(<span class="function">(<span class="params">...args</span>) =&gt;</span> [<span class="literal">null</span>, ...args]).catch(<span class="function"><span class="params">err</span> =&gt;</span> [err])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sleep = <span class="function"><span class="params">ms</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> setTimeout(resolve, ms))</span><br></pre></td></tr></table></figure>
@@ -1109,7 +1111,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-29 08:56:10" itemprop="dateModified" datetime="2019-07-29T08:56:10+00:00">2019-07-29</time>
+                <time title="Modified: 2019-07-29 08:59:19" itemprop="dateModified" datetime="2019-07-29T08:59:19+00:00">2019-07-29</time>
               
             
           </span>
@@ -1309,7 +1311,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-29 08:56:10" itemprop="dateModified" datetime="2019-07-29T08:56:10+00:00">2019-07-29</time>
+                <time title="Modified: 2019-07-29 08:59:19" itemprop="dateModified" datetime="2019-07-29T08:59:19+00:00">2019-07-29</time>
               
             
           </span>
@@ -1518,7 +1520,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-29 08:56:10" itemprop="dateModified" datetime="2019-07-29T08:56:10+00:00">2019-07-29</time>
+                <time title="Modified: 2019-07-29 08:59:19" itemprop="dateModified" datetime="2019-07-29T08:59:19+00:00">2019-07-29</time>
               
             
           </span>
@@ -1694,7 +1696,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-29 08:56:10" itemprop="dateModified" datetime="2019-07-29T08:56:10+00:00">2019-07-29</time>
+                <time title="Modified: 2019-07-29 08:59:19" itemprop="dateModified" datetime="2019-07-29T08:59:19+00:00">2019-07-29</time>
               
             
           </span>
@@ -2064,7 +2066,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-29 08:56:10" itemprop="dateModified" datetime="2019-07-29T08:56:10+00:00">2019-07-29</time>
+                <time title="Modified: 2019-07-29 08:59:19" itemprop="dateModified" datetime="2019-07-29T08:59:19+00:00">2019-07-29</time>
               
             
           </span>
@@ -2313,7 +2315,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-29 08:56:10" itemprop="dateModified" datetime="2019-07-29T08:56:10+00:00">2019-07-29</time>
+                <time title="Modified: 2019-07-29 08:59:19" itemprop="dateModified" datetime="2019-07-29T08:59:19+00:00">2019-07-29</time>
               
             
           </span>
@@ -2476,7 +2478,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-29 08:56:10" itemprop="dateModified" datetime="2019-07-29T08:56:10+00:00">2019-07-29</time>
+                <time title="Modified: 2019-07-29 08:59:19" itemprop="dateModified" datetime="2019-07-29T08:59:19+00:00">2019-07-29</time>
               
             
           </span>
