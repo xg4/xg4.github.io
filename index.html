@@ -348,7 +348,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
+                <time title="Modified: 2019-09-04 07:28:03" itemprop="dateModified" datetime="2019-09-04T07:28:03+00:00">2019-09-04</time>
               
             
           </span>
@@ -531,7 +531,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
+                <time title="Modified: 2019-09-04 07:28:03" itemprop="dateModified" datetime="2019-09-04T07:28:03+00:00">2019-09-04</time>
               
             
           </span>
@@ -770,7 +770,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
+                <time title="Modified: 2019-09-04 07:28:03" itemprop="dateModified" datetime="2019-09-04T07:28:03+00:00">2019-09-04</time>
               
             
           </span>
@@ -811,6 +811,8 @@
 </blockquote>
 <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
 <li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#throttle">throttle</a></li>
+<li><a href="#debounce">debounce</a></li>
 <li><a href="#shuffle">shuffle</a></li>
 <li><a href="#randomint">randomInt</a></li>
 <li><a href="#asyncawait-trycatch">async/await-try/catch</a></li>
@@ -849,6 +851,14 @@
 <li><a href="#array---max">Array - max</a></li>
 <li><a href="#array---min">Array - min</a></li>
 </ul>
+<h2 id="throttle"><a href="#throttle" class="headerlink" title="throttle"></a>throttle</h2><blockquote>
+<p>函数节流</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, delay = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> last</span><br><span class="line">  <span class="keyword">let</span> timer</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> now = <span class="built_in">Date</span>.now()</span><br><span class="line">    <span class="keyword">if</span> (last &amp;&amp; now &lt; last + delay) &#123;</span><br><span class="line">      clearTimeout(timer)</span><br><span class="line"></span><br><span class="line">      timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">        last = now</span><br><span class="line">      &#125;, delay)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">      last = now</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="debounce"><a href="#debounce" class="headerlink" title="debounce"></a>debounce</h2><blockquote>
+<p>函数防抖</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    clearTimeout(timer)</span><br><span class="line">    timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="shuffle"><a href="#shuffle" class="headerlink" title="shuffle"></a>shuffle</h2><blockquote>
 <p>Fisher–Yates 乱序算法</p>
 </blockquote>
@@ -1116,7 +1126,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
+                <time title="Modified: 2019-09-04 07:28:03" itemprop="dateModified" datetime="2019-09-04T07:28:03+00:00">2019-09-04</time>
               
             
           </span>
@@ -1316,7 +1326,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
+                <time title="Modified: 2019-09-04 07:28:03" itemprop="dateModified" datetime="2019-09-04T07:28:03+00:00">2019-09-04</time>
               
             
           </span>
@@ -1525,7 +1535,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
+                <time title="Modified: 2019-09-04 07:28:03" itemprop="dateModified" datetime="2019-09-04T07:28:03+00:00">2019-09-04</time>
               
             
           </span>
@@ -1701,7 +1711,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
+                <time title="Modified: 2019-09-04 07:28:03" itemprop="dateModified" datetime="2019-09-04T07:28:03+00:00">2019-09-04</time>
               
             
           </span>
@@ -2071,7 +2081,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
+                <time title="Modified: 2019-09-04 07:28:03" itemprop="dateModified" datetime="2019-09-04T07:28:03+00:00">2019-09-04</time>
               
             
           </span>
@@ -2320,7 +2330,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
+                <time title="Modified: 2019-09-04 07:28:03" itemprop="dateModified" datetime="2019-09-04T07:28:03+00:00">2019-09-04</time>
               
             
           </span>
@@ -2483,7 +2493,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
+                <time title="Modified: 2019-09-04 07:28:03" itemprop="dateModified" datetime="2019-09-04T07:28:03+00:00">2019-09-04</time>
               
             
           </span>
