@@ -348,7 +348,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-15 12:35:24" itemprop="dateModified" datetime="2019-08-15T12:35:24+00:00">2019-08-15</time>
+                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
               
             
           </span>
@@ -531,7 +531,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-15 12:35:24" itemprop="dateModified" datetime="2019-08-15T12:35:24+00:00">2019-08-15</time>
+                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
               
             
           </span>
@@ -770,7 +770,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-15 12:35:24" itemprop="dateModified" datetime="2019-08-15T12:35:24+00:00">2019-08-15</time>
+                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
               
             
           </span>
@@ -811,6 +811,7 @@
 </blockquote>
 <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
 <li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#shuffle">shuffle</a></li>
 <li><a href="#randomint">randomInt</a></li>
 <li><a href="#asyncawait-trycatch">async/await-try/catch</a></li>
 <li><a href="#sleep">sleep</a></li>
@@ -848,6 +849,10 @@
 <li><a href="#array---max">Array - max</a></li>
 <li><a href="#array---min">Array - min</a></li>
 </ul>
+<h2 id="shuffle"><a href="#shuffle" class="headerlink" title="shuffle"></a>shuffle</h2><blockquote>
+<p>Fisher–Yates 乱序算法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shuffle</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> length = arr.length</span><br><span class="line">  <span class="keyword">while</span> (length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * length--)</span><br><span class="line">    ;[arr[length], arr[index]] = [arr[index], arr[length]]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="randomInt"><a href="#randomInt" class="headerlink" title="randomInt"></a>randomInt</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">randomInt</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (min &gt; max) &#123;</span><br><span class="line">    ;[min, max] = [max, min]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(min + <span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="async-await-try-catch"><a href="#async-await-try-catch" class="headerlink" title="async/await-try/catch"></a>async/await-try/catch</h2><p>简化 promise 函数的异常捕获，类 node API</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">errorCaptured</span>(<span class="params">promiseFunc</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> promiseFunc.then(<span class="function">(<span class="params">...args</span>) =&gt;</span> [<span class="literal">null</span>, ...args]).catch(<span class="function"><span class="params">err</span> =&gt;</span> [err])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1111,7 +1116,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-15 12:35:24" itemprop="dateModified" datetime="2019-08-15T12:35:24+00:00">2019-08-15</time>
+                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
               
             
           </span>
@@ -1311,7 +1316,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-15 12:35:24" itemprop="dateModified" datetime="2019-08-15T12:35:24+00:00">2019-08-15</time>
+                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
               
             
           </span>
@@ -1520,7 +1525,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-15 12:35:24" itemprop="dateModified" datetime="2019-08-15T12:35:24+00:00">2019-08-15</time>
+                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
               
             
           </span>
@@ -1696,7 +1701,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-15 12:35:24" itemprop="dateModified" datetime="2019-08-15T12:35:24+00:00">2019-08-15</time>
+                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
               
             
           </span>
@@ -2066,7 +2071,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-15 12:35:24" itemprop="dateModified" datetime="2019-08-15T12:35:24+00:00">2019-08-15</time>
+                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
               
             
           </span>
@@ -2315,7 +2320,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-15 12:35:24" itemprop="dateModified" datetime="2019-08-15T12:35:24+00:00">2019-08-15</time>
+                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
               
             
           </span>
@@ -2478,7 +2483,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-15 12:35:24" itemprop="dateModified" datetime="2019-08-15T12:35:24+00:00">2019-08-15</time>
+                <time title="Modified: 2019-09-04 06:50:53" itemprop="dateModified" datetime="2019-09-04T06:50:53+00:00">2019-09-04</time>
               
             
           </span>
