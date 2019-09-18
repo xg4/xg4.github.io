@@ -348,7 +348,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-11 04:38:01" itemprop="dateModified" datetime="2019-09-11T04:38:01+00:00">2019-09-11</time>
+                <time title="Modified: 2019-09-18 07:00:09" itemprop="dateModified" datetime="2019-09-18T07:00:09+00:00">2019-09-18</time>
               
             
           </span>
@@ -572,7 +572,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-11 04:38:01" itemprop="dateModified" datetime="2019-09-11T04:38:01+00:00">2019-09-11</time>
+                <time title="Modified: 2019-09-18 07:00:09" itemprop="dateModified" datetime="2019-09-18T07:00:09+00:00">2019-09-18</time>
               
             
           </span>
@@ -840,7 +840,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-11 04:38:01" itemprop="dateModified" datetime="2019-09-11T04:38:01+00:00">2019-09-11</time>
+                <time title="Modified: 2019-09-18 07:00:09" itemprop="dateModified" datetime="2019-09-18T07:00:09+00:00">2019-09-18</time>
               
             
           </span>
@@ -880,19 +880,49 @@
 <p>浏览器环境下的 javascript API、Utils</p>
 </blockquote>
 <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
-<li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#insertadjacentelement">insertAdjacentElement</a></li>
+<li><a href="#getboundingclientrect">getBoundingClientRect</a></li>
+<li><a href="#contains">contains</a></li>
+<li><a href="#comparedocumentposition">compareDocumentPosition</a></li>
+<li><a href="#mutationobserver">MutationObserver</a></li>
+<li><a href="#getbattery">getBattery</a></li>
 <li><a href="#download">download</a></li>
-<li><a href="#fullScreen">fullScreen</a></li>
-<li><a href="#requestAnimationFrame">requestAnimationFrame</a></li>
+<li><a href="#fullscreen">fullScreen</a></li>
+<li><a href="#requestanimationframe">requestAnimationFrame</a></li>
 <li><a href="#performance">performance</a></li>
-<li><a href="#Event">Event</a></li>
-<li><a href="#getComputedStyle">getComputedStyle</a></li>
-<li><a href="#Animations">Animations</a></li>
-<li><a href="#IntersectionObserver">IntersectionObserver</a></li>
-<li><a href="#ElementscrollIntoView">Element.scrollIntoView()</a></li>
-<li><a href="#ParentNodeappend">ParentNode.append()</a></li>
-<li><a href="#onWheel">onWheel</a></li>
+<li><a href="#event">Event</a></li>
+<li><a href="#getcomputedstyle">getComputedStyle</a></li>
+<li><a href="#animations">Animations</a></li>
+<li><a href="#intersectionobserver">IntersectionObserver</a></li>
+<li><a href="#scrollintoview">scrollIntoView</a></li>
+<li><a href="#append">append</a></li>
+<li><a href="#onwheel">onWheel</a></li>
 </ul>
+<h2 id="insertAdjacentElement"><a href="#insertAdjacentElement" class="headerlink" title="insertAdjacentElement"></a>insertAdjacentElement</h2><blockquote>
+<p>可以通过不同的参数实现 <code>jQuery</code> 的 <code>append</code> | <code>prepend</code> | <code>after</code> | <code>before</code></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"parent"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> parent = <span class="built_in">document</span>.getElementById(<span class="string">'parent'</span>)</span><br><span class="line"><span class="keyword">const</span> node = <span class="built_in">document</span>.createElement(<span class="string">'span'</span>)</span><br><span class="line"><span class="comment">// 插入到指定元素内部的尾部</span></span><br><span class="line"><span class="comment">// 等价于 $(parent).append(node)</span></span><br><span class="line">parent.insertAdjacentElement(<span class="string">'beforeend'</span>, node)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入到指定元素内部的头部</span></span><br><span class="line"><span class="comment">// 等价于 $(parent).prepend(node)</span></span><br><span class="line">parent.insertAdjacentElement(<span class="string">'afterbegin'</span>, node)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入到指定元素后面</span></span><br><span class="line"><span class="comment">// 等价于 $(parent).after(node)</span></span><br><span class="line">parent.insertAdjacentElement(<span class="string">'afterend'</span>, node)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入到指定元素前面</span></span><br><span class="line"><span class="comment">// 等价于 $(parent).after(node)</span></span><br><span class="line">parent.insertAdjacentElement(<span class="string">'beforebegin'</span>, node)</span><br></pre></td></tr></table></figure>
+<h2 id="getBoundingClientRect"><a href="#getBoundingClientRect" class="headerlink" title="getBoundingClientRect"></a>getBoundingClientRect</h2><blockquote>
+<p>element.getBoundingClientRect() 获取元素相对浏览器左上角的偏移量以及元素尺寸信息, 返回值是一个 rect 对象, 其中包括:<br>left: 元素左上角距离浏览器左上角的 X 轴偏移<br>top: 元素左上角距离浏览器左上角的 Y 轴偏移<br>width: 元素宽度<br>height: 元素高度<br>right: 元素右下角距离浏览器左上角的 X 轴偏移）<br>bottom: 元素右下角距离浏览器左上角的 Y 轴偏移<br>x: 同 left<br>y: 同 top</p>
+</blockquote>
+<p>可以判断元素是否已经进入可视区域</p>
+<p><strong><code>getBoundingClientRect</code> 会受到 <code>transform</code> 的影响, 比如你的元素设置了 <code>transform:scale(2)</code>, 那么 <code>getBoundingClientRect</code> 返回的 <code>width</code> 会是元素实际宽度的 2 倍, <code>top</code> 等位置信息也会因为元素尺寸变化而发生变化</strong></p>
+<h2 id="contains"><a href="#contains" class="headerlink" title="contains"></a>contains</h2><blockquote>
+<p>node.contains(otherNode) 检查传入节点是否为该节点的子孙节点</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isInPage</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> node === <span class="built_in">document</span>.body ? <span class="literal">false</span> : <span class="built_in">document</span>.body.contains(node)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="compareDocumentPosition"><a href="#compareDocumentPosition" class="headerlink" title="compareDocumentPosition"></a>compareDocumentPosition</h2><blockquote>
+<p>node.compareDocumentPosition(otherNode) 可以比较当前节点与任意文档中的另一个节点的位置关系</p>
+</blockquote>
+<h2 id="MutationObserver"><a href="#MutationObserver" class="headerlink" title="MutationObserver"></a>MutationObserver</h2><blockquote>
+<p>监听 DOM 元素的变化触发回调，可监视的变化有：属性（attribute）/文本（character），同时支持监听子孙节点（childList/subtree）</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> observer = <span class="keyword">new</span> MutationObserver(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'change'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听</span></span><br><span class="line">observer.observe(el, &#123; <span class="attr">childList</span>: <span class="literal">true</span>, <span class="attr">subtree</span>: <span class="literal">true</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 销毁</span></span><br><span class="line">observer.disconnect()</span><br></pre></td></tr></table></figure>
+<h2 id="getBattery"><a href="#getBattery" class="headerlink" title="getBattery"></a>getBattery</h2><blockquote>
+<p>电池状态 navigator.getBattery()</p>
+</blockquote>
 <h2 id="download"><a href="#download" class="headerlink" title="download"></a>download</h2><p>利用 html5 a 标签的 download 属性进行下载</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> download = <span class="function">(<span class="params">rawData, name = <span class="string">'file.json'</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> url = URL.createObjectURL(rawData)</span><br><span class="line">  <span class="keyword">const</span> a = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>)</span><br><span class="line">  a.download = name</span><br><span class="line">  a.href = url</span><br><span class="line">  a.style.display = <span class="string">'none'</span></span><br><span class="line">  <span class="comment">// 兼容 firefox ，必须添加到 DOM 中才能触发下载</span></span><br><span class="line">  <span class="built_in">document</span>.body.append(a) <span class="comment">// document.body.appendChild(a)</span></span><br><span class="line">  a.click()</span><br><span class="line">  a.remove() <span class="comment">// document.body.removeChild(a)</span></span><br><span class="line">  URL.revokeObjectURL(url)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="fullScreen"><a href="#fullScreen" class="headerlink" title="fullScreen"></a>fullScreen</h2><ul>
@@ -945,10 +975,10 @@
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver" target="_blank" rel="noopener">MDN</a><br><a href="http://www.ruanyifeng.com/blog/2016/11/intersectionobserver_api.html" target="_blank" rel="noopener">阮一峰</a></p>
 </blockquote>
 <p><a href="https://github.com/w3c/IntersectionObserver" target="_blank" rel="noopener">Github polyfill</a></p>
-<h2 id="Element-scrollIntoView"><a href="#Element-scrollIntoView" class="headerlink" title="Element.scrollIntoView()"></a>Element.scrollIntoView()</h2><blockquote>
+<h2 id="scrollIntoView"><a href="#scrollIntoView" class="headerlink" title="scrollIntoView"></a>scrollIntoView</h2><blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView" target="_blank" rel="noopener">MDN - Element.scrollIntoView()</a></p>
 </blockquote>
-<h2 id="ParentNode-append"><a href="#ParentNode-append" class="headerlink" title="ParentNode.append()"></a>ParentNode.append()</h2><blockquote>
+<h2 id="append"><a href="#append" class="headerlink" title="append"></a>append</h2><blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/ParentNode/append" target="_blank" rel="noopener">MDN - ParentNode.append()</a></p>
 </blockquote>
 <ul>
@@ -1080,7 +1110,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-11 04:38:01" itemprop="dateModified" datetime="2019-09-11T04:38:01+00:00">2019-09-11</time>
+                <time title="Modified: 2019-09-18 07:00:09" itemprop="dateModified" datetime="2019-09-18T07:00:09+00:00">2019-09-18</time>
               
             
           </span>
@@ -1377,7 +1407,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-11 04:38:01" itemprop="dateModified" datetime="2019-09-11T04:38:01+00:00">2019-09-11</time>
+                <time title="Modified: 2019-09-18 07:00:09" itemprop="dateModified" datetime="2019-09-18T07:00:09+00:00">2019-09-18</time>
               
             
           </span>
@@ -1564,7 +1594,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-11 04:38:01" itemprop="dateModified" datetime="2019-09-11T04:38:01+00:00">2019-09-11</time>
+                <time title="Modified: 2019-09-18 07:00:09" itemprop="dateModified" datetime="2019-09-18T07:00:09+00:00">2019-09-18</time>
               
             
           </span>
@@ -2264,7 +2294,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-11 04:38:01" itemprop="dateModified" datetime="2019-09-11T04:38:01+00:00">2019-09-11</time>
+                <time title="Modified: 2019-09-18 07:00:09" itemprop="dateModified" datetime="2019-09-18T07:00:09+00:00">2019-09-18</time>
               
             
           </span>
@@ -2500,7 +2530,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-11 04:38:01" itemprop="dateModified" datetime="2019-09-11T04:38:01+00:00">2019-09-11</time>
+                <time title="Modified: 2019-09-18 07:00:09" itemprop="dateModified" datetime="2019-09-18T07:00:09+00:00">2019-09-18</time>
               
             
           </span>
@@ -2687,7 +2717,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-11 04:38:01" itemprop="dateModified" datetime="2019-09-11T04:38:01+00:00">2019-09-11</time>
+                <time title="Modified: 2019-09-18 07:00:09" itemprop="dateModified" datetime="2019-09-18T07:00:09+00:00">2019-09-18</time>
               
             
           </span>
@@ -2918,7 +2948,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-11 04:38:01" itemprop="dateModified" datetime="2019-09-11T04:38:01+00:00">2019-09-11</time>
+                <time title="Modified: 2019-09-18 07:00:09" itemprop="dateModified" datetime="2019-09-18T07:00:09+00:00">2019-09-18</time>
               
             
           </span>
