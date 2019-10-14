@@ -331,7 +331,7 @@
                 
               
 
-              <time title="Created: 2019-10-14 10:09:17 / Modified: 02:51:42" itemprop="dateCreated datePublished" datetime="2019-10-14T10:09:17+00:00">2019-10-14</time>
+              <time title="Created: 2019-10-14 10:09:17 / Modified: 03:16:30" itemprop="dateCreated datePublished" datetime="2019-10-14T10:09:17+00:00">2019-10-14</time>
             
 
             
@@ -374,6 +374,31 @@
           
             <h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">sudo apt-get update</span><br><span class="line"><span class="comment"># 下载安装nginx</span></span><br><span class="line">sudo apt-get install nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># test</span></span><br><span class="line">sudo nginx -t</span><br><span class="line"></span><br><span class="line">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</span><br><span class="line">nginx: configuration file /etc/nginx/nginx.conf <span class="built_in">test</span> is successful</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">sudo service nginx restart</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除nginx，-purge包括配置文件</span></span><br><span class="line">sudo apt-get --purge remove nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移除全部不使用的软件包</span></span><br><span class="line">sudo apt-get autoremove</span><br><span class="line"></span><br><span class="line"><span class="comment"># 罗列出与nginx相关的软件并删除</span></span><br><span class="line">dpkg --get-selections|grep nginx</span><br><span class="line">sudo apt-get --purge remove nginx</span><br><span class="line">sudo apt-get --purge remove nginx-common</span><br><span class="line">sudo apt-get --purge remove nginx-core</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看nginx正在运行的进程，如果有就kill掉</span></span><br><span class="line">ps -ef |grep nginx</span><br><span class="line">sudo <span class="built_in">kill</span> -9 XXX</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status nginx</span><br><span class="line">sudo systemctl stop nginx</span><br><span class="line">sudo systemctl start nginx</span><br><span class="line">sudo systemctl restart nginx</span><br><span class="line">sudo systemctl reload nginx</span><br><span class="line">sudo systemctl <span class="built_in">disable</span> nginx</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置-Nginx"><a href="#配置-Nginx" class="headerlink" title="配置 Nginx"></a>配置 Nginx</h2><p>最新版本 nginx 配置是由 4 个文件构成：</p>
+<ul>
+<li><p>conf.d：用户自己定义的 conf 配置文件</p>
+</li>
+<li><p>sites-available：系统默认设置的配置文件</p>
+</li>
+<li><p>sites-enabled：由 sites-available 中的配置文件转换生成</p>
+</li>
+<li><p>nginx.conf：汇总以上三个配置文件的内容，同时配置我们所需要的参数</p>
+</li>
+</ul>
+<p>在部署需要的 web 服务时，我们可以拷贝 sites-enabled 中的 default 文件到 conf.d 并且修改名字为**.conf,然后进行配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    # 服务启动时监听的端口</span><br><span class="line">    listen 80 default_server;</span><br><span class="line">    listen [::]:80 default_server;</span><br><span class="line">    # 服务启动时文件加载的路径</span><br><span class="line">    root /var/www/html/wordpress;</span><br><span class="line">    # 默认加载的第一个文件</span><br><span class="line">    index index.php index.html index.htm index.nginx-debian.html;</span><br><span class="line">    # 页面访问域名，如果没有域名也可以填写_</span><br><span class="line">    server_name www.123.com;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        #页面加载失败后所跳转的页面</span><br><span class="line">        try_files $uri $uri/ =404;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # 以下配置只服务于php</span><br><span class="line">    # 将PHP脚本传递给在127.0.0.1:9000上监听的FastCGI服务器</span><br><span class="line">    location ~ \.php$ &#123;</span><br><span class="line">        include snippets/fastcgi-php.conf;</span><br><span class="line">        # With php7.0-cgi alone:</span><br><span class="line">        #fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">        # With php7.0-fpm:</span><br><span class="line">        fastcgi_pass unix:/run/php/php7.0-fpm.sock;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # 如果Apache的文档为root，则拒绝访问.htaccess文件</span><br><span class="line">    location ~ /\.ht &#123;</span><br><span class="line">        deny all;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意事项：</p>
+<ul>
+<li><p>apache 的端口也是 80，所以我们可以选择关闭 apache 或者，在这里更换端口，例如 81，82 等，但是我们需要吧这个端口开放出来</p>
+</li>
+<li><p>React、Vue 等由于是单页面应用，所以我们在刷新的会遇到资源加载不到的错误，这时我们需要把页面重定向到 index.html <code>try_files \$uri /index.html;</code></p>
+</li>
+<li><p>每次配置完成后，都需要重启 nginx</p>
+</li>
+</ul>
 
           
         
@@ -492,7 +517,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
               
             
           </span>
@@ -681,7 +706,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
               
             
           </span>
@@ -920,7 +945,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
               
             
           </span>
@@ -1319,7 +1344,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
               
             
           </span>
@@ -1521,7 +1546,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
               
             
           </span>
@@ -1740,7 +1765,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
               
             
           </span>
@@ -1917,7 +1942,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
               
             
           </span>
@@ -2309,7 +2334,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
               
             
           </span>
@@ -2563,7 +2588,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
               
             
           </span>
