@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="官方文档  Table of Contents Table of Contents extend slot plugins directive sync modifier keep alive watch ref  extend vue extend  Vue.extend(options) 123456789101112131415// 注册组件，传入一个扩展过的构造器Vue.componen">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-18T07:07:10.061Z">
+<meta property="og:updated_time" content="2019-10-14T02:51:42.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue">
 <meta name="twitter:description" content="官方文档  Table of Contents Table of Contents extend slot plugins directive sync modifier keep alive watch ref  extend vue extend  Vue.extend(options) 123456789101112131415// 注册组件，传入一个扩展过的构造器Vue.componen">
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -403,21 +403,26 @@
 </blockquote>
 <p>Vue.extend(options)</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册组件，传入一个扩展过的构造器</span></span><br><span class="line">Vue.component(</span><br><span class="line">  <span class="string">'my-component'</span>,</span><br><span class="line">  Vue.extend(&#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册组件，传入一个选项对象 (自动调用 Vue.extend)</span></span><br><span class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取注册的组件 (始终返回构造器)</span></span><br><span class="line"><span class="keyword">var</span> MyComponent = Vue.component(<span class="string">'my-component'</span>)</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MyComponent = Vue.extend(&#123;</span><br><span class="line">  template: <span class="string">'&lt;div&gt;Hello!&lt;/div&gt;'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建并挂载到 #app (会替换 #app)</span></span><br><span class="line"><span class="keyword">new</span> MyComponent().$mount(<span class="string">'#app'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同上</span></span><br><span class="line"><span class="keyword">new</span> MyComponent(&#123; <span class="attr">el</span>: <span class="string">'#app'</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者，在文档之外渲染并且随后挂载</span></span><br><span class="line"><span class="keyword">var</span> component = <span class="keyword">new</span> MyComponent().$mount()</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'app'</span>).appendChild(component.$el)</span><br></pre></td></tr></table></figure>
+
 <h2 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h2><blockquote>
 <p><a href="https://cn.vuejs.org/v2/guide/components-slots.html" target="_blank" rel="noopener">vue slots</a></p>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h2><blockquote>
 <p><a href="https://cn.vuejs.org/v2/guide/plugins.html" target="_blank" rel="noopener">vue plugins</a></p>
 </blockquote>
 <p>Vue.js 的插件应当有一个公开方法 <code>install</code>，这个方法的第一个参数是 Vue 构造器，第二个参数是一个可选的选项对象：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">MyPlugin.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue, options</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 1. 添加全局方法或属性</span></span><br><span class="line">  Vue.myGlobalMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 逻辑...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 添加全局资源</span></span><br><span class="line">  Vue.directive(<span class="string">'my-directive'</span>, &#123;</span><br><span class="line">    bind (el, binding, vnode, oldVnode) &#123;</span><br><span class="line">      <span class="comment">// 逻辑...</span></span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 注入组件</span></span><br><span class="line">  Vue.mixin(&#123;</span><br><span class="line">    created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 逻辑...</span></span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 4. 添加实例方法</span></span><br><span class="line">  Vue.prototype.$myMethod = <span class="function"><span class="keyword">function</span> (<span class="params">methodOptions</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 逻辑...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="directive"><a href="#directive" class="headerlink" title="directive"></a>directive</h2><blockquote>
 <p><a href="https://cn.vuejs.org/v2/guide/custom-directive.html" target="_blank" rel="noopener">vue directive</a></p>
 </blockquote>
 <p><code>inserted</code> ：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册一个全局自定义指令 `v-focus`</span></span><br><span class="line">Vue.directive(<span class="string">'focus'</span>, &#123;</span><br><span class="line">  <span class="comment">// 当被绑定的元素插入到 DOM 中时……</span></span><br><span class="line">  inserted: <span class="function"><span class="keyword">function</span>(<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 聚焦元素</span></span><br><span class="line">    el.focus()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <h2 id="sync-modifier"><a href="#sync-modifier" class="headerlink" title="sync modifier"></a>sync modifier</h2><blockquote>
 <p><a href="https://vuejs.org/v2/guide/components-custom-events.html#sync-Modifier" target="_blank" rel="noopener">sync modifier</a></p>
 </blockquote>
@@ -432,7 +437,7 @@
 </li>
 </ul>
 <h2 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h2><ul>
-<li><p><a href="https://cn.vuejs.org/v2/api/#vm-watch" target="_blank" rel="noopener">vm \$watch</a></p>
+<li><p><a href="https://cn.vuejs.org/v2/api/#vm-watch" target="_blank" rel="noopener">vm $watch</a></p>
 <ul>
 <li><code>deep: true</code> 监听对象内部值的变化</li>
 </ul>
@@ -440,6 +445,7 @@
 </li>
 <li><p><a href="https://cn.vuejs.org/v2/api/#watch" target="_blank" rel="noopener">watch</a></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="number">2</span>,</span><br><span class="line">    c: <span class="number">3</span>,</span><br><span class="line">    d: <span class="number">4</span>,</span><br><span class="line">    e: &#123;</span><br><span class="line">      f: &#123;</span><br><span class="line">        g: <span class="number">5</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    a: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'new: %s, old: %s'</span>, val, oldVal)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 方法名</span></span><br><span class="line">    b: <span class="string">'someMethod'</span>,</span><br><span class="line">    <span class="comment">// 深度 watcher</span></span><br><span class="line">    c: &#123;</span><br><span class="line">      handler: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/* ... */</span></span><br><span class="line">      &#125;,</span><br><span class="line">      deep: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 该回调将会在侦听开始之后被立即调用</span></span><br><span class="line">    d: &#123;</span><br><span class="line">      handler: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/* ... */</span></span><br><span class="line">      &#125;,</span><br><span class="line">      immediate: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    e: [</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">handle1</span>(<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/* ... */</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">handle2</span>(<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/* ... */</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// watch vm.e.f's value: &#123;g: 5&#125;</span></span><br><span class="line">    <span class="string">'e.f'</span>: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">      <span class="comment">/* ... */</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">vm.a = <span class="number">2</span> <span class="comment">// =&gt; new: 2, old: 1</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><blockquote>
@@ -565,7 +571,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -640,7 +646,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

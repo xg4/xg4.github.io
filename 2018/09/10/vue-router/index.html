@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Table of Contents 官方文档   Table of Contents 路由懒加载 meta navigation guards navigation  路由懒加载 组件懒加载   使用 Babel，添加 syntax-dynamic-import 插件 1$ yarn add @babel/plugin-syntax-dynamic-import --dev .babelrc 12">
+  <meta name="description" content="Table of Contents 官方文档   Table of Contents 路由懒加载 meta navigation guards navigation  路由懒加载 组件懒加载   使用 Babel，添加 syntax-dynamic-import 插件 1$ yarn add @babel/plugin-syntax-dynamic-import --dev  .babelrc 1">
 <meta name="keywords" content="js,vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue Router">
 <meta property="og:url" content="https://xg4.github.io/2018/09/10/vue-router/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Table of Contents 官方文档   Table of Contents 路由懒加载 meta navigation guards navigation  路由懒加载 组件懒加载   使用 Babel，添加 syntax-dynamic-import 插件 1$ yarn add @babel/plugin-syntax-dynamic-import --dev .babelrc 12">
+<meta property="og:description" content="Table of Contents 官方文档   Table of Contents 路由懒加载 meta navigation guards navigation  路由懒加载 组件懒加载   使用 Babel，添加 syntax-dynamic-import 插件 1$ yarn add @babel/plugin-syntax-dynamic-import --dev  .babelrc 1">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-18T07:07:10.061Z">
+<meta property="og:updated_time" content="2019-10-14T02:51:42.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue Router">
-<meta name="twitter:description" content="Table of Contents 官方文档   Table of Contents 路由懒加载 meta navigation guards navigation  路由懒加载 组件懒加载   使用 Babel，添加 syntax-dynamic-import 插件 1$ yarn add @babel/plugin-syntax-dynamic-import --dev .babelrc 12">
+<meta name="twitter:description" content="Table of Contents 官方文档   Table of Contents 路由懒加载 meta navigation guards navigation  路由懒加载 组件懒加载   使用 Babel，添加 syntax-dynamic-import 插件 1$ yarn add @babel/plugin-syntax-dynamic-import --dev  .babelrc 1">
 
 
 
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -400,6 +400,7 @@
 <ul>
 <li><p>使用 Babel，添加 <a href="https://babeljs.io/docs/plugins/syntax-dynamic-import/" target="_blank" rel="noopener">syntax-dynamic-import</a> 插件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn add @babel/plugin-syntax-dynamic-import --dev</span><br></pre></td></tr></table></figure>
+
 <p><code>.babelrc</code></p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"plugins"</span>: [<span class="string">"@babel/plugin-syntax-dynamic-import"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -409,6 +410,7 @@
 <li><p>把组件按组分块</p>
 <p>有时候我们想把某个路由下的所有组件都打包在同个异步块 (chunk) 中，只需要使用命名 chunk，一个特殊的注释语法来提供 chunk name (需要 webpack &gt; 2.4)</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Foo = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Foo.vue'</span>)</span><br><span class="line"><span class="keyword">const</span> Bar = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Bar.vue'</span>)</span><br><span class="line"><span class="keyword">const</span> Baz = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Baz.vue'</span>)</span><br></pre></td></tr></table></figure>
+
 <p><strong>webpack 会将任何一个异步模块与相同的块名称组合到相同的异步块中</strong></p>
 </li>
 </ul>
@@ -418,12 +420,14 @@
 <ul>
 <li><p>定义路由的时候可以配置 meta 字段：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/foo'</span>,</span><br><span class="line">      component: Foo,</span><br><span class="line">      children: [</span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">'bar'</span>,</span><br><span class="line">          component: Bar,</span><br><span class="line">          <span class="comment">// a meta field</span></span><br><span class="line">          meta: &#123; <span class="attr">requiresAuth</span>: <span class="literal">true</span> &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="navigation-guards"><a href="#navigation-guards" class="headerlink" title="navigation guards"></a>navigation guards</h2><blockquote>
 <p><a href="https://router.vuejs.org/zh-cn/advanced/navigation-guards.html" target="_blank" rel="noopener">导航守卫</a></p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123; ... &#125;)</span><br><span class="line"></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>to: <code>Route</code> 即将要进入的目标 路由对象</p>
 </li>
@@ -451,6 +455,7 @@
 </li>
 <li><p>编程式</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">router.push(location, onComplete?, onAbort?)</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 
@@ -572,7 +577,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -647,7 +652,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

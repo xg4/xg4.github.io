@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="Table of Contents Table of Contents react-router react-router-dom HashRouter/BrowserRouter HashRouter BrowserRouter   Route Link/NavLink Link NavLink   Switch  react-router 提供了一些 router 的核心 api，包括 Rou">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-18T07:07:10.061Z">
+<meta property="og:updated_time" content="2019-10-14T02:51:42.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Router v4">
 <meta name="twitter:description" content="Table of Contents Table of Contents react-router react-router-dom HashRouter/BrowserRouter HashRouter BrowserRouter   Route Link/NavLink Link NavLink   Switch  react-router 提供了一些 router 的核心 api，包括 Rou">
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -414,6 +414,7 @@
 <p>通过 hash 值来对路由进行控制。如果你使用 HashRouter，你的路由就会默认有#</p>
 </blockquote>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;HashRouter&gt;</span><br><span class="line">  &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/HashRouter&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="BrowserRouter"><a href="#BrowserRouter" class="headerlink" title="BrowserRouter"></a>BrowserRouter</h3><ul>
 <li><p>大部分情况下我们不需要这个#，因为它看起来很怪，这时我们就需要用到 BrowserRouter</p>
 </li>
@@ -421,6 +422,7 @@
 </li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;BrowserRouter basename=<span class="string">"/app"</span>&gt;</span><br><span class="line">  &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/BrowserRouter&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="Route"><a href="#Route" class="headerlink" title="Route"></a>Route</h2><ul>
 <li><p>Route 是路由的一个原材料，它是控制路径对应显示的组件。我们经常用的是 exact、path 以及 component 属性</p>
 </li>
@@ -428,6 +430,7 @@
 </li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br></pre></td></tr></table></figure>
+
 <h2 id="Link-NavLink"><a href="#Link-NavLink" class="headerlink" title="Link/NavLink"></a>Link/NavLink</h2><blockquote>
 <p>两者都是可以控制路由跳转的，不同点是 NavLink 的 api 更多，更加满足你的需求</p>
 </blockquote>
@@ -436,7 +439,9 @@
 </li>
 <li><p>example</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=<span class="string">"/home"</span> /&gt;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link</span><br><span class="line">  to=&#123;&#123;</span><br><span class="line">    pathname: <span class="string">'/home'</span>,</span><br><span class="line">    search: <span class="string">'?sort=name'</span>,</span><br><span class="line">    hash: <span class="string">'#the-hash'</span>,</span><br><span class="line">    state: &#123; <span class="attr">x</span>: <span class="literal">true</span> &#125;</span><br><span class="line">  &#125;&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="NavLink"><a href="#NavLink" class="headerlink" title="NavLink"></a>NavLink</h3><ul>
@@ -570,7 +575,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -645,7 +650,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

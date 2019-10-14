@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional  feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
+  <meta name="description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional   feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 2">
 <meta property="og:url" content="https://xg4.github.io/2019/04/20/git-2/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional  feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
+<meta property="og:description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional   feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-18T07:07:10.057Z">
+<meta property="og:updated_time" content="2019-10-14T02:51:42.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 2">
-<meta name="twitter:description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional  feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
+<meta name="twitter:description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional   feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
 
 
 
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -391,6 +391,7 @@
 <li><a href="#hooks">hooks</a></li>
 </ul>
 <h2 id="commit-message"><a href="#commit-message" class="headerlink" title="commit message"></a>commit message</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(scope?): subject  <span class="comment">#scope is optional</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>feat: 新功能</p>
 </li>
@@ -427,10 +428,12 @@
 </li>
 <li><p>免密登录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir /home/git/.ssh</span><br><span class="line">$ chmod 700 /home/git/.ssh</span><br><span class="line">$ touch /home/git/.ssh/authorized_keys</span><br><span class="line">$ chmod 600 /home/git/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果使用 sudo 创建，需要将 owner 改为 git</span></span><br><span class="line">$ chown -R git:git /home/git/</span><br></pre></td></tr></table></figure>
+
 <p>编辑 <code>/home/git/.ssh/authorized_keys</code> 将客户端公钥放入</p>
 </li>
 <li><p>初始化 git 仓库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir /xg4</span><br><span class="line">$ chown git:git /xg4/</span><br><span class="line">$ <span class="built_in">cd</span> /xg4</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建空的git仓库</span></span><br><span class="line">$ git init --bare test.git</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> /xg4/test.git/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将仓库所属用户改为git</span></span><br><span class="line">$ chown -R git:git test.git</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <h2 id="hooks"><a href="#hooks" class="headerlink" title="hooks"></a>hooks</h2><ul>
@@ -493,9 +496,12 @@
 </li>
 <li><p>设置 git hooks</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /xg4/test.git/hooks/</span><br><span class="line">vim post-receive</span><br></pre></td></tr></table></figure>
+
 <p>post-receive 文件内容</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">unset</span> GIT_DIR</span><br><span class="line"><span class="built_in">cd</span> /var/www/<span class="built_in">test</span></span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 赋予 post-receive 文件可执行权限</span></span><br><span class="line">$ chmod +x .git/hooks/post-receive</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 
@@ -615,7 +621,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -690,7 +696,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

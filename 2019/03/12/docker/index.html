@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Docker 入门教程 - 阮一峰   login / logout image images pull search build rmi tag push save load import history   container ps run/create start/stop/restart kill rm exec pause/unpause logs inspect port expor">
+  <meta name="description" content="Docker 入门教程 - 阮一峰   install ubuntu 更新/卸载 添加到用户组（可选项） 仓库镜像地址   login / logout image images pull search build rmi tag push save load import history   container ps run/create start/stop/restart kill rm">
 <meta name="keywords" content="docker,devops">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker">
 <meta property="og:url" content="https://xg4.github.io/2019/03/12/docker/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Docker 入门教程 - 阮一峰   login / logout image images pull search build rmi tag push save load import history   container ps run/create start/stop/restart kill rm exec pause/unpause logs inspect port expor">
+<meta property="og:description" content="Docker 入门教程 - 阮一峰   install ubuntu 更新/卸载 添加到用户组（可选项） 仓库镜像地址   login / logout image images pull search build rmi tag push save load import history   container ps run/create start/stop/restart kill rm">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-18T07:07:10.057Z">
+<meta property="og:updated_time" content="2019-10-14T02:51:42.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker">
-<meta name="twitter:description" content="Docker 入门教程 - 阮一峰   login / logout image images pull search build rmi tag push save load import history   container ps run/create start/stop/restart kill rm exec pause/unpause logs inspect port expor">
+<meta name="twitter:description" content="Docker 入门教程 - 阮一峰   install ubuntu 更新/卸载 添加到用户组（可选项） 仓库镜像地址   login / logout image images pull search build rmi tag push save load import history   container ps run/create start/stop/restart kill rm">
 
 
 
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -388,6 +388,13 @@
 <p><a href="http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html" target="_blank" rel="noopener">Docker 入门教程 - 阮一峰</a></p>
 </blockquote>
 <ul>
+<li><a href="#install">install</a><ul>
+<li><a href="#ubuntu">ubuntu</a></li>
+<li><a href="#%e6%9b%b4%e6%96%b0%e5%8d%b8%e8%bd%bd">更新/卸载</a></li>
+<li><a href="#%e6%b7%bb%e5%8a%a0%e5%88%b0%e7%94%a8%e6%88%b7%e7%bb%84%e5%8f%af%e9%80%89%e9%a1%b9">添加到用户组（可选项）</a></li>
+<li><a href="#%e4%bb%93%e5%ba%93%e9%95%9c%e5%83%8f%e5%9c%b0%e5%9d%80">仓库镜像地址</a></li>
+</ul>
+</li>
 <li><a href="#login--logout">login / logout</a></li>
 <li><a href="#image">image</a><ul>
 <li><a href="#images">images</a></li>
@@ -421,10 +428,19 @@
 </ul>
 </li>
 </ul>
+<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">$ sudo apt update</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装https支持包</span></span><br><span class="line">$ sudo apt install apt-transport-https ca-certificates curl software-properties-common</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加Docker官方GPG key</span></span><br><span class="line">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加stable版的repository</span></span><br><span class="line">$ sudo add-apt-repository <span class="string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu <span class="variable">$(lsb_release -cs)</span> stable"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新apt</span></span><br><span class="line">$ sudo apt update</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装最新的Docker CE</span></span><br><span class="line">$ sudo apt install docker-ce</span><br><span class="line"></span><br><span class="line">$ sudo systemctl status docker</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新-卸载"><a href="#更新-卸载" class="headerlink" title="更新/卸载"></a>更新/卸载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 跟新</span></span><br><span class="line">$ sudo apt upgrade</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载Docker</span></span><br><span class="line">$ sudo apt-get purge docker-ce</span><br><span class="line"><span class="comment"># 删除images、containers和volumes</span></span><br><span class="line">$ sudo rm -rf /var/lib/docker</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加到用户组（可选项）"><a href="#添加到用户组（可选项）" class="headerlink" title="添加到用户组（可选项）"></a>添加到用户组（可选项）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br><span class="line"></span><br><span class="line">sudo service docker restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="仓库镜像地址"><a href="#仓库镜像地址" class="headerlink" title="仓库镜像地址"></a>仓库镜像地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--registry-mirror=https://jxus37ad.mirror.aliyuncs.com</span><br><span class="line"></span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
 <h2 id="login-logout"><a href="#login-logout" class="headerlink" title="login / logout"></a>login / logout</h2><blockquote>
 <p>登录/登出一个 Docker 镜像仓库，如果为指定镜像仓库地址，默认为官方仓库 Docker Hub</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker login [OPTIONS] [SERVER]</span><br><span class="line"></span><br><span class="line">$ docker <span class="built_in">logout</span> [OPTIONS] [SERVER]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -436,6 +452,7 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker login -u xg4 -p xg4</span><br><span class="line"></span><br><span class="line">$ docker <span class="built_in">logout</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="image"><a href="#image" class="headerlink" title="image"></a>image</h2><blockquote>
@@ -445,6 +462,7 @@
 <p>查看本地镜像</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker images [OPTIONS] [REPOSITORY[:TAG]]</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ docker image ls</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -464,12 +482,14 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker images</span><br><span class="line"></span><br><span class="line">$ docker images ubuntu</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="pull"><a href="#pull" class="headerlink" title="pull"></a>pull</h3><blockquote>
 <p>从镜像仓库中拉取或者更新指定镜像</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull [OPTIONS] NAME[:TAG|@DIGEST]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -481,12 +501,14 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载最新镜像</span></span><br><span class="line">$ docker pull ubuntu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载 repository 为 ubuntu 的所有镜像</span></span><br><span class="line">$ docker pull -a ubuntu</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="search"><a href="#search" class="headerlink" title="search"></a>search</h3><blockquote>
 <p>Docker Hub 中查找镜像</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker search [OPTIONS] imageName</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -513,6 +535,7 @@
 <p>使用 Dockerfile 创建镜像</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker build [OPTIONS] PATH | URL | -</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -562,6 +585,7 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker build -t &lt;name&gt; .</span><br><span class="line"><span class="comment"># or 指定 image tag</span></span><br><span class="line">$ docker build -t &lt;name&gt;:&lt;tag&gt; .</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><code>.</code> : <code>Dockerfile</code> 文件所在的路径，可以指定 <code>Dockerfile</code> 的绝对路径</li>
 </ul>
@@ -571,6 +595,7 @@
 <p>删除本地一个或多个镜像</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ docker rmi [OPTIONS] IMAGE [IMAGE...]</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ docker image rm [OPTIONS] IMAGE [IMAGE...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除本地所有镜像</span></span><br><span class="line">$ docker rmi $(docker images -q)</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -582,21 +607,25 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker rmi -f ubuntu</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h3><blockquote>
 <p>标记本地镜像，将其归入某一仓库</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker tag [OPTIONS] IMAGE[:TAG] [REGISTRYHOST/][USERNAME/]NAME[:TAG]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker tag ubuntu:12.0 xg4/ubuntu:v2</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="push"><a href="#push" class="headerlink" title="push"></a>push</h3><blockquote>
 <p>将本地的镜像上传到镜像仓库，要先登录到镜像仓库</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker push [OPTIONS] [USERNAME/]NAME[:TAG]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -605,12 +634,14 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker push xg4/ubuntu:v2</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="save"><a href="#save" class="headerlink" title="save"></a>save</h3><blockquote>
 <p>将指定镜像保存成 tar 归档文件</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker save [OPTIONS] IMAGE [IMAGE...]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -619,12 +650,14 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker save -o my_ubuntu_v2.tar xg4/ubuntu:v2</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="load"><a href="#load" class="headerlink" title="load"></a>load</h3><blockquote>
 <p>导入使用 docker save 命令导出的镜像</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker load [OPTIONS]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -636,12 +669,14 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入镜像</span></span><br><span class="line">$ docker load -i ubuntu.tar</span><br><span class="line">$ docker load &lt; ubuntu.tar</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><blockquote>
 <p>从归档文件 ( docker save ) 中创建镜像</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker import [OPTIONS] file|URL|- [REPOSITORY[:TAG]]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -653,12 +688,14 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker import my_ubuntu_v3.tar xg4/ubuntu:v4</span><br><span class="line"></span><br><span class="line">$ docker images xg4/ubuntu:v4</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><blockquote>
 <p>查看指定镜像的创建历史</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="built_in">history</span> [OPTIONS] IMAGE</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -672,12 +709,14 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="built_in">history</span> xg4/ubuntu:v3</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="container"><a href="#container" class="headerlink" title="container"></a>container</h2><h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><blockquote>
 <p>列出容器</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps [OPTIONS]</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ docker container ls</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -701,12 +740,14 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看正在运行的容器</span></span><br><span class="line">$ docker container ls</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ docker ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看全部</span></span><br><span class="line">$ docker container ls -a</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ docker ps -a</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="run-create"><a href="#run-create" class="headerlink" title="run/create"></a>run/create</h3><blockquote>
 <p><a href="https://docs.docker.com/engine/reference/commandline/run/" target="_blank" rel="noopener">docker run - docs</a><br>run: 创建一个新的容器并运行一个命令。本地不存在镜像时，会先从远程仓库拉取，完成之后启动<br>create: 创建一个新的容器但不启动它，用法同 <code>docker run</code></p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -750,21 +791,25 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用镜像 ubuntu:latest，不指定 image:tag 时，默认为 latest</span></span><br><span class="line">$ docker run ubuntu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 后台模式启动一个容器，并将容器命名为 myUbuntu</span></span><br><span class="line">$ docker run --name myUbuntu -d ubuntu:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以交互模式启动一个容器,在容器内执行/bin/bash命令，容器的 Shell 映射到当前的 Shell</span></span><br><span class="line">$ docker run -it ubuntu /bin/bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 容器的 3000 端口映射到本机的 8000 端口</span></span><br><span class="line">$ docker run -p 8000:3000 ubuntu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绑定容器的 8080 端口，并将其映射到本地主机 127.0.0.1 的 80 端口上</span></span><br><span class="line">$ docker run -p 127.0.0.1:80:8080/tcp ubuntu bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 主机的目录 /data 映射到容器的 /data</span></span><br><span class="line">$ docker run -v /data:/data ubuntu</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="start-stop-restart"><a href="#start-stop-restart" class="headerlink" title="start/stop/restart"></a>start/stop/restart</h3><blockquote>
 <p>start: 启动一个或多个已经被停止的容器<br>stop: 停止一个运行中的容器<br>restart: 重启容器</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ docker start [OPTIONS] CONTAINER [CONTAINER...]</span><br><span class="line"></span><br><span class="line">$ docker stop [OPTIONS] CONTAINER [CONTAINER...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止全部容器</span></span><br><span class="line">$ docker stop $(docker ps -aq)</span><br><span class="line"></span><br><span class="line">$ docker restart [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动已被停止的容器</span></span><br><span class="line">$ docker start a2erd232d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止运行中的容器 myUbuntu</span></span><br><span class="line">$ docker stop myUbuntu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启容器</span></span><br><span class="line">$ docker restart a2erd232d</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h3><blockquote>
 <p>杀掉一个运行中的容器。依然会占据硬盘空间</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="built_in">kill</span> [OPTIONS] CONTAINER [CONTAINER...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 杀掉全部容器</span></span><br><span class="line">$ docker <span class="built_in">kill</span> $(docker ps -aq)</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -773,6 +818,7 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="built_in">kill</span> -s KILL_YOU myUbuntu</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <p><strong><code>kill</code> 会立即结束，<code>stop</code> 进行收尾清理工作，再结束</strong></p>
@@ -780,6 +826,7 @@
 <p>删除一个或多少容器</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker rm [OPTIONS] CONTAINER [CONTAINER...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除全部容器</span></span><br><span class="line">$ docker rm $(docker ps -aq)</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -793,12 +840,14 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 强制删除容器db01、db02</span></span><br><span class="line">$ docker rm -f db01 db02</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移除容器nginx01对容器db01的连接，连接名db</span></span><br><span class="line">$ docker rm -l db</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除容器nginx01,并删除容器挂载的数据卷</span></span><br><span class="line">$ docker rm -v nginx01</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h3><blockquote>
 <p>在运行的容器中执行命令</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="built_in">exec</span> [OPTIONS] CONTAINER COMMAND [ARG...]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -812,21 +861,25 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在容器 9df70f 中以交互模式执行容器内 /root/shell.sh 脚本</span></span><br><span class="line">$ docker <span class="built_in">exec</span> -it 9df70f /bin/sh /root/shell.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在容器 myUbuntu 中开启一个交互模式的终端</span></span><br><span class="line">$ docker <span class="built_in">exec</span> -it myUbuntu /bin/bash</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="pause-unpause"><a href="#pause-unpause" class="headerlink" title="pause/unpause"></a>pause/unpause</h3><blockquote>
 <p>pause : 暂停容器中所有的进程<br>unpause : 恢复容器中所有的进程</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker pause [OPTIONS] CONTAINER [CONTAINER...]</span><br><span class="line">$ docker unpause [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 暂停数据库容器 db01 提供服务</span></span><br><span class="line">$ docker pause db01</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复数据库容器 db01 提供服务</span></span><br><span class="line">$ docker unpause db01</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="logs"><a href="#logs" class="headerlink" title="logs"></a>logs</h3><blockquote>
 <p>获取容器的日志</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker logs [OPTIONS] CONTAINER</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -842,12 +895,14 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 跟踪查看容器 myUbuntu 的日志输出</span></span><br><span class="line">$ docker logs -f myUbuntu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看容器 myUbuntu 从2019年4月1日后的最新10条日志</span></span><br><span class="line">$ docker logs --since=<span class="string">"2019-04-01"</span> --tail=10 myUbuntu</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="inspect"><a href="#inspect" class="headerlink" title="inspect"></a>inspect</h3><blockquote>
 <p>获取容器/镜像的元数据</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker inspect [OPTIONS] NAME|ID [NAME|ID...]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -861,21 +916,25 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取镜像 ubuntu:latest 的元信息</span></span><br><span class="line">$ docker inspect ubuntu:latest</span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="string">"Id"</span>: <span class="string">"sha256:ae9a045f866bbc2553087f6e42bfc16074a74f"</span></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取正在运行的容器 myUbuntu 的 IP</span></span><br><span class="line">$ docker inspect --format=<span class="string">'&#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;'</span> myUbuntu</span><br><span class="line">172.17.0.3</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="port"><a href="#port" class="headerlink" title="port"></a>port</h3><blockquote>
 <p>列出指定的容器的端口映射，或者查找将 PRIVATE_PORT NAT 到面向公众的端口</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker port [OPTIONS] CONTAINER [PRIVATE_PORT[/PROTO]]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker port myUbuntu</span><br><span class="line">3000/tcp -&gt; 0.0.0.0:3000</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="export"><a href="#export" class="headerlink" title="export"></a>export</h3><blockquote>
 <p>将文件系统作为一个 tar 归档文件导出到 STDOUT</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="built_in">export</span> [OPTIONS] CONTAINER</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -884,12 +943,14 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将 id 为 66bbc25530 的容器按日期保存为 tar 文件</span></span><br><span class="line">$ docker <span class="built_in">export</span> -o logs-`date +%Y%m%d`.tar 66bbc25530</span><br><span class="line">$ ls logs-`date +%Y%m%d`.tar</span><br><span class="line">logs-20190411.tar</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h3><blockquote>
 <p>用于容器与主机之间的数据拷贝</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-</span><br><span class="line"></span><br><span class="line">$ docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -898,12 +959,14 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将主机 ~/Desktop/data 目录拷贝到容器 2ae6iu3w 的 /data 目录下</span></span><br><span class="line">$ docker cp ~/Desktop/data 2ae6iu3w:/data/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将主机 ~/Desktop/data 目录拷贝到容器 2ae6iu3w 中，目录重命名为 data</span></span><br><span class="line">$ docker cp ~/Desktop/data 2ae6iu3w:/data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将容器 2ae6iu3w 的 /data 目录拷贝到主机的当前目录中</span></span><br><span class="line">$ docker cp  96f7f14e99ab:/data .</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h3><blockquote>
 <p>从容器创建一个新的镜像</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>OPTIONS :</p>
 <ul>
@@ -919,15 +982,18 @@
 </li>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -it ubuntu /bin/bash</span><br><span class="line"><span class="comment"># in container</span></span><br><span class="line">$ root@e18edb10161:/<span class="comment"># apt update</span></span><br><span class="line">$ root@e18edb10161:/<span class="comment"># exit</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将容器 e18edb10161 保存为新的镜像，添加提交人信息和说明信息，指定目标镜像的名字和版本号为 ubuntu:v2</span></span><br><span class="line">$ docker commit -m=<span class="string">'update'</span> -a=<span class="string">'xg4'</span> e18edb10161 ubuntu:v2</span><br><span class="line">$ sha256:70bf1840fd7c0d2d8ef0a42a817eb29f854c1af8f7c59fc03ac7bdee9545aff8</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h3><blockquote>
 <p>检查容器里文件结构的更改</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker diff [OPTIONS] CONTAINER</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ docker diff myUbuntu</span><br><span class="line">A /logs</span><br><span class="line">A /xg4</span><br><span class="line">A /var/www/index.html</span><br><span class="line">C /tmp</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 
@@ -1049,7 +1115,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1124,7 +1190,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1162,7 +1230,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#login-logout"><span class="nav-number">1.</span> <span class="nav-text">login / logout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#image"><span class="nav-number">2.</span> <span class="nav-text">image</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#images"><span class="nav-number">2.1.</span> <span class="nav-text">images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pull"><span class="nav-number">2.2.</span> <span class="nav-text">pull</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#search"><span class="nav-number">2.3.</span> <span class="nav-text">search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#build"><span class="nav-number">2.4.</span> <span class="nav-text">build</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rmi"><span class="nav-number">2.5.</span> <span class="nav-text">rmi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tag"><span class="nav-number">2.6.</span> <span class="nav-text">tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#push"><span class="nav-number">2.7.</span> <span class="nav-text">push</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#save"><span class="nav-number">2.8.</span> <span class="nav-text">save</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#load"><span class="nav-number">2.9.</span> <span class="nav-text">load</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#import"><span class="nav-number">2.10.</span> <span class="nav-text">import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history"><span class="nav-number">2.11.</span> <span class="nav-text">history</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#container"><span class="nav-number">3.</span> <span class="nav-text">container</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ps"><span class="nav-number">3.1.</span> <span class="nav-text">ps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#run-create"><span class="nav-number">3.2.</span> <span class="nav-text">run/create</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#start-stop-restart"><span class="nav-number">3.3.</span> <span class="nav-text">start/stop/restart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kill"><span class="nav-number">3.4.</span> <span class="nav-text">kill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm"><span class="nav-number">3.5.</span> <span class="nav-text">rm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exec"><span class="nav-number">3.6.</span> <span class="nav-text">exec</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pause-unpause"><span class="nav-number">3.7.</span> <span class="nav-text">pause/unpause</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logs"><span class="nav-number">3.8.</span> <span class="nav-text">logs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inspect"><span class="nav-number">3.9.</span> <span class="nav-text">inspect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#port"><span class="nav-number">3.10.</span> <span class="nav-text">port</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#export"><span class="nav-number">3.11.</span> <span class="nav-text">export</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp"><span class="nav-number">3.12.</span> <span class="nav-text">cp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#commit"><span class="nav-number">3.13.</span> <span class="nav-text">commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#diff"><span class="nav-number">3.14.</span> <span class="nav-text">diff</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#install"><span class="nav-number">1.</span> <span class="nav-text">install</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ubuntu"><span class="nav-number">1.1.</span> <span class="nav-text">ubuntu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新-卸载"><span class="nav-number">1.2.</span> <span class="nav-text">更新/卸载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加到用户组（可选项）"><span class="nav-number">1.3.</span> <span class="nav-text">添加到用户组（可选项）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仓库镜像地址"><span class="nav-number">1.4.</span> <span class="nav-text">仓库镜像地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#login-logout"><span class="nav-number">2.</span> <span class="nav-text">login / logout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#image"><span class="nav-number">3.</span> <span class="nav-text">image</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#images"><span class="nav-number">3.1.</span> <span class="nav-text">images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pull"><span class="nav-number">3.2.</span> <span class="nav-text">pull</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#search"><span class="nav-number">3.3.</span> <span class="nav-text">search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#build"><span class="nav-number">3.4.</span> <span class="nav-text">build</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rmi"><span class="nav-number">3.5.</span> <span class="nav-text">rmi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tag"><span class="nav-number">3.6.</span> <span class="nav-text">tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#push"><span class="nav-number">3.7.</span> <span class="nav-text">push</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#save"><span class="nav-number">3.8.</span> <span class="nav-text">save</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#load"><span class="nav-number">3.9.</span> <span class="nav-text">load</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#import"><span class="nav-number">3.10.</span> <span class="nav-text">import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history"><span class="nav-number">3.11.</span> <span class="nav-text">history</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#container"><span class="nav-number">4.</span> <span class="nav-text">container</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ps"><span class="nav-number">4.1.</span> <span class="nav-text">ps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#run-create"><span class="nav-number">4.2.</span> <span class="nav-text">run/create</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#start-stop-restart"><span class="nav-number">4.3.</span> <span class="nav-text">start/stop/restart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kill"><span class="nav-number">4.4.</span> <span class="nav-text">kill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm"><span class="nav-number">4.5.</span> <span class="nav-text">rm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exec"><span class="nav-number">4.6.</span> <span class="nav-text">exec</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pause-unpause"><span class="nav-number">4.7.</span> <span class="nav-text">pause/unpause</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logs"><span class="nav-number">4.8.</span> <span class="nav-text">logs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inspect"><span class="nav-number">4.9.</span> <span class="nav-text">inspect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#port"><span class="nav-number">4.10.</span> <span class="nav-text">port</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#export"><span class="nav-number">4.11.</span> <span class="nav-text">export</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp"><span class="nav-number">4.12.</span> <span class="nav-text">cp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#commit"><span class="nav-number">4.13.</span> <span class="nav-text">commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#diff"><span class="nav-number">4.14.</span> <span class="nav-text">diff</span></a></li></ol></li></ol></div>
             
 
           </div>

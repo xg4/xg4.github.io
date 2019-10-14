@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="MDN - Object  Table of Contents Table of Contents Object.preventExtension Object.isExtensible   Object.seal Object.isSealed   Object.freeze Object.isFrozen   Object.defineProperty descriptor keys   f">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-18T07:07:10.061Z">
+<meta property="og:updated_time" content="2019-10-14T02:51:42.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript - Object">
 <meta name="twitter:description" content="MDN - Object  Table of Contents Table of Contents Object.preventExtension Object.isExtensible   Object.seal Object.isSealed   Object.freeze Object.isFrozen   Object.defineProperty descriptor keys   f">
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -413,15 +413,18 @@
 <p>该方法将对象标记为不可扩展，阻止添加自身的属性，但不可扩展对象的属性仍然可被删除、修改，也可以添加到对象原型，尝试将新属性添加到不可扩展对象将静默失败或抛出 <code>TypeError</code>，<strong>一旦使其不可扩展，就无法再对象进行扩展。</strong></p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 方法让一个对象变的不可扩展，</span></span><br><span class="line"><span class="comment"> * 也就是永远不能再添加新的属性</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 将要变得不可扩展的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Object&#125; 已经不可扩展的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(obj)</span><br></pre></td></tr></table></figure>
+
 <h3 id="Object-isExtensible"><a href="#Object-isExtensible" class="headerlink" title="Object.isExtensible"></a>Object.isExtensible</h3><blockquote>
 <p>默认情况下，对象是可扩展的：即可以为他们添加新的属性。以及它们的 <code>__proto__</code> 属性可以被更改。<code>Object.preventExtensions</code>、<code>Object.seal</code> 或 <code>Object.freeze</code> 方法都可以标记一个对象为不可扩展（non-extensible）</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description  方法判断一个对象是否是可扩展的</span></span><br><span class="line"><span class="comment"> * （是否可以在它上面添加新的属性）</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 需要检测的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Boolean&#125; 表示给定对象是否可扩展</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.isExtensible(obj)</span><br></pre></td></tr></table></figure>
+
 <p><strong>注：虽然 <code>Object.freeze</code> 或 <code>Object.seal</code> 之后的对象是不可扩展的，但使用 <code>Object.isExtensible</code> 判断返回 <code>false</code></strong></p>
 <h2 id="Object-seal"><a href="#Object-seal" class="headerlink" title="Object.seal"></a>Object.seal</h2><blockquote>
 <p>密封一个对象，使对象不可扩展，且所有自身属性都不可配置、不可删除（但不一定是不可写）的对象</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 封闭一个对象</span></span><br><span class="line"><span class="comment"> * 阻止添加新属性并将所有现有属性标记为不可配置</span></span><br><span class="line"><span class="comment"> * 当前属性的值只要可写就可以改变</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 将要被密封的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Object&#125; 被密封的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.seal(obj)</span><br></pre></td></tr></table></figure>
+
 <ol>
 <li><p>给对象设置，<code>Object.preventExtension(obj)</code>，<br>禁止更改原型，禁止添加属性</p>
 </li>
@@ -430,10 +433,12 @@
 </ol>
 <p><strong>与 <code>Object.freeze</code> 不同的是，<code>Object.seal</code> 后的对象是可写的 <code>writable:true</code>，可以改变其现有属性</strong></p>
 <h3 id="Object-isSealed"><a href="#Object-isSealed" class="headerlink" title="Object.isSealed"></a>Object.isSealed</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 方法判断一个对象是否被密封</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 被检测的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Boolean&#125; 表示给定对象是否被密封</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.isSealed(obj)</span><br></pre></td></tr></table></figure>
+
 <h2 id="Object-freeze"><a href="#Object-freeze" class="headerlink" title="Object.freeze"></a>Object.freeze</h2><blockquote>
 <p>冻结一个对象，冻结指的是不能向这个对象添加新的属性，不能修改其已有属性的值，不能删除已有属性，以及不能修改该对象已有属性的可枚举性、可配置性、可写性。该方法返回被冻结的对象。</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 被冻结对象自身的所有属性都不可能以任何方式被修改。</span></span><br><span class="line"><span class="comment"> * 任何修改尝试都会失败，无论是静默地还是通过抛出TypeError异常</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 要被冻结的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Object&#125; 被冻结的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.freeze(obj)</span><br></pre></td></tr></table></figure>
+
 <ol>
 <li><p>给对象设置，<code>Object.preventExtension(obj)</code> 禁止更改原型，禁止添加属性</p>
 </li>
@@ -447,7 +452,9 @@
 <p>一个对象是冻结的是指它不可扩展，所有属性都是不可配置的，且所有数据属性（即没有 <code>getter</code> 或 <code>setter</code> 组件的访问器的属性）都是不可写的。</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 方法判断一个对象是否被冻结</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 被检测的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Boolean&#125; 表示给定对象是否被冻结</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.isFrozen(obj)</span><br></pre></td></tr></table></figure>
+
 <h2 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 方法会直接在一个对象上定义一个新属性</span></span><br><span class="line"><span class="comment"> * 或者修改一个对象的现有属性，并返回这个对象</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; obj 要在其上定义属性的对象</span></span><br><span class="line"><span class="comment"> * @param &#123;&#125; prop 要定义或修改的属性的名称</span></span><br><span class="line"><span class="comment"> * @param &#123;&#125; descriptor 将被定义或修改的属性描述符</span></span><br><span class="line"><span class="comment"> * @return &#123;Object&#125; 被传递给函数的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, prop, descriptor)</span><br></pre></td></tr></table></figure>
+
 <h3 id="descriptor"><a href="#descriptor" class="headerlink" title="descriptor"></a>descriptor</h3><blockquote>
 <p>对象里目前存在的属性描述符有两种主要形式：<strong>数据描述符</strong> 和 <strong>存取描述符</strong>。<strong>数据描述符</strong> 是一个具有值的属性，该值可能是可写的，也可能不是可写的。<strong>存取描述符</strong> 是由 getter-setter 函数对描述的属性。描述符必须是这两种形式之一；不能同时是两者。</p>
 </blockquote>
@@ -492,8 +499,7 @@
 <th>set</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>数据描述符</td>
 <td>Yes</td>
 <td>Yes</td>
@@ -511,8 +517,7 @@
 <td>Yes</td>
 <td>Yes</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <blockquote>
 <p>如果一个描述符不具有 <code>value</code>，<code>writable</code>，<code>get</code> 和 <code>set</code> 任意一个关键字，那么它将被认为是一个数据描述符。如果一个描述符同时有(<code>value</code> 或 <code>writable</code>)和(<code>get</code> 或 <code>set</code>)关键字，将会产生一个异常。</p>
 </blockquote>
@@ -524,8 +529,10 @@
 <p>所有继承了 Object 的对象都会继承到 hasOwnProperty 方法。这个方法可以用来检测一个对象是否含有特定的自身属性</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> o = &#123;&#125;</span><br><span class="line"><span class="string">'toString'</span> <span class="keyword">in</span> o <span class="comment">// true</span></span><br><span class="line">o.hasOwnProperty(<span class="string">'toString'</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
 <p>防止方法被重写，使用 <code>Object.prototype</code> 上的方法定义一个工具函数</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasOwn</span>(<span class="params">target, key</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.hasOwnProperty.call(target, key)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><strong>注：和 <code>in</code> 运算符不同，该方法会忽略掉那些从原型链上继承到的属性</strong></p>
 
       
@@ -646,7 +653,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -721,7 +728,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

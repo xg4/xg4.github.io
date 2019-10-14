@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="目录 目录 分类 反射型 存储型   防御   XSS 攻击全称跨站脚本攻击，为了不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为 XSS, XSS 是一种在 web 应用中的计算机安全漏洞，它允许恶意 web 用户将代码植入到提供给其它用户使用的页面中。（任何用户输入都是不可信的）  分类反射型 只是简单地把用户输入的数据 “反射” 给浏">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-18T07:07:10.061Z">
+<meta property="og:updated_time" content="2019-10-14T02:51:42.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XSS - 跨站脚本攻击">
 <meta name="twitter:description" content="目录 目录 分类 反射型 存储型   防御   XSS 攻击全称跨站脚本攻击，为了不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为 XSS, XSS 是一种在 web 应用中的计算机安全漏洞，它允许恶意 web 用户将代码植入到提供给其它用户使用的页面中。（任何用户输入都是不可信的）  分类反射型 只是简单地把用户输入的数据 “反射” 给浏">
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -402,6 +402,7 @@
 <li><p>比如：直接将用户输入用于网站页面，URL 中的 Query， Params 或者 用户输入的信息直接拼接 DOM 节点等</p>
 </li>
 <li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://localhost:3000/?name=&lt;script&gt;alert('hello')&lt;/script&gt;"</span></span></span><br><span class="line"><span class="tag">  &gt;</span>点击进入网站并进行XSS攻击<span class="tag">&lt;/<span class="name">a</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>如果目标网站直接将 url 中的 query.name 渲染到页面上，就会被攻击</p>
 </li>
 </ul>
@@ -428,6 +429,7 @@
 </li>
 <li><p>对下列特殊字符进行过滤或者编码，可以简单的防范</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&amp;  &amp;amp;</span><br><span class="line">&lt;  &amp;lt;</span><br><span class="line">&gt;  &amp;gt;</span><br><span class="line">&quot;  &amp;quot;</span><br><span class="line">&apos;  &amp;#39</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 
@@ -549,7 +551,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -624,7 +626,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

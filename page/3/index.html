@@ -286,6 +286,338 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/13/css-name/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/13/css-name/" class="post-title-link" itemprop="url">CSS - Name</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-13 16:38:12" itemprop="dateCreated datePublished" datetime="2018-09-13T16:38:12+00:00">2018-09-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><a href="#bem-%E5%91%BD%E5%90%8D%E6%A8%A1%E5%BC%8F">BEM 命名模式</a></li>
+<li><a href="#less-scss">LESS SCSS</a></li>
+<li><a href="#tips">Tips</a></li>
+<li><a href="#example">Example</a></li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D">常用命名</a></li>
+</ul>
+<blockquote>
+<p>BEM 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论</p>
+</blockquote>
+<h2 id="BEM-命名模式"><a href="#BEM-命名模式" class="headerlink" title="BEM 命名模式"></a>BEM 命名模式</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block__element</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block--modifier</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>每一个块(block)名应该有一个命名空间（前缀）</p>
+</li>
+<li><p>block 代表了更高级别的抽象或组件</p>
+</li>
+<li><p><code>block__element</code> 代表 <code>.block</code> 的后代，用于形成一个完整的 <code>.block</code> 的整体</p>
+</li>
+<li><p><code>block--modifier</code> 代表 <code>.block</code> 的不同状态或不同版本。<br>使用两个连字符和下划线而不是一个，是为了让你自己的块可以用单个连字符来界定。如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.sub-block__element</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sub-block--modifier</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="LESS-SCSS"><a href="#LESS-SCSS" class="headerlink" title="LESS SCSS"></a>LESS SCSS</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">1200px</span>;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-tag">__body</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-tag">__button</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">5px</span> <span class="number">8px</span>;</span><br><span class="line">    <span class="selector-tag">&amp;</span><span class="selector-tag">--primary</span> &#123;</span><br><span class="line">      <span class="attribute">background</span>: blue;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">&amp;</span><span class="selector-tag">--success</span> &#123;</span><br><span class="line">      <span class="attribute">background</span>: green;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ul>
+<li><p>避免 <code>.block__el1__el2</code> 的格式</p>
+</li>
+<li><p>在深层次嵌套的 DOM 结构下，应避免过长的样式名称定义</p>
+</li>
+<li><p>层级最后不要超过 4 级，不然增加阅读的理解难度</p>
+</li>
+</ul>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 常规写法： */</span></span><br><span class="line"><span class="selector-class">.xxx</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item_current</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 嵌套写法 */</span></span><br><span class="line"><span class="selector-class">.xxx__item_current</span> <span class="selector-class">.mod-xxx__link</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 推荐： */</span></span><br><span class="line"><span class="selector-class">.xxx</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item_hightlight</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__product-name</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__link</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__ming-zi-ke-yi-hen-chang</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 嵌套写法 */</span></span><br><span class="line"><span class="selector-class">.xxx__item_current</span> &#123;</span><br><span class="line">  <span class="selector-class">.xxx__link</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 对应的HTML结构如下： --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"xxx"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item"</span>&gt;</span></span><br><span class="line">    第一项</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"xxx__ming-zi-ke-yi-hen-chang"</span>&gt;</span></span><br><span class="line">      看类名</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item xxx__item_current"</span>&gt;</span></span><br><span class="line">    第二项 且 当前选择项</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__item-link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item xxx__item_hightlight"</span>&gt;</span></span><br><span class="line">    第三项 且 特殊高亮</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__item-link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="常用命名"><a href="#常用命名" class="headerlink" title="常用命名"></a>常用命名</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.wrap 或 .wrapper</td>
+<td>外侧包裹</td>
+</tr>
+<tr>
+<td>.container</td>
+<td>包裹容器</td>
+</tr>
+<tr>
+<td>.header</td>
+<td>用于头部</td>
+</tr>
+<tr>
+<td>.body</td>
+<td>页面 body</td>
+</tr>
+<tr>
+<td>.footer</td>
+<td>页面尾部</td>
+</tr>
+<tr>
+<td>.aside 或 .sidebar</td>
+<td>用于侧边栏</td>
+</tr>
+<tr>
+<td>.content</td>
+<td>和 header footer 对应，用于主要内容</td>
+</tr>
+<tr>
+<td>.navigation</td>
+<td>导航元素</td>
+</tr>
+<tr>
+<td>.pagination</td>
+<td>分页</td>
+</tr>
+<tr>
+<td>.tabs &gt; .tab</td>
+<td>tab 切换</td>
+</tr>
+<tr>
+<td>.breadcrumbs</td>
+<td>导航列表、面包屑</td>
+</tr>
+<tr>
+<td>.dropdown</td>
+<td>下拉菜单</td>
+</tr>
+<tr>
+<td>.article</td>
+<td>文章</td>
+</tr>
+<tr>
+<td>.main</td>
+<td>用于主体</td>
+</tr>
+<tr>
+<td>.media</td>
+<td>媒体资源</td>
+</tr>
+<tr>
+<td>.thumbnail 或 .avatar</td>
+<td>头像，小图像</td>
+</tr>
+<tr>
+<td>.panel</td>
+<td>面板</td>
+</tr>
+<tr>
+<td>.tooltip</td>
+<td>鼠标放置上去的提示</td>
+</tr>
+<tr>
+<td>.popup</td>
+<td>鼠标点击弹出的提示</td>
+</tr>
+<tr>
+<td>.button 或 .btn</td>
+<td>按钮</td>
+</tr>
+<tr>
+<td>.ad</td>
+<td>广告</td>
+</tr>
+<tr>
+<td>.subnav</td>
+<td>二级导航</td>
+</tr>
+<tr>
+<td>.menu</td>
+<td>菜单</td>
+</tr>
+<tr>
+<td>.tag</td>
+<td>标签</td>
+</tr>
+<tr>
+<td>.message 或 .notice</td>
+<td>提示消息</td>
+</tr>
+<tr>
+<td>.summary</td>
+<td>摘要</td>
+</tr>
+<tr>
+<td>.logo</td>
+<td>logo</td>
+</tr>
+<tr>
+<td>.search</td>
+<td>搜索框</td>
+</tr>
+<tr>
+<td>.login</td>
+<td>登录</td>
+</tr>
+<tr>
+<td>.register</td>
+<td>注册</td>
+</tr>
+<tr>
+<td>.banner</td>
+<td>广告条</td>
+</tr>
+<tr>
+<td>.copyright</td>
+<td>版权</td>
+</tr>
+<tr>
+<td>.modal 或 .dialog</td>
+<td>弹窗</td>
+</tr>
+</tbody></table>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/09/12/react-router/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -348,7 +680,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -414,6 +746,7 @@
 <p>通过 hash 值来对路由进行控制。如果你使用 HashRouter，你的路由就会默认有#</p>
 </blockquote>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;HashRouter&gt;</span><br><span class="line">  &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/HashRouter&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="BrowserRouter"><a href="#BrowserRouter" class="headerlink" title="BrowserRouter"></a>BrowserRouter</h3><ul>
 <li><p>大部分情况下我们不需要这个#，因为它看起来很怪，这时我们就需要用到 BrowserRouter</p>
 </li>
@@ -421,6 +754,7 @@
 </li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;BrowserRouter basename=<span class="string">"/app"</span>&gt;</span><br><span class="line">  &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/BrowserRouter&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="Route"><a href="#Route" class="headerlink" title="Route"></a>Route</h2><ul>
 <li><p>Route 是路由的一个原材料，它是控制路径对应显示的组件。我们经常用的是 exact、path 以及 component 属性</p>
 </li>
@@ -428,6 +762,7 @@
 </li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br></pre></td></tr></table></figure>
+
 <h2 id="Link-NavLink"><a href="#Link-NavLink" class="headerlink" title="Link/NavLink"></a>Link/NavLink</h2><blockquote>
 <p>两者都是可以控制路由跳转的，不同点是 NavLink 的 api 更多，更加满足你的需求</p>
 </blockquote>
@@ -436,7 +771,9 @@
 </li>
 <li><p>example</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=<span class="string">"/home"</span> /&gt;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link</span><br><span class="line">  to=&#123;&#123;</span><br><span class="line">    pathname: <span class="string">'/home'</span>,</span><br><span class="line">    search: <span class="string">'?sort=name'</span>,</span><br><span class="line">    hash: <span class="string">'#the-hash'</span>,</span><br><span class="line">    state: &#123; <span class="attr">x</span>: <span class="literal">true</span> &#125;</span><br><span class="line">  &#125;&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="NavLink"><a href="#NavLink" class="headerlink" title="NavLink"></a>NavLink</h3><ul>
@@ -571,7 +908,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -654,8 +991,7 @@
 <th>操作成功</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>200 OK</code></td>
 <td>客户端发来的请求在服务器端被正确处理</td>
 </tr>
@@ -671,8 +1007,7 @@
 <td><code>204 No Content</code></td>
 <td>删除资源成功 – 表示请求成功，但响应报文不含实体的主体部分</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <table>
 <thead>
 <tr>
@@ -680,8 +1015,7 @@
 <th>重定向（表明浏览器要执行特殊处理）</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>301 Moved Permanently</code></td>
 <td>永久性重定向，表示资源已被分配了新的 URL</td>
 </tr>
@@ -701,8 +1035,7 @@
 <td><code>307 Temporary Redirect</code></td>
 <td>临时重定向，和 302 含义类似，但是期望客户端保持请求方法不变向新的地址发出请求</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <table>
 <thead>
 <tr>
@@ -710,8 +1043,7 @@
 <th>客户端错误</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>400 Bad Request</code></td>
 <td>服务器不理解客户端的请求，未做任何处理 – 请求报文存在语法错误</td>
 </tr>
@@ -747,8 +1079,7 @@
 <td><code>422 Unprocessable Entity</code></td>
 <td>请求格式正确，但由于语义错误而无法遵循</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <table>
 <thead>
 <tr>
@@ -756,8 +1087,7 @@
 <th>服务器错误</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>500 Internal Server Error</code></td>
 <td>服务器错误</td>
 </tr>
@@ -769,8 +1099,7 @@
 <td><code>503 Service Unavailable</code></td>
 <td>服务器无法处理请求，一般用于网站维护状态</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2 id="Headers"><a href="#Headers" class="headerlink" title="Headers"></a>Headers</h2><table>
 <thead>
 <tr>
@@ -778,8 +1107,7 @@
 <th></th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>Accept</code></td>
 <td>客户端能正确接收的媒体类型：<code>application/json</code> <code>text/plain</code></td>
 </tr>
@@ -791,8 +1119,7 @@
 <td><code>Authorization</code></td>
 <td>客户端认证信息：<code>Bearer dSdSdFFlsfdjasd123</code>，一般存 token 用</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <table>
 <thead>
 <tr>
@@ -800,8 +1127,7 @@
 <th></th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>ETag</code></td>
 <td>资源标识，资源发生变化时标识也会发生改变</td>
 </tr>
@@ -817,8 +1143,7 @@
 <td><code>Set-Cookie</code></td>
 <td>需要存在客户端的信息，一般用于识别用户身份</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 
           
         
@@ -937,7 +1262,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -989,6 +1314,7 @@
 <ul>
 <li><p>使用 Babel，添加 <a href="https://babeljs.io/docs/plugins/syntax-dynamic-import/" target="_blank" rel="noopener">syntax-dynamic-import</a> 插件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn add @babel/plugin-syntax-dynamic-import --dev</span><br></pre></td></tr></table></figure>
+
 <p><code>.babelrc</code></p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"plugins"</span>: [<span class="string">"@babel/plugin-syntax-dynamic-import"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -998,6 +1324,7 @@
 <li><p>把组件按组分块</p>
 <p>有时候我们想把某个路由下的所有组件都打包在同个异步块 (chunk) 中，只需要使用命名 chunk，一个特殊的注释语法来提供 chunk name (需要 webpack &gt; 2.4)</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Foo = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Foo.vue'</span>)</span><br><span class="line"><span class="keyword">const</span> Bar = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Bar.vue'</span>)</span><br><span class="line"><span class="keyword">const</span> Baz = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Baz.vue'</span>)</span><br></pre></td></tr></table></figure>
+
 <p><strong>webpack 会将任何一个异步模块与相同的块名称组合到相同的异步块中</strong></p>
 </li>
 </ul>
@@ -1007,12 +1334,14 @@
 <ul>
 <li><p>定义路由的时候可以配置 meta 字段：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/foo'</span>,</span><br><span class="line">      component: Foo,</span><br><span class="line">      children: [</span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">'bar'</span>,</span><br><span class="line">          component: Bar,</span><br><span class="line">          <span class="comment">// a meta field</span></span><br><span class="line">          meta: &#123; <span class="attr">requiresAuth</span>: <span class="literal">true</span> &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="navigation-guards"><a href="#navigation-guards" class="headerlink" title="navigation guards"></a>navigation guards</h2><blockquote>
 <p><a href="https://router.vuejs.org/zh-cn/advanced/navigation-guards.html" target="_blank" rel="noopener">导航守卫</a></p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123; ... &#125;)</span><br><span class="line"></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>to: <code>Route</code> 即将要进入的目标 路由对象</p>
 </li>
@@ -1040,6 +1369,7 @@
 </li>
 <li><p>编程式</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">router.push(location, onComplete?, onAbort?)</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 
@@ -1160,7 +1490,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -1215,21 +1545,26 @@
 </blockquote>
 <p>Vue.extend(options)</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册组件，传入一个扩展过的构造器</span></span><br><span class="line">Vue.component(</span><br><span class="line">  <span class="string">'my-component'</span>,</span><br><span class="line">  Vue.extend(&#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册组件，传入一个选项对象 (自动调用 Vue.extend)</span></span><br><span class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取注册的组件 (始终返回构造器)</span></span><br><span class="line"><span class="keyword">var</span> MyComponent = Vue.component(<span class="string">'my-component'</span>)</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MyComponent = Vue.extend(&#123;</span><br><span class="line">  template: <span class="string">'&lt;div&gt;Hello!&lt;/div&gt;'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建并挂载到 #app (会替换 #app)</span></span><br><span class="line"><span class="keyword">new</span> MyComponent().$mount(<span class="string">'#app'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同上</span></span><br><span class="line"><span class="keyword">new</span> MyComponent(&#123; <span class="attr">el</span>: <span class="string">'#app'</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者，在文档之外渲染并且随后挂载</span></span><br><span class="line"><span class="keyword">var</span> component = <span class="keyword">new</span> MyComponent().$mount()</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'app'</span>).appendChild(component.$el)</span><br></pre></td></tr></table></figure>
+
 <h2 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h2><blockquote>
 <p><a href="https://cn.vuejs.org/v2/guide/components-slots.html" target="_blank" rel="noopener">vue slots</a></p>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h2><blockquote>
 <p><a href="https://cn.vuejs.org/v2/guide/plugins.html" target="_blank" rel="noopener">vue plugins</a></p>
 </blockquote>
 <p>Vue.js 的插件应当有一个公开方法 <code>install</code>，这个方法的第一个参数是 Vue 构造器，第二个参数是一个可选的选项对象：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">MyPlugin.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue, options</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 1. 添加全局方法或属性</span></span><br><span class="line">  Vue.myGlobalMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 逻辑...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 添加全局资源</span></span><br><span class="line">  Vue.directive(<span class="string">'my-directive'</span>, &#123;</span><br><span class="line">    bind (el, binding, vnode, oldVnode) &#123;</span><br><span class="line">      <span class="comment">// 逻辑...</span></span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 注入组件</span></span><br><span class="line">  Vue.mixin(&#123;</span><br><span class="line">    created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 逻辑...</span></span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 4. 添加实例方法</span></span><br><span class="line">  Vue.prototype.$myMethod = <span class="function"><span class="keyword">function</span> (<span class="params">methodOptions</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 逻辑...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="directive"><a href="#directive" class="headerlink" title="directive"></a>directive</h2><blockquote>
 <p><a href="https://cn.vuejs.org/v2/guide/custom-directive.html" target="_blank" rel="noopener">vue directive</a></p>
 </blockquote>
 <p><code>inserted</code> ：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册一个全局自定义指令 `v-focus`</span></span><br><span class="line">Vue.directive(<span class="string">'focus'</span>, &#123;</span><br><span class="line">  <span class="comment">// 当被绑定的元素插入到 DOM 中时……</span></span><br><span class="line">  inserted: <span class="function"><span class="keyword">function</span>(<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 聚焦元素</span></span><br><span class="line">    el.focus()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <h2 id="sync-modifier"><a href="#sync-modifier" class="headerlink" title="sync modifier"></a>sync modifier</h2><blockquote>
 <p><a href="https://vuejs.org/v2/guide/components-custom-events.html#sync-Modifier" target="_blank" rel="noopener">sync modifier</a></p>
 </blockquote>
@@ -1244,7 +1579,7 @@
 </li>
 </ul>
 <h2 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h2><ul>
-<li><p><a href="https://cn.vuejs.org/v2/api/#vm-watch" target="_blank" rel="noopener">vm \$watch</a></p>
+<li><p><a href="https://cn.vuejs.org/v2/api/#vm-watch" target="_blank" rel="noopener">vm $watch</a></p>
 <ul>
 <li><code>deep: true</code> 监听对象内部值的变化</li>
 </ul>
@@ -1252,6 +1587,7 @@
 </li>
 <li><p><a href="https://cn.vuejs.org/v2/api/#watch" target="_blank" rel="noopener">watch</a></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="number">2</span>,</span><br><span class="line">    c: <span class="number">3</span>,</span><br><span class="line">    d: <span class="number">4</span>,</span><br><span class="line">    e: &#123;</span><br><span class="line">      f: &#123;</span><br><span class="line">        g: <span class="number">5</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    a: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'new: %s, old: %s'</span>, val, oldVal)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 方法名</span></span><br><span class="line">    b: <span class="string">'someMethod'</span>,</span><br><span class="line">    <span class="comment">// 深度 watcher</span></span><br><span class="line">    c: &#123;</span><br><span class="line">      handler: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/* ... */</span></span><br><span class="line">      &#125;,</span><br><span class="line">      deep: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 该回调将会在侦听开始之后被立即调用</span></span><br><span class="line">    d: &#123;</span><br><span class="line">      handler: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/* ... */</span></span><br><span class="line">      &#125;,</span><br><span class="line">      immediate: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    e: [</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">handle1</span>(<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/* ... */</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">handle2</span>(<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/* ... */</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// watch vm.e.f's value: &#123;g: 5&#125;</span></span><br><span class="line">    <span class="string">'e.f'</span>: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">      <span class="comment">/* ... */</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">vm.a = <span class="number">2</span> <span class="comment">// =&gt; new: 2, old: 1</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><blockquote>
@@ -1376,7 +1712,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -1440,6 +1776,7 @@
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
 <li><p>任何一个容器都可以指定为 Flex 布局</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 行内元素也可以使用 Flex 布局 */</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <p><strong>注意：设为 Flex 布局以后，子元素的 <code>float</code>、<code>clear</code> 和 <code>vertical-align</code> 属性将失效。</strong></p>
@@ -1503,11 +1840,13 @@
 <h3 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h3><ul>
 <li><p><code>flex-flow</code> 属性是 <code>flex-direction</code> 属性和 <code>flex-wrap</code> 属性的简写形式，默认值为 <code>row nowrap</code></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">flex-flow</span>: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><ul>
 <li><p><code>justify-content</code> 属性定义了项目在主轴上的对齐方式。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between |</span><br><span class="line">    space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><img src="/images/flex/justify-content.png" alt="justify-content-image"></p>
 </li>
 <li><p>它可能取 5 个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右</p>
@@ -1528,6 +1867,7 @@
 <h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><ul>
 <li><p><code>align-items</code> 属性定义项目在交叉轴上如何对齐。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><img src="/images/flex/align-items.png" alt="align-items-image"></p>
 </li>
 <li><p>它可能取 5 个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下</p>
@@ -1548,6 +1888,7 @@
 <h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><ul>
 <li><p><code>align-content</code> 属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around</span><br><span class="line">    | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><img src="/images/flex/align-content.png" alt="align-content-image"></p>
 </li>
 <li><p>该属性可能取 6 个值</p>
@@ -1585,12 +1926,14 @@
 <h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><ul>
 <li><p><code>order</code> 属性定义项目的排列顺序。数值越小，排列越靠前，默认为 0</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">order</span>: &lt;integer&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><img src="/images/flex/order.png" alt="order-image"></p>
 </li>
 </ul>
 <h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><ul>
 <li><p><code>flex-grow</code> 属性定义项目的放大比例，默认为 <code>0</code>，即如果存在剩余空间，也不放大</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-grow</span>: &lt;number&gt;; <span class="comment">/* default 0 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><img src="/images/flex/flex-grow.png" alt="flex-grow-image"></p>
 </li>
 <li><p>如果所有项目的 <code>flex-grow</code> 属性都为 <code>1</code>，则它们将等分剩余空间（如果有的话）。如果一个项目的 <code>flex-grow</code> 属性为 <code>2</code>，其他项目都为 <code>1</code>，则前者占据的剩余空间将比其他项多一倍</p>
@@ -1599,6 +1942,7 @@
 <h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><ul>
 <li><p><code>flex-shrink</code> 属性定义了项目的缩小比例，默认为 <code>1</code>，即如果空间不足，该项目将缩小</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-shrink</span>: &lt;number&gt;; <span class="comment">/* default 1 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><img src="/images/flex/flex-shrink.jpg" alt="flex-shrink-image"></p>
 </li>
 <li><p>如果所有项目的 <code>flex-shrink</code> 属性都为 <code>1</code>，当空间不足时，都将等比例缩小。如果一个项目的 <code>flex-shrink</code> 属性为 <code>0</code>，其他项目都为 <code>1</code>，则空间不足时，前者不缩小。</p>
@@ -1624,6 +1968,7 @@
 <h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><ul>
 <li><p><code>align-self</code> 属性允许单个项目有与其他项目不一样的对齐方式，可覆盖 <code>align-items</code> 属性。默认值为 <code>auto</code>，表示继承父元素的 <code>align-items</code> 属性，如果没有父元素，则等同于 <code>stretch</code></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">align-self</span>: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><img src="/images/flex/align-self.png" alt="align-self-image"></p>
 </li>
 <li><p>该属性可能取 6 个值，除了 <code>auto</code>，其他都与 <code>align-items</code> 属性完全一致。</p>
@@ -1747,7 +2092,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -1795,6 +2140,7 @@
 <p>扩展小图标的触区（点击区域）</p>
 </blockquote>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.extend-click</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: -<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">left</span>: -<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">right</span>: -<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: -<span class="number">10px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="wrap"><a href="#wrap" class="headerlink" title="wrap"></a>wrap</h2><ul>
 <li><p>强制不换行</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1804,9 +2150,11 @@
 </li>
 <li><p>强制英文单词断行</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  <span class="attribute">word-break</span>: break-all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="ellipsis"><a href="#ellipsis" class="headerlink" title="ellipsis"></a>ellipsis</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 单行溢出隐藏 */</span></span><br><span class="line"><span class="selector-class">.ellipsis</span>() &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多行溢出隐藏 */</span></span><br><span class="line"><span class="selector-class">.multi-ellipsis</span>(<span class="variable">@lines</span>) &#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">-webkit-line-clamp</span>: <span class="variable">@lines</span>;</span><br><span class="line">  <span class="comment">/*! autoprefixer: off */</span></span><br><span class="line">  <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">  <span class="comment">/* autoprefixer: on */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p><code>-webkit-box-orient</code> 是一个过时的属性，postcss 一类的工具会将它默认移除，所以需要取消处理，不然不能起作用</p>
 </li>
@@ -1828,10 +2176,12 @@
 <p>清除浮动</p>
 </blockquote>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>() &#123;</span><br><span class="line">  <span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::before</span>,</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="hairline"><a href="#hairline" class="headerlink" title="hairline"></a>hairline</h2><blockquote>
 <p>移动端 1px border</p>
 </blockquote>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hairline-common</span>() &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">pointer-events</span>: none;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">' '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hairline</span>(<span class="variable">@border-color</span>: <span class="number">#ebedf0</span>) &#123;</span><br><span class="line">  <span class="selector-class">.hairline-common</span>();</span><br><span class="line"></span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">right</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">0</span> dashed <span class="variable">@border-color</span>;</span><br><span class="line">  <span class="attribute">transform</span>: scale(<span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hairline-bottom</span>(<span class="variable">@border-color</span>: <span class="number">#ebedf0</span>, <span class="variable">@left</span>: <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="selector-class">.hairline-common</span>();</span><br><span class="line"></span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="variable">@left</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="variable">@border-color</span>;</span><br><span class="line">  <span class="attribute">transform</span>: scaleY(<span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
           
         
@@ -1950,7 +2300,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -1992,6 +2342,7 @@
 <ul>
 <li><p>在 Heroku 上创建一个应用程序，准备 Heroku 来接收你的源代码</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ heroku create</span><br><span class="line">Creating sharp-rain-871... <span class="keyword">done</span>, stack is cedar-14</span><br><span class="line">http://sharp-rain-871.herokuapp.com/ | https://git.heroku.com/sharp-rain-871.git</span><br><span class="line">Git remote heroku added</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ heroku git:remote -a &lt;name&gt;</span><br><span class="line"></span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">'cm msg'</span></span><br><span class="line">$ git push heroku master</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>当您创建应用程序时，heroku 还会创建一个 <code>git remote</code>（调用）并将其与本地 git 存储库关联</p>
@@ -2007,6 +2358,7 @@
 </li>
 <li><p>您可以使用以下 ps 命令来检查多少个 dynos 正在运行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ heroku ps</span><br><span class="line">=== web (Free): `node index.js`</span><br><span class="line">web.1: up 2014/04/25 16:26:38 (~ 1s ago)</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 
@@ -2127,7 +2479,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -2195,6 +2547,7 @@
 </li>
 </ul>
 <h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xingor4@gmail.com"</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>用户主目录下找到 <code>.ssh</code> 目录 (<code>~/.ssh</code>)，id_rsa 和 id_rsa.pub 两个文件</p>
 </li>
@@ -2206,8 +2559,11 @@
 </li>
 </ul>
 <h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"xg4"</span></span><br><span class="line">$ git config --global user.email <span class="string">"xingor4@gmail.com"</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global alias.st status</span><br><span class="line">$ git config --global alias.ck checkout</span><br><span class="line">$ git config --global alias.cm commit</span><br><span class="line">$ git config --global alias.br branch</span><br></pre></td></tr></table></figure>
+
 <h3 id="log"><a href="#log" class="headerlink" title="log"></a>log</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示最后一次提交信息</span></span><br><span class="line">$ git config --global alias.last <span class="string">'log -1'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># format log</span></span><br><span class="line">$ git config --global alias.lg <span class="string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="initial"><a href="#initial" class="headerlink" title="initial"></a>initial</h2><ul>
 <li><p><code>$ git init</code> : 初始化 git 仓库</p>
 </li>
@@ -2271,6 +2627,7 @@
 </li>
 <li><p>推送分支和标签</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git push &amp;&amp; git push --tags</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line">$ git push --follow-tags</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h2><ul>
@@ -2362,6 +2719,7 @@
 </li>
 <li><p><code>$ git check-ignore</code> : 检查文件是否符合 <code>.gitignore</code> 规则</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git check-ignore -v node_modules</span><br><span class="line">.gitignore:40:node_modules/     node_modules</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h2><ul>
@@ -2373,22 +2731,28 @@
 </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ rm file</span><br><span class="line">$ git add file</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line">$ git rm file</span><br></pre></td></tr></table></figure>
+
 <h2 id="submodule"><a href="#submodule" class="headerlink" title="submodule"></a>submodule</h2><p><strong>子模块的操作默认都是 master 分支</strong></p>
 <ul>
 <li>更换子模块分支</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config -f .gitmodules submodule.&lt;submodule name&gt;.branch dev</span><br><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
+
 <p><code>.gitmodules</code> 加了 <code>-f</code> 参数，修改提交后对所有用户有效</p>
 <h3 id="添加子模块"><a href="#添加子模块" class="headerlink" title="添加子模块"></a>添加子模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule add &lt;git repo&gt; themes/next</span><br></pre></td></tr></table></figure>
+
 <p>添加子模块之后运行 <code>git status</code>， 可以看到目录有增加一个文件 <code>.gitmodules</code>，用来保存子模块的信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">"git rm --cached &lt;file&gt;..."</span> to unstage)</span><br><span class="line"></span><br><span class="line">    new file:   .gitmodules</span><br><span class="line">    new file:   theme/next</span><br></pre></td></tr></table></figure>
+
 <h3 id="查看子模块"><a href="#查看子模块" class="headerlink" title="查看子模块"></a>查看子模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule</span><br><span class="line">c2f33fc76b500770e266c1c16f028807967cd121 themes/next (v7.1.1-4-gc2f33fc)</span><br></pre></td></tr></table></figure>
+
 <h3 id="更新子模块"><a href="#更新子模块" class="headerlink" title="更新子模块"></a>更新子模块</h3><ul>
 <li><p>更新子模块到最新版本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>更新子模块为远程仓库的最新版本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="克隆项目及子模块"><a href="#克隆项目及子模块" class="headerlink" title="克隆项目及子模块"></a>克隆项目及子模块</h3><ol>
@@ -2397,10 +2761,12 @@
 </li>
 <li><p>递归克隆整个项目</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/xg4/blog --recursive</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <h3 id="修改子模块"><a href="#修改子模块" class="headerlink" title="修改子模块"></a>修改子模块</h3><p>在子模块中修改文件后，直接提交到远程仓库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">'update'</span></span><br><span class="line">$ git push origin HEAD:master</span><br></pre></td></tr></table></figure>
+
 <h3 id="删除子模块"><a href="#删除子模块" class="headerlink" title="删除子模块"></a>删除子模块</h3><ol>
 <li><p>删除子模块文件夹</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached theme/next</span><br><span class="line"><span class="comment"># 不带 --cached 参数直接删除文件</span></span><br><span class="line">$ rm -rf theme/next</span><br></pre></td></tr></table></figure>
@@ -2413,6 +2779,7 @@
 </li>
 <li><p>删除 <code>.git</code> 文件夹中的相关子模块文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf .git/modules/theme/next</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 
@@ -2533,7 +2900,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -2586,8 +2953,7 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>ctrl</code> + <code>c</code></td>
 <td>复制光标当前行</td>
 </tr>
@@ -2607,13 +2973,12 @@
 <td><code>ctrl</code> + <code>k</code>, <code>ctrl</code> + <code>0</code></td>
 <td>折叠所有</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <ul>
 <li><a href="https://zhuanlan.zhihu.com/p/66826924" target="_blank" rel="noopener">知乎 - 文章</a></li>
 </ul>
 <h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul>
-<li><p><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint&amp;ssr=false#overview" target="_blank" rel="noopener">ESlint</a></p>
+<li><p><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint&ssr=false#overview" target="_blank" rel="noopener">ESlint</a></p>
 </li>
 <li><p>知乎</p>
 <ul>
@@ -2724,7 +3089,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2799,7 +3164,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

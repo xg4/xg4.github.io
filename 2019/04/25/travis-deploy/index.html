@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="travis demo  安装 travis1234567$ apt-get install ruby$ apt-get install ruby-dev$ apt-get install build-essential# gem update --system# 下载很慢的话，切换镜像源# gem sources --add https://gems.ruby-china.com/$ gem">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-18T07:07:10.061Z">
+<meta property="og:updated_time" content="2019-10-14T02:51:42.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Travis CI Deploy">
 <meta name="twitter:description" content="travis demo  安装 travis1234567$ apt-get install ruby$ apt-get install ruby-dev$ apt-get install build-essential# gem update --system# 下载很慢的话，切换镜像源# gem sources --add https://gems.ruby-china.com/$ gem">
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -388,11 +388,16 @@
 <p><a href="https://github.com/xg4/DevOps-demos" target="_blank" rel="noopener">travis demo</a></p>
 </blockquote>
 <h2 id="安装-travis"><a href="#安装-travis" class="headerlink" title="安装 travis"></a>安装 travis</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install ruby</span><br><span class="line">$ apt-get install ruby-dev</span><br><span class="line">$ apt-get install build-essential</span><br><span class="line"><span class="comment"># gem update --system</span></span><br><span class="line"><span class="comment"># 下载很慢的话，切换镜像源</span></span><br><span class="line"><span class="comment"># gem sources --add https://gems.ruby-china.com/</span></span><br><span class="line">$ gem install travis</span><br></pre></td></tr></table></figure>
+
 <h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ travis login</span><br><span class="line"></span><br><span class="line">We need your GitHub login to identify you.</span><br><span class="line">This information will not be sent to Travis CI, only to api.github.com.</span><br><span class="line">The password will not be displayed.</span><br><span class="line"></span><br><span class="line">Try running with --github-token or --auto <span class="keyword">if</span> you don<span class="string">'t want to enter your password anyway.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Username: xxx@xxx.xxx</span></span><br><span class="line"><span class="string">Password for xxx@xxx.xxx: ***</span></span><br><span class="line"><span class="string">Successfully logged in as xg4!</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="SSH-私钥进行加密处理"><a href="#SSH-私钥进行加密处理" class="headerlink" title="SSH 私钥进行加密处理"></a>SSH 私钥进行加密处理</h2><p>切换到 <code>.travis.yml</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成密钥,如果已存在无需生成</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"xingor4@gmail.com"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用Travis加密 --add 会自动将信息生成到 .travis.yml</span></span><br><span class="line">$ travis encrypt-file ~/.ssh/id_rsa --add</span><br><span class="line"></span><br><span class="line">Detected repository as xxx/xxx, is this correct? |yes| yes</span><br><span class="line">encrypting ~/.ssh/id_rsa <span class="keyword">for</span> xxx/xxx</span><br><span class="line">storing result as id_rsa.enc</span><br><span class="line">storing secure env variables <span class="keyword">for</span> decryption</span><br><span class="line"></span><br><span class="line">Make sure to add id_rsa.enc to the git repository.</span><br><span class="line">Make sure not to add ~/.ssh/id_rsa to the git repository.</span><br><span class="line">Commit all changes to your .travis.yml.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加信任关系</span></span><br><span class="line">ssh-copy-id -i deploy_rsa.pub &lt;ssh-user&gt;@&lt;deploy-host&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将修改添加到git中</span></span><br><span class="line">git add id_rsa.enc .travis.yml</span><br></pre></td></tr></table></figure>
+
 <h2 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .travis.yml</span></span><br><span class="line">before_install:</span><br><span class="line">  <span class="comment"># 自动生成</span></span><br><span class="line">  - openssl aes-256-cbc -K <span class="variable">$encrypted_d89376f3278d_key</span> -iv <span class="variable">$encrypted_d89376f3278d_iv</span></span><br><span class="line">    -<span class="keyword">in</span> id_rsa.enc -out ~/.ssh/id_rsa -d</span><br><span class="line">  <span class="comment"># 设置权限</span></span><br><span class="line">  - chmod 600 ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+
 <h2 id="主机验证"><a href="#主机验证" class="headerlink" title="主机验证"></a>主机验证</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .travis.yml</span></span><br><span class="line">addons:</span><br><span class="line">  ssh_known_hosts: your-ip</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -514,7 +519,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -589,7 +594,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

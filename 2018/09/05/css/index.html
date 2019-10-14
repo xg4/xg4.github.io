@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="Table of Contents Table of Contents extend-click wrap ellipsis clearfix hairline  extend-click 扩展小图标的触区（点击区域）  123456789101112.extend-click &amp;#123;  position: relative;  &amp;amp;:before &amp;#123;    content:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-18T07:07:10.057Z">
+<meta property="og:updated_time" content="2019-10-14T02:51:42.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS">
 <meta name="twitter:description" content="Table of Contents Table of Contents extend-click wrap ellipsis clearfix hairline  extend-click 扩展小图标的触区（点击区域）  123456789101112.extend-click &amp;#123;  position: relative;  &amp;amp;:before &amp;#123;    content:">
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -396,6 +396,7 @@
 <p>扩展小图标的触区（点击区域）</p>
 </blockquote>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.extend-click</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: -<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">left</span>: -<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">right</span>: -<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: -<span class="number">10px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="wrap"><a href="#wrap" class="headerlink" title="wrap"></a>wrap</h2><ul>
 <li><p>强制不换行</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -405,9 +406,11 @@
 </li>
 <li><p>强制英文单词断行</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  <span class="attribute">word-break</span>: break-all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="ellipsis"><a href="#ellipsis" class="headerlink" title="ellipsis"></a>ellipsis</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 单行溢出隐藏 */</span></span><br><span class="line"><span class="selector-class">.ellipsis</span>() &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多行溢出隐藏 */</span></span><br><span class="line"><span class="selector-class">.multi-ellipsis</span>(<span class="variable">@lines</span>) &#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">-webkit-line-clamp</span>: <span class="variable">@lines</span>;</span><br><span class="line">  <span class="comment">/*! autoprefixer: off */</span></span><br><span class="line">  <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">  <span class="comment">/* autoprefixer: on */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p><code>-webkit-box-orient</code> 是一个过时的属性，postcss 一类的工具会将它默认移除，所以需要取消处理，不然不能起作用</p>
 </li>
@@ -429,10 +432,12 @@
 <p>清除浮动</p>
 </blockquote>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>() &#123;</span><br><span class="line">  <span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::before</span>,</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="hairline"><a href="#hairline" class="headerlink" title="hairline"></a>hairline</h2><blockquote>
 <p>移动端 1px border</p>
 </blockquote>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hairline-common</span>() &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">pointer-events</span>: none;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">' '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hairline</span>(<span class="variable">@border-color</span>: <span class="number">#ebedf0</span>) &#123;</span><br><span class="line">  <span class="selector-class">.hairline-common</span>();</span><br><span class="line"></span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">right</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">0</span> dashed <span class="variable">@border-color</span>;</span><br><span class="line">  <span class="attribute">transform</span>: scale(<span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hairline-bottom</span>(<span class="variable">@border-color</span>: <span class="number">#ebedf0</span>, <span class="variable">@left</span>: <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="selector-class">.hairline-common</span>();</span><br><span class="line"></span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="variable">@left</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="variable">@border-color</span>;</span><br><span class="line">  <span class="attribute">transform</span>: scaleY(<span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -550,7 +555,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -625,7 +630,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

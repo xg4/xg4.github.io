@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="BEM 命名模式 LESS SCSS Tips Example 常用命名   BEM 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论  BEM 命名模式12345678.block &amp;#123;&amp;#125;.block__element &amp;#123;&amp;#125;.block--modifier &amp;#123;&amp;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-18T07:07:10.057Z">
+<meta property="og:updated_time" content="2019-10-14T02:51:42.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS - Name">
 <meta name="twitter:description" content="BEM 命名模式 LESS SCSS Tips Example 常用命名   BEM 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论  BEM 命名模式12345678.block &amp;#123;&amp;#125;.block__element &amp;#123;&amp;#125;.block--modifier &amp;#123;&amp;">
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -395,6 +395,7 @@
 <p>BEM 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论</p>
 </blockquote>
 <h2 id="BEM-命名模式"><a href="#BEM-命名模式" class="headerlink" title="BEM 命名模式"></a>BEM 命名模式</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block__element</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block--modifier</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>每一个块(block)名应该有一个命名空间（前缀）</p>
 </li>
@@ -404,9 +405,11 @@
 </li>
 <li><p><code>block--modifier</code> 代表 <code>.block</code> 的不同状态或不同版本。<br>使用两个连字符和下划线而不是一个，是为了让你自己的块可以用单个连字符来界定。如：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.sub-block__element</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sub-block--modifier</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="LESS-SCSS"><a href="#LESS-SCSS" class="headerlink" title="LESS SCSS"></a>LESS SCSS</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">1200px</span>;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-tag">__body</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-tag">__button</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">5px</span> <span class="number">8px</span>;</span><br><span class="line">    <span class="selector-tag">&amp;</span><span class="selector-tag">--primary</span> &#123;</span><br><span class="line">      <span class="attribute">background</span>: blue;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">&amp;</span><span class="selector-tag">--success</span> &#123;</span><br><span class="line">      <span class="attribute">background</span>: green;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ul>
 <li><p>避免 <code>.block__el1__el2</code> 的格式</p>
 </li>
@@ -416,7 +419,9 @@
 </li>
 </ul>
 <h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 常规写法： */</span></span><br><span class="line"><span class="selector-class">.xxx</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item_current</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 嵌套写法 */</span></span><br><span class="line"><span class="selector-class">.xxx__item_current</span> <span class="selector-class">.mod-xxx__link</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 推荐： */</span></span><br><span class="line"><span class="selector-class">.xxx</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__item_hightlight</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__product-name</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__link</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.xxx__ming-zi-ke-yi-hen-chang</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 嵌套写法 */</span></span><br><span class="line"><span class="selector-class">.xxx__item_current</span> &#123;</span><br><span class="line">  <span class="selector-class">.xxx__link</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 对应的HTML结构如下： --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"xxx"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item"</span>&gt;</span></span><br><span class="line">    第一项</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"xxx__ming-zi-ke-yi-hen-chang"</span>&gt;</span></span><br><span class="line">      看类名</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item xxx__item_current"</span>&gt;</span></span><br><span class="line">    第二项 且 当前选择项</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__item-link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"xxx__item xxx__item_hightlight"</span>&gt;</span></span><br><span class="line">    第三项 且 特殊高亮</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"xxx__product-name"</span>&gt;</span>我是名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"xxx__item-link"</span>&gt;</span>我是link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="常用命名"><a href="#常用命名" class="headerlink" title="常用命名"></a>常用命名</h2><table>
 <thead>
 <tr>
@@ -424,8 +429,7 @@
 <th>作用</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>.wrap 或 .wrapper</td>
 <td>外侧包裹</td>
 </tr>
@@ -557,8 +561,7 @@
 <td>.modal 或 .dialog</td>
 <td>弹窗</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 
       
     </div>
@@ -676,7 +679,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -751,7 +754,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

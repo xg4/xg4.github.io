@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="Table of Contents Table of Contents ssh config alias log   initial branch tag reset checkout   stash clone push remote ignore remove submodule 添加子模块 查看子模块 更新子模块 克隆项目及子模块 修改子模块 删除子模块    ssh1$ ssh-keyge">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-18T07:07:10.057Z">
+<meta property="og:updated_time" content="2019-10-14T02:51:42.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git">
 <meta name="twitter:description" content="Table of Contents Table of Contents ssh config alias log   initial branch tag reset checkout   stash clone push remote ignore remove submodule 添加子模块 查看子模块 更新子模块 克隆项目及子模块 修改子模块 删除子模块    ssh1$ ssh-keyge">
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-18 07:07:10" itemprop="dateModified" datetime="2019-09-18T07:07:10+00:00">2019-09-18</time>
+                <time title="Modified: 2019-10-14 02:51:42" itemprop="dateModified" datetime="2019-10-14T02:51:42+00:00">2019-10-14</time>
               
             
           </span>
@@ -416,6 +416,7 @@
 </li>
 </ul>
 <h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xingor4@gmail.com"</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>用户主目录下找到 <code>.ssh</code> 目录 (<code>~/.ssh</code>)，id_rsa 和 id_rsa.pub 两个文件</p>
 </li>
@@ -427,8 +428,11 @@
 </li>
 </ul>
 <h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"xg4"</span></span><br><span class="line">$ git config --global user.email <span class="string">"xingor4@gmail.com"</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global alias.st status</span><br><span class="line">$ git config --global alias.ck checkout</span><br><span class="line">$ git config --global alias.cm commit</span><br><span class="line">$ git config --global alias.br branch</span><br></pre></td></tr></table></figure>
+
 <h3 id="log"><a href="#log" class="headerlink" title="log"></a>log</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示最后一次提交信息</span></span><br><span class="line">$ git config --global alias.last <span class="string">'log -1'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># format log</span></span><br><span class="line">$ git config --global alias.lg <span class="string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="initial"><a href="#initial" class="headerlink" title="initial"></a>initial</h2><ul>
 <li><p><code>$ git init</code> : 初始化 git 仓库</p>
 </li>
@@ -492,6 +496,7 @@
 </li>
 <li><p>推送分支和标签</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git push &amp;&amp; git push --tags</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line">$ git push --follow-tags</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h2><ul>
@@ -583,6 +588,7 @@
 </li>
 <li><p><code>$ git check-ignore</code> : 检查文件是否符合 <code>.gitignore</code> 规则</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git check-ignore -v node_modules</span><br><span class="line">.gitignore:40:node_modules/     node_modules</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h2><ul>
@@ -594,22 +600,28 @@
 </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ rm file</span><br><span class="line">$ git add file</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line">$ git rm file</span><br></pre></td></tr></table></figure>
+
 <h2 id="submodule"><a href="#submodule" class="headerlink" title="submodule"></a>submodule</h2><p><strong>子模块的操作默认都是 master 分支</strong></p>
 <ul>
 <li>更换子模块分支</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config -f .gitmodules submodule.&lt;submodule name&gt;.branch dev</span><br><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
+
 <p><code>.gitmodules</code> 加了 <code>-f</code> 参数，修改提交后对所有用户有效</p>
 <h3 id="添加子模块"><a href="#添加子模块" class="headerlink" title="添加子模块"></a>添加子模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule add &lt;git repo&gt; themes/next</span><br></pre></td></tr></table></figure>
+
 <p>添加子模块之后运行 <code>git status</code>， 可以看到目录有增加一个文件 <code>.gitmodules</code>，用来保存子模块的信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">"git rm --cached &lt;file&gt;..."</span> to unstage)</span><br><span class="line"></span><br><span class="line">    new file:   .gitmodules</span><br><span class="line">    new file:   theme/next</span><br></pre></td></tr></table></figure>
+
 <h3 id="查看子模块"><a href="#查看子模块" class="headerlink" title="查看子模块"></a>查看子模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule</span><br><span class="line">c2f33fc76b500770e266c1c16f028807967cd121 themes/next (v7.1.1-4-gc2f33fc)</span><br></pre></td></tr></table></figure>
+
 <h3 id="更新子模块"><a href="#更新子模块" class="headerlink" title="更新子模块"></a>更新子模块</h3><ul>
 <li><p>更新子模块到最新版本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>更新子模块为远程仓库的最新版本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="克隆项目及子模块"><a href="#克隆项目及子模块" class="headerlink" title="克隆项目及子模块"></a>克隆项目及子模块</h3><ol>
@@ -618,10 +630,12 @@
 </li>
 <li><p>递归克隆整个项目</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/xg4/blog --recursive</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <h3 id="修改子模块"><a href="#修改子模块" class="headerlink" title="修改子模块"></a>修改子模块</h3><p>在子模块中修改文件后，直接提交到远程仓库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">'update'</span></span><br><span class="line">$ git push origin HEAD:master</span><br></pre></td></tr></table></figure>
+
 <h3 id="删除子模块"><a href="#删除子模块" class="headerlink" title="删除子模块"></a>删除子模块</h3><ol>
 <li><p>删除子模块文件夹</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached theme/next</span><br><span class="line"><span class="comment"># 不带 --cached 参数直接删除文件</span></span><br><span class="line">$ rm -rf theme/next</span><br></pre></td></tr></table></figure>
@@ -634,6 +648,7 @@
 </li>
 <li><p>删除 <code>.git</code> 文件夹中的相关子模块文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf .git/modules/theme/next</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 
@@ -753,7 +768,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -828,7 +843,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
