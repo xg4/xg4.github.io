@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="Docker 入门教程 - 阮一峰   install ubuntu 更新/卸载 添加到用户组（可选项） 仓库镜像地址 docker-compose   login / logout image images pull search build rmi tag push save load import history   container ps run/create start/stop/r">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-16T07:16:44.766Z">
+<meta property="og:updated_time" content="2019-10-16T07:19:03.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker">
 <meta name="twitter:description" content="Docker 入门教程 - 阮一峰   install ubuntu 更新/卸载 添加到用户组（可选项） 仓库镜像地址 docker-compose   login / logout image images pull search build rmi tag push save load import history   container ps run/create start/stop/r">
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-16 07:16:44" itemprop="dateModified" datetime="2019-10-16T07:16:44+00:00">2019-10-16</time>
+                <time title="Modified: 2019-10-16 07:19:03" itemprop="dateModified" datetime="2019-10-16T07:19:03+00:00">2019-10-16</time>
               
             
           </span>
@@ -437,7 +437,8 @@
 
 <h3 id="仓库镜像地址"><a href="#仓库镜像地址" class="headerlink" title="仓库镜像地址"></a>仓库镜像地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--registry-mirror=https://jxus37ad.mirror.aliyuncs.com</span><br><span class="line"></span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
 
-<h3 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># download</span></span><br><span class="line">sudo curl -L <span class="string">"https://github.com/docker/compose/releases/download/1.24.1/docker-compose-<span class="variable">$(uname -s)</span>-<span class="variable">$(uname -m)</span>"</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># permissions</span></span><br><span class="line">sudo chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># check</span></span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
+<h3 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h3><p><a href="https://docs.docker.com/compose/install/" target="_blank" rel="noopener">docker compose install</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># download</span></span><br><span class="line">sudo curl -L <span class="string">"https://github.com/docker/compose/releases/download/1.24.1/docker-compose-<span class="variable">$(uname -s)</span>-<span class="variable">$(uname -m)</span>"</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># permissions</span></span><br><span class="line">sudo chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># check</span></span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
 
 <h2 id="login-logout"><a href="#login-logout" class="headerlink" title="login / logout"></a>login / logout</h2><blockquote>
 <p>登录/登出一个 Docker 镜像仓库，如果为指定镜像仓库地址，默认为官方仓库 Docker Hub</p>
