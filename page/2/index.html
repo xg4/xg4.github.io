@@ -348,7 +348,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-16 07:16:44" itemprop="dateModified" datetime="2019-10-16T07:16:44+00:00">2019-10-16</time>
               
             
           </span>
@@ -2031,7 +2031,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-16 07:16:44" itemprop="dateModified" datetime="2019-10-16T07:16:44+00:00">2019-10-16</time>
               
             
           </span>
@@ -2257,7 +2257,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-16 07:16:44" itemprop="dateModified" datetime="2019-10-16T07:16:44+00:00">2019-10-16</time>
               
             
           </span>
@@ -2531,7 +2531,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-16 07:16:44" itemprop="dateModified" datetime="2019-10-16T07:16:44+00:00">2019-10-16</time>
               
             
           </span>
@@ -2813,7 +2813,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-16 07:16:44" itemprop="dateModified" datetime="2019-10-16T07:16:44+00:00">2019-10-16</time>
               
             
           </span>
@@ -3117,7 +3117,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-16 07:16:44" itemprop="dateModified" datetime="2019-10-16T07:16:44+00:00">2019-10-16</time>
               
             
           </span>
@@ -3310,7 +3310,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-16 07:16:44" itemprop="dateModified" datetime="2019-10-16T07:16:44+00:00">2019-10-16</time>
               
             
           </span>
@@ -3355,6 +3355,7 @@
 <li><a href="#%e6%9b%b4%e6%96%b0%e5%8d%b8%e8%bd%bd">更新/卸载</a></li>
 <li><a href="#%e6%b7%bb%e5%8a%a0%e5%88%b0%e7%94%a8%e6%88%b7%e7%bb%84%e5%8f%af%e9%80%89%e9%a1%b9">添加到用户组（可选项）</a></li>
 <li><a href="#%e4%bb%93%e5%ba%93%e9%95%9c%e5%83%8f%e5%9c%b0%e5%9d%80">仓库镜像地址</a></li>
+<li><a href="#docker-compose">docker-compose</a></li>
 </ul>
 </li>
 <li><a href="#login--logout">login / logout</a></li>
@@ -3397,6 +3398,8 @@
 <h3 id="添加到用户组（可选项）"><a href="#添加到用户组（可选项）" class="headerlink" title="添加到用户组（可选项）"></a>添加到用户组（可选项）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br><span class="line"></span><br><span class="line">sudo service docker restart</span><br></pre></td></tr></table></figure>
 
 <h3 id="仓库镜像地址"><a href="#仓库镜像地址" class="headerlink" title="仓库镜像地址"></a>仓库镜像地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--registry-mirror=https://jxus37ad.mirror.aliyuncs.com</span><br><span class="line"></span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># download</span></span><br><span class="line">sudo curl -L <span class="string">"https://github.com/docker/compose/releases/download/1.24.1/docker-compose-<span class="variable">$(uname -s)</span>-<span class="variable">$(uname -m)</span>"</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># permissions</span></span><br><span class="line">sudo chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># check</span></span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
 
 <h2 id="login-logout"><a href="#login-logout" class="headerlink" title="login / logout"></a>login / logout</h2><blockquote>
 <p>登录/登出一个 Docker 镜像仓库，如果为指定镜像仓库地址，默认为官方仓库 Docker Hub</p>
@@ -4076,7 +4079,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-16 07:16:44" itemprop="dateModified" datetime="2019-10-16T07:16:44+00:00">2019-10-16</time>
               
             
           </span>
@@ -4315,7 +4318,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-16 07:16:44" itemprop="dateModified" datetime="2019-10-16T07:16:44+00:00">2019-10-16</time>
               
             
           </span>
@@ -4502,7 +4505,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-14 03:16:30" itemprop="dateModified" datetime="2019-10-14T03:16:30+00:00">2019-10-14</time>
+                <time title="Modified: 2019-10-16 07:16:44" itemprop="dateModified" datetime="2019-10-16T07:16:44+00:00">2019-10-16</time>
               
             
           </span>
