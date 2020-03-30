@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="javascript 语法基础 ECMAScript 的 Utils  Table of Contents Table of Contents Number Conversion throttle debounce shuffle randomInt async/await-try/catch sleep isStatic isPrimitive isObject isObjectLike to">
+<meta name="keywords" content="js,util">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript Utils">
+<meta property="og:url" content="https://xg4.github.io/2019/07/07/js-utils/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="javascript 语法基础 ECMAScript 的 Utils  Table of Contents Table of Contents Number Conversion throttle debounce shuffle randomInt async/await-try/catch sleep isStatic isPrimitive isObject isObjectLike to">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-03-30T09:29:34.650Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript Utils">
+<meta name="twitter:description" content="javascript 语法基础 ECMAScript 的 Utils  Table of Contents Table of Contents Number Conversion throttle debounce shuffle randomInt async/await-try/catch sleep isStatic isPrimitive isObject isObjectLike to">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://xg4.github.io/2019/07/07/js-utils/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Javascript Utils | blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/07/07/js-utils/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Javascript Utils
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-07 19:35:38" itemprop="dateCreated datePublished" datetime="2019-07-07T19:35:38+00:00">2019-07-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-03-30 09:29:34" itemprop="dateModified" datetime="2020-03-30T09:29:34+00:00">2020-03-30</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>javascript 语法基础 ECMAScript 的 Utils</p>
+</blockquote>
+<h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#number-conversion">Number Conversion</a></li>
+<li><a href="#throttle">throttle</a></li>
+<li><a href="#debounce">debounce</a></li>
+<li><a href="#shuffle">shuffle</a></li>
+<li><a href="#randomint">randomInt</a></li>
+<li><a href="#asyncawait-trycatch">async/await-try/catch</a></li>
+<li><a href="#sleep">sleep</a></li>
+<li><a href="#isstatic">isStatic</a></li>
+<li><a href="#isprimitive">isPrimitive</a></li>
+<li><a href="#isobject">isObject</a></li>
+<li><a href="#isobjectlike">isObjectLike</a></li>
+<li><a href="#tostring">toString</a></li>
+<li><a href="#isplainobject">isPlainObject</a></li>
+<li><a href="#isarray">isArray</a></li>
+<li><a href="#isregexp">isRegExp</a></li>
+<li><a href="#isdate">isDate</a></li>
+<li><a href="#isnative">isNative</a></li>
+<li><a href="#isfunction">isFunction</a></li>
+<li><a href="#islength">isLength</a></li>
+<li><a href="#isvalidarrayindex">isValidArrayIndex</a></li>
+<li><a href="#isarraylike">isArrayLike</a></li>
+<li><a href="#hasown">hasOwn</a></li>
+<li><a href="#isempty">isEmpty</a></li>
+<li><a href="#inbrowser">inBrowser</a></li>
+<li><a href="#hasproto">hasProto</a></li>
+<li><a href="#useragent">userAgent</a></li>
+<li><a href="#browsertype">browserType</a></li>
+<li><a href="#tostring-1">toString</a></li>
+<li><a href="#cached">cached</a></li>
+<li><a href="#isreserved">isReserved</a></li>
+<li><a href="#charcodeat">charCodeAt</a></li>
+<li><a href="#camelize">camelize</a></li>
+<li><a href="#hyphenate">hyphenate</a></li>
+<li><a href="#capitalize">capitalize</a></li>
+<li><a href="#extend">extend</a></li>
+<li><a href="#deepclone">deepClone</a></li>
+<li><a href="#array---unique">Array - unique</a></li>
+<li><a href="#isnan">isNaN</a></li>
+<li><a href="#array---max">Array - max</a></li>
+<li><a href="#array---min">Array - min</a></li>
+</ul>
+<h2 id="Number-Conversion"><a href="#Number-Conversion" class="headerlink" title="Number Conversion"></a>Number Conversion</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 十进制 转 其他进制</span></span><br><span class="line">;(<span class="number">10</span>).toString(<span class="number">2</span>) <span class="comment">// 10 转 2</span></span><br><span class="line">;(<span class="number">10</span>).toString(<span class="number">8</span>) <span class="comment">// 10 转 8</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 其他进制 转 十进制</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">1010</span>, <span class="number">2</span>) <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="throttle"><a href="#throttle" class="headerlink" title="throttle"></a>throttle</h2><blockquote>
+<p>函数节流</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, delay = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> last</span><br><span class="line">  <span class="keyword">let</span> timer</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> now = <span class="built_in">Date</span>.now()</span><br><span class="line">    <span class="keyword">if</span> (last &amp;&amp; now &lt; last + delay) &#123;</span><br><span class="line">      clearTimeout(timer)</span><br><span class="line"></span><br><span class="line">      timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">        last = now</span><br><span class="line">      &#125;, delay)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">      last = now</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="debounce"><a href="#debounce" class="headerlink" title="debounce"></a>debounce</h2><blockquote>
+<p>函数防抖</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    clearTimeout(timer)</span><br><span class="line">    timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="shuffle"><a href="#shuffle" class="headerlink" title="shuffle"></a>shuffle</h2><blockquote>
+<p>Fisher–Yates 乱序算法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shuffle</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> length = arr.length</span><br><span class="line">  <span class="keyword">while</span> (length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * length--)</span><br><span class="line">    ;[arr[length], arr[index]] = [arr[index], arr[length]]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="randomInt"><a href="#randomInt" class="headerlink" title="randomInt"></a>randomInt</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">randomInt</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (min &gt; max) &#123;</span><br><span class="line">    ;[min, max] = [max, min]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(min + <span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="async-await-try-catch"><a href="#async-await-try-catch" class="headerlink" title="async/await-try/catch"></a>async/await-try/catch</h2><p>简化 promise 函数的异常捕获，类 node API</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">errorCaptured</span>(<span class="params">promiseFunc</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> promiseFunc.then(<span class="function">(<span class="params">...args</span>) =&gt;</span> [<span class="literal">null</span>, ...args]).catch(<span class="function"><span class="params">err</span> =&gt;</span> [err])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sleep = <span class="function"><span class="params">ms</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> setTimeout(resolve, ms))</span><br></pre></td></tr></table></figure>
+
+<h2 id="isStatic"><a href="#isStatic" class="headerlink" title="isStatic"></a>isStatic</h2><blockquote>
+<p>检测数据是不是除了 symbol 外的原始数据</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isStatic</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> type = <span class="keyword">typeof</span> value</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    type === <span class="string">'string'</span> ||</span><br><span class="line">    type === <span class="string">'number'</span> ||</span><br><span class="line">    type === <span class="string">'boolean'</span> ||</span><br><span class="line">    type === <span class="string">'undefined'</span> ||</span><br><span class="line">    value === <span class="literal">null</span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="isPrimitive"><a href="#isPrimitive" class="headerlink" title="isPrimitive"></a>isPrimitive</h2><blockquote>
+<p>检测数据是不是原始数据</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPrimitive</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> isStatic(value) || <span class="keyword">typeof</span> value === <span class="string">'symbol'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="isObject"><a href="#isObject" class="headerlink" title="isObject"></a>isObject</h2><blockquote>
+<p>判断数据是不是引用类型的数据 (例如： Array, Function, Object, Regexp, new Number(0),以及 new String(‘’))</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObject</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> type = <span class="keyword">typeof</span> value</span><br><span class="line">  <span class="keyword">return</span> value !== <span class="literal">null</span> &amp;&amp; (type === <span class="string">'object'</span> || type === <span class="string">'function'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="isObjectLike"><a href="#isObjectLike" class="headerlink" title="isObjectLike"></a>isObjectLike</h2><blockquote>
+<p>检查 value 是否是 类对象。 如果一个值是类对象，那么它不应该是 null，而且 typeof 后的结果是 “object”</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObjectLike</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value !== <span class="literal">null</span> &amp;&amp; <span class="keyword">typeof</span> value === <span class="string">'object'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h2><blockquote>
+<p>获取数据类型，返回结果为 Number、String、Object、Array 等</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_toString</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value).slice(<span class="number">8</span>, <span class="number">-1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// _toString([]) ==&gt; Array</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="isPlainObject"><a href="#isPlainObject" class="headerlink" title="isPlainObject"></a>isPlainObject</h2><blockquote>
+<p>判断数据是不是 Object 类型的数据</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPlainObject</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj) === <span class="string">'[object Object]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="isArray"><a href="#isArray" class="headerlink" title="isArray"></a>isArray</h2><blockquote>
+<p>判断数据是不是数组类型的数据</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">'[object Array]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ES6</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.isArray</span><br></pre></td></tr></table></figure>
+
+<h2 id="isRegExp"><a href="#isRegExp" class="headerlink" title="isRegExp"></a>isRegExp</h2><blockquote>
+<p>判断数据是不是正则对象</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isRegExp</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">'[object RegExp]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="isDate"><a href="#isDate" class="headerlink" title="isDate"></a>isDate</h2><blockquote>
+<p>判断数据是不是时间对象</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isDate</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">'[object Date]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="isNative"><a href="#isNative" class="headerlink" title="isNative"></a>isNative</h2><blockquote>
+<p>判断 value 是不是浏览器内置函数<br>内置函数 toString 后的主体代码块为 [native code] ，而非内置函数则为相关代码，所以非内置函数可以进行拷贝(toString 后掐头去尾再由 Function 转)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNative</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> value === <span class="string">'function'</span> &amp;&amp; <span class="regexp">/native code/</span>.test(value.toString())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="isFunction"><a href="#isFunction" class="headerlink" title="isFunction"></a>isFunction</h2><blockquote>
+<p>检查 value 是不是函数</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isFunction</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">'[object Function]'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="isLength"><a href="#isLength" class="headerlink" title="isLength"></a>isLength</h2><blockquote>
+<p>检查 value 是否为有效的类数组长度</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isLength</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="keyword">typeof</span> value === <span class="string">'number'</span> &amp;&amp;</span><br><span class="line">    value &gt; <span class="number">-1</span> &amp;&amp;</span><br><span class="line">    value % <span class="number">1</span> === <span class="number">0</span> &amp;&amp;</span><br><span class="line">    value &lt;== <span class="built_in">Number</span>.MAX_SAFE_INTEGER</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="isValidArrayIndex"><a href="#isValidArrayIndex" class="headerlink" title="isValidArrayIndex"></a>isValidArrayIndex</h2><blockquote>
+<p>判断变量是否含有效的数组索引</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isValidArrayIndex</span>(<span class="params">val: any</span>): <span class="title">boolean</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> n = <span class="built_in">parseFloat</span>(<span class="built_in">String</span>(val))</span><br><span class="line">  <span class="comment">// n &gt;= 0 &amp;&amp; Math.floor(n) === n 保证了索引是一个大于等于 0 的整数</span></span><br><span class="line">  <span class="keyword">return</span> n &gt;= <span class="number">0</span> &amp;&amp; <span class="built_in">Math</span>.floor(n) === n &amp;&amp; <span class="built_in">isFinite</span>(val)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="isArrayLike"><a href="#isArrayLike" class="headerlink" title="isArrayLike"></a>isArrayLike</h2><blockquote>
+<p>检查 value 是否是类数组<br>如果一个值被认为是类数组，那么它不是一个函数，并且 value.length 是个整数，大于等于 0，小于或等于 Number.MAX_SAFE_INTEGER。这里字符串也将被当作类数组。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArrayLike</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value !== <span class="literal">null</span> &amp;&amp; isLength(value.length) &amp;&amp; !isFunction(value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="hasOwn"><a href="#hasOwn" class="headerlink" title="hasOwn"></a>hasOwn</h2><blockquote>
+<p>检查是否自身属性，而不是原型链上的</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasOwnProperty</span>(<span class="params">value, key</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.hasOwnProperty.call(value, key)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="isEmpty"><a href="#isEmpty" class="headerlink" title="isEmpty"></a>isEmpty</h2><blockquote>
+<p>检查 value 是否为空<br>如果是 null，直接返回 true；如果是类数组，判断数据长度；如果是 Object 对象，判断是否具有属性；如果是其他数据，直接返回 true</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEmpty</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (value === <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (isArrayLike(value)) &#123;</span><br><span class="line">    <span class="keyword">return</span> !value.length</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isPlainObject(value)) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> value) &#123;</span><br><span class="line">      <span class="keyword">if</span> (hasOwnProperty(value, key)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="inBrowser"><a href="#inBrowser" class="headerlink" title="inBrowser"></a>inBrowser</h2><blockquote>
+<p>检测当前宿主环境是否是浏览器</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过判断 `window` 对象是否存在即可</span></span><br><span class="line"><span class="keyword">const</span> inBrowser = <span class="keyword">typeof</span> <span class="built_in">window</span> !== <span class="string">'undefined'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="hasProto"><a href="#hasProto" class="headerlink" title="hasProto"></a>hasProto</h2><blockquote>
+<p>检查当前环境是否可以使用对象的 <code>__proto__</code> 属性</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一个对象的 __proto__ 属性指向了其构造函数的原型</span></span><br><span class="line"><span class="comment">// 从一个空的对象字面量开始沿着原型链逐级检查。</span></span><br><span class="line"><span class="keyword">const</span> hasProto = <span class="string">'__proto__'</span> <span class="keyword">in</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="userAgent"><a href="#userAgent" class="headerlink" title="userAgent"></a>userAgent</h2><blockquote>
+<p>获取当浏览器的 user agent</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// toLowerCase目的是 为了后续的各种环境检测</span></span><br><span class="line"><span class="keyword">const</span> UA = inBrowser &amp;&amp; <span class="built_in">window</span>.navigator.userAgent.toLowerCase()</span><br></pre></td></tr></table></figure>
+
+<h2 id="browserType"><a href="#browserType" class="headerlink" title="browserType"></a>browserType</h2><blockquote>
+<p>使用正则去匹配 UA 中是否包含’msie’或者’trident’这两个字符串即可判断是否为 IE 浏览器</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isIE = UA &amp;&amp; <span class="regexp">/msie|trident/</span>.test(UA)</span><br><span class="line"><span class="keyword">const</span> isIE9 = UA &amp;&amp; UA.indexOf(<span class="string">'msie 9.0'</span>) &gt; <span class="number">0</span></span><br><span class="line"><span class="keyword">const</span> isEdge = UA &amp;&amp; UA.indexOf(<span class="string">'edge/'</span>) &gt; <span class="number">0</span></span><br><span class="line"><span class="keyword">const</span> isChrome = UA &amp;&amp; <span class="regexp">/chrome\/\d+/</span>.test(UA) &amp;&amp; !isEdge</span><br></pre></td></tr></table></figure>
+
+<h2 id="toString"><a href="#toString" class="headerlink" title="toString"></a>toString</h2><blockquote>
+<p>将给定变量的值转换为 string 类型并返回</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">toString</span>(<span class="params">val: any</span>): <span class="title">string</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> val == <span class="literal">null</span></span><br><span class="line">    ? <span class="string">''</span></span><br><span class="line">    : <span class="keyword">typeof</span> val === <span class="string">'object'</span></span><br><span class="line">    ? <span class="built_in">JSON</span>.stringify(val, <span class="literal">null</span>, <span class="number">2</span>)</span><br><span class="line">    : <span class="built_in">String</span>(val)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="cached"><a href="#cached" class="headerlink" title="cached"></a>cached</h2><blockquote>
+<p>记忆函数：缓存函数的运算结果</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cached</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> cache = <span class="built_in">Object</span>.create(<span class="literal">null</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> cache[str] || (cache[str] = fn(str))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="isReserved"><a href="#isReserved" class="headerlink" title="isReserved"></a>isReserved</h2><blockquote>
+<p>检测字符串是否以 <code>$</code> 或者 <code>_</code> 开头</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// charCodeAt() 方法可返回指定位置的字符的 Unicode 编码</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">isReserved</span>(<span class="params">str: string</span>): <span class="title">boolean</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> c = (str + <span class="string">''</span>).charCodeAt(<span class="number">0</span>)</span><br><span class="line">  <span class="keyword">return</span> c === <span class="number">0x24</span> || c === <span class="number">0x5f</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="charCodeAt"><a href="#charCodeAt" class="headerlink" title="charCodeAt"></a>charCodeAt</h2><blockquote>
+<p>从传递进来的字母序列中找到缺失的字母并返回它。 如：fearNotLetter(“abce”) 应该返回 “d”。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fearNotLetter</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//将字符串转为ASCII码，并存入数组</span></span><br><span class="line">  <span class="keyword">let</span> arr = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; str.length; i++) &#123;</span><br><span class="line">    arr.push(str.charCodeAt(i))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; arr.length; j++) &#123;</span><br><span class="line">    <span class="keyword">let</span> num = arr[j] - arr[j - <span class="number">1</span>]</span><br><span class="line">    <span class="comment">//判断后一项减前一项是否为1，若不为1，则缺失该字符的前一项</span></span><br><span class="line">    <span class="keyword">if</span> (num != <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="comment">//将缺失字符ASCII转为字符并返回</span></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">String</span>.fromCharCode(arr[j] - <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line">fearNotLetter(<span class="string">'abce'</span>) <span class="comment">// "d"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="camelize"><a href="#camelize" class="headerlink" title="camelize"></a>camelize</h2><blockquote>
+<p>连字符转驼峰命名</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> camelizeRE = <span class="regexp">/-(\w)/g</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">camelize</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.replace(camelizeRE, <span class="function"><span class="keyword">function</span>(<span class="params">_, c</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> c ? c.toUpperCase() : <span class="string">''</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//ab-cd-ef ==&gt; abCdEf</span></span><br><span class="line"><span class="comment">//使用记忆函数</span></span><br><span class="line"><span class="keyword">const</span> _camelize = cached(camelize)</span><br></pre></td></tr></table></figure>
+
+<h2 id="hyphenate"><a href="#hyphenate" class="headerlink" title="hyphenate"></a>hyphenate</h2><blockquote>
+<p>驼峰命名转横线命名：拆分字符串，使用 - 相连，并且转换为小写</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hyphenateRE = <span class="regexp">/\B([A-Z])/g</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hyphenate</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.replace(hyphenateRE, <span class="string">'-$1'</span>).toLowerCase()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//abCd ==&gt; ab-cd</span></span><br><span class="line"><span class="comment">//使用记忆函数</span></span><br><span class="line"><span class="keyword">const</span> _hyphenate = cached(hyphenate)</span><br></pre></td></tr></table></figure>
+
+<h2 id="capitalize"><a href="#capitalize" class="headerlink" title="capitalize"></a>capitalize</h2><blockquote>
+<p>字符串首位大写</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">capitalize</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.charAt(<span class="number">0</span>).toUpperCase() + str.slice(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// abc ==&gt; Abc</span></span><br><span class="line"><span class="comment">//使用记忆函数</span></span><br><span class="line"><span class="keyword">const</span> _capitalize = cached(capitalize)</span><br></pre></td></tr></table></figure>
+
+<h2 id="extend"><a href="#extend" class="headerlink" title="extend"></a>extend</h2><blockquote>
+<p>将属性混合到目标对象中</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">to, _from</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> _from) &#123;</span><br><span class="line">    to[key] = _from[key]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> to</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="deepClone"><a href="#deepClone" class="headerlink" title="deepClone"></a>deepClone</h2><ul>
+<li>简单的深克隆</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(target))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>完整的 deepClone 可参考 lodash</p>
+<ul>
+<li><a href="https://github.com/lodash/lodash/blob/master/cloneDeep.js" target="_blank" rel="noopener">lodash - cloneDeep</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Array-unique"><a href="#Array-unique" class="headerlink" title="Array - unique"></a>Array - unique</h2><ul>
+<li>基于 <code>Set</code> 简单实现</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [...new <span class="built_in">Set</span>(arr)]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN"></a>isNaN</h2><blockquote>
+<p>检查数据是否是非数字值<br>原生的 isNaN 会把参数转换成数字(valueof)，而 null、true、false 以及长度小于等于 1 的数组(元素为非 NaN 数据)会被转换成数字，这不是我想要的。Symbol 类型的数据不具有 valueof 接口，所以 isNaN 会抛出错误，这里放在后面，可避免错误</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_isNaN</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> type = <span class="keyword">typeof</span> value</span><br><span class="line">  <span class="keyword">return</span> !(type === <span class="string">'string'</span> || type === <span class="string">'number'</span>) || <span class="built_in">isNaN</span>(v)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Array-max"><a href="#Array-max" class="headerlink" title="Array - max"></a>Array - max</h2><blockquote>
+<p>求取数组中非 NaN 数据中的最大值</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  arr = arr.filter(<span class="function"><span class="params">item</span> =&gt;</span> !_isNaN(item))</span><br><span class="line">  <span class="keyword">return</span> arr.length ? <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, arr) : <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//max([1, 2, '11', null, 'fdf', []]) ==&gt; 11</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Array-min"><a href="#Array-min" class="headerlink" title="Array - min"></a>Array - min</h2><blockquote>
+<p>求取数组中非 NaN 数据中的最小值</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">min</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  arr = arr.filter(<span class="function"><span class="params">item</span> =&gt;</span> !_isNaN(item))</span><br><span class="line">  <span class="keyword">return</span> arr.length ? <span class="built_in">Math</span>.min.apply(<span class="literal">null</span>, arr) : <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//min([1, 2, '11', null, 'fdf', []]) ==&gt; 1</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/util/" rel="tag"># util</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/30/xss/" rel="next" title="XSS - 跨站脚本攻击">
+                <i class="fa fa-chevron-left"></i> XSS - 跨站脚本攻击
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/12/js-string/" rel="prev" title="Javascript - String">
+                Javascript - String <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">xg4</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-Conversion"><span class="nav-number">2.</span> <span class="nav-text">Number Conversion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#throttle"><span class="nav-number">3.</span> <span class="nav-text">throttle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debounce"><span class="nav-number">4.</span> <span class="nav-text">debounce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shuffle"><span class="nav-number">5.</span> <span class="nav-text">shuffle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#randomInt"><span class="nav-number">6.</span> <span class="nav-text">randomInt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#async-await-try-catch"><span class="nav-number">7.</span> <span class="nav-text">async/await-try/catch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sleep"><span class="nav-number">8.</span> <span class="nav-text">sleep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isStatic"><span class="nav-number">9.</span> <span class="nav-text">isStatic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isPrimitive"><span class="nav-number">10.</span> <span class="nav-text">isPrimitive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isObject"><span class="nav-number">11.</span> <span class="nav-text">isObject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isObjectLike"><span class="nav-number">12.</span> <span class="nav-text">isObjectLike</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toString-NaN"><span class="nav-number">13.</span> <span class="nav-text">toString</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isPlainObject"><span class="nav-number">14.</span> <span class="nav-text">isPlainObject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isArray"><span class="nav-number">15.</span> <span class="nav-text">isArray</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isRegExp"><span class="nav-number">16.</span> <span class="nav-text">isRegExp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isDate"><span class="nav-number">17.</span> <span class="nav-text">isDate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isNative"><span class="nav-number">18.</span> <span class="nav-text">isNative</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isFunction"><span class="nav-number">19.</span> <span class="nav-text">isFunction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isLength"><span class="nav-number">20.</span> <span class="nav-text">isLength</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isValidArrayIndex"><span class="nav-number">21.</span> <span class="nav-text">isValidArrayIndex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isArrayLike"><span class="nav-number">22.</span> <span class="nav-text">isArrayLike</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hasOwn"><span class="nav-number">23.</span> <span class="nav-text">hasOwn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isEmpty"><span class="nav-number">24.</span> <span class="nav-text">isEmpty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inBrowser"><span class="nav-number">25.</span> <span class="nav-text">inBrowser</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hasProto"><span class="nav-number">26.</span> <span class="nav-text">hasProto</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#userAgent"><span class="nav-number">27.</span> <span class="nav-text">userAgent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#browserType"><span class="nav-number">28.</span> <span class="nav-text">browserType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toString"><span class="nav-number">29.</span> <span class="nav-text">toString</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cached"><span class="nav-number">30.</span> <span class="nav-text">cached</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isReserved"><span class="nav-number">31.</span> <span class="nav-text">isReserved</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#charCodeAt"><span class="nav-number">32.</span> <span class="nav-text">charCodeAt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#camelize"><span class="nav-number">33.</span> <span class="nav-text">camelize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hyphenate"><span class="nav-number">34.</span> <span class="nav-text">hyphenate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#capitalize"><span class="nav-number">35.</span> <span class="nav-text">capitalize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extend"><span class="nav-number">36.</span> <span class="nav-text">extend</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deepClone"><span class="nav-number">37.</span> <span class="nav-text">deepClone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-unique"><span class="nav-number">38.</span> <span class="nav-text">Array - unique</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isNaN"><span class="nav-number">39.</span> <span class="nav-text">isNaN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-max"><span class="nav-number">40.</span> <span class="nav-text">Array - max</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-min"><span class="nav-number">41.</span> <span class="nav-text">Array - min</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xg4</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

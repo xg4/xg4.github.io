@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional   feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 2">
+<meta property="og:url" content="https://xg4.github.io/2019/04/20/git-2/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional   feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-03-30T09:29:34.646Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 2">
+<meta name="twitter:description" content="Table of Contents Table of Contents commit message server hooks  commit message1type(scope?): subject  #scope is optional   feat: 新功能  fix: bug 修复  docs: 文档修改  style: 不影响代码的更改（如空格，格式，缺少分号等）  refactor:">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://xg4.github.io/2019/04/20/git-2/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Git 2 | blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/20/git-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Git 2
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-20 09:54:09" itemprop="dateCreated datePublished" datetime="2019-04-20T09:54:09+00:00">2019-04-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-03-30 09:29:34" itemprop="dateModified" datetime="2020-03-30T09:29:34+00:00">2020-03-30</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#commit-message">commit message</a></li>
+<li><a href="#server">server</a></li>
+<li><a href="#hooks">hooks</a></li>
+</ul>
+<h2 id="commit-message"><a href="#commit-message" class="headerlink" title="commit message"></a>commit message</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(scope?): subject  <span class="comment">#scope is optional</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>feat: 新功能</p>
+</li>
+<li><p>fix: bug 修复</p>
+</li>
+<li><p>docs: 文档修改</p>
+</li>
+<li><p>style: 不影响代码的更改（如空格，格式，缺少分号等）</p>
+</li>
+<li><p>refactor: 代码重构，既不修复错误也不添加功能</p>
+</li>
+<li><p>perf: 代码更改可以提高性能</p>
+</li>
+<li><p>test: 添加缺失或更正现有测试</p>
+</li>
+<li><p>build: build 相关，npm scripts</p>
+</li>
+<li><p>ci: CI 相关</p>
+</li>
+<li><p>chore: 对构建过程或辅助工具和库（如文档生成）的更改</p>
+</li>
+<li><p>revert: 版本回退</p>
+</li>
+</ul>
+<h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><ol>
+<li><p>创建 git 用户，运行 git 服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加git账户</span></span><br><span class="line">$ adduser git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改git的密码</span></span><br><span class="line">$ passwd git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>禁止 git 用户的 shell 登录</p>
+<blockquote>
+<p>出于安全考虑，创建的 git 用户不允许登录 shell，找到 <code>/etc/passwd</code></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git:x:1000:1000::/home/git:/bin/bash</span><br><span class="line"><span class="comment"># 改为</span></span><br><span class="line">$ git:x:1000:1000::/home/git:/usr/bin/git-shell</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>免密登录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir /home/git/.ssh</span><br><span class="line">$ chmod 700 /home/git/.ssh</span><br><span class="line">$ touch /home/git/.ssh/authorized_keys</span><br><span class="line">$ chmod 600 /home/git/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果使用 sudo 创建，需要将 owner 改为 git</span></span><br><span class="line">$ chown -R git:git /home/git/</span><br></pre></td></tr></table></figure>
+
+<p>编辑 <code>/home/git/.ssh/authorized_keys</code> 将客户端公钥放入</p>
+</li>
+<li><p>初始化 git 仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir /xg4</span><br><span class="line">$ chown git:git /xg4/</span><br><span class="line">$ <span class="built_in">cd</span> /xg4</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建空的git仓库</span></span><br><span class="line">$ git init --bare test.git</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> /xg4/test.git/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将仓库所属用户改为git</span></span><br><span class="line">$ chown -R git:git test.git</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="hooks"><a href="#hooks" class="headerlink" title="hooks"></a>hooks</h2><ul>
+<li><p>client hooks: (commit hooks, email hooks, other hooks)</p>
+<ul>
+<li><p>commit hooks</p>
+<ul>
+<li><p>pre-commit</p>
+</li>
+<li><p>prepare-commit-msg</p>
+</li>
+<li><p>commit-msg</p>
+</li>
+<li><p>post-commit</p>
+</li>
+</ul>
+</li>
+<li><p>email hooks</p>
+<ul>
+<li><p>applypatch-msg</p>
+</li>
+<li><p>pre-applypatch</p>
+</li>
+<li><p>post-applypaych</p>
+</li>
+</ul>
+</li>
+<li><p>other hooks:</p>
+<ul>
+<li><p>pre-rebase</p>
+</li>
+<li><p>post-checkout</p>
+</li>
+<li><p>post-merge</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>server hooks:</p>
+<ul>
+<li><p>pre-receive</p>
+</li>
+<li><p>post-receive</p>
+</li>
+<li><p>update</p>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><p>创建 git server 仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /xg4</span><br><span class="line">$ git init --bare test.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建工作目录 git 仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /var/www</span><br><span class="line">$ git <span class="built_in">clone</span> /xg4/test.git</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ git init</span><br><span class="line">$ git remote add origin /xg4/test.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>改变所属用户和用户组，获得权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chown -R git:git /xg4/test.git</span><br><span class="line">$ chown -R git:git /var/www/<span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置 git hooks</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /xg4/test.git/hooks/</span><br><span class="line">vim post-receive</span><br></pre></td></tr></table></figure>
+
+<p>post-receive 文件内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">unset</span> GIT_DIR</span><br><span class="line"><span class="built_in">cd</span> /var/www/<span class="built_in">test</span></span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 赋予 post-receive 文件可执行权限</span></span><br><span class="line">$ chmod +x .git/hooks/post-receive</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/10/js-browser/" rel="next" title="Javascript - Browser">
+                <i class="fa fa-chevron-left"></i> Javascript - Browser
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/20/linux/" rel="prev" title="Linux">
+                Linux <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">xg4</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commit-message"><span class="nav-number">2.</span> <span class="nav-text">commit message</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server"><span class="nav-number">3.</span> <span class="nav-text">server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hooks"><span class="nav-number">4.</span> <span class="nav-text">hooks</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xg4</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

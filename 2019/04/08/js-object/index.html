@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="MDN - Object  Table of Contents Table of Contents Object.preventExtension Object.isExtensible   Object.seal Object.isSealed   Object.freeze Object.isFrozen   Object.defineProperty descriptor keys   f">
+<meta name="keywords" content="js,object">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript - Object">
+<meta property="og:url" content="https://xg4.github.io/2019/04/08/js-object/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="MDN - Object  Table of Contents Table of Contents Object.preventExtension Object.isExtensible   Object.seal Object.isSealed   Object.freeze Object.isFrozen   Object.defineProperty descriptor keys   f">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-03-30T09:29:34.650Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript - Object">
+<meta name="twitter:description" content="MDN - Object  Table of Contents Table of Contents Object.preventExtension Object.isExtensible   Object.seal Object.isSealed   Object.freeze Object.isFrozen   Object.defineProperty descriptor keys   f">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://xg4.github.io/2019/04/08/js-object/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Javascript - Object | blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/08/js-object/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Javascript - Object
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-08 15:00:46" itemprop="dateCreated datePublished" datetime="2019-04-08T15:00:46+00:00">2019-04-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-03-30 09:29:34" itemprop="dateModified" datetime="2020-03-30T09:29:34+00:00">2020-03-30</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="noopener">MDN - Object</a></p>
+</blockquote>
+<h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#Table-of-Contents">Table of Contents</a></li>
+<li><a href="#ObjectpreventExtension">Object.preventExtension</a><ul>
+<li><a href="#ObjectisExtensible">Object.isExtensible</a></li>
+</ul>
+</li>
+<li><a href="#Objectseal">Object.seal</a><ul>
+<li><a href="#ObjectisSealed">Object.isSealed</a></li>
+</ul>
+</li>
+<li><a href="#Objectfreeze">Object.freeze</a><ul>
+<li><a href="#ObjectisFrozen">Object.isFrozen</a></li>
+</ul>
+</li>
+<li><a href="#ObjectdefineProperty">Object.defineProperty</a><ul>
+<li><a href="#descriptor">descriptor</a></li>
+<li><a href="#keys">keys</a></li>
+</ul>
+</li>
+<li><a href="#forin">for…in</a></li>
+<li><a href="#hasOwnProperty">hasOwnProperty</a></li>
+</ul>
+<h2 id="Object-preventExtension"><a href="#Object-preventExtension" class="headerlink" title="Object.preventExtension"></a>Object.preventExtension</h2><blockquote>
+<p>该方法将对象标记为不可扩展，阻止添加自身的属性，但不可扩展对象的属性仍然可被删除、修改，也可以添加到对象原型，尝试将新属性添加到不可扩展对象将静默失败或抛出 <code>TypeError</code>，<strong>一旦使其不可扩展，就无法再对象进行扩展。</strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 方法让一个对象变的不可扩展，</span></span><br><span class="line"><span class="comment"> * 也就是永远不能再添加新的属性</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 将要变得不可扩展的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Object&#125; 已经不可扩展的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(obj)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Object-isExtensible"><a href="#Object-isExtensible" class="headerlink" title="Object.isExtensible"></a>Object.isExtensible</h3><blockquote>
+<p>默认情况下，对象是可扩展的：即可以为他们添加新的属性。以及它们的 <code>__proto__</code> 属性可以被更改。<code>Object.preventExtensions</code>、<code>Object.seal</code> 或 <code>Object.freeze</code> 方法都可以标记一个对象为不可扩展（non-extensible）</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description  方法判断一个对象是否是可扩展的</span></span><br><span class="line"><span class="comment"> * （是否可以在它上面添加新的属性）</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 需要检测的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Boolean&#125; 表示给定对象是否可扩展</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.isExtensible(obj)</span><br></pre></td></tr></table></figure>
+
+<p><strong>注：虽然 <code>Object.freeze</code> 或 <code>Object.seal</code> 之后的对象是不可扩展的，但使用 <code>Object.isExtensible</code> 判断返回 <code>false</code></strong></p>
+<h2 id="Object-seal"><a href="#Object-seal" class="headerlink" title="Object.seal"></a>Object.seal</h2><blockquote>
+<p>密封一个对象，使对象不可扩展，且所有自身属性都不可配置、不可删除（但不一定是不可写）的对象</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 封闭一个对象</span></span><br><span class="line"><span class="comment"> * 阻止添加新属性并将所有现有属性标记为不可配置</span></span><br><span class="line"><span class="comment"> * 当前属性的值只要可写就可以改变</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 将要被密封的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Object&#125; 被密封的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.seal(obj)</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>给对象设置，<code>Object.preventExtension(obj)</code>，<br>禁止更改原型，禁止添加属性</p>
+</li>
+<li><p>为对象的每一个属性设置，<code>configurable:false</code>，<br>禁止更改属性值</p>
+</li>
+</ol>
+<p><strong>与 <code>Object.freeze</code> 不同的是，<code>Object.seal</code> 后的对象是可写的 <code>writable:true</code>，可以改变其现有属性</strong></p>
+<h3 id="Object-isSealed"><a href="#Object-isSealed" class="headerlink" title="Object.isSealed"></a>Object.isSealed</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 方法判断一个对象是否被密封</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 被检测的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Boolean&#125; 表示给定对象是否被密封</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.isSealed(obj)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-freeze"><a href="#Object-freeze" class="headerlink" title="Object.freeze"></a>Object.freeze</h2><blockquote>
+<p>冻结一个对象，冻结指的是不能向这个对象添加新的属性，不能修改其已有属性的值，不能删除已有属性，以及不能修改该对象已有属性的可枚举性、可配置性、可写性。该方法返回被冻结的对象。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 被冻结对象自身的所有属性都不可能以任何方式被修改。</span></span><br><span class="line"><span class="comment"> * 任何修改尝试都会失败，无论是静默地还是通过抛出TypeError异常</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 要被冻结的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Object&#125; 被冻结的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.freeze(obj)</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>给对象设置，<code>Object.preventExtension(obj)</code> 禁止更改原型，禁止添加属性</p>
+</li>
+<li><p>为对象的每一个属性设置，<code>writable:false</code> 禁止更改属性值</p>
+</li>
+<li><p>为对象的每一个属性设置，<code>configurable:false</code> 禁止删除属性</p>
+</li>
+</ol>
+<p><strong>注：禁止添加属性，是 <code>Object.preventExtensions</code> 控制的，而禁止删除属性，是 <code>configuable:false</code> 控制的。用 <code>Object.seal()</code> 密封的对象可以改变它们现有的属性，使用 <code>Object.freeze()</code> 冻结的对象中现有属性是不可变的。</strong></p>
+<h3 id="Object-isFrozen"><a href="#Object-isFrozen" class="headerlink" title="Object.isFrozen"></a>Object.isFrozen</h3><blockquote>
+<p>一个对象是冻结的是指它不可扩展，所有属性都是不可配置的，且所有数据属性（即没有 <code>getter</code> 或 <code>setter</code> 组件的访问器的属性）都是不可写的。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 方法判断一个对象是否被冻结</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 被检测的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Boolean&#125; 表示给定对象是否被冻结</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.isFrozen(obj)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 方法会直接在一个对象上定义一个新属性</span></span><br><span class="line"><span class="comment"> * 或者修改一个对象的现有属性，并返回这个对象</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; obj 要在其上定义属性的对象</span></span><br><span class="line"><span class="comment"> * @param &#123;&#125; prop 要定义或修改的属性的名称</span></span><br><span class="line"><span class="comment"> * @param &#123;&#125; descriptor 将被定义或修改的属性描述符</span></span><br><span class="line"><span class="comment"> * @return &#123;Object&#125; 被传递给函数的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, prop, descriptor)</span><br></pre></td></tr></table></figure>
+
+<h3 id="descriptor"><a href="#descriptor" class="headerlink" title="descriptor"></a>descriptor</h3><blockquote>
+<p>对象里目前存在的属性描述符有两种主要形式：<strong>数据描述符</strong> 和 <strong>存取描述符</strong>。<strong>数据描述符</strong> 是一个具有值的属性，该值可能是可写的，也可能不是可写的。<strong>存取描述符</strong> 是由 getter-setter 函数对描述的属性。描述符必须是这两种形式之一；不能同时是两者。</p>
+</blockquote>
+<p><strong>数据描述符和存取描述符均具有以下可选键值：</strong></p>
+<ul>
+<li><p>configurable</p>
+<p>当且仅当该属性的 configurable 为 <code>true</code> 时，该属性描述符才能够被改变，同时该属性也能从对应的对象上被删除。默认为 <code>false</code></p>
+</li>
+<li><p>enumerable</p>
+<p>当且仅当该属性的 enumerable 为 true 时，该属性才能够出现在对象的枚举属性中。默认为 <code>false</code></p>
+</li>
+</ul>
+<p><strong>数据描述符同时具有以下可选键值：</strong></p>
+<ul>
+<li><p>value</p>
+<p>该属性对应的值。可以是任何有效的 JavaScript 值（数值，对象，函数等）。默认为 <code>undefined</code></p>
+</li>
+<li><p>writable</p>
+<p>当且仅当该属性的 writable 为 true 时，value 才能被赋值运算符改变。默认为 <code>false</code></p>
+</li>
+</ul>
+<p><strong>存取描述符同时具有以下可选键值：</strong></p>
+<ul>
+<li><p>get</p>
+<p>一个给属性提供 getter 的方法，如果没有 getter 则为 <code>undefined</code>。当访问该属性时，该方法会被执行，方法执行时没有参数传入，但是会传入 <code>this</code> 对象（由于继承关系，这里的 <code>this</code> 并不一定是定义该属性的对象）</p>
+<p>默认为 <code>undefined</code></p>
+</li>
+<li><p>set</p>
+<p>一个给属性提供 setter 的方法，如果没有 setter 则为 <code>undefined</code>。当属性值修改时，触发执行该方法。该方法将接受唯一参数，即该属性新的参数值</p>
+<p>默认为 <code>undefined</code></p>
+</li>
+</ul>
+<h3 id="keys"><a href="#keys" class="headerlink" title="keys"></a>keys</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>configurable</th>
+<th>enumerable</th>
+<th>value</th>
+<th>writable</th>
+<th>get</th>
+<th>set</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据描述符</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>存取描述符</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>如果一个描述符不具有 <code>value</code>，<code>writable</code>，<code>get</code> 和 <code>set</code> 任意一个关键字，那么它将被认为是一个数据描述符。如果一个描述符同时有(<code>value</code> 或 <code>writable</code>)和(<code>get</code> 或 <code>set</code>)关键字，将会产生一个异常。</p>
+</blockquote>
+<h2 id="for…in"><a href="#for…in" class="headerlink" title="for…in"></a>for…in</h2><blockquote>
+<p><code>for...in</code> 语句以任意顺序遍历一个对象的可枚举属性</p>
+</blockquote>
+<p><code>for...in</code> 也会遍历原型链上的可枚举属性，可以通过 <code>Object.hasOwnProperty</code> 方法判断是否自身属性</p>
+<h2 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty"></a>hasOwnProperty</h2><blockquote>
+<p>所有继承了 Object 的对象都会继承到 hasOwnProperty 方法。这个方法可以用来检测一个对象是否含有特定的自身属性</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> o = &#123;&#125;</span><br><span class="line"><span class="string">'toString'</span> <span class="keyword">in</span> o <span class="comment">// true</span></span><br><span class="line">o.hasOwnProperty(<span class="string">'toString'</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>防止方法被重写，使用 <code>Object.prototype</code> 上的方法定义一个工具函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasOwn</span>(<span class="params">target, key</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.hasOwnProperty.call(target, key)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注：和 <code>in</code> 运算符不同，该方法会忽略掉那些从原型链上继承到的属性</strong></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/object/" rel="tag"># object</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/02/npm/" rel="next" title="NPM">
+                <i class="fa fa-chevron-left"></i> NPM
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/10/js-browser/" rel="prev" title="Javascript - Browser">
+                Javascript - Browser <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">xg4</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-preventExtension"><span class="nav-number">2.</span> <span class="nav-text">Object.preventExtension</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-isExtensible"><span class="nav-number">2.1.</span> <span class="nav-text">Object.isExtensible</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-seal"><span class="nav-number">3.</span> <span class="nav-text">Object.seal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-isSealed"><span class="nav-number">3.1.</span> <span class="nav-text">Object.isSealed</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-freeze"><span class="nav-number">4.</span> <span class="nav-text">Object.freeze</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-isFrozen"><span class="nav-number">4.1.</span> <span class="nav-text">Object.isFrozen</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-defineProperty"><span class="nav-number">5.</span> <span class="nav-text">Object.defineProperty</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#descriptor"><span class="nav-number">5.1.</span> <span class="nav-text">descriptor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keys"><span class="nav-number">5.2.</span> <span class="nav-text">keys</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for…in"><span class="nav-number">6.</span> <span class="nav-text">for…in</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hasOwnProperty-NaN"><span class="nav-number">7.</span> <span class="nav-text">hasOwnProperty</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xg4</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

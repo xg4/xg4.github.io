@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Table of Contents Table of Contents ssh config alias log   initial branch tag reset checkout   stash clone push remote ignore remove submodule 添加子模块 查看子模块 更新子模块 克隆项目及子模块 修改子模块 删除子模块    ssh1$ ssh-keyge">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="https://xg4.github.io/2018/08/13/git/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="Table of Contents Table of Contents ssh config alias log   initial branch tag reset checkout   stash clone push remote ignore remove submodule 添加子模块 查看子模块 更新子模块 克隆项目及子模块 修改子模块 删除子模块    ssh1$ ssh-keyge">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-03-30T09:29:34.646Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git">
+<meta name="twitter:description" content="Table of Contents Table of Contents ssh config alias log   initial branch tag reset checkout   stash clone push remote ignore remove submodule 添加子模块 查看子模块 更新子模块 克隆项目及子模块 修改子模块 删除子模块    ssh1$ ssh-keyge">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://xg4.github.io/2018/08/13/git/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Git | blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2018/08/13/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xg4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Git
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-13 22:42:20" itemprop="dateCreated datePublished" datetime="2018-08-13T22:42:20+00:00">2018-08-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-03-30 09:29:34" itemprop="dateModified" datetime="2020-03-30T09:29:34+00:00">2020-03-30</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#ssh">ssh</a></li>
+<li><a href="#config">config</a><ul>
+<li><a href="#alias">alias</a></li>
+<li><a href="#log">log</a></li>
+</ul>
+</li>
+<li><a href="#initial">initial</a></li>
+<li><a href="#branch">branch</a></li>
+<li><a href="#tag">tag</a></li>
+<li><a href="#reset">reset</a><ul>
+<li><a href="#checkout">checkout</a></li>
+</ul>
+</li>
+<li><a href="#stash">stash</a></li>
+<li><a href="#clone">clone</a></li>
+<li><a href="#push">push</a></li>
+<li><a href="#remote">remote</a></li>
+<li><a href="#ignore">ignore</a></li>
+<li><a href="#remove">remove</a></li>
+<li><a href="#submodule">submodule</a><ul>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E5%AD%90%E6%A8%A1%E5%9D%97">添加子模块</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%AD%90%E6%A8%A1%E5%9D%97">查看子模块</a></li>
+<li><a href="#%E6%9B%B4%E6%96%B0%E5%AD%90%E6%A8%A1%E5%9D%97">更新子模块</a></li>
+<li><a href="#%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%AD%90%E6%A8%A1%E5%9D%97">克隆项目及子模块</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E5%AD%90%E6%A8%A1%E5%9D%97">修改子模块</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E5%AD%90%E6%A8%A1%E5%9D%97">删除子模块</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xingor4@gmail.com"</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>用户主目录下找到 <code>.ssh</code> 目录 (<code>~/.ssh</code>)，id_rsa 和 id_rsa.pub 两个文件</p>
+</li>
+<li><p>id_rsa 是私钥，不能泄露出去，id_rsa.pub 是公钥，可以放心地告诉任何人</p>
+</li>
+<li><p>GitHub “Add SSH Key” 粘贴 id_rsa.pub 文件的内容</p>
+</li>
+<li><p><strong>检验是否连接上 GitHub <code>$ ssh git@github.com</code></strong></p>
+</li>
+</ul>
+<h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"xg4"</span></span><br><span class="line">$ git config --global user.email <span class="string">"xingor4@gmail.com"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global alias.st status</span><br><span class="line">$ git config --global alias.ck checkout</span><br><span class="line">$ git config --global alias.cm commit</span><br><span class="line">$ git config --global alias.br branch</span><br></pre></td></tr></table></figure>
+
+<h3 id="log"><a href="#log" class="headerlink" title="log"></a>log</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示最后一次提交信息</span></span><br><span class="line">$ git config --global alias.last <span class="string">'log -1'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># format log</span></span><br><span class="line">$ git config --global alias.lg <span class="string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="initial"><a href="#initial" class="headerlink" title="initial"></a>initial</h2><ul>
+<li><p><code>$ git init</code> : 初始化 git 仓库</p>
+</li>
+<li><p><code>$ git add &lt;filename&gt;</code> : 添加文件到暂存区</p>
+</li>
+<li><p><code>$ git add .</code> : 递归添加整个目录到暂存区</p>
+</li>
+<li><p><code>$ git commit -m &#39;msg&#39;</code> : 提交暂存区内容到仓库</p>
+</li>
+<li><p><code>$ git status</code> : 查看工作区的状态</p>
+</li>
+<li><p><code>$ git diff</code> : 查看修改内容，比较差异</p>
+</li>
+</ul>
+<h2 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h2><ul>
+<li><p><code>$ git branch</code> : 查看分支</p>
+</li>
+<li><p><code>$ git branch &lt;name&gt;</code> : 创建分支</p>
+</li>
+<li><p><code>$ git branch --orphan</code> : 创建空分支</p>
+</li>
+<li><p><code>$ git checkout &lt;name&gt;</code> : 切换分支</p>
+</li>
+<li><p>创建并切换分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b &lt;name&gt;</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line">$ git branch &lt;name&gt;</span><br><span class="line">$ git checkout &lt;name&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>$ git merge &lt;name&gt;</code> : 合并 <name> 分支到当前分支</name></p>
+</li>
+<li><p>删除分支：</p>
+<p><code>$ git branch -d &lt;name&gt;</code> : 被删除的分支没有合并时，需强制删除</p>
+<p><code>$ git branch -D &lt;name&gt;</code> : 强制删除</p>
+</li>
+<li><p><code>$ git log --graph</code> : 查看分支合并图</p>
+</li>
+</ul>
+<h2 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h2><blockquote>
+<p>Git 的标签就像是版本库的快照，实质上它就是指向某个 commit 的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。<br>作用在于将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。</p>
+</blockquote>
+<ul>
+<li><p><code>$ git tag &lt;name&gt;</code> : 创建一个新标签</p>
+<ul>
+<li>标签默认为 HEAD，也可以指定一个 commit id</li>
+</ul>
+</li>
+<li><p><code>$ git tag</code> : 查看所有标签</p>
+<ul>
+<li>标签不是按时间顺序列出，而是按字母排序的，用 <code>$ git show &lt;name&gt;</code> 查看标签信息</li>
+</ul>
+</li>
+<li><p><code>$ git tag -a &lt;name&gt; -m &#39;msg&#39;</code> : 指定标签信息，<code>-a</code> 指定标签名， <code>-m</code> 指定说明文字</p>
+</li>
+<li><p><code>$ git tag -s &lt;name&gt; -m &#39;msg&#39;</code> : 用 PGP 签名标签，<code>-s</code> 用私钥签名一个标签</p>
+</li>
+<li><p><code>$ git push origin &lt;name&gt;</code> : 推送一个本地标签</p>
+</li>
+<li><p><code>$ git push origin --tags</code> : 推送全部未推送过的本地标签</p>
+</li>
+<li><p><code>$ git tag -d &lt;name&gt;</code> : 删除一个本地标签</p>
+</li>
+<li><p><code>$ git push origin :refs/tags/&lt;name&gt;</code> : 删除远程标签</p>
+</li>
+<li><p>推送分支和标签</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git push &amp;&amp; git push --tags</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line">$ git push --follow-tags</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h2><ul>
+<li><p><code>$ git log</code> : 显示从最近到最远的提交日志</p>
+<ul>
+<li><strong>按 Q, 退出 log</strong></li>
+</ul>
+</li>
+<li><p><code>$ git log --pretty=oneline</code> : 显示简要版的提交日志</p>
+</li>
+<li><p><code>$ git reset --hard HEAD^</code> : 返回上一个版本，<code>HEAD</code>表示当前版本，<code>HEAD^^</code> 表示上上个版本，也可以用类似于 <code>HEAD~3</code> 来表示要回退到哪一个版本</p>
+</li>
+<li><p><code>$ git reset --hard 3628164</code> : 后面的数字是版本号，此方法可以随意跳转</p>
+</li>
+<li><p><code>$ git push -f</code> : 强制推送到远程分支</p>
+<ul>
+<li>注意：本地分支回滚后，版本将落后远程分支，必须使用强制推送覆盖远程分支，否则无法推送到远程分支</li>
+</ul>
+</li>
+<li><p><code>$ git reflog</code> : 记录所有操作，可以通过此查询版本号</p>
+</li>
+</ul>
+<h3 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h3><blockquote>
+<p><code>$ git checkout -- .</code> : 将当前版本库中的内容替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”</p>
+</blockquote>
+<ul>
+<li><p><code>$ git checkout -- file</code> : 丢弃工作区中的修改，恢复某个文件到当前版本库中的状态</p>
+</li>
+<li><p><code>$ git reset HEAD file &amp;&amp; git checkout -- file</code> : 将已经添加到暂存区的文件撤销，并恢复到当前版本库中的状态</p>
+</li>
+</ul>
+<h2 id="stash"><a href="#stash" class="headerlink" title="stash"></a>stash</h2><ul>
+<li><p><code>$ git stash</code> : 将当前工作区修改文件“储藏”起来，然后创建新的分支，修复 bug 合并，等 BUG 修复之后恢复现场继续工作</p>
+</li>
+<li><p><code>$ git stash list</code> : 查看被储藏起来的项目</p>
+</li>
+<li><p>恢复被储藏项目的两种方法：</p>
+<ul>
+<li><p><code>$ git stash apply</code> : 恢复后，stash 内容并不删除，需要用 <code>$ git stash drop</code> 来删除</p>
+</li>
+<li><p><code>$ git stash pop</code> : 恢复的同时把 stash 内容也删除</p>
+</li>
+</ul>
+</li>
+<li><p>可以多次 stash，恢复的时候，先用 <code>git stash list</code> 查看，然后恢复指定的 stash，用命令：<code>$ git stash apply stash@{0}</code></p>
+</li>
+</ul>
+<h2 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h2><ul>
+<li><p><code>$ git clone &lt;url&gt;</code> : 拉取远程仓库</p>
+<ul>
+<li>支持 git:// (ssh), https:// 等协议</li>
+</ul>
+</li>
+<li><p><code>$ git clone &lt;url&gt; --depth=1</code> : 仓库太大，拉取最近的一个 revision</p>
+<ul>
+<li><code>$ git fetch --unshallow</code> : 继续拉取历史版本</li>
+</ul>
+</li>
+</ul>
+<h2 id="push"><a href="#push" class="headerlink" title="push"></a>push</h2><ul>
+<li><p><code>$ git push</code> : 远程已有 remote_branch 分支，并且已经关联本地分支 local_branch</p>
+</li>
+<li><p><code>$ git push -u origin/remote_branch</code> : 远程已有 remote_branch 分支但未关联本地分支 local_branch</p>
+</li>
+<li><p><code>$ git push origin local_branch:remote_branch</code> : 远程没有 remote_branch 分支，并且没有关联本地分支 local_branch</p>
+</li>
+</ul>
+<h2 id="remote"><a href="#remote" class="headerlink" title="remote"></a>remote</h2><ul>
+<li><p><code>$ git remote add origin &lt;url&gt;</code> : 关联远程仓库（第一次推送 加参数 <code>-u</code>）</p>
+</li>
+<li><p><code>$ git remote -v</code> : 查看远程库信息</p>
+</li>
+<li><p><code>git checkout -b branch-name origin/branch-name</code> : 拉取远程仓库分支</p>
+</li>
+<li><p>推送到远程分支</p>
+<ol>
+<li><p><code>$ git push origin branch-name</code>，如果推送失败，先用 <code>$ git pull</code> 拉取并合并</p>
+</li>
+<li><p>如果合并有冲突，则解决冲突，并在本地提交</p>
+</li>
+<li><p>没有冲突或者解决掉冲突后，再用 <code>git push origin branch-name</code> 推送就能成功！</p>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>如果 <code>git pull</code> 提示 “no tracking information” , 则说明本地分支和远程分支的链接关系没有创建，用命令 <code>git branch --set-upstream branch-name origin/branch-name</code></strong></p>
+<h2 id="ignore"><a href="#ignore" class="headerlink" title="ignore"></a>ignore</h2><ul>
+<li><p><code>$ git add -f &lt;name&gt;</code> : <code>-f</code> 将 <code>.gitignore</code> 文件强制添加到仓库</p>
+</li>
+<li><p><code>$ git check-ignore</code> : 检查文件是否符合 <code>.gitignore</code> 规则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git check-ignore -v node_modules</span><br><span class="line">.gitignore:40:node_modules/     node_modules</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h2><ul>
+<li><p><code>$ rm file</code> : 删除文件</p>
+</li>
+<li><p><code>$ git add file</code> : 将删除文件添加到暂存区</p>
+</li>
+<li><p><code>$ git rm file</code> : 删除文件，并添加到暂存区</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ rm file</span><br><span class="line">$ git add file</span><br><span class="line"><span class="comment"># ===</span></span><br><span class="line">$ git rm file</span><br></pre></td></tr></table></figure>
+
+<h2 id="submodule"><a href="#submodule" class="headerlink" title="submodule"></a>submodule</h2><p><strong>子模块的操作默认都是 master 分支</strong></p>
+<ul>
+<li>更换子模块分支</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config -f .gitmodules submodule.&lt;submodule name&gt;.branch dev</span><br><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
+
+<p><code>.gitmodules</code> 加了 <code>-f</code> 参数，修改提交后对所有用户有效</p>
+<h3 id="添加子模块"><a href="#添加子模块" class="headerlink" title="添加子模块"></a>添加子模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule add &lt;git repo&gt; themes/next</span><br></pre></td></tr></table></figure>
+
+<p>添加子模块之后运行 <code>git status</code>， 可以看到目录有增加一个文件 <code>.gitmodules</code>，用来保存子模块的信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">Initial commit</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">"git rm --cached &lt;file&gt;..."</span> to unstage)</span><br><span class="line"></span><br><span class="line">    new file:   .gitmodules</span><br><span class="line">    new file:   theme/next</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看子模块"><a href="#查看子模块" class="headerlink" title="查看子模块"></a>查看子模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule</span><br><span class="line">c2f33fc76b500770e266c1c16f028807967cd121 themes/next (v7.1.1-4-gc2f33fc)</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新子模块"><a href="#更新子模块" class="headerlink" title="更新子模块"></a>更新子模块</h3><ul>
+<li><p>更新子模块到最新版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新子模块为远程仓库的最新版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="克隆项目及子模块"><a href="#克隆项目及子模块" class="headerlink" title="克隆项目及子模块"></a>克隆项目及子模块</h3><ol>
+<li><p>先克隆仓库，再更新子模块</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 克隆项目</span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/xg4/blog</span><br><span class="line"><span class="comment"># 查看子模块</span></span><br><span class="line">$ git submodule</span><br><span class="line"><span class="comment"># 子模块前面 - ，说明子模块还未捡入</span></span><br><span class="line">-c2f33fc76b500770e266c1c16f028807967cd121</span><br><span class="line"><span class="comment"># 初始化子模块，初始化模块只需在克隆父项目后运行一次</span></span><br><span class="line">$ git submodule init</span><br><span class="line"><span class="comment"># 更新子模块</span></span><br><span class="line">$ git submodule update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>递归克隆整个项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/xg4/blog --recursive</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="修改子模块"><a href="#修改子模块" class="headerlink" title="修改子模块"></a>修改子模块</h3><p>在子模块中修改文件后，直接提交到远程仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">'update'</span></span><br><span class="line">$ git push origin HEAD:master</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除子模块"><a href="#删除子模块" class="headerlink" title="删除子模块"></a>删除子模块</h3><ol>
+<li><p>删除子模块文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached theme/next</span><br><span class="line"><span class="comment"># 不带 --cached 参数直接删除文件</span></span><br><span class="line">$ rm -rf theme/next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除 <code>.gitmodules</code> 文件中相关子模块信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[submodule <span class="string">"themes/next"</span>]</span><br><span class="line">path = themes/next</span><br><span class="line">url = https://github.com/theme-next/hexo-theme-next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除 <code>.git/config</code> 中的相关子模块信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[submodule <span class="string">"themes/next"</span>]</span><br><span class="line"> active = <span class="literal">true</span></span><br><span class="line"> url = https://github.com/theme-next/hexo-theme-next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除 <code>.git</code> 文件夹中的相关子模块文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf .git/modules/theme/next</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/27/vscode/" rel="next" title="Visual Studio Code">
+                <i class="fa fa-chevron-left"></i> Visual Studio Code
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/05/heroku/" rel="prev" title="Heroku">
+                Heroku <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">xg4</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">2.</span> <span class="nav-text">ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config"><span class="nav-number">3.</span> <span class="nav-text">config</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#alias"><span class="nav-number">3.1.</span> <span class="nav-text">alias</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#log"><span class="nav-number">3.2.</span> <span class="nav-text">log</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#initial"><span class="nav-number">4.</span> <span class="nav-text">initial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#branch"><span class="nav-number">5.</span> <span class="nav-text">branch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tag"><span class="nav-number">6.</span> <span class="nav-text">tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reset"><span class="nav-number">7.</span> <span class="nav-text">reset</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#checkout"><span class="nav-number">7.1.</span> <span class="nav-text">checkout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stash"><span class="nav-number">8.</span> <span class="nav-text">stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone"><span class="nav-number">9.</span> <span class="nav-text">clone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#push"><span class="nav-number">10.</span> <span class="nav-text">push</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#remote"><span class="nav-number">11.</span> <span class="nav-text">remote</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ignore"><span class="nav-number">12.</span> <span class="nav-text">ignore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#remove"><span class="nav-number">13.</span> <span class="nav-text">remove</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#submodule"><span class="nav-number">14.</span> <span class="nav-text">submodule</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加子模块"><span class="nav-number">14.1.</span> <span class="nav-text">添加子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看子模块"><span class="nav-number">14.2.</span> <span class="nav-text">查看子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新子模块"><span class="nav-number">14.3.</span> <span class="nav-text">更新子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#克隆项目及子模块"><span class="nav-number">14.4.</span> <span class="nav-text">克隆项目及子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改子模块"><span class="nav-number">14.5.</span> <span class="nav-text">修改子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除子模块"><span class="nav-number">14.6.</span> <span class="nav-text">删除子模块</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xg4</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
