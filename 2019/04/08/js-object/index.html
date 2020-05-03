@@ -14,12 +14,12 @@
   
 
 
-<html class="theme-next muse use-motion" lang>
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
 
@@ -44,9 +44,9 @@
 
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
 
-<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
@@ -97,17 +97,17 @@
 
 
   <meta name="description" content="MDN - Object  Table of Contents Table of Contents Object.preventExtension Object.isExtensible   Object.seal Object.isSealed   Object.freeze Object.isFrozen   Object.defineProperty descriptor keys   f">
-<meta name="keywords" content="js,object">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript - Object">
 <meta property="og:url" content="https://xg4.github.io/2019/04/08/js-object/index.html">
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="MDN - Object  Table of Contents Table of Contents Object.preventExtension Object.isExtensible   Object.seal Object.isSealed   Object.freeze Object.isFrozen   Object.defineProperty descriptor keys   f">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-05-03T09:20:06.379Z">
+<meta property="article:published_time" content="2019-04-08T15:00:46.000Z">
+<meta property="article:modified_time" content="2020-05-03T09:39:36.919Z">
+<meta property="article:author" content="xg4">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="object">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Javascript - Object">
-<meta name="twitter:description" content="MDN - Object  Table of Contents Table of Contents Object.preventExtension Object.isExtensible   Object.seal Object.isSealed   Object.freeze Object.isFrozen   Object.defineProperty descriptor keys   f">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://xg4.github.io/2019/04/08/js-object/">
+  <link rel="canonical" href="https://xg4.github.io/2019/04/08/js-object/"/>
 
 
 
@@ -164,7 +164,7 @@
   </style>
 </noscript>
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
@@ -221,7 +221,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-home&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;Home</a>
 
   </li>
         
@@ -238,7 +238,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+    <a href="/archives/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-archive&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;Archives</a>
 
   </li>
 
@@ -290,16 +290,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/08/js-object/">
+    <link itemprop="mainEntityOfPage" href="https://xg4.github.io/2019/04/08/js-object/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xg4">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xg4"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="blog">
+      <meta itemprop="name" content="blog"/>
     </span>
 
     
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-05-03 09:20:06" itemprop="dateModified" datetime="2020-05-03T09:20:06+00:00">2020-05-03</time>
+                <time title="Modified: 2020-05-03 09:39:36" itemprop="dateModified" datetime="2020-05-03T09:39:36+00:00">2020-05-03</time>
               
             
           </span>
@@ -412,18 +412,18 @@
 <h2 id="Object-preventExtension"><a href="#Object-preventExtension" class="headerlink" title="Object.preventExtension"></a>Object.preventExtension</h2><blockquote>
 <p>该方法将对象标记为不可扩展，阻止添加自身的属性，但不可扩展对象的属性仍然可被删除、修改，也可以添加到对象原型，尝试将新属性添加到不可扩展对象将静默失败或抛出 <code>TypeError</code>，<strong>一旦使其不可扩展，就无法再对象进行扩展。</strong></p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 方法让一个对象变的不可扩展，</span></span><br><span class="line"><span class="comment"> * 也就是永远不能再添加新的属性</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 将要变得不可扩展的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Object&#125; 已经不可扩展的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(obj)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description </span>方法让一个对象变的不可扩展，</span></span><br><span class="line"><span class="comment"> * 也就是永远不能再添加新的属性</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;Object&#125;</span> </span>将要变得不可扩展的对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;Object&#125;</span> </span>已经不可扩展的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(obj)</span><br></pre></td></tr></table></figure>
 
 <h3 id="Object-isExtensible"><a href="#Object-isExtensible" class="headerlink" title="Object.isExtensible"></a>Object.isExtensible</h3><blockquote>
 <p>默认情况下，对象是可扩展的：即可以为他们添加新的属性。以及它们的 <code>__proto__</code> 属性可以被更改。<code>Object.preventExtensions</code>、<code>Object.seal</code> 或 <code>Object.freeze</code> 方法都可以标记一个对象为不可扩展（non-extensible）</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description  方法判断一个对象是否是可扩展的</span></span><br><span class="line"><span class="comment"> * （是否可以在它上面添加新的属性）</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 需要检测的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Boolean&#125; 表示给定对象是否可扩展</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.isExtensible(obj)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description  </span>方法判断一个对象是否是可扩展的</span></span><br><span class="line"><span class="comment"> * （是否可以在它上面添加新的属性）</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;Object&#125;</span> </span>需要检测的对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;Boolean&#125;</span> </span>表示给定对象是否可扩展</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.isExtensible(obj)</span><br></pre></td></tr></table></figure>
 
 <p><strong>注：虽然 <code>Object.freeze</code> 或 <code>Object.seal</code> 之后的对象是不可扩展的，但使用 <code>Object.isExtensible</code> 判断返回 <code>false</code></strong></p>
 <h2 id="Object-seal"><a href="#Object-seal" class="headerlink" title="Object.seal"></a>Object.seal</h2><blockquote>
 <p>密封一个对象，使对象不可扩展，且所有自身属性都不可配置、不可删除（但不一定是不可写）的对象</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 封闭一个对象</span></span><br><span class="line"><span class="comment"> * 阻止添加新属性并将所有现有属性标记为不可配置</span></span><br><span class="line"><span class="comment"> * 当前属性的值只要可写就可以改变</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 将要被密封的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Object&#125; 被密封的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.seal(obj)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description </span>封闭一个对象</span></span><br><span class="line"><span class="comment"> * 阻止添加新属性并将所有现有属性标记为不可配置</span></span><br><span class="line"><span class="comment"> * 当前属性的值只要可写就可以改变</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;Object&#125;</span> </span>将要被密封的对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;Object&#125;</span> </span>被密封的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.seal(obj)</span><br></pre></td></tr></table></figure>
 
 <ol>
 <li><p>给对象设置，<code>Object.preventExtension(obj)</code>，<br>禁止更改原型，禁止添加属性</p>
@@ -432,12 +432,12 @@
 </li>
 </ol>
 <p><strong>与 <code>Object.freeze</code> 不同的是，<code>Object.seal</code> 后的对象是可写的 <code>writable:true</code>，可以改变其现有属性</strong></p>
-<h3 id="Object-isSealed"><a href="#Object-isSealed" class="headerlink" title="Object.isSealed"></a>Object.isSealed</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 方法判断一个对象是否被密封</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 被检测的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Boolean&#125; 表示给定对象是否被密封</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.isSealed(obj)</span><br></pre></td></tr></table></figure>
+<h3 id="Object-isSealed"><a href="#Object-isSealed" class="headerlink" title="Object.isSealed"></a>Object.isSealed</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description </span>方法判断一个对象是否被密封</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;Object&#125;</span> </span>被检测的对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;Boolean&#125;</span> </span>表示给定对象是否被密封</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.isSealed(obj)</span><br></pre></td></tr></table></figure>
 
 <h2 id="Object-freeze"><a href="#Object-freeze" class="headerlink" title="Object.freeze"></a>Object.freeze</h2><blockquote>
 <p>冻结一个对象，冻结指的是不能向这个对象添加新的属性，不能修改其已有属性的值，不能删除已有属性，以及不能修改该对象已有属性的可枚举性、可配置性、可写性。该方法返回被冻结的对象。</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 被冻结对象自身的所有属性都不可能以任何方式被修改。</span></span><br><span class="line"><span class="comment"> * 任何修改尝试都会失败，无论是静默地还是通过抛出TypeError异常</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 要被冻结的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Object&#125; 被冻结的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.freeze(obj)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description </span>被冻结对象自身的所有属性都不可能以任何方式被修改。</span></span><br><span class="line"><span class="comment"> * 任何修改尝试都会失败，无论是静默地还是通过抛出TypeError异常</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;Object&#125;</span> </span>要被冻结的对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;Object&#125;</span> </span>被冻结的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.freeze(obj)</span><br></pre></td></tr></table></figure>
 
 <ol>
 <li><p>给对象设置，<code>Object.preventExtension(obj)</code> 禁止更改原型，禁止添加属性</p>
@@ -451,9 +451,9 @@
 <h3 id="Object-isFrozen"><a href="#Object-isFrozen" class="headerlink" title="Object.isFrozen"></a>Object.isFrozen</h3><blockquote>
 <p>一个对象是冻结的是指它不可扩展，所有属性都是不可配置的，且所有数据属性（即没有 <code>getter</code> 或 <code>setter</code> 组件的访问器的属性）都是不可写的。</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 方法判断一个对象是否被冻结</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; 被检测的对象</span></span><br><span class="line"><span class="comment"> * @return &#123;Boolean&#125; 表示给定对象是否被冻结</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.isFrozen(obj)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description </span>方法判断一个对象是否被冻结</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;Object&#125;</span> </span>被检测的对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;Boolean&#125;</span> </span>表示给定对象是否被冻结</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.isFrozen(obj)</span><br></pre></td></tr></table></figure>
 
-<h2 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @description 方法会直接在一个对象上定义一个新属性</span></span><br><span class="line"><span class="comment"> * 或者修改一个对象的现有属性，并返回这个对象</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; obj 要在其上定义属性的对象</span></span><br><span class="line"><span class="comment"> * @param &#123;&#125; prop 要定义或修改的属性的名称</span></span><br><span class="line"><span class="comment"> * @param &#123;&#125; descriptor 将被定义或修改的属性描述符</span></span><br><span class="line"><span class="comment"> * @return &#123;Object&#125; 被传递给函数的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, prop, descriptor)</span><br></pre></td></tr></table></figure>
+<h2 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description </span>方法会直接在一个对象上定义一个新属性</span></span><br><span class="line"><span class="comment"> * 或者修改一个对象的现有属性，并返回这个对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;Object&#125;</span> </span>obj 要在其上定义属性的对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;&#125;</span> </span>prop 要定义或修改的属性的名称</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;&#125;</span> </span>descriptor 将被定义或修改的属性描述符</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;Object&#125;</span> </span>被传递给函数的对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, prop, descriptor)</span><br></pre></td></tr></table></figure>
 
 <h3 id="descriptor"><a href="#descriptor" class="headerlink" title="descriptor"></a>descriptor</h3><blockquote>
 <p>对象里目前存在的属性描述符有两种主要形式：<strong>数据描述符</strong> 和 <strong>存取描述符</strong>。<strong>数据描述符</strong> 是一个具有值的属性，该值可能是可写的，也可能不是可写的。<strong>存取描述符</strong> 是由 getter-setter 函数对描述的属性。描述符必须是这两种形式之一；不能同时是两者。</p>
@@ -651,7 +651,7 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/archives/">
+                  <a href="/archives/%20%7C%7C%20archive">
                 
                     <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">posts</span>
@@ -801,7 +801,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0</div>
 
 
 
@@ -809,7 +809,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
 
 
 
